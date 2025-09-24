@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "wasm:build": "node scripts/build-wasm.js"
+    "wasm:build": "node scripts/build-wasm.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^9.3.0",

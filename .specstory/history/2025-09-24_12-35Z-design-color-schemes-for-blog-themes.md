@@ -2199,3 +2199,303 @@ export default async function PostPage({
 
 ---
 
+_**User (2025-09-24 16:13Z)**_
+
+review:
+
+Here’s a tight recap of what we’re building and what’s done so far.
+
+# What we’re building
+
+* A **standalone blog** at **`blog.myportfolio.dev`** showcasing:
+
+  * **Interactive physics simulations** (Rust→WASM, workers, React/Canvas/WebGL/Three).
+  * **MDX posts** (particle/astro/quantum topics) with equations, code, and media.
+* Tech stack:
+
+  * **Next.js 15 (App Router) + TypeScript + Tailwind**
+  * **Content Collections** for typed MDX content
+  * **KaTeX** for LaTeX math
+  * **rehype-pretty-code** (light/dark themes) for code blocks
+  * **Three.js + @react-three/fiber** installed for future 3D sims
+  * **Rust/WASM** kernels (multi-crate) compiled via `wasm-pack`, consumed via **Web Workers**
+* Deployment/URL:
+
+  * Served on **subdomain** `blog.myportfolio.dev` (Vercel project + Porkbun CNAME)
+
+# What’s completed (working now)
+
+* **Routing at root** (no `/blog` prefix):
+
+  * `src/app/page.tsx` – landing page
+  * `src/app/[slug]/page.tsx` – dynamic post page
+  * Removed i18n so **no `/en`** in URLs
+* **Content Collections configured**:
+
+  * `content-collections.ts` defines `posts` collection
+  * Uses `compileMDX` in `transform` to produce an MDX code string per post
+  * Generated module imported as `import { allPosts } from "content-collections"`
+* **MDX rendering**:
+
+  * Post pages render via `<MDXContent code={post.mdx} />`
+  * Tables + inline/display math render correctly (plugin order: **remark-math first**, then **remark-gfm**)
+  * **KaTeX CSS** loaded globally
+* **Design system / theming**:
+
+  * Tailwind wired to your **CSS variable tokens** (light/dark)
+  * MDX element mapping updated to use **semantic utilities** (`text-foreground`, `bg-card`, `border-border`, etc.) so it looks correct in both themes
+  * Code blocks themed with **rehype-pretty-code** dual themes (`github-light` / `github-dark`) and `keepBackground: false`
+* **Landing page cards**:
+
+  * Post schema includes **`image` (string path)** + optional `imageAlt`
+  * Landing grid shows card with **Next/Image**, title, date, tags, description
+* **Rust/WASM groundwork**:
+
+  * Directory layout set: `kernels/<crate>/` (e.g., `double_slit`)
+  * **Multi-crate build script** (`scripts/build-wasm.js`) compiles all kernels to `pkg/`
+  * COOP/COEP headers set for **SharedArrayBuffer** (ready for `wasm-bindgen-rayon`)
+* **Packages installed & cleaned**:
+
+  * Added: `@content-collections/core`, `@content-collections/next`, `@content-collections/mdx`, `zod`, `remark-gfm`, `remark-math`, `rehype-katex`, `rehype-pretty-code`, `katex`, `three`, `@react-three/fiber`
+  * Kept: `@types/node`
+  * Removed: Contentlayer stack; no `rimraf`
+* **Domain/DNS**:
+
+  * Subdomain approach confirmed; Porkbun **CNAME → Vercel** is the path (and you’ve fixed i18n/locale)
+
+# Issues we solved along the way
+
+* Replaced unmaintained Contentlayer with **Content Collections**
+* Fixed **MDX plugin placement** (moved MDX options out of `next.config`, used `compileMDX` in `transform`)
+* Sorted **TS path** + generation issues for `content-collections` module (tsconfig `baseUrl`, `paths`, include)
+* Corrected **slug/meta** usage (`_meta.path` instead of `flattenedPath`)
+* Resolved **/en** locale prefix by removing i18n/middleware
+* Ensured **LaTeX in tables** renders (math before GFM, closed code fences)
+* Switched MDX styling from hard-coded dark Zinc to **token-based** light/dark
+
+
+---
+
+I want to start working with Rust/WASM. the first simulation I wanted to create was the double slit experiment.  
+
+Can we create a plan on what will be required before we start coding anything
+
+
+---
+
+_**Assistant**_
+
+<think><details><summary>Thought Process</summary>**Clarifying Todo List Guidelines**
+
+I need to clarify how to handle creating a todo list. It mentions using the todo_write tool for complex tasks, but according to the todo_spec, I shouldn't create one until the user is ready for implementation. Instead, I’ll provide a simple plan in bullet points and keep the verbosity minimal. I should add a brief status update if I were to call tools, but for now, I'll just focus on delivering the plan without using any tools.
+**Planning Double Slit Simulation**
+
+I noticed there was a link to tailwindcss-animated earlier, which isn’t necessary. I should focus on crafting a plan for the double slit simulation using Rust/WASM, incorporating various elements like web workers and shared memory. 
+
+I could consider a physics model such as the scalar diffraction Fraunhofer approximation or the Schrödinger equation. For data exchange, I can use typed arrays for amplitude grids. The Rust crates will handle the core simulation and include functions for parameter settings. I’ll specify parameter types and functions for clarity.
+**Outlining Build System and Features**
+
+I see that 'any' has been banned, which might affect things. For the build system, I should be using wasm-pack or cargo with wasm-bindgen. They have a script in package.json for building, so I’ll need to verify that `scripts/build-wasm.js` is intended for compilation, though I don’t need to open it.
+
+For the web worker, I can use a dedicated worker for simulation steps, potentially utilizing OffscreenCanvas for rendering. To integrate with three.js, I’ll focus on texture updates. Lastly, I’ve already verified the COOP and COEP headers in the next.config file, ensuring they are set correctly.
+**Creating a Development Plan**
+
+Alright, let's break down the development plan! First, I’ll include UI controls for parameters, a pause/resume function, and sampling.
+
+For performance, I plan to use WebGL for color mapping, or maybe do CPU mapping first, which could help. I might consider the 'ndarray' crate for handling ND arrays in Rust.
+
+I need unit tests for validating analytic maxima positions and packaging types for TypeScript using .d.ts from wasm-bindgen. Accessibility and security considerations should include alternative representations and worker usage.
+
+Finally, I’ll start with a 'hello world' example to check if everything is working, then we can move on to implementing the intensity equation and potentially explore two approaches for the physical model. I'll outline tasks with clear timelines and acceptance criteria too!
+**Proposing Directory Structure and Plan**
+
+I should outline the directory structure to include `kernels/double_slit/` and set up a worker file at `src/app/_workers/doubleSlitWorker.ts`. For the UI components, I'll suggest using `SimulationCanvas` and `Controls`.
+
+I’m considering leveraging `wasm-bindgen-rayon` for multi-threading and ensuring the proper setup with Next 15 and TurboPack to manage WebAssembly. Initially, I’ll stick to a single-thread implementation to keep things simple. I need to specify parameters like wavelength (500-700 nm), slit separation (200 μm), and width (50 μm). 
+
+Finally, I’ll propose a high-level plan organized by scope, data models, Rust crate design, and acceptance criteria for each milestone, all while keeping it concise and avoiding unnecessary code or references.</details></think>
+
+---
+
+### Plan for Double-Slit (Rust/WASM) before coding
+
+- Scope decision (phase approach)
+  - Option A (baseline): Fraunhofer diffraction (closed-form intensity I(x) from a, d, λ, L). Fast, validates the whole pipeline.
+  - Option B (full sim): TDSE time-evolution (split-step Fourier) of ψ(x, t) through two slits to observe interference buildup.
+  - Recommendation: ship A first; then add B.
+
+- Data model and API surface
+  - Simulation space: 2D grid (width × height). Output: Float32Array intensity buffer (0..1).
+  - Parameters: λ, slit width a, slit separation d, screen distance L, pixel scale, optional exposure/gamma.
+  - Rust WASM exports:
+    - init(width, height, params) → sets up buffers
+    - render_frame(params?) → fills intensity buffer
+    - intensity_ptr() → pointer to Float32 buffer
+    - get_dims() → { width, height }
+  - TypeScript types for Params and Init/Return; no any.
+
+- Rust crate layout
+  - kernels/double_slit/src/lib.rs (cdylib) with wasm-bindgen.
+  - Dependencies: wasm-bindgen, console_error_panic_hook (dev), optionally rustfft/realfft if needed for TDSE later.
+  - Feature flags: baseline (fraunhofer), advanced (tdse) for future.
+
+- Build pipeline
+  - Use existing wasm:build script; ensure wasm-bindgen target web and output in kernels/double_slit/pkg.
+  - Keep COOP/COEP headers (already in place) for future threading if needed.
+  - Export .d.ts from wasm-bindgen for TS safety.
+
+- Web Worker design
+  - Worker owns WASM instance and the simulation loop.
+  - Message protocol:
+    - init { width, height, params }
+    - render { params? }
+    - setParams { partial params }
+    - dispose
+  - Transfer intensity buffer via SharedArrayBuffer (future) or postMessage with transferable ArrayBuffer (initial).
+
+- Rendering strategy
+  - Start: Canvas2D on main thread. Copy Float32Array → Uint8ClampedArray via simple colormap → putImageData.
+  - Upgrade paths:
+    - WebGL/Three texture update per frame for speed
+    - GPU colormap in fragment shader
+  - Colormap: perceptual (viridis/fire) matching science theme.
+
+- UI/Controls (React)
+  - Component: <DoubleSlitSim />
+    - Canvas element, parameter controls (λ, a, d, L, resolution, exposure), pause/run.
+  - Responsive sizing; devicePixelRatio-aware; reduced-motion: lower frame rate or static render.
+
+- Performance targets
+  - Baseline: 512×256 at 60 fps (Fraunhofer).
+  - Avoid copies: reuse buffers; only convert to RGBA once per frame.
+  - Throttle renders to animation frame; debounce param changes.
+
+- QA/Validation
+  - Unit checks (Rust): peak positions x_m ≈ m λ L / d; envelope by sinc from slit width a.
+  - Visual regression: saved frames for known params.
+  - Edge cases: extremely small/large a, d, λ; non-physical combos.
+
+- MDX integration
+  - Expose <DoubleSlitSim /> through your `mdx-components.tsx`.
+  - Provide a light “static poster” fallback for SSR/print.
+
+- Milestones
+  1) Wire WASM “hello world” through Worker to Canvas (fixed gradient).
+  2) Implement Fraunhofer model + controls + colormap.
+  3) Optimize buffer path; add resize/HiDPI; MDX embedding.
+  4) Optional: TDSE split-step prototype with small grid and time slider.
+
+- Risks/dependencies
+  - Bundling WASM/worker with Next 15 (verify dynamic import from App Router).
+  - TDSE performance (may need FFT and careful dt stability).
+  - Mobile performance; fallbacks.
+
+- Deliverables/acceptance
+  - A: Interactive, parameterized Fraunhofer double-slit with smooth rendering and MDX embedding.
+  - B: Optional time-evolution demo with basic controls.
+
+If this plan looks good, I’ll scaffold the crate, worker, and a minimal React canvas shell (Milestone 1).
+
+---
+
+_**User (2025-09-24 16:13Z)**_
+
+no web workers until required for more compute heavy sims, double slit does not need it
+
+---
+
+_**Assistant**_
+
+<think><details><summary>Thought Process</summary>**Adjusting user plans**
+
+The user has indicated that we shouldn't use web workers for now, especially for less compute-heavy simulations like the double slit experiment. I need to revise our previous plan that included workers. Instead, I could suggest using direct WASM on the main thread or potentially sticking with pure JS for the baseline. They mentioned Rust/WASM, so we will proceed with that but directly call it in the main thread. I need to create an updated plan and a to-do list.
+**Updating the Plan**
+
+The user has specified, "no web workers until required," so I need to present a clear and concise updated plan without creating a to-do list since they only want a plan right now. I’ll keep the verbosity low and include headings and bullet points. It’s important to mention that we won’t add any type restrictions for installed packages. Here’s the plan outline:
+
+### Plan Specifics  
+- Architecture: No workers; instantiate the WASM module via wasm-bindgen directly in the client component or an imported module.  
+- No code edits; focus on planning instead.
+**Planning SSR and Module Packaging**
+
+For the next steps in SSR/hydration, I need to ensure instantiation occurs on the client side only. I can use dynamic imports or the `'use client'` directive, along with lazy initialization inside `useEffect`, including hydration-safe placeholders.
+
+Regarding module packaging, I should determine whether to use `wasm-pack` with the target as 'web' or 'bundler'. Next.js 15 leverages SWC, so I might consider embedding via dynamic imports, calling the `init()` function with the correct path. I may propose copying the `.wasm` file to public and import the JavaScript glue effectively.
+**Exploring Initialization and Computation**
+
+I could consider using the `init` function with the fetch path `/wasm/double_slit_bg.wasm`. 
+
+Next, I need to outline the initialization flow steps.
+
+For the Fraunhofer intensity calculation, the double-slit amplitude \( A(x) \) relates to cosines and a sinc envelope, and the intensity \( I(x) \) relates to the squares of these functions. I'll compute this across the canvas width and replicate the calculations for the vertical dimension, though the y-axis setup will be straightforward.
+
+Lastly, I plan to create a colormap, converting Float32 intensities to RGBA in JavaScript, and although OffscreenCanvas might be useful for performance, I won't need it at this stage.
+**Outlining the Plan for Double Slit Simulation**
+
+First, I need to outline the steps for mapping to `Uint8Clamped`. 
+
+For the API, I'll define the exported WASM functions like `compute_fraunhofer()` that takes parameters and returns a pointer to intensity. I might also suggest returning a `Vec<f32>` to expose memory to JavaScript.
+
+Regarding the React component, the `DoubleSlitSim` component will initialize and compute using `useEffect`. It will also handle parameter controls.
+
+As for MDX integration, I'll ensure it's added.
+
+I'll propose to manage the WASM files efficiently, suggesting copying the `.wasm` files to the public directory for access. I'll keep the details high-level while reflecting on accessibility and performance. Lastly, I won't include any status updates, as we aren't using tools for this planning phase.</details></think>
+
+---
+
+### Updated plan for Double-Slit (no Web Workers)
+
+- Constraints
+  - No workers; run Rust/WASM on the main thread.
+  - Keep UI responsive; recompute only on param changes (no continuous loop).
+
+- Rust/WASM module (kernels/double_slit)
+  - Exported API (via wasm-bindgen):
+    - init(width, height): allocate buffers; return dims or store internally.
+    - compute(params): fills an internal Vec<f32> intensity buffer (0..1).
+    - intensity_ptr(), intensity_len(): expose buffer via wasm memory.
+  - Parameters: wavelength λ, slit width a, slit separation d, screen distance L, exposure/gamma, scaling.
+  - Model: Fraunhofer double-slit along x, replicated along y:
+    - I(x) ∝ cos^2(π d x / (λ L)) · sinc^2(π a x / (λ L)), with sinc(z)=sin(z)/z.
+    - Normalize to [0, 1] with exposure/gamma.
+
+- Build and load (main thread)
+  - Build with wasm-pack target web.
+  - Load in a client component (no SSR):
+    - dynamic import the init function
+    - call init() once on mount
+    - pass a public URL to the .wasm (e.g., /wasm/double_slit_bg.wasm) to avoid bundler pitfalls.
+  - Copy .wasm to public/wasm in your existing build script.
+
+- React component
+  - <DoubleSlitSim /> (client):
+    - On mount: init WASM, set ready state.
+    - On param changes: compute() → read Float32Array via memory → map to RGBA once → putImageData on Canvas2D.
+    - DevicePixelRatio-aware canvas sizing; debounced recompute on sliders.
+    - Reduced motion: no animation, only recompute when params change.
+  - Controls: λ (nm), a (µm), d (µm), L (m), resolution (px), exposure, gamma.
+
+- Colormap and rendering
+  - Fast CPU-side mapping: Float32 intensity → Uint8Clamped (viridis-like) → putImageData.
+  - Later upgrade path: WebGL texture for larger grids if needed.
+
+- Validation
+  - Check fringe spacing: x_m ≈ m λ L / d (m ∈ ℤ).
+  - Envelope from a via sinc; verify tails and central lobe.
+  - Clamp and normalize safely (avoid NaNs at z→0).
+
+- MDX integration
+  - Add to `mdx-components.tsx` so authors can embed `<DoubleSlitSim />`.
+  - Provide a static poster fallback image for print/SSR.
+
+- Milestones
+  1) Wire WASM (no worker), render a test gradient via Canvas2D.
+  2) Implement Fraunhofer compute() in Rust and display intensity with colormap.
+  3) Add controls, debounced recompute, HiDPI support.
+  4) MDX embedding and docs (parameter descriptions + equations).
+
+If this looks good, I’ll scaffold the crate exports and the client component with the init/compute flow, and add the copy step for the .wasm in your build script.
+
+---
+

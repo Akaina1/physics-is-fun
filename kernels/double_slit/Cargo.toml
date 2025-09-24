@@ -1,0 +1,20 @@
+[package]
+name = "double_slit"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+# Needed so wasm-pack can build a WebAssembly binary + an rlib for tests
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+
+# (Optional but recommended when you start benchmarking)
+# console_error_panic_hook = { version = "0.1", optional = true }
+
+[profile.release]
+# Small, fast wasm; tweak later if you like
+opt-level = "s"
+lto = true
+codegen-units = 1
