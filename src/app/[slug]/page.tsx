@@ -11,8 +11,13 @@ export async function generateStaticParams() {
 }
 
 
-export default function PostPage({ params }: { params: { slug: string } }) {
-  const post = allPosts.find(p => p._meta.path === params.slug);
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = allPosts.find((p) => p._meta.path === slug);
   if (!post) return notFound();
 
   // Merge your base MDX element styles + custom components you want available in MDX
