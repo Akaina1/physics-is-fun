@@ -1,0 +1,67 @@
+---
+title: "Hello, Quantum World"
+description: "Smoke test for MDX + KaTeX + code highlighting."
+date: "2025-09-24"
+tags: ["mdx", "katex", "test"]
+draft: false
+image: "/placeholder.svg"
+imageAlt: "Stylised interference pattern"
+---
+
+# Hello, Quantum World
+
+This is a quick post to verify our blog stack:
+
+- **MDX** rendering
+- **KaTeX** for LaTeX (inline + display)
+- **Code highlighting**
+- Frontmatter-driven **image** (shown on the landing page card)
+
+---
+
+## Inline math
+
+Einstein’s famous relation appears inline as $E = mc^2$ and Planck’s relation as $E = \hbar \omega$.
+
+## Display math
+
+A typical far-field (Fraunhofer) double-slit intensity model:
+
+$$
+I(x) \propto
+\cos^2\!\left(\frac{\pi d\, x}{\lambda L}\right)\,
+\mathrm{sinc}^2\!\left(\frac{\pi a\, x}{\lambda L}\right)
+$$
+
+Time-dependent Schrödinger equation:
+
+$$
+i\,\hbar\,\frac{\partial}{\partial t}\,\Psi(\mathbf{r}, t)
+=
+\left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}, t)\right]\Psi(\mathbf{r}, t)
+$$
+
+> Tip: If you see raw TeX instead of pretty math, ensure `remark-math` and `rehype-katex` are wired, and `import "katex/dist/katex.min.css"` is in `app/layout.tsx`.
+
+---
+
+## Code block (syntax highlighting)
+
+```ts
+// Quick check for rehype-pretty-code
+export function gaussian(x: number, mu = 0, sigma = 1) {
+  const z = (x - mu) / sigma;
+  return Math.exp(-0.5 * z * z) / (sigma * Math.sqrt(2 * Math.PI));
+}
+```
+
+---
+
+## Small table (GFM)
+
+| Symbol    | Meaning           |
+| :-------: | ----------------- |
+| $\lambda$ | Wavelength        |
+| $a$       | Slit width        |
+| $d$       | Slit separation   |
+| $L$       | Screen distance   |
