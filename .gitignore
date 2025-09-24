@@ -42,3 +42,10 @@ next-env.d.ts
 
 # content-collections
 .content-collections
+
+# Rust
+/target
+kernels/**/target
+
+# wasm-pack output
+kernels/**/pkg
