@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tailwindcss-animated";
+@import 'tailwindcss';
+@import 'tailwindcss-animated';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -116,8 +116,12 @@ body {
 /* Smooth theme switching – active only during a toggle */
 .changing-theme,
 .changing-theme * {
-  transition: background-color 400ms ease, color 400ms ease,
-              border-color 400ms ease, fill 400ms ease, stroke 400ms ease;
+  transition:
+    background-color 400ms ease,
+    color 400ms ease,
+    border-color 400ms ease,
+    fill 400ms ease,
+    stroke 400ms ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -129,7 +133,8 @@ body {
 
 /* High-performance CSS-only starfield */
 .starfield-layer-1 {
-  background-image: var(--starfield-layer1-bg, 
+  background-image: var(
+    --starfield-layer1-bg,
     radial-gradient(1px 1px at 20% 30%, #9bb0ff, transparent),
     radial-gradient(1px 1px at 40% 70%, #aabfff, transparent),
     radial-gradient(1px 1px at 90% 40%, #cad7ff, transparent)
@@ -141,7 +146,8 @@ body {
 }
 
 .starfield-layer-2 {
-  background-image: var(--starfield-layer2-bg,
+  background-image: var(
+    --starfield-layer2-bg,
     radial-gradient(1px 1px at 25% 25%, #ffcc6f, transparent),
     radial-gradient(2px 2px at 50% 75%, #ffad51, transparent),
     radial-gradient(1px 1px at 75% 25%, #9bb0ff, transparent)
@@ -153,7 +159,8 @@ body {
 }
 
 .starfield-layer-3 {
-  background-image: var(--starfield-layer3-bg,
+  background-image: var(
+    --starfield-layer3-bg,
     radial-gradient(2px 2px at 10% 20%, #fff4ea, transparent),
     radial-gradient(1px 1px at 60% 60%, #aabfff, transparent),
     radial-gradient(1px 1px at 80% 10%, #ffcc6f, transparent)
@@ -165,42 +172,77 @@ body {
 }
 
 .starfield-nebula {
-  background: 
-    radial-gradient(ellipse 800px 400px at 20% 50%, rgba(147, 197, 253, 0.15) 0%, transparent 70%),
-    radial-gradient(ellipse 600px 300px at 80% 20%, rgba(196, 181, 253, 0.12) 0%, transparent 65%),
-    radial-gradient(ellipse 500px 250px at 40% 80%, rgba(94, 234, 212, 0.1) 0%, transparent 60%),
-    radial-gradient(ellipse 700px 350px at 70% 60%, rgba(255, 204, 111, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse 400px 600px at 10% 30%, rgba(159, 122, 234, 0.1) 0%, transparent 65%);
+  background:
+    radial-gradient(
+      ellipse 800px 400px at 20% 50%,
+      rgba(147, 197, 253, 0.15) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 600px 300px at 80% 20%,
+      rgba(196, 181, 253, 0.12) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 500px 250px at 40% 80%,
+      rgba(94, 234, 212, 0.1) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 700px 350px at 70% 60%,
+      rgba(255, 204, 111, 0.08) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 400px 600px at 10% 30%,
+      rgba(159, 122, 234, 0.1) 0%,
+      transparent 65%
+    );
   opacity: 0.6;
   animation: nebula-drift 20s ease-in-out infinite alternate;
 }
 
 /* Twinkling animations */
 @keyframes twinkle-1 {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 @keyframes twinkle-2 {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes twinkle-3 {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes nebula-drift {
-  0% { 
+  0% {
     transform: translateX(0) translateY(0) scale(1);
     opacity: 0.4;
   }
-  50% { 
+  50% {
     transform: translateX(-10px) translateY(5px) scale(1.02);
     opacity: 0.7;
   }
-  100% { 
+  100% {
     transform: translateX(5px) translateY(-8px) scale(0.98);
     opacity: 0.5;
   }

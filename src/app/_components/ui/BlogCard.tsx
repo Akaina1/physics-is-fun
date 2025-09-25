@@ -1,4 +1,4 @@
-import BlogCardClient from "./BlogCardClient";
+import BlogCardClient from './BlogCardClient';
 
 interface BlogPost {
   _meta: {

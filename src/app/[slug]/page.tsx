@@ -1,14 +1,13 @@
-import { allPosts } from "content-collections";
-import { notFound } from "next/navigation";
-import MdxWrapper from "@/app/_components/mdx/MdxWrapper";
-import DoubleSlitFraunhofer from "@/app/_components/sims/DoubleSlitFraunhofer";
+import { allPosts } from 'content-collections';
+import { notFound } from 'next/navigation';
+import MdxWrapper from '@/app/_components/mdx/MdxWrapper';
+import DoubleSlitFraunhofer from '@/app/_components/sims/DoubleSlitFraunhofer';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return allPosts.filter((p) => !p.draft).map((p) => ({ slug: p._meta.path }));
 }
-
 
 export default async function PostPage({
   params,
@@ -25,9 +24,9 @@ export default async function PostPage({
   };
 
   return (
-    <article className="mx-4 sm:mx-0 lg:mx-auto max-w-3xl py-10 prose prose-invert">
-      <h1 className="mb-2 text-foreground">{post.title}</h1>
-      <p className="text-sm text-muted-foreground">
+    <article className="prose prose-invert mx-4 max-w-3xl py-10 sm:mx-0 lg:mx-auto">
+      <h1 className="text-foreground mb-2">{post.title}</h1>
+      <p className="text-muted-foreground text-sm">
         {new Date(post.date).toLocaleDateString()}
       </p>
       <MdxWrapper code={post.mdx} customComponents={customComponents} />

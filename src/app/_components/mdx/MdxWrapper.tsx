@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { memo } from "react";
-import { MDXContent } from "@content-collections/mdx/react";
-import { mdxComponents, type MdxComponents } from "./MdxComponents";
+import { memo } from 'react';
+import { MDXContent } from '@content-collections/mdx/react';
+import { mdxComponents, type MdxComponents } from './MdxComponents';
 
 interface MdxWrapperProps {
   code: string;
@@ -24,6 +24,7 @@ export default memo(MdxWrapper, (prevProps, nextProps) => {
   // Only re-render if the MDX code or custom components actually change
   return (
     prevProps.code === nextProps.code &&
-    JSON.stringify(prevProps.customComponents) === JSON.stringify(nextProps.customComponents)
+    JSON.stringify(prevProps.customComponents) ===
+      JSON.stringify(nextProps.customComponents)
   );
 });

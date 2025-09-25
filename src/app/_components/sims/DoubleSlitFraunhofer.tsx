@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useEffect, useMemo, useRef, useState, memo } from "react";
+import { useEffect, useMemo, useRef, useState, memo } from 'react';
 
 // Small TS type for our params (in metres)
 type Params = {
-  a: number;       // slit width
-  d: number;       // slit separation
-  lambda: number;  // wavelength
-  L: number;       // screen distance
-  scale: number;   // half-width of physical x domain mapped to [-1,1]
-  gamma: number;   // display gamma (<=1 brightens)
+  a: number; // slit width
+  d: number; // slit separation
+  lambda: number; // wavelength
+  L: number; // screen distance
+  scale: number; // half-width of physical x domain mapped to [-1,1]
+  gamma: number; // display gamma (<=1 brightens)
 };
 
 function DoubleSlitFraunhofer() {
@@ -18,13 +18,14 @@ function DoubleSlitFraunhofer() {
   const height = 540;
 
   // Reasonable defaults
-  const [params] = useState<Params>({ // add setParams later when we have sliders
-    a: 20e-6,        // 20 µm
-    d: 200e-6,       // 200 µm
-    lambda: 532e-9,  // 532 nm (green)
-    L: 1.0,          // 1 metre
-    scale: 0.02,     // +/- 2 cm across the screen plane
-    gamma: 0.6,      // brighten fringes a bit
+  const [params] = useState<Params>({
+    // add setParams later when we have sliders
+    a: 20e-6, // 20 µm
+    d: 200e-6, // 200 µm
+    lambda: 532e-9, // 532 nm (green)
+    L: 1.0, // 1 metre
+    scale: 0.02, // +/- 2 cm across the screen plane
+    gamma: 0.6, // brighten fringes a bit
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -35,11 +36,11 @@ function DoubleSlitFraunhofer() {
       // Dynamic import of the wasm-pack JS wrapper
       // Tip: If TS complains about types, we can cast to any.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const mod: any = await import("../../../../kernels/double_slit/pkg");
+      const mod: any = await import('../../../../kernels/double_slit/pkg');
 
       // Some wasm-pack setups require calling the init function; others auto-init.
       // If the module exposes a default (init), call it once.
-      if (typeof mod.default === "function") {
+      if (typeof mod.default === 'function') {
         await mod.default();
       }
 
@@ -55,7 +56,7 @@ function DoubleSlitFraunhofer() {
       );
 
       const canvas = canvasRef.current!;
-      const ctx = canvas.getContext("2d", { alpha: true });
+      const ctx = canvas.getContext('2d', { alpha: true });
       if (!ctx) return;
 
       // clamped is a Uint8ClampedArray; create ImageData directly
@@ -69,15 +70,20 @@ function DoubleSlitFraunhofer() {
   }, [render, params]);
 
   return (
-    <div className="rounded-xl border border-border bg-card p-3" style={{ contain: "paint", willChange: "transform" }}>
-      <div className="mb-3 text-sm text-muted-foreground">
-        Fraunhofer double-slit intensity (Rust→WASM → Canvas). a={formatSI(params.a)}m, d={formatSI(params.d)}m, λ={formatSI(params.lambda)}m, L={params.L}m
+    <div
+      className="border-border bg-card rounded-xl border p-3"
+      style={{ contain: 'paint', willChange: 'transform' }}
+    >
+      <div className="text-muted-foreground mb-3 text-sm">
+        Fraunhofer double-slit intensity (Rust→WASM → Canvas). a=
+        {formatSI(params.a)}m, d={formatSI(params.d)}m, λ=
+        {formatSI(params.lambda)}m, L={params.L}m
       </div>
       <canvas
         ref={canvasRef}
         width={width}
         height={height}
-        className="w-full h-auto rounded-md bg-background"
+        className="bg-background h-auto w-full rounded-md"
         style={{ aspectRatio: `${width} / ${height}` }}
       />
       {/* Sliders can be added later; for now we render once with defaults */}
@@ -92,8 +98,8 @@ export default memo(DoubleSlitFraunhofer);
 function formatSI(x: number): string {
   const abs = Math.abs(x);
   if (abs >= 1) return x.toFixed(2);
-  if (abs >= 1e-3) return (x * 1e3).toFixed(2) + "e-3";
-  if (abs >= 1e-6) return (x * 1e6).toFixed(0) + "e-6";
-  if (abs >= 1e-9) return (x * 1e9).toFixed(0) + "e-9";
+  if (abs >= 1e-3) return (x * 1e3).toFixed(2) + 'e-3';
+  if (abs >= 1e-6) return (x * 1e6).toFixed(0) + 'e-6';
+  if (abs >= 1e-9) return (x * 1e9).toFixed(0) + 'e-9';
   return x.toExponential(1);
 }

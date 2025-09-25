@@ -1,12 +1,12 @@
-import type { ComponentProps } from "react";
-import { MDXContent } from "@content-collections/mdx/react";
+import type { ComponentProps } from 'react';
+import { MDXContent } from '@content-collections/mdx/react';
 
 /**
  * Type for the `components` prop accepted by <MDXContent />
  * (avoids guessing and stays in sync with the library)
  */
 export type MdxComponents = NonNullable<
-  ComponentProps<typeof MDXContent>["components"]
+  ComponentProps<typeof MDXContent>['components']
 >;
 
 /**

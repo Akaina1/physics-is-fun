@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 interface BlogPost {
   _meta: {
@@ -33,39 +33,42 @@ export default function BlogCardClient({ post }: { post: BlogPost }) {
   return (
     <Link
       href={`/${post._meta.path}`}
-      className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
-      style={{ opacity: loaded ? 1 : 0, transition: "opacity 700ms ease-in-out" }}
+      className="group hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary overflow-hidden rounded-xl border border-zinc-800 transition"
+      style={{
+        opacity: loaded ? 1 : 0,
+        transition: 'opacity 700ms ease-in-out',
+      }}
     >
-        {/* Image */}
-        <div className="relative aspect-[16/9] bg-zinc-900">
-          {post.image ? (
-            <Image
-              src={post.image}
-              alt={post.imageAlt ?? post.title}
-              fill
-              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover"
-              priority={false}
-              onLoad={() => setLoaded(true)}
-              onError={() => setLoaded(true)}
-            />
-          ) : (
-            // If no image, show card immediately
-            <span className="sr-only">No image</span>
-          )}
-        </div>
+      {/* Image */}
+      <div className="relative aspect-[16/9] bg-zinc-900">
+        {post.image ? (
+          <Image
+            src={post.image}
+            alt={post.imageAlt ?? post.title}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover"
+            priority={false}
+            onLoad={() => setLoaded(true)}
+            onError={() => setLoaded(true)}
+          />
+        ) : (
+          // If no image, show card immediately
+          <span className="sr-only">No image</span>
+        )}
+      </div>
 
-        {/* Meta */}
-        <div className="p-4">
-          <h2 className="text-lg font-semibold text-foreground">{post.title}</h2>
-          <div className="text-sm text-accent-foreground dark:text-accent">
-            {formatDate(post.date)}
-            {post.tags?.length ? ` · ${post.tags.join(" · ")}` : ""}
-          </div>
-          <p className="mt-2 text-zinc-600 dark:text-zinc-300 line-clamp-3">{post.description}</p>
+      {/* Meta */}
+      <div className="p-4">
+        <h2 className="text-foreground text-lg font-semibold">{post.title}</h2>
+        <div className="text-accent-foreground dark:text-accent text-sm">
+          {formatDate(post.date)}
+          {post.tags?.length ? ` · ${post.tags.join(' · ')}` : ''}
         </div>
+        <p className="mt-2 line-clamp-3 text-zinc-600 dark:text-zinc-300">
+          {post.description}
+        </p>
+      </div>
     </Link>
   );
 }
-
-
