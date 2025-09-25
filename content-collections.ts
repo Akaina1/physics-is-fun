@@ -1,15 +1,15 @@
-import { defineCollection, defineConfig } from "@content-collections/core";
-import { compileMDX } from "@content-collections/mdx";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
-import rehypePrettyCode from "rehype-pretty-code";
-import { z } from "zod";
+import { defineCollection, defineConfig } from '@content-collections/core';
+import { compileMDX } from '@content-collections/mdx';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import rehypePrettyCode from 'rehype-pretty-code';
+import { z } from 'zod';
 
 const posts = defineCollection({
-  name: "posts",
-  directory: "content/posts",
-  include: "**/*.mdx",
+  name: 'posts',
+  directory: 'content/posts',
+  include: '**/*.mdx',
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -25,13 +25,16 @@ const posts = defineCollection({
       remarkPlugins: [remarkGfm, remarkMath],
       rehypePlugins: [
         [rehypeKatex, { trust: true, strict: false }],
-        [rehypePrettyCode, {
-          themes: {
-            light: "github-light", // good for light mode
-            dark: "github-dark",   // good for dark mode
+        [
+          rehypePrettyCode,
+          {
+            themes: {
+              light: 'github-light', // good for light mode
+              dark: 'github-dark', // good for dark mode
+            },
+            keepBackground: false, // let Tailwind bg utilities control backgrounds
           },
-          keepBackground: false, // let Tailwind bg utilities control backgrounds
-        }],
+        ],
       ],
     });
 
