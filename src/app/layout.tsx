@@ -7,6 +7,7 @@ import Footer, { type FooterLink } from "./_components/ui/Footer";
 import Starfield from "./_components/ui/Starfield";
 import Script from "next/script";
 import { cookies } from "next/headers";
+import themeInitScript from "@/../scripts/init-theme.js";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -48,22 +49,7 @@ export default async function RootLayout({
       <head>
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`(function () {
-            try {
-              var d = document.documentElement;
-              var getCookie = function(name){
-                var match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
-                return match ? decodeURIComponent(match[1]) : null;
-              };
-              var c = getCookie('theme');
-              var m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-              var theme = (c === 'dark' || c === 'light') ? c : m;
-              d.classList.toggle('dark', theme === 'dark');
-              d.style.colorScheme = theme;
-            } catch (e) {}
-          })();`}
-        </Script>
+        <Script id="theme-init" strategy="beforeInteractive">{themeInitScript}</Script>
       </head>
       <body className={`${geistMono.variable} antialiased`}>
         <Starfield />
