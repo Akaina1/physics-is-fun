@@ -5,21 +5,12 @@ import { useStarfield } from "@/app/_hooks/useStarfield";
 export default function Starfield() {
   const { isDarkMode, mounted } = useStarfield();
 
-  // Don't render anything until mounted to avoid hydration mismatch
-  if (!mounted) {
-    return (
-      <div 
-        className="starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden opacity-0"
-        aria-hidden="true"
-      />
-    );
-  }
-
   return (
     <div 
-      className={`starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden transition-opacity duration-400 ease-out ${
-        isDarkMode ? 'opacity-100' : 'opacity-0'
-      }`}
+      className={
+        "starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden transition-opacity duration-1000 ease-in-out motion-reduce:transition-none " +
+        (mounted && isDarkMode ? "opacity-100" : "opacity-0")
+      }
       aria-hidden="true"
     >
       {/* Layer 1: Far stars (small, dim) */}
