@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, memo } from "react";
 
 // Small TS type for our params (in metres)
 type Params = {
@@ -12,7 +12,7 @@ type Params = {
   gamma: number;   // display gamma (<=1 brightens)
 };
 
-export default function DoubleSlitFraunhofer() {
+function DoubleSlitFraunhofer() {
   // Canvas size; you can make this responsive later
   const width = 960;
   const height = 540;
@@ -84,6 +84,9 @@ export default function DoubleSlitFraunhofer() {
     </div>
   );
 }
+
+// Memoized export to prevent theme-triggered re-renders
+export default memo(DoubleSlitFraunhofer);
 
 // Tiny helper to show SI-ish numbers
 function formatSI(x: number): string {
