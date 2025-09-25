@@ -25,7 +25,7 @@ export default async function PostPage({
   };
 
   return (
-    <article className="mx-auto max-w-3xl py-10 prose prose-invert">
+    <article className="mx-4 sm:mx-0 lg:mx-auto max-w-3xl py-10 prose prose-invert">
       <h1 className="mb-2 text-foreground">{post.title}</h1>
       <p className="text-sm text-muted-foreground">
         {new Date(post.date).toLocaleDateString()}
