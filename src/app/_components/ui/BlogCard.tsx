@@ -23,7 +23,7 @@ export default function BlogCard({ post }: BlogCardProps) {
   return (
     <Link
       href={`/${post._meta.path}`}
-      className="group rounded-xl border border-zinc-800 overflow-hidden hover:border-zinc-700 transition"
+      className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
     >
       {/* Image */}
       <div className="relative aspect-[16/9] bg-zinc-900">
@@ -41,7 +41,7 @@ export default function BlogCard({ post }: BlogCardProps) {
 
       {/* Meta */}
       <div className="p-4">
-        <h2 className="text-lg font-semibold text-foreground group-hover:underline">
+        <h2 className="text-lg font-semibold text-foreground">
           {post.title}
         </h2>
         <div className="text-sm text-accent-foreground dark:text-accent">
