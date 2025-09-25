@@ -2082,3 +2082,492 @@ The main page is now much cleaner and the blog card logic is properly encapsulat
 
 ---
 
+_**User (2025-09-25 12:00Z)**_
+
+going back to our issues with switching themes on the blog post page.
+
+I wonder if using parallel or conditional routes in next would help?
+
+@https://nextjs.org/docs/app/api-reference/file-conventions/parallel-routes 
+
+Can you review the docs and see if there is a possiblity to use this to remove the lag when switching themese on MDX post pages?
+
+---
+
+_**Assistant (claude-4-sonnet)**_
+
+Looking at the [Next.js Parallel Routes documentation](https://nextjs.org/docs/app/api-reference/file-conventions/parallel-routes), I can see some interesting possibilities, but I don't think parallel routes would directly solve the theme switching lag issue. Let me explain why and suggest a better approach.
+
+## Why Parallel Routes Won't Solve the Theme Lag
+
+**Parallel Routes are designed for:**
+- Rendering multiple pages simultaneously in the same layout (like dashboards with different panels)
+- Creating modals with deep linking
+- Conditional rendering based on user roles
+- Independent navigation within slots
+
+**Our theme lag issue is caused by:**
+- React re-rendering the entire MDX content tree during theme changes
+- WASM computations being triggered by component re-renders
+- CSS class updates cascading through all MDX elements
+
+Parallel routes would still suffer from the same re-rendering issues when theme changes occur.
+
+## A Better Solution: Static Pre-rendering + Client Hydration
+
+Instead of parallel routes, I think we should consider a different architecture inspired by the modal pattern in the docs. Here's what I propose:
+
+---
+
+Tool use: **todo_write**
+
+## Todo List
+
+- [-] Explore static pre-rendering approach for MDX content to avoid theme re-renders
+
+---
+
+Tool use: **write**
+
+---
+
+_**User (2025-09-25 12:00Z)**_
+
+NO CODE! propose your solution first!
+
+---
+
+_**Assistant (claude-4-sonnet)**_
+
+You're absolutely right - let me think through this conceptually first!
+
+---
+
+Tool use: **todo_write**
+
+## Todo List
+
+- [x] Explore static pre-rendering approach for MDX content to avoid theme re-renders
+
+---
+
+## Analysis: Parallel Routes vs. Our Theme Lag Problem
+
+After reviewing the [Next.js Parallel Routes documentation](https://nextjs.org/docs/app/api-reference/file-conventions/parallel-routes), **parallel routes won't solve our theme switching lag**. Here's why:
+
+### Why Parallel Routes Don't Help:
+- **Same re-render problem**: Parallel routes still use React's component tree, so theme changes would still trigger re-renders
+- **Not designed for this**: They're for rendering multiple independent pages simultaneously, not for optimizing theme transitions
+- **Still client-side**: The MDX content would still need to re-render when CSS variables change
+
+## Better Solution: "Static Shell + Dynamic Theming" Approach
+
+Instead, I propose a **hybrid architecture** inspired by the modal pattern in the docs:
+
+### Core Concept:
+1. **Pre-render MDX content statically** at build time (like how the modal content is separated from the modal wrapper)
+2. **Separate theme-dependent elements** from content-dependent elements
+3. **Use CSS-only theme switching** for the shell, while keeping MDX content completely static
+
+### Architecture:
+```
+Blog Post Page
+├── Static Shell (theme-aware CSS classes)
+│   ├── Header/Navigation (re-renders on theme change)
+│   ├── Title/Meta (re-renders on theme change)
+│   └── Static MDX Container (never re-renders)
+│       └── Pre-rendered MDX Content (static, theme-agnostic)
+│           └── WASM Components (render once, never again)
+└── Theme System (only affects shell CSS)
+```
+
+### Key Benefits:
+- **WASM components render once** at page load, never again
+- **MDX content stays completely static** during theme changes
+- **Only the shell/wrapper re-renders** with new theme classes
+- **Smooth 400ms transitions** because only CSS changes, not content
+
+### Implementation Strategy:
+1. **Static MDX Pre-processing**: Render MDX to static HTML at build time
+2. **Theme-agnostic Content**: MDX content uses CSS custom properties that change via CSS, not React re-renders
+3. **Wrapper-based Theming**: Only the page wrapper/shell re-renders for theme changes
+4. **Component Isolation**: WASM components become completely isolated from theme system
+
+This would be similar to how the docs show separating `<Modal>` functionality from modal content - we'd separate theme functionality from MDX content.
+
+**Would this approach work for your use case?** It would require some refactoring but could eliminate the 150ms WASM re-render completely.
+
+---
+
+_**User (2025-09-25 12:00Z)**_
+
+problem is the MDX content is styled too@MdxComponents.tsx 
+
+So any mdx content is also affected by theme change
+
+---
+
+_**Assistant (claude-4-sonnet)**_
+
+**Exactly!** You've identified the core issue perfectly. Looking at your `MdxComponents.tsx`, every single MDX element uses theme-dependent CSS classes:
+
+- `text-foreground` 
+- `text-muted-foreground`
+- `bg-card`
+- `border-border`
+- `bg-muted`
+- etc.
+
+When the theme changes, **every single MDX component re-renders** because these CSS custom properties change, triggering React's reconciliation.
+
+## The Real Problem:
+
+```
+Theme Change → CSS Variables Update → React Detects Class Changes → 
+All MDX Components Re-render → WASM Components Re-render → 150ms Lag
+```
+
+## Proposed Solution: "CSS-Only Theme Switching"
+
+Instead of React re-renders, we need **pure CSS theme transitions** that don't trigger React updates:
+
+### Strategy:
+1. **Remove theme classes from MDX components** - use static CSS classes instead
+2. **Use CSS custom properties directly** - bypass React's change detection
+3. **Theme switching via CSS only** - no React state changes for content
+
+### Example Approach:
+```css
+/* Static classes that reference CSS variables */
+.mdx-heading { color: var(--foreground); }
+.mdx-text { color: var(--muted-foreground); }
+.mdx-code { background: var(--muted); }
+
+/* Theme switching only changes CSS variables, not classes */
+.dark { --foreground: #e6e6e6; }
+.light { --foreground: #0f172a; }
+```
+
+### MDX Components Would Become:
+```tsx
+h1: (p) => <h1 className="mdx-heading mdx-h1" {...p} />
+p: (p) => <p className="mdx-text mdx-paragraph" {...p} />
+```
+
+**Key Insight:** If MDX components use static CSS classes that reference CSS variables, then theme changes only update the CSS variables, **not the React component props**. This means React won't detect changes and won't re-render the MDX tree.
+
+**Would this approach work?** The WASM components would render once and never re-render again, while themes would switch purely via CSS variable updates.
+
+---
+
+_**User (2025-09-25 12:00Z)**_
+
+alright give it a try and see if this will work with css only switching for mdx components. do not add anything else except this fix, after implemented we will test performance
+
+---
+
+_**Assistant (claude-4-sonnet)**_
+
+Tool use: **todo_write**
+
+## Todo List
+
+- [-] Convert MDX components to use static CSS classes with CSS variables instead of theme-dependent Tailwind classes
+
+---
+
+First, let me add the static CSS classes for MDX components:
+
+---
+
+Tool use: **search_replace**
+
+
+<details><summary>Edit file: src/app/globals.css</summary>
+
+**Chunk 1**
+Lines added: 133, lines removed: 2
+
+```diff
+@@ -203,4 +204,135 @@
+      transition: none !important;
+    }
+-   }
+- }
++ }
++ 
++ /* Static MDX component styles using CSS variables */
++ .mdx-h1 {
++   font-size: 1.875rem;
++   font-weight: 700;
++   margin-bottom: 1rem;
++   color: var(--foreground);
++   letter-spacing: -0.025em;
++ }
++ 
++ .mdx-h2 {
++   font-size: 1.5rem;
++   font-weight: 600;
++   margin-top: 2rem;
++   margin-bottom: 0.75rem;
++   color: var(--foreground);
++ }
++ 
++ .mdx-h3 {
++   font-size: 1.25rem;
++   font-weight: 600;
++   margin-top: 1.5rem;
++   margin-bottom: 0.5rem;
++   color: var(--foreground);
++ }
++ 
++ .mdx-p {
++   margin-top: 1rem;
++   margin-bottom: 1rem;
++   line-height: 1.75;
++   color: var(--muted-foreground);
++ }
++ 
++ .mdx-a {
++   color: var(--primary);
++   text-decoration: underline;
++   text-underline-offset: 2px;
++ }
++ 
++ .mdx-a:hover {
++   opacity: 0.9;
++ }
++ 
++ .mdx-code {
++   border-radius: 0.25rem;
++   padding-left: 0.375rem;
++   padding-right: 0.375rem;
++   padding-top: 0.125rem;
++   padding-bottom: 0.125rem;
++   background-color: var(--muted);
++   color: var(--foreground);
++ }
++ 
++ .mdx-pre {
++   border-radius: 0.75rem;
++   padding: 1rem;
++   overflow-x: auto;
++   background-color: var(--card);
++   color: var(--foreground);
++   border: 1px solid var(--border);
++ }
++ 
++ .mdx-ul {
++   list-style-type: disc;
++   padding-left: 1.5rem;
++   margin-top: 1rem;
++   margin-bottom: 1rem;
++ }
++ 
++ .mdx-ul > li {
++   margin-top: 0.25rem;
++ }
++ 
++ .mdx-ol {
++   list-style-type: decimal;
++   padding-left: 1.5rem;
++   margin-top: 1rem;
++   margin-bottom: 1rem;
++ }
++ 
++ .mdx-ol > li {
++   margin-top: 0.25rem;
++ }
++ 
++ .mdx-li {
++   color: var(--muted-foreground);
++ }
++ 
++ .mdx-blockquote {
++   border-left: 4px solid var(--border);
++   padding-left: 1rem;
++   font-style: italic;
++   background-color: color-mix(in srgb, var(--card) 40%, transparent);
++   color: var(--muted-foreground);
++ }
++ 
++ .mdx-table {
++   width: 100%;
++   font-size: 0.875rem;
++   margin-top: 1rem;
++   margin-bottom: 1rem;
++   border-spacing: 0 0.25rem;
++   color: var(--foreground);
++ }
++ 
++ .mdx-thead {
++   background-color: color-mix(in srgb, var(--muted) 50%, transparent);
++ }
++ 
++ .mdx-th {
++   text-align: left;
++   font-weight: 600;
++   padding-left: 0.5rem;
++   padding-right: 0.5rem;
++   padding-top: 0.25rem;
++   padding-bottom: 0.25rem;
++   color: var(--foreground);
++ }
++ 
++ .mdx-td {
++   padding-left: 0.5rem;
++   padding-right: 0.5rem;
++   padding-top: 0.25rem;
++   padding-bottom: 0.25rem;
++   color: var(--muted-foreground);
++ }
++ 
++ .mdx-hr {
++   margin-top: 2rem;
++   margin-bottom: 2rem;
++   border-color: var(--border);
++ }
+```
+
+</details>
+
+---
+
+Now let me update the MDX components to use these static CSS classes:
+
+---
+
+Tool use: **search_replace**
+
+
+<details><summary>Edit file: src/app/_components/mdx/MdxComponents.tsx</summary>
+
+**Chunk 1**
+Lines added: 16, lines removed: 59
+
+```diff
+@@ -17,63 +17,20 @@
+  ): MdxComponents {
+    return {
+-     h1: (p) => (
+-       <h1
+-         className="text-3xl font-bold mb-4 text-foreground tracking-tight"
+-         {...p}
+-       />
+-     ),
+-     h2: (p) => (
+-       <h2
+-         className="text-2xl font-semibold mt-8 mb-3 text-foreground"
+-         {...p}
+-       />
+-     ),
+-     h3: (p) => (
+-       <h3 className="text-xl font-semibold mt-6 mb-2 text-foreground" {...p} />
+-     ),
+-     p: (p) => (
+-       <p className="my-4 leading-7 text-muted-foreground" {...p} />
+-     ),
+-     a: (p) => (
+-       <a
+-         className="text-primary underline underline-offset-2 hover:opacity-90"
+-         {...p}
+-       />
+-     ),
+-     code: (p) => (
+-       <code
+-         className="rounded px-1.5 py-0.5 bg-muted text-foreground"
+-         {...p}
+-       />
+-     ),
+-     pre: (p) => (
+-       <pre
+-         className="rounded-xl p-4 overflow-x-auto bg-card text-foreground border border-border"
+-         {...p}
+-       />
+-     ),
+-     ul: (p) => <ul className="list-disc pl-6 my-4 space-y-1" {...p} />,
+-     ol: (p) => <ol className="list-decimal pl-6 my-4 space-y-1" {...p} />,
+-     li: (p) => <li className="text-muted-foreground" {...p} />,
+-     blockquote: (p) => (
+-       <blockquote
+-         className="border-l-4 pl-4 italic bg-card/40 text-muted-foreground border-border"
+-         {...p}
+-       />
+-     ),
+-     table: (p) => (
+-       <table
+-         className="w-full text-sm my-4 border-separate border-spacing-y-1 text-foreground"
+-         {...p}
+-       />
+-     ),
+-     thead: (p) => <thead className="bg-muted/50" {...p} />,
+-     th: (p) => (
+-       <th className="text-left font-semibold px-2 py-1 text-foreground" {...p} />
+-     ),
+-     td: (p) => (
+-       <td className="px-2 py-1 text-muted-foreground" {...p} />
+-     ),
+-     hr: (p) => <hr className="my-8 border-border" {...p} />,
++     h1: (p) => <h1 className="mdx-h1" {...p} />,
++     h2: (p) => <h2 className="mdx-h2" {...p} />,
++     h3: (p) => <h3 className="mdx-h3" {...p} />,
++     p: (p) => <p className="mdx-p" {...p} />,
++     a: (p) => <a className="mdx-a" {...p} />,
++     code: (p) => <code className="mdx-code" {...p} />,
++     pre: (p) => <pre className="mdx-pre" {...p} />,
++     ul: (p) => <ul className="mdx-ul" {...p} />,
++     ol: (p) => <ol className="mdx-ol" {...p} />,
++     li: (p) => <li className="mdx-li" {...p} />,
++     blockquote: (p) => <blockquote className="mdx-blockquote" {...p} />,
++     table: (p) => <table className="mdx-table" {...p} />,
++     thead: (p) => <thead className="mdx-thead" {...p} />,
++     th: (p) => <th className="mdx-th" {...p} />,
++     td: (p) => <td className="mdx-td" {...p} />,
++     hr: (p) => <hr className="mdx-hr" {...p} />,
+      ...overrides,
+    };
+```
+
+</details>
+
+---
+
+Tool use: **todo_write**
+
+## Todo List
+
+- [x] Convert MDX components to use static CSS classes with CSS variables instead of theme-dependent Tailwind classes
+
+---
+
+## ✅ CSS-Only Theme Switching Implemented
+
+I've converted all MDX components to use **static CSS classes** that reference CSS variables instead of theme-dependent Tailwind classes.
+
+### Key Changes:
+
+**Before (Theme-dependent):**
+```tsx
+h1: (p) => <h1 className="text-3xl font-bold mb-4 text-foreground tracking-tight" {...p} />
+```
+
+**After (Static CSS):**
+```tsx
+h1: (p) => <h1 className="mdx-h1" {...p} />
+```
+
+### How It Works:
+1. **Static CSS classes** (`.mdx-h1`, `.mdx-p`, etc.) never change
+2. **CSS variables** (`var(--foreground)`, `var(--muted-foreground)`) handle theming
+3. **Theme switching** only updates CSS variables, not React component props
+4. **No React re-renders** for MDX content during theme changes
+
+### Expected Result:
+- **WASM components should render once** and never re-render on theme changes
+- **Theme switching should be smooth** (only CSS variable updates)
+- **MDX content stays static** during theme transitions
+
+**Test it now** - theme switching on MDX pages should be dramatically faster since React won't detect any prop changes in the MDX components! 🚀
+
+---
+
