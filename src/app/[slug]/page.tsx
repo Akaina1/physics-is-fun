@@ -1,7 +1,7 @@
 import { allPosts } from 'content-collections';
 import { notFound } from 'next/navigation';
 import MdxWrapper from '@/app/_components/mdx/MdxWrapper';
-import DoubleSlitFraunhofer from '@/app/_components/sims/DoubleSlitFraunhofer';
+import DoubleSlitFraunhofer from '@/app/_components/sims/DoubleSlit/DoubleSlitFraunhofer';
 
 export const dynamicParams = false;
 
