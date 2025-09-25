@@ -1,7 +1,11 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import { cookies } from "next/headers";
 
-export default function Header() {
+export default async function Header() {
+  const cookieStore = await cookies();
+  const themeCookie = cookieStore.get("theme")?.value;
+  const initialTheme = themeCookie === "dark" || themeCookie === "light" ? themeCookie : undefined;
   return (
     <header className="mx-auto mt-6 max-w-5xl px-4 sticky top-6 z-50">
       <div
@@ -34,7 +38,7 @@ export default function Header() {
 
         {/* Right: Theme toggle */}
         <div className="px-2">
-          <ThemeToggle className="rounded-full" />
+          <ThemeToggle className="rounded-full" initialTheme={initialTheme} />
         </div>
 
         {/* Subtle accent bar */}
