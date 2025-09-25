@@ -26,29 +26,32 @@ export default function ThemeToggle({ className }: { className?: string }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const root = document.documentElement;
-    const enableSmooth = mounted;
-
-    if (enableSmooth) {
-      root.classList.add("changing-theme");
-    }
-
     applyTheme(theme);
     window.localStorage.setItem(STORAGE_KEY, theme);
-
-    if (enableSmooth) {
-      const timeoutId = window.setTimeout(() => {
-        root.classList.remove("changing-theme");
-      }, 400);
-      return () => {
-        window.clearTimeout(timeoutId);
-      };
-    }
-  }, [theme, mounted]);
+  }, [theme]);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const toggleTheme = (next: Theme) => {
+    if (typeof document === "undefined") {
+      setTheme(next);
+      return;
+    }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (document.startViewTransition && !reduceMotion) {
+      document.startViewTransition(() => {
+        // Apply DOM change inside the callback so the browser snapshots properly
+        applyTheme(next);
+        window.localStorage.setItem(STORAGE_KEY, next);
+        setTheme(next);
+      });
+    } else {
+      // Fallback
+      setTheme(next);
+    }
+  };
 
   // Avoid hydration mismatch: render a neutral shell until mounted
   if (!mounted) {
@@ -68,11 +71,11 @@ export default function ThemeToggle({ className }: { className?: string }) {
       type="button"
       role="switch"
       aria-checked={isDark}
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={() => toggleTheme(isDark ? "light" : "dark")}
       onKeyDown={(e) => {
         if (e.key === " " || e.key === "Enter") {
           e.preventDefault();
-          setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+          toggleTheme(isDark ? "light" : "dark");
         }
       }}
       className={

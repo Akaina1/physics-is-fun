@@ -69,7 +69,7 @@ function DoubleSlitFraunhofer() {
   }, [render, params]);
 
   return (
-    <div className="rounded-xl border border-border bg-card p-3">
+    <div className="rounded-xl border border-border bg-card p-3" style={{ contain: "paint", willChange: "transform" }}>
       <div className="mb-3 text-sm text-muted-foreground">
         Fraunhofer double-slit intensity (Rust→WASM → Canvas). a={formatSI(params.a)}m, d={formatSI(params.d)}m, λ={formatSI(params.lambda)}m, L={params.L}m
       </div>

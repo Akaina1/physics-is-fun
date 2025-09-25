@@ -129,47 +129,50 @@ body {
 
 /* High-performance CSS-only starfield */
 .starfield-layer-1 {
-  background-image: 
-    radial-gradient(1px 1px at 20px 30px, #9bb0ff, transparent),
-    radial-gradient(1px 1px at 40px 70px, #aabfff, transparent),
-    radial-gradient(1px 1px at 90px 40px, #cad7ff, transparent),
-    radial-gradient(1px 1px at 130px 80px, #f8f7ff, transparent),
-    radial-gradient(1px 1px at 160px 30px, #fff4ea, transparent);
-  background-repeat: repeat;
-  background-size: 200px 100px;
+  background-image: var(--starfield-layer1-bg, 
+    radial-gradient(1px 1px at 20% 30%, #9bb0ff, transparent),
+    radial-gradient(1px 1px at 40% 70%, #aabfff, transparent),
+    radial-gradient(1px 1px at 90% 40%, #cad7ff, transparent)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   animation: twinkle-1 4s ease-in-out infinite alternate;
   opacity: 0.4;
 }
 
 .starfield-layer-2 {
-  background-image:
-    radial-gradient(1px 1px at 25px 25px, #ffcc6f, transparent),
-    radial-gradient(2px 2px at 50px 75px, #ffad51, transparent),
-    radial-gradient(1px 1px at 75px 25px, #9bb0ff, transparent),
-    radial-gradient(1px 1px at 100px 75px, #cad7ff, transparent);
-  background-repeat: repeat;
-  background-size: 250px 150px;
+  background-image: var(--starfield-layer2-bg,
+    radial-gradient(1px 1px at 25% 25%, #ffcc6f, transparent),
+    radial-gradient(2px 2px at 50% 75%, #ffad51, transparent),
+    radial-gradient(1px 1px at 75% 25%, #9bb0ff, transparent)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   animation: twinkle-2 6s ease-in-out infinite alternate;
   opacity: 0.6;
 }
 
 .starfield-layer-3 {
-  background-image:
-    radial-gradient(2px 2px at 10px 20px, #fff4ea, transparent),
-    radial-gradient(1px 1px at 60px 60px, #aabfff, transparent),
-    radial-gradient(1px 1px at 120px 10px, #ffcc6f, transparent);
-  background-repeat: repeat;
-  background-size: 300px 200px;
+  background-image: var(--starfield-layer3-bg,
+    radial-gradient(2px 2px at 10% 20%, #fff4ea, transparent),
+    radial-gradient(1px 1px at 60% 60%, #aabfff, transparent),
+    radial-gradient(1px 1px at 80% 10%, #ffcc6f, transparent)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   animation: twinkle-3 8s ease-in-out infinite alternate;
   opacity: 0.8;
 }
 
 .starfield-nebula {
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(147, 197, 253, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(196, 181, 253, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 40% 80%, rgba(94, 234, 212, 0.05) 0%, transparent 50%);
-  opacity: 0.3;
+    radial-gradient(ellipse 800px 400px at 20% 50%, rgba(147, 197, 253, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 300px at 80% 20%, rgba(196, 181, 253, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 500px 250px at 40% 80%, rgba(94, 234, 212, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 700px 350px at 70% 60%, rgba(255, 204, 111, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 400px 600px at 10% 30%, rgba(159, 122, 234, 0.1) 0%, transparent 65%);
+  opacity: 0.6;
+  animation: nebula-drift 20s ease-in-out infinite alternate;
 }
 
 /* Twinkling animations */
@@ -188,6 +191,21 @@ body {
   50% { opacity: 1; }
 }
 
+@keyframes nebula-drift {
+  0% { 
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.4;
+  }
+  50% { 
+    transform: translateX(-10px) translateY(5px) scale(1.02);
+    opacity: 0.7;
+  }
+  100% { 
+    transform: translateX(5px) translateY(-8px) scale(0.98);
+    opacity: 0.5;
+  }
+}
+
 /* Smooth starfield transitions during theme changes */
 .changing-theme .starfield-container {
   transition: opacity 400ms ease !important;
@@ -202,6 +220,14 @@ body {
   }
   .starfield-container {
     transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html::view-transition-old(root),
+  html::view-transition-new(root) {
+    animation-duration: 220ms;
+    animation-timing-function: ease-in-out;
   }
 }
 
