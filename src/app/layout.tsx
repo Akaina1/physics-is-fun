@@ -5,6 +5,8 @@ import "./globals.css";
 import Header from "./_components/ui/Header";
 import Footer, { type FooterLink } from "./_components/ui/Footer";
 import Starfield from "./_components/ui/Starfield";
+import Script from "next/script";
+import { cookies } from "next/headers";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -16,11 +18,14 @@ export const metadata: Metadata = {
   description: "Blog by Aaron",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const themeCookie = cookieStore.get("theme")?.value;
+  const initialTheme = themeCookie === "dark" ? "dark" : themeCookie === "light" ? "light" : undefined;
   const footerLinks: FooterLink[] = [
     {
       key: "about",
@@ -39,10 +44,26 @@ export default function RootLayout({
     },
   ];
   return (
-    <html>
+    <html suppressHydrationWarning className={initialTheme === "dark" ? "dark" : undefined}>
       <head>
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function () {
+            try {
+              var d = document.documentElement;
+              var getCookie = function(name){
+                var match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
+                return match ? decodeURIComponent(match[1]) : null;
+              };
+              var c = getCookie('theme');
+              var m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+              var theme = (c === 'dark' || c === 'light') ? c : m;
+              d.classList.toggle('dark', theme === 'dark');
+              d.style.colorScheme = theme;
+            } catch (e) {}
+          })();`}
+        </Script>
       </head>
       <body className={`${geistMono.variable} antialiased`}>
         <Starfield />
