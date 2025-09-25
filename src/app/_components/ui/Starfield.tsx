@@ -1,39 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useStarfield } from "@/app/_hooks/useStarfield";
 
 export default function Starfield() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // Mark as mounted to avoid hydration mismatch
-    setMounted(true);
-    
-    // Check initial theme
-    const checkTheme = () => {
-      setIsDarkMode(document.documentElement.classList.contains('dark'));
-    };
-    
-    checkTheme();
-    
-    // Watch for theme changes with throttling
-    let timeoutId: NodeJS.Timeout;
-    const observer = new MutationObserver(() => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(checkTheme, 50); // Throttle to reduce updates
-    });
-    
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    return () => {
-      observer.disconnect();
-      clearTimeout(timeoutId);
-    };
-  }, []);
+  const { isDarkMode, mounted } = useStarfield();
 
   // Don't render anything until mounted to avoid hydration mismatch
   if (!mounted) {
