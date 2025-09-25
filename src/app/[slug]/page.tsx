@@ -1,7 +1,6 @@
 import { allPosts } from "content-collections";
 import { notFound } from "next/navigation";
-import { MDXContent } from "@content-collections/mdx/react";
-import { mdxComponents } from "@/app/_components/mdx-components";
+import MdxWrapper from "@/app/_components/mdx/MdxWrapper";
 import DoubleSlitFraunhofer from "@/app/_components/sims/DoubleSlitFraunhofer";
 
 export const dynamicParams = false;
@@ -20,19 +19,18 @@ export default async function PostPage({
   const post = allPosts.find((p) => p._meta.path === slug);
   if (!post) return notFound();
 
-  // Merge your base MDX element styles + custom components you want available in MDX
-  const mergedComponents = {
-    ...mdxComponents(),
+  // Custom components available in MDX
+  const customComponents = {
     DoubleSlitFraunhofer, // <-- expose to MDX
   };
 
   return (
     <article className="mx-auto max-w-3xl py-10 prose prose-invert">
       <h1 className="mb-2 text-foreground">{post.title}</h1>
-  <p className="text-sm text-muted-foreground">
-    {new Date(post.date).toLocaleDateString()}
-  </p>
-  <MDXContent code={post.mdx} components={mergedComponents} />
-  </article>
+      <p className="text-sm text-muted-foreground">
+        {new Date(post.date).toLocaleDateString()}
+      </p>
+      <MdxWrapper code={post.mdx} customComponents={customComponents} />
+    </article>
   );
 }
