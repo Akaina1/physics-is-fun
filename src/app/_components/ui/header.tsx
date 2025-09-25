@@ -1,9 +1,9 @@
 import Link from "next/link";
-import ThemeToggle from "../theme-toggle";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="mx-auto mt-6 max-w-5xl px-4">
+    <header className="mx-auto mt-6 max-w-5xl px-4 sticky top-6 z-50">
       <div
         className="relative grid grid-cols-[auto_1fr_auto] items-center gap-2 rounded-2xl border border-border bg-card/80 p-2 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-card/60 motion-safe:animate-fade-in motion-reduce:animate-none"
         role="navigation"
