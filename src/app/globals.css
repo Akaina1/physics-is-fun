@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tailwindcss-animated";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
@@ -18,7 +20,7 @@
   --secondary-foreground: #0b1220;
 
   --accent: #99f6e4; /* neutrino teal */
-  --accent-foreground: #0b1220;
+  --accent-foreground: #779ea3;
 
   --muted: #f1f5f9;
   --muted-foreground: #556985;
@@ -103,7 +105,99 @@
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: monospace;
+}
+
+/* Smooth theme switching – active only during a toggle */
+.changing-theme,
+.changing-theme * {
+  transition: background-color 400ms ease, color 400ms ease,
+              border-color 400ms ease, fill 400ms ease, stroke 400ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .changing-theme,
+  .changing-theme * {
+    transition: none !important;
+  }
+}
+
+/* High-performance CSS-only starfield */
+.starfield-layer-1 {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #9bb0ff, transparent),
+    radial-gradient(1px 1px at 40px 70px, #aabfff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #cad7ff, transparent),
+    radial-gradient(1px 1px at 130px 80px, #f8f7ff, transparent),
+    radial-gradient(1px 1px at 160px 30px, #fff4ea, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: twinkle-1 4s ease-in-out infinite alternate;
+  opacity: 0.4;
+}
+
+.starfield-layer-2 {
+  background-image:
+    radial-gradient(1px 1px at 25px 25px, #ffcc6f, transparent),
+    radial-gradient(2px 2px at 50px 75px, #ffad51, transparent),
+    radial-gradient(1px 1px at 75px 25px, #9bb0ff, transparent),
+    radial-gradient(1px 1px at 100px 75px, #cad7ff, transparent);
+  background-repeat: repeat;
+  background-size: 250px 150px;
+  animation: twinkle-2 6s ease-in-out infinite alternate;
+  opacity: 0.6;
+}
+
+.starfield-layer-3 {
+  background-image:
+    radial-gradient(2px 2px at 10px 20px, #fff4ea, transparent),
+    radial-gradient(1px 1px at 60px 60px, #aabfff, transparent),
+    radial-gradient(1px 1px at 120px 10px, #ffcc6f, transparent);
+  background-repeat: repeat;
+  background-size: 300px 200px;
+  animation: twinkle-3 8s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+.starfield-nebula {
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(147, 197, 253, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(196, 181, 253, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(94, 234, 212, 0.05) 0%, transparent 50%);
+  opacity: 0.3;
+}
+
+/* Twinkling animations */
+@keyframes twinkle-1 {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes twinkle-2 {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes twinkle-3 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Smooth starfield transitions during theme changes */
+.changing-theme .starfield-container {
+  transition: opacity 400ms ease !important;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .starfield-layer-1,
+  .starfield-layer-2,
+  .starfield-layer-3 {
+    animation: none !important;
+  }
+  .starfield-container {
+    transition: none !important;
+  }
 }
