@@ -26,9 +26,25 @@ export default function ThemeToggle({ className }: { className?: string }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const root = document.documentElement;
+    const enableSmooth = mounted;
+
+    if (enableSmooth) {
+      root.classList.add("changing-theme");
+    }
+
     applyTheme(theme);
     window.localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
+
+    if (enableSmooth) {
+      const timeoutId = window.setTimeout(() => {
+        root.classList.remove("changing-theme");
+      }, 400);
+      return () => {
+        window.clearTimeout(timeoutId);
+      };
+    }
+  }, [theme, mounted]);
 
   useEffect(() => {
     setMounted(true);
@@ -60,7 +76,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
         }
       }}
       className={
-        "group inline-flex items-center rounded-full border border-border bg-card p-1 text-foreground shadow-sm transition-colors motion-reduce:transition-none hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" +
+        "cursor-pointer group inline-flex items-center rounded-full border border-border bg-card p-1 text-foreground shadow-sm transition-colors motion-reduce:transition-none hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" +
         (className ? " " + className : "")
       }
       aria-label="Toggle dark mode"
