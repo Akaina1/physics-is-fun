@@ -4,34 +4,23 @@ import { useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 
-const STORAGE_KEY = "theme";
-
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "light" || stored === "dark") return stored;
-  // fallback: default to light; change to OS preference if you prefer:
-  // return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  return "light";
-}
-
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.toggle("dark", theme === "dark");
+  root.style.colorScheme = theme;
 }
 
-export default function ThemeToggle({ className }: { className?: string }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+export default function ThemeToggle({ className, initialTheme }: { className?: string; initialTheme?: Theme }) {
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof document === "undefined") return initialTheme ?? "light";
+    return document.documentElement.classList.contains("dark") ? "dark" : "light";
+  });
   const isDark = theme === "dark";
-  const [mounted, setMounted] = useState(false);
 
+  // Sync internal state to actual DOM class on mount without changing visuals (which are CSS-driven)
   useEffect(() => {
-    applyTheme(theme);
-    window.localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
-
-  useEffect(() => {
-    setMounted(true);
+    if (typeof document === "undefined") return;
+    setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
   }, []);
 
   const toggleTheme = (next: Theme) => {
@@ -39,32 +28,26 @@ export default function ThemeToggle({ className }: { className?: string }) {
       setTheme(next);
       return;
     }
+
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    
     if (document.startViewTransition && !reduceMotion) {
       document.startViewTransition(() => {
         // Apply DOM change inside the callback so the browser snapshots properly
         applyTheme(next);
-        window.localStorage.setItem(STORAGE_KEY, next);
+        document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
         setTheme(next);
       });
     } else {
-      // Fallback
+      // Fallback with smooth CSS transition support
+      const root = document.documentElement;
+      root.classList.add("changing-theme");
+      applyTheme(next);
+      document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
       setTheme(next);
+      window.setTimeout(() => root.classList.remove("changing-theme"), 450);
     }
   };
-
-  // Avoid hydration mismatch: render a neutral shell until mounted
-  if (!mounted) {
-    return (
-      <span
-        aria-hidden
-        className={
-          "inline-flex h-6 w-11 items-center rounded-full border border-border bg-muted/60 p-1 shadow-inner " +
-          (className ? " " + className : "")
-        }
-      />
-    );
-  }
 
   return (
     <button
@@ -87,20 +70,14 @@ export default function ThemeToggle({ className }: { className?: string }) {
     >
       <span className="sr-only">Toggle dark mode</span>
       <span
-        className={
-          "relative inline-flex h-6 w-11 items-center rounded-full border border-border shadow-inner transition-colors motion-reduce:transition-none " +
-          (isDark ? "bg-accent/30" : "bg-muted")
-        }
+        className={"relative inline-flex h-6 w-11 items-center rounded-full border border-border shadow-inner transition-colors motion-reduce:transition-none bg-muted dark:bg-accent/30"}
       >
         {/* Icons for context */}
         <span className="pointer-events-none absolute left-1 text-[10px] leading-none text-muted-foreground">☀️</span>
         <span className="pointer-events-none absolute right-1 text-[10px] leading-none text-muted-foreground">🌙</span>
         {/* Thumb */}
         <span
-          className={
-            "inline-block h-5 w-5 transform rounded-full bg-card ring-1 ring-border shadow-sm transition-transform motion-reduce:transition-none " +
-            (isDark ? "translate-x-5" : "translate-x-0.5")
-          }
+          className={"inline-block h-5 w-5 transform rounded-full bg-card ring-1 ring-border shadow-sm transition-transform motion-reduce:transition-none translate-x-0.5 dark:translate-x-5"}
         />
       </span>
     </button>
