@@ -14,6 +14,9 @@ importers:
       katex:
         specifier: ^0.16.22
         version: 0.16.22
+      mdx-bundler:
+        specifier: ^10.1.1
+        version: 10.1.1(esbuild@0.25.10)
       next:
         specifier: 15.5.4
         version: 15.5.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
