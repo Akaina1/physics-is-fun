@@ -251,6 +251,45 @@ I’m adding the pre-paint theme initialization script and hydration suppression
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/layout.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/layout.tsx
+@@
+ import Footer, { type FooterLink } from "./_components/ui/Footer";
+ import Starfield from "./_components/ui/Starfield";
++import Script from "next/script";
+@@
+-  return (
+-    <html>
++  return (
++    <html suppressHydrationWarning>
+       <head>
+         <link href="/favicon.ico" rel="icon" sizes="32x32" />
+         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
++        <Script id="theme-init" strategy="beforeInteractive">
++          {`(function () {
++        try {
++          var d = document.documentElement;
++          var t = localStorage.getItem('theme');
++          var m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
++          var theme = (t === 'dark' || t === 'light') ? t : m;
++          d.classList.toggle('dark', theme === 'dark');
++          d.style.colorScheme = theme;
++        } catch (e) {}
++      })();`}
++        </Script>
+       </head>
+       <body className={`${geistMono.variable} antialiased`}>
+         <Starfield />
+         <Header />
+         <main>{children}</main>
+*** End Patch
+```
+
 ---
 
 Tool use: **todo_write**
@@ -270,9 +309,73 @@ Read file: src/app/_components/ui/ThemeToggle.tsx
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/ThemeToggle.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/ThemeToggle.tsx
+@@
+-function getInitialTheme(): Theme {
+-  if (typeof window === "undefined") return "light";
+-  const stored = window.localStorage.getItem(STORAGE_KEY);
+-  if (stored === "light" || stored === "dark") return stored;
+-  // fallback: default to light; change to OS preference if you prefer:
+-  // return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+-  return "light";
+-}
++function getInitialTheme(): Theme {
++  if (typeof window === "undefined") return "light";
++  const stored = window.localStorage.getItem(STORAGE_KEY);
++  if (stored === "light" || stored === "dark") return stored;
++  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
++}
+@@
+-function applyTheme(theme: Theme) {
+-  const root = document.documentElement;
+-  root.classList.toggle("dark", theme === "dark");
+-}
++function applyTheme(theme: Theme) {
++  const root = document.documentElement;
++  root.classList.toggle("dark", theme === "dark");
++  root.style.colorScheme = theme;
++}
+@@
+-    } else {
+-      // Fallback
+-      setTheme(next);
+-    }
++    } else {
++      // Fallback with smooth CSS transition support
++      const root = document.documentElement;
++      root.classList.add("changing-theme");
++      applyTheme(next);
++      window.localStorage.setItem(STORAGE_KEY, next);
++      setTheme(next);
++      window.setTimeout(() => root.classList.remove("changing-theme"), 450);
++    }
+   };
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `src/app/layout.tsx`
+- `src/app/_components/ui/ThemeToggle.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -404,13 +507,129 @@ I’m going to render the correct theme on the server using a cookie, then updat
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/layout.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/layout.tsx
+@@
+ import Footer, { type FooterLink } from "./_components/ui/Footer";
+ import Starfield from "./_components/ui/Starfield";
+ import Script from "next/script";
++import { cookies } from "next/headers";
+@@
+ export default function RootLayout({
+   children,
+ }: Readonly<{
+   children: React.ReactNode;
+ }>) {
++  const themeCookie = cookies().get("theme")?.value;
++  const initialTheme = themeCookie === "dark" ? "dark" : themeCookie === "light" ? "light" : undefined;
+   const footerLinks: FooterLink[] = [
+@@
+-  return (
+-    <html suppressHydrationWarning>
++  return (
++    <html suppressHydrationWarning className={initialTheme === "dark" ? "dark" : undefined}>
+       <head>
+         <link href="/favicon.ico" rel="icon" sizes="32x32" />
+         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+         <Script id="theme-init" strategy="beforeInteractive">
+-          {`(function () {
+-        try {
+-          var d = document.documentElement;
+-          var t = localStorage.getItem('theme');
+-          var m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+-          var theme = (t === 'dark' || t === 'light') ? t : m;
+-          d.classList.toggle('dark', theme === 'dark');
+-          d.style.colorScheme = theme;
+-        } catch (e) {}
+-      })();`}
++          {`(function () {
++            try {
++              var d = document.documentElement;
++              var getCookie = function(name){
++                var match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
++                return match ? decodeURIComponent(match[1]) : null;
++              };
++              var c = getCookie('theme');
++              var t = localStorage.getItem('theme');
++              var m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
++              var theme = (c === 'dark' || c === 'light') ? c : ((t === 'dark' || t === 'light') ? t : m);
++              d.classList.toggle('dark', theme === 'dark');
++              d.style.colorScheme = theme;
++            } catch (e) {}
++          })();`}
+         </Script>
+       </head>
+       <body className={`${geistMono.variable} antialiased`}>
+         <Starfield />
+         <Header />
+*** End Patch
+```
+
 ---
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/ThemeToggle.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/ThemeToggle.tsx
+@@
+   const toggleTheme = (next: Theme) => {
+@@
+-    if (document.startViewTransition && !reduceMotion) {
++    if (document.startViewTransition && !reduceMotion) {
+       document.startViewTransition(() => {
+         // Apply DOM change inside the callback so the browser snapshots properly
+         applyTheme(next);
+         window.localStorage.setItem(STORAGE_KEY, next);
++        document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
+         setTheme(next);
+       });
+     } else {
+       // Fallback with smooth CSS transition support
+       const root = document.documentElement;
+       root.classList.add("changing-theme");
+       applyTheme(next);
+       window.localStorage.setItem(STORAGE_KEY, next);
++      document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
+       setTheme(next);
+       window.setTimeout(() => root.classList.remove("changing-theme"), 450);
+     }
+   };
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `src/app/layout.tsx`
+- `src/app/_components/ui/ThemeToggle.tsx`
+
+Lint results
+
+Lint errors for `src/app/layout.tsx`
+
+
+| Message | Range | Severity |
+|-------|-------|----------|
+| Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'. | 26:33-26:36 | DIAGNOSTIC_SEVERITY_ERROR |
+
+
+</details>
 
 ---
 
@@ -530,9 +749,43 @@ I'm going to make the layout async and await the cookies API so the server can r
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/layout.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/layout.tsx
+@@
+-export default function RootLayout({
++export default async function RootLayout({
+   children,
+ }: Readonly<{
+   children: React.ReactNode;
+ }>) {
+-  const themeCookie = cookies().get("theme")?.value;
++  const cookieStore = await cookies();
++  const themeCookie = cookieStore.get("theme")?.value;
+   const initialTheme = themeCookie === "dark" ? "dark" : themeCookie === "light" ? "light" : undefined;
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/layout.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -645,9 +898,62 @@ Just to clarify, the file currently shows two spaces for each indent, and I’ll
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/Starfield.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/Starfield.tsx
+@@
+-import { useStarfield } from "@/app/_hooks/useStarfield";
++import { useStarfield } from "@/app/_hooks/useStarfield";
+@@
+ export default function Starfield() {
+-  const { isDarkMode, mounted } = useStarfield();
+-
+-  // Don't render anything until mounted to avoid hydration mismatch
+-  if (!mounted) {
+-    return (
+-      <div 
+-        className="starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden opacity-0"
+-        aria-hidden="true"
+-      />
+-    );
+-  }
++  useStarfield();
+ 
+   return (
+     <div 
+-      className={`starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden transition-opacity duration-400 ease-out ${
+-        isDarkMode ? 'opacity-100' : 'opacity-0'
+-      }`}
++      className={"starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden transition-opacity duration-400 ease-out dark:opacity-100 opacity-0"}
+       aria-hidden="true"
+     >
+       {/* Layer 1: Far stars (small, dim) */}
+       <div className="starfield-layer-1 absolute inset-0" />
+       
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/Starfield.tsx`
+- `src/app/_hooks/useStarfield.ts`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -714,9 +1020,46 @@ I'm going to update the Starfield component to render hidden on SSR and fade in 
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/Starfield.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/Starfield.tsx
+@@
+ export default function Starfield() {
+-  useStarfield();
++  const { isDarkMode, mounted } = useStarfield();
+ 
+   return (
+     <div 
+-      className={"starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden transition-opacity duration-400 ease-out dark:opacity-100 opacity-0"}
++      className={
++        "starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden transition-opacity duration-400 ease-out motion-reduce:transition-none " +
++        (mounted && isDarkMode ? "opacity-100" : "opacity-0")
++      }
+       aria-hidden="true"
+     >
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/Starfield.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -762,9 +1105,42 @@ I'll slow the fade-in by increasing the transition duration to 1000ms and using 
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/Starfield.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/Starfield.tsx
+@@
+   return (
+     <div 
+       className={
+-        "starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden transition-opacity duration-400 ease-out motion-reduce:transition-none " +
++        "starfield-container fixed inset-0 pointer-events-none z-[-1] overflow-hidden transition-opacity duration-1000 ease-in-out motion-reduce:transition-none " +
+         (mounted && isDarkMode ? "opacity-100" : "opacity-0")
+       }
+       aria-hidden="true"
+     >
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/Starfield.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -797,6 +1173,21 @@ I'll scan `Header.tsx` to see how `ThemeToggle` is used and then implement updat
 ---
 
 Tool use: **grep**
+
+<details>
+<summary>Grep for "ThemeToggle" in "src" • 3 matches</summary>
+
+Output mode: content
+
+
+| Content | Line |
+|------|------|
+| `export default function ThemeToggle(\{ className \}: \{ className?: string \}) \{` | L22 |
+| `import ThemeToggle from "./ThemeToggle";` | L2 |
+| `<ThemeToggle className="rounded-full" />` | L37 |
+
+
+</details>
 
 ---
 
@@ -882,6 +1273,35 @@ I'll update `Header.tsx` to pass the initial theme from cookies to `ThemeToggle`
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/Header.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/Header.tsx
+@@
+-import Link from "next/link";
+-import ThemeToggle from "./ThemeToggle";
++import Link from "next/link";
++import ThemeToggle from "./ThemeToggle";
++import { cookies } from "next/headers";
+@@
+-export default function Header() {
+-  return (
++export default function Header() {
++  const themeCookie = cookies().get("theme")?.value;
++  const initialTheme = themeCookie === "dark" || themeCookie === "light" ? themeCookie : undefined;
++  return (
+@@
+-        <div className="px-2">
+-          <ThemeToggle className="rounded-full" />
++        <div className="px-2">
++          <ThemeToggle className="rounded-full" initialTheme={initialTheme} />
+         </div>
+*** End Patch
+```
+
 ---
 
 Tool use: **read_file**
@@ -935,13 +1355,192 @@ Next, I’ll create the new `FadeImage.tsx` component and patch `BlogCard.tsx` t
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/ThemeToggle.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/ThemeToggle.tsx
+@@
+ "use client";
+ 
+-import { useEffect, useState } from "react";
++import { useEffect, useState } from "react";
+@@
+-type Theme = "light" | "dark";
+-
+-const STORAGE_KEY = "theme";
+-
+-function getInitialTheme(): Theme {
+-  if (typeof window === "undefined") return "light";
+-  const stored = window.localStorage.getItem(STORAGE_KEY);
+-  if (stored === "light" || stored === "dark") return stored;
+-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+-}
++type Theme = "light" | "dark";
+@@
+ function applyTheme(theme: Theme) {
+   const root = document.documentElement;
+   root.classList.toggle("dark", theme === "dark");
+   root.style.colorScheme = theme;
+ }
+ 
+-export default function ThemeToggle({ className }: { className?: string }) {
+-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+-  const isDark = theme === "dark";
+-  const [mounted, setMounted] = useState(false);
+-
+-  useEffect(() => {
+-    applyTheme(theme);
+-    window.localStorage.setItem(STORAGE_KEY, theme);
+-  }, [theme]);
+-
+-  useEffect(() => {
+-    setMounted(true);
+-  }, []);
++export default function ThemeToggle({ className, initialTheme }: { className?: string; initialTheme?: Theme }) {
++  const [theme, setTheme] = useState<Theme>(() => {
++    if (typeof document === "undefined") return initialTheme ?? "light";
++    return document.documentElement.classList.contains("dark") ? "dark" : "light";
++  });
++  const isDark = theme === "dark";
++
++  // Sync internal state to actual DOM class on mount without changing visuals (which are CSS-driven)
++  useEffect(() => {
++    if (typeof document === "undefined") return;
++    setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
++  }, []);
+@@
+-    if (document.startViewTransition && !reduceMotion) {
++    if (document.startViewTransition && !reduceMotion) {
+       document.startViewTransition(() => {
+         // Apply DOM change inside the callback so the browser snapshots properly
+         applyTheme(next);
+-        window.localStorage.setItem(STORAGE_KEY, next);
+         document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
+         setTheme(next);
+       });
+     } else {
+       // Fallback with smooth CSS transition support
+       const root = document.documentElement;
+       root.classList.add("changing-theme");
+       applyTheme(next);
+-      window.localStorage.setItem(STORAGE_KEY, next);
+       document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
+       setTheme(next);
+       window.setTimeout(() => root.classList.remove("changing-theme"), 450);
+     }
+   };
+ 
+-  // Avoid hydration mismatch: render a neutral shell until mounted
+-  if (!mounted) {
+-    return (
+-      <span
+-        aria-hidden
+-        className={
+-          "inline-flex h-6 w-11 items-center rounded-full border border-border bg-muted/60 p-1 shadow-inner " +
+-          (className ? " " + className : "")
+-        }
+-      />
+-    );
+-  }
+-
+   return (
+     <button
+       type="button"
+       role="switch"
+       aria-checked={isDark}
+       onClick={() => toggleTheme(isDark ? "light" : "dark")}
+       onKeyDown={(e) => {
+         if (e.key === " " || e.key === "Enter") {
+           e.preventDefault();
+           toggleTheme(isDark ? "light" : "dark");
+         }
+       }}
+       className={
+         "cursor-pointer group inline-flex items-center rounded-full border border-border bg-card p-1 text-foreground shadow-sm transition-colors motion-reduce:transition-none hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" +
+         (className ? " " + className : "")
+       }
+       aria-label="Toggle dark mode"
+       title="Toggle dark mode"
+     >
+       <span className="sr-only">Toggle dark mode</span>
+       <span
+-        className={
+-          "relative inline-flex h-6 w-11 items-center rounded-full border border-border shadow-inner transition-colors motion-reduce:transition-none " +
+-          (isDark ? "bg-accent/30" : "bg-muted")
+-        }
++        className={"relative inline-flex h-6 w-11 items-center rounded-full border border-border shadow-inner transition-colors motion-reduce:transition-none bg-muted dark:bg-accent/30"}
+       >
+         {/* Icons for context */}
+         <span className="pointer-events-none absolute left-1 text-[10px] leading-none text-muted-foreground">☀️</span>
+         <span className="pointer-events-none absolute right-1 text-[10px] leading-none text-muted-foreground">🌙</span>
+         {/* Thumb */}
+         <span
+-          className={
+-            "inline-block h-5 w-5 transform rounded-full bg-card ring-1 ring-border shadow-sm transition-transform motion-reduce:transition-none " +
+-            (isDark ? "translate-x-5" : "translate-x-0.5")
+-          }
++          className={"inline-block h-5 w-5 transform rounded-full bg-card ring-1 ring-border shadow-sm transition-transform motion-reduce:transition-none translate-x-0.5 dark:translate-x-5"}
+         />
+       </span>
+     </button>
+   );
+ }
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
 
+<details>
+          <summary>Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/Header.tsx`
+- `src/app/_components/ui/ThemeToggle.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
+
 ---
 
 Tool use: **apply_patch**
+
+<details>
+        <summary>Apply patch for src/app/layout.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/layout.tsx
+@@
+         <Script id="theme-init" strategy="beforeInteractive">
+           {`(function () {
+             try {
+               var d = document.documentElement;
+               var getCookie = function(name){
+                 var match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
+                 return match ? decodeURIComponent(match[1]) : null;
+               };
+               var c = getCookie('theme');
+-              var t = localStorage.getItem('theme');
+               var m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+-              var theme = (c === 'dark' || c === 'light') ? c : ((t === 'dark' || t === 'light') ? t : m);
++              var theme = (c === 'dark' || c === 'light') ? c : m;
+               d.classList.toggle('dark', theme === 'dark');
+               d.style.colorScheme = theme;
+             } catch (e) {}
+           })();`}
+         </Script>
+*** End Patch
+```
 
 ---
 
@@ -953,9 +1552,63 @@ Read file: src/app/_components/ui/BlogCard.tsx
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCard.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCard.tsx
+@@
+-import Image from "next/image";
++import Image from "next/image";
++import { useEffect, useState } from "react";
+@@
+-export default function BlogCard({ post }: BlogCardProps) {
++export default function BlogCard({ post }: BlogCardProps) {
++  const [imgVisible, setImgVisible] = useState(false);
++  useEffect(() => {
++    const id = window.setTimeout(() => setImgVisible(true), 0);
++    return () => window.clearTimeout(id);
++  }, []);
+   return (
+@@
+-      <div className="relative aspect-[16/9] bg-zinc-900">
++      <div className="relative aspect-[16/9] bg-zinc-900">
+         {post.image ? (
+           <Image
+             src={post.image}
+             alt={post.imageAlt ?? post.title}
+             fill
+             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+-            className="object-cover"
++            className={`object-cover transition-opacity duration-700 ease-in-out ${imgVisible ? "opacity-100" : "opacity-0"}`}
+             priority={false}
+           />
+         ) : null}
+       </div>
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 4 files</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/Header.tsx`
+- `src/app/_components/ui/ThemeToggle.tsx`
+- `src/app/_components/ui/BlogCard.tsx`
+- `src/app/layout.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1052,9 +1705,49 @@ I’ll fix the cookies usage in `Header.tsx` by making it async and awaiting `co
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/Header.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/Header.tsx
+@@
+-import Link from "next/link";
+-import ThemeToggle from "./ThemeToggle";
+-import { cookies } from "next/headers";
++import Link from "next/link";
++import ThemeToggle from "./ThemeToggle";
++import { cookies } from "next/headers";
+@@
+-export default function Header() {
+-  const themeCookie = cookies().get("theme")?.value;
+-  const initialTheme = themeCookie === "dark" || themeCookie === "light" ? themeCookie : undefined;
+-  return (
++export default async function Header() {
++  const cookieStore = await cookies();
++  const themeCookie = cookieStore.get("theme")?.value;
++  const initialTheme = themeCookie === "dark" || themeCookie === "light" ? themeCookie : undefined;
++  return (
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/Header.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1102,9 +1795,66 @@ I’m going to remove client hooks from `BlogCard.tsx` and switch the image to a
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCard.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCard.tsx
+@@
+-import { useEffect, useState } from "react";
+@@
+-export default function BlogCard({ post }: BlogCardProps) {
+-  const [imgVisible, setImgVisible] = useState(false);
+-  useEffect(() => {
+-    const id = window.setTimeout(() => setImgVisible(true), 0);
+-    return () => window.clearTimeout(id);
+-  }, []);
+-  return (
++export default function BlogCard({ post }: BlogCardProps) {
++  return (
+@@
+-        {post.image ? (
+-          <Image
+-            src={post.image}
+-            alt={post.imageAlt ?? post.title}
+-            fill
+-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+-            className={`object-cover transition-opacity duration-700 ease-in-out ${imgVisible ? "opacity-100" : "opacity-0"}`}
+-            priority={false}
+-          />
+-        ) : null}
++        {post.image ? (
++          <Image
++            src={post.image}
++            alt={post.imageAlt ?? post.title}
++            fill
++            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
++            className="object-cover opacity-0 motion-safe:animate-fade-in motion-reduce:opacity-100"
++            style={{ animationDuration: "700ms" }}
++            priority={false}
++          />
++        ) : null}
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCard.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1149,9 +1899,51 @@ I’m going to change the BlogCard image to use the correct tailwind-animated cl
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCard.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCard.tsx
+@@
+-          <Image
+-            src={post.image}
+-            alt={post.imageAlt ?? post.title}
+-            fill
+-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+-            className="object-cover opacity-0 motion-safe:animate-fade-in motion-reduce:opacity-100"
+-            style={{ animationDuration: "700ms" }}
+-            priority={false}
+-          />
++          <Image
++            src={post.image}
++            alt={post.imageAlt ?? post.title}
++            fill
++            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
++            className="object-cover motion-safe:animate-fade motion-reduce:opacity-100"
++            style={{ animationDuration: "700ms" }}
++            priority={false}
++          />
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCard.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1214,13 +2006,183 @@ I’m going to refactor `BlogCard` to render a client component that waits for t
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCard.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCard.tsx
+@@
+-import Link from "next/link";
+-import Image from "next/image";
++import Link from "next/link";
++import BlogCardClient from "./BlogCardClient";
+@@
+-interface BlogPost {
++interface BlogPost {
+   _meta: {
+     filePath: string;
+     path: string;
+   };
+   title: string;
+   date: string;
+   description?: string;
+   image?: string;
+   imageAlt?: string;
+   tags?: string[];
+   draft?: boolean;
+ }
+@@
+-export default function BlogCard({ post }: BlogCardProps) {
+-  return (
+-    <Link
+-      href={`/${post._meta.path}`}
+-      className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
+-    >
+-      {/* Image */}
+-      <div className="relative aspect-[16/9] bg-zinc-900">
+-        {post.image ? (
+-          <Image
+-            src={post.image}
+-            alt={post.imageAlt ?? post.title}
+-            fill
+-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+-            className="object-cover motion-safe:animate-fade motion-reduce:opacity-100"
+-            style={{ animationDuration: "700ms" }}
+-            priority={false}
+-          />
+-        ) : null}
+-      </div>
+-
+-      {/* Meta */}
+-      <div className="p-4">
+-        <h2 className="text-lg font-semibold text-foreground">
+-          {post.title}
+-        </h2>
+-        <div className="text-sm text-accent-foreground dark:text-accent">
+-          {new Date(post.date).toLocaleDateString()}
+-          {post.tags?.length ? ` · ${post.tags.join(" · ")}` : ""}
+-        </div>
+-        <p className="mt-2 text-zinc-600 dark:text-zinc-300 line-clamp-3">
+-          {post.description}
+-        </p>
+-      </div>
+-    </Link>
+-  );
+-}
++export default function BlogCard({ post }: BlogCardProps) {
++  return <BlogCardClient post={post} />;
++}
+*** End Patch
+```
+
 ---
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCardClient.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Add File: src/app/_components/ui/BlogCardClient.tsx
++"use client";
++
++import Link from "next/link";
++import Image from "next/image";
++import { useEffect, useState } from "react";
++
++interface BlogPost {
++  _meta: {
++    filePath: string;
++    path: string;
++  };
++  title: string;
++  date: string;
++  description?: string;
++  image?: string;
++  imageAlt?: string;
++  tags?: string[];
++  draft?: boolean;
++}
++
++export default function BlogCardClient({ post }: { post: BlogPost }) {
++  const [loaded, setLoaded] = useState(false);
++
++  return (
++    <div
++      className={
++        "transition-opacity duration-700 ease-in-out motion-reduce:transition-none " +
++        (loaded ? "opacity-100" : "opacity-0")
++      }
++    >
++      <Link
++        href={`/${post._meta.path}`}
++        className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
++      >
++        {/* Image */}
++        <div className="relative aspect-[16/9] bg-zinc-900">
++          {post.image ? (
++            <Image
++              src={post.image}
++              alt={post.imageAlt ?? post.title}
++              fill
++              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
++              className="object-cover"
++              priority={false}
++              onLoad={() => setLoaded(true)}
++              onError={() => setLoaded(true)}
++            />
++          ) : (
++            // If no image, show card immediately
++            <span className="sr-only">No image</span>
++          )}
++        </div>
++
++        {/* Meta */}
++        <div className="p-4">
++          <h2 className="text-lg font-semibold text-foreground">{post.title}</h2>
++          <div className="text-sm text-accent-foreground dark:text-accent">
++            {new Date(post.date).toLocaleDateString()}
++            {post.tags?.length ? ` · ${post.tags.join(" · ")}` : ""}
++          </div>
++          <p className="mt-2 text-zinc-600 dark:text-zinc-300 line-clamp-3">{post.description}</p>
++        </div>
++      </Link>
++    </div>
++  );
++}
++
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCard.tsx`
+- `src/app/_components/ui/BlogCardClient.tsx`
+
+Lint results
+
+Lint errors for `src/app/_components/ui/BlogCard.tsx`
+
+
+| Message | Range | Severity |
+|-------|-------|----------|
+| 'Link' is defined but never used. | 1:8-1:12 | DIAGNOSTIC_SEVERITY_WARNING |
+| Cannot find module './BlogCardClient' or its corresponding type declarations. | 2:28-2:46 | DIAGNOSTIC_SEVERITY_ERROR |
+| 'Link' is declared but its value is never read. | 1:1-1:30 | DIAGNOSTIC_SEVERITY_HINT |
+
+
+</details>
 
 ---
 
@@ -1308,9 +2270,79 @@ I’ll fix `BlogCardClient` so the full card fades in only after the image fully
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCardClient.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCardClient.tsx
+@@
+-import { useEffect, useState } from "react";
++import { useEffect, useState } from "react";
+@@
+ export default function BlogCardClient({ post }: { post: BlogPost }) {
+   const [loaded, setLoaded] = useState(false);
++  useEffect(() => {
++    if (!post.image) setLoaded(true);
++  }, [post.image]);
+@@
+-      <Link
+-        href={`/${post._meta.path}`}
+-        className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
+-      >
++      <Link
++        href={`/${post._meta.path}`}
++        className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
++      >
+@@
+-          {post.image ? (
+-            <Image
+-              src={post.image}
+-              alt={post.imageAlt ?? post.title}
+-              fill
+-              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+-              className="object-cover"
+-              priority={false}
+-              onLoad={() => setLoaded(true)}
+-              onError={() => setLoaded(true)}
+-            />
+-          ) : (
++          {post.image ? (
++            <Image
++              src={post.image}
++              alt={post.imageAlt ?? post.title}
++              fill
++              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
++              className="object-cover"
++              priority={false}
++              onLoadingComplete={() => setLoaded(true)}
++              onError={() => setLoaded(true)}
++            />
++          ) : (
+             // If no image, show card immediately
+             <span className="sr-only">No image</span>
+           )}
+         </div>
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCardClient.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1398,13 +2430,68 @@ I’m fixing the BlogCard to preserve your exact classes. I’ll remove the extr
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCardClient.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCardClient.tsx
+@@
+   const [loaded, setLoaded] = useState(false);
+   useEffect(() => {
+     if (!post.image) setLoaded(true);
+   }, [post.image]);
+ 
+   return (
+-    <div
+-      className={
+-        "transition-opacity duration-700 ease-in-out motion-reduce:transition-none " +
+-        (loaded ? "opacity-100" : "opacity-0")
+-      }
+-    >
++    <div style={{ opacity: loaded ? 1 : 0, transition: "opacity 700ms ease-in-out" }}>
+       <Link
+         href={`/${post._meta.path}`}
+         className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
+       >
+*** End Patch
+```
+
 ---
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCard.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCard.tsx
+@@
+-import Link from "next/link";
+ import BlogCardClient from "./BlogCardClient";
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCard.tsx`
+- `src/app/_components/ui/BlogCardClient.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1454,9 +2541,56 @@ I’m moving the fade effect from the wrapper to the Link element with an inline
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCardClient.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCardClient.tsx
+@@
+ export default function BlogCardClient({ post }: { post: BlogPost }) {
+   const [loaded, setLoaded] = useState(false);
+   useEffect(() => {
+     if (!post.image) setLoaded(true);
+   }, [post.image]);
+ 
+   return (
+-    <div style={{ opacity: loaded ? 1 : 0, transition: "opacity 700ms ease-in-out" }}>
+-      <Link
+-        href={`/${post._meta.path}`}
+-        className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
+-      >
++    <Link
++      href={`/${post._meta.path}`}
++      className="group rounded-xl border border-zinc-800 overflow-hidden hover:bg-secondary/20 hover:border-secondary-dark dark:hover:border-secondary transition"
++      style={{ opacity: loaded ? 1 : 0, transition: "opacity 700ms ease-in-out" }}
++    >
+@@
+-      </Link>
+-    </div>
++    </Link>
+   );
+ }
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCardClient.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1557,9 +2691,57 @@ I’m going to fix the hydration mismatch by making the date formatting determin
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCardClient.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCardClient.tsx
+@@
+ interface BlogPost {
+@@
+ }
+ 
++function formatDate(dateStr: string): string {
++  const d = new Date(dateStr);
++  if (Number.isNaN(d.getTime())) return dateStr;
++  return d.toISOString().slice(0, 10);
++}
++
+ export default function BlogCardClient({ post }: { post: BlogPost }) {
+   const [loaded, setLoaded] = useState(false);
+   useEffect(() => {
+     if (!post.image) setLoaded(true);
+   }, [post.image]);
+@@
+-          <div className="text-sm text-accent-foreground dark:text-accent">
+-            {new Date(post.date).toLocaleDateString()}
+-            {post.tags?.length ? ` · ${post.tags.join(" · ")}` : ""}
+-          </div>
++          <div className="text-sm text-accent-foreground dark:text-accent">
++            {formatDate(post.date)}
++            {post.tags?.length ? ` · ${post.tags.join(" · ")}` : ""}
++          </div>
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCardClient.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1683,9 +2865,46 @@ I'll replace the deprecated onLoadingComplete in BlogCardClient's Image with onL
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCardClient.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCardClient.tsx
+@@
+           {post.image ? (
+             <Image
+               src={post.image}
+               alt={post.imageAlt ?? post.title}
+               fill
+               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+               className="object-cover"
+               priority={false}
+-              onLoadingComplete={() => setLoaded(true)}
++              onLoad={() => setLoaded(true)}
+               onError={() => setLoaded(true)}
+             />
+           ) : (
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCardClient.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1736,9 +2955,47 @@ I'll make the BlogCard smaller on mobile by adjusting padding and text sizes wit
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/_components/ui/BlogCardClient.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/_components/ui/BlogCardClient.tsx
+@@
+-        {/* Meta */}
+-        <div className="p-4">
+-          <h2 className="text-lg font-semibold text-foreground">{post.title}</h2>
+-          <div className="text-sm text-accent-foreground dark:text-accent">
++        {/* Meta */}
++        <div className="p-3 md:p-4">
++          <h2 className="text-base md:text-lg font-semibold text-foreground">{post.title}</h2>
++          <div className="text-xs md:text-sm text-accent-foreground dark:text-accent">
+             {formatDate(post.date)}
+             {post.tags?.length ? ` · ${post.tags.join(" · ")}` : ""}
+           </div>
+-          <p className="mt-2 text-zinc-600 dark:text-zinc-300 line-clamp-3">{post.description}</p>
++          <p className="mt-1.5 md:mt-2 text-sm md:text-base text-zinc-600 dark:text-zinc-300 line-clamp-3">{post.description}</p>
+         </div>
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/_components/ui/BlogCardClient.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1826,7 +3083,7 @@ I'll add base `mx-4` and reset it at `sm` with `sm:mx-0` on the grid container i
 
 ---
 
-Tool use: **apply_patch**
+The model made no changes to the file.
 
 ---
 
@@ -1838,9 +3095,39 @@ Read file: src/app/page.tsx
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/page.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/page.tsx
+@@
+-      <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-3">
++      <div className="mx-4 sm:mx-0 grid gap-6 sm:grid-cols-1 lg:grid-cols-3">
+         {posts.map((post) => (
+           <BlogCard key={post._meta.filePath} post={post} />
+         ))}
+       </div>
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 1 file</summary>
+      
+Lint paths:
+
+- `src/app/page.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
@@ -1929,13 +3216,75 @@ I'll move the inline theme initialization code into `scripts/init-theme.js` as a
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for scripts/init-theme.js</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: scripts/init-theme.js
++// Do not reference DOM during import; export the script as a string.
++const themeInitScript = `(function(){try{var d=document.documentElement;var m=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var match=document.cookie.match(/(?:^|; )theme=([^;]*)/);var c=match?decodeURIComponent(match[1]):null;var theme=(c==='dark'||c==='light')?c:m;d.classList.toggle('dark',theme==='dark');d.style.colorScheme=theme;}catch(e){}})();`;
++
++export default themeInitScript;
++
+*** End Patch
+```
+
 ---
 
 Tool use: **apply_patch**
 
+<details>
+        <summary>Apply patch for src/app/layout.tsx</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: src/app/layout.tsx
+@@
+ import Starfield from "./_components/ui/Starfield";
+ import Script from "next/script";
+ import { cookies } from "next/headers";
++import themeInitScript from "@/../scripts/init-theme.js";
+@@
+-        <Script id="theme-init" strategy="beforeInteractive">
+-          {`(function () {
+-            try {
+-              var d = document.documentElement;
+-              var getCookie = function(name){
+-                var match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
+-                return match ? decodeURIComponent(match[1]) : null;
+-              };
+-              var c = getCookie('theme');
+-              var m = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+-              var theme = (c === 'dark' || c === 'light') ? c : m;
+-              d.classList.toggle('dark', theme === 'dark');
+-              d.style.colorScheme = theme;
+-            } catch (e) {}
+-          })();`}
+-        </Script>
++        <Script id="theme-init" strategy="beforeInteractive">{themeInitScript}</Script>
+*** End Patch
+```
+
 ---
 
 Tool use: **read_lints**
+
+<details>
+          <summary>Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `src/app/layout.tsx`
+- `scripts/init-theme.js`
+
+Lint results
+
+
+**No lint errors found**
+</details>
 
 ---
 
