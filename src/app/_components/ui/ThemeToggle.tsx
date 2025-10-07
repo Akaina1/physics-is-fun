@@ -81,7 +81,7 @@ export default function ThemeToggle({
       }}
       style={{ viewTransitionName: 'theme-toggle' }}
       className={
-        'group border-border bg-card text-foreground hover:border-accent focus-visible:ring-ring inline-flex cursor-pointer items-center rounded-full border shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none motion-reduce:transition-none' +
+        'group bg-card text-foreground hover:border-accent focus-visible:ring-ring inline-flex cursor-pointer items-center rounded-full shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none motion-reduce:transition-none' +
         (className ? ' ' + className : '')
       }
       aria-label="Toggle dark mode"

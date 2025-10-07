@@ -250,10 +250,18 @@ body {
   }
 
   /* Exclude theme toggle from view transition fade effect */
+  html::view-transition-group(theme-toggle) {
+    animation-duration: 0s;
+  }
+
   html::view-transition-old(theme-toggle),
   html::view-transition-new(theme-toggle) {
     animation: none;
     mix-blend-mode: normal;
+  }
+
+  html::view-transition-old(theme-toggle) {
+    display: none;
   }
 }
 
