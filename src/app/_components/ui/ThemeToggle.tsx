@@ -90,26 +90,34 @@ export default function ThemeToggle({
       <span className="sr-only">Toggle dark mode</span>
       {/* Outer container for both layers */}
       <span className="relative inline-flex h-12 w-12">
-        {/* Static viewport window with cutout */}
-        <span
-          className={
-            'relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-b from-sky-100 to-blue-200 shadow-inner transition-all duration-500 motion-reduce:transition-none dark:from-slate-800 dark:to-slate-900'
-          }
-        >
-          {/* Circular cutout to see through */}
+        {/* Static viewport window - transparent now, just for shadow/depth */}
+        <span className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full">
+          {/* Circular viewport cutout to see through */}
           <span className="relative z-20 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full">
-            {/* Rotating dial positioned to show through the cutout */}
+            {/* Rotating dial with split colored background */}
             <span
-              className={
-                'theme-dial absolute top-4.5 left-1/2 h-20 w-20 -translate-x-1/2 -translate-y-[7px] transition-transform duration-700 ease-in-out motion-reduce:transition-none'
-              }
+              className="theme-dial absolute top-1 left-1/2 h-28 w-28 -translate-x-1/2 -translate-y-[7px] transition-transform duration-700 ease-in-out motion-reduce:transition-none"
               style={{ transform: `rotate(${rotation}deg)` }}
             >
+              {/* Split background circle - top half blue (sun), bottom half slate (moon) */}
+              <span className="absolute inset-0 overflow-hidden rounded-full">
+                {/* Top half - blue gradient for sun */}
+                <span
+                  className="absolute top-0 left-0 h-1/2 w-full bg-gradient-to-b from-sky-100 to-blue-200"
+                  style={{ transformOrigin: 'bottom center' }}
+                />
+                {/* Bottom half - slate gradient for moon */}
+                <span
+                  className="absolute bottom-0 left-0 h-1/2 w-full bg-gradient-to-b from-slate-800 to-slate-900"
+                  style={{ transformOrigin: 'top center' }}
+                />
+              </span>
+
               {/* Sun - at top of dial, centered in viewport */}
-              <span className="absolute top-0 left-1/2 -translate-x-1/2">
+              <span className="absolute top-4 left-1/2 z-10 -translate-x-1/2">
                 <svg
                   className="h-6 w-6 text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.6)] transition-transform duration-700 ease-in-out motion-reduce:transition-none"
-                  style={{ transform: `rotate(${rotation}deg)` }}
+                  style={{ transform: `rotate(${-rotation}deg)` }}
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,10 +134,10 @@ export default function ThemeToggle({
                 </svg>
               </span>
               {/* Moon - at bottom of dial */}
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2">
+              <span className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2">
                 <svg
                   className="h-6 w-6 text-slate-200 drop-shadow-[0_0_8px_rgba(226,232,240,0.4)] transition-transform duration-700 ease-in-out motion-reduce:transition-none"
-                  style={{ transform: `rotate(${rotation}deg)` }}
+                  style={{ transform: `rotate(${-rotation}deg)` }}
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
