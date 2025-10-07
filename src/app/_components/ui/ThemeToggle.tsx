@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 
 type Theme = 'light' | 'dark';
 
@@ -23,14 +24,20 @@ export default function ThemeToggle({
       ? 'dark'
       : 'light';
   });
+  const [rotation, setRotation] = useState<number>(() => {
+    if (typeof document === 'undefined') {
+      return (initialTheme ?? 'light') === 'dark' ? 180 : 0;
+    }
+    return document.documentElement.classList.contains('dark') ? 180 : 0;
+  });
   const isDark = theme === 'dark';
 
-  // Sync internal state to actual DOM class on mount without changing visuals (which are CSS-driven)
+  // Sync internal state to actual DOM class on mount without changing visuals
   useEffect(() => {
     if (typeof document === 'undefined') return;
-    setTheme(
-      document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-    );
+    const isDarkNow = document.documentElement.classList.contains('dark');
+    setTheme(isDarkNow ? 'dark' : 'light');
+    setRotation(isDarkNow ? 180 : 0);
   }, []);
 
   const toggleTheme = (next: Theme) => {
@@ -44,20 +51,19 @@ export default function ThemeToggle({
     ).matches;
 
     if (document.startViewTransition && !reduceMotion) {
-      document.startViewTransition(() => {
+      const vt = document.startViewTransition(() => {
         // Apply DOM change inside the callback so the browser snapshots properly
         applyTheme(next);
         document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
-        setTheme(next);
+        flushSync(() => {
+          setTheme(next);
+          setRotation((r) => r + 180);
+        });
       });
-    } else {
-      // Fallback with smooth CSS transition support
-      const root = document.documentElement;
-      root.classList.add('changing-theme');
-      applyTheme(next);
-      document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
-      setTheme(next);
-      window.setTimeout(() => root.classList.remove('changing-theme'), 450);
+      document.documentElement.classList.add('vt-active');
+      vt.finished.finally(() => {
+        document.documentElement.classList.remove('vt-active');
+      });
     }
   };
 
@@ -73,32 +79,67 @@ export default function ThemeToggle({
           toggleTheme(isDark ? 'light' : 'dark');
         }
       }}
+      style={{ viewTransitionName: 'theme-toggle' }}
       className={
-        'group border-border bg-card text-foreground hover:border-accent focus-visible:ring-ring inline-flex cursor-pointer items-center rounded-full border p-1 shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none motion-reduce:transition-none' +
+        'group border-border bg-card text-foreground hover:border-accent focus-visible:ring-ring inline-flex cursor-pointer items-center rounded-full border shadow-sm transition-colors focus-visible:ring-2 focus-visible:outline-none motion-reduce:transition-none' +
         (className ? ' ' + className : '')
       }
       aria-label="Toggle dark mode"
       title="Toggle dark mode"
     >
       <span className="sr-only">Toggle dark mode</span>
-      <span
-        className={
-          'border-border bg-muted dark:bg-accent/30 relative inline-flex h-6 w-11 items-center rounded-full border shadow-inner transition-colors motion-reduce:transition-none'
-        }
-      >
-        {/* Icons for context */}
-        <span className="text-muted-foreground pointer-events-none absolute left-1 text-[10px] leading-none">
-          ☀️
-        </span>
-        <span className="text-muted-foreground pointer-events-none absolute right-1 text-[10px] leading-none">
-          🌙
-        </span>
-        {/* Thumb */}
+      {/* Outer container for both layers */}
+      <span className="relative inline-flex h-12 w-12">
+        {/* Static viewport window with cutout */}
         <span
           className={
-            'bg-card ring-border inline-block h-5 w-5 translate-x-0.5 transform rounded-full shadow-sm ring-1 transition-transform motion-reduce:transition-none dark:translate-x-5'
+            'relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-b from-sky-100 to-blue-200 shadow-inner transition-all duration-500 motion-reduce:transition-none dark:from-slate-800 dark:to-slate-900'
           }
-        />
+        >
+          {/* Circular cutout to see through */}
+          <span className="relative z-20 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full">
+            {/* Rotating dial positioned to show through the cutout */}
+            <span
+              className={
+                'theme-dial absolute top-4.5 left-1/2 h-20 w-20 -translate-x-1/2 -translate-y-[7px] transition-transform duration-700 ease-in-out motion-reduce:transition-none'
+              }
+              style={{ transform: `rotate(${rotation}deg)` }}
+            >
+              {/* Sun - at top of dial, centered in viewport */}
+              <span className="absolute top-0 left-1/2 -translate-x-1/2">
+                <svg
+                  className="h-6 w-6 text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.6)] transition-transform duration-700 ease-in-out motion-reduce:transition-none"
+                  style={{ transform: `rotate(${rotation}deg)` }}
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"
+                  />
+                </svg>
+              </span>
+              {/* Moon - at bottom of dial */}
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2">
+                <svg
+                  className="h-6 w-6 text-slate-200 drop-shadow-[0_0_8px_rgba(226,232,240,0.4)] transition-transform duration-700 ease-in-out motion-reduce:transition-none"
+                  style={{ transform: `rotate(${rotation}deg)` }}
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05z" />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </span>
       </span>
     </button>
   );

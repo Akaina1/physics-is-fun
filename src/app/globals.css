@@ -113,24 +113,6 @@ body {
   font-family: monospace;
 }
 
-/* Smooth theme switching – active only during a toggle */
-.changing-theme,
-.changing-theme * {
-  transition:
-    background-color 400ms ease,
-    color 400ms ease,
-    border-color 400ms ease,
-    fill 400ms ease,
-    stroke 400ms ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .changing-theme,
-  .changing-theme * {
-    transition: none !important;
-  }
-}
-
 /* High-performance CSS-only starfield */
 .starfield-layer-1 {
   background-image: var(
@@ -248,11 +230,6 @@ body {
   }
 }
 
-/* Smooth starfield transitions during theme changes */
-.changing-theme .starfield-container {
-  transition: opacity 400ms ease !important;
-}
-
 /* Disable animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .starfield-layer-1,
@@ -268,8 +245,15 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   html::view-transition-old(root),
   html::view-transition-new(root) {
-    animation-duration: 220ms;
+    animation-duration: 1000ms;
     animation-timing-function: ease-in-out;
+  }
+
+  /* Exclude theme toggle from view transition fade effect */
+  html::view-transition-old(theme-toggle),
+  html::view-transition-new(theme-toggle) {
+    animation: none;
+    mix-blend-mode: normal;
   }
 }
 
