@@ -36,7 +36,7 @@ function DoubleSlitFraunhofer() {
       // Dynamic import of the wasm-pack JS wrapper
       // Tip: If TS complains about types, we can cast to any.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const mod: any = await import('../../../../kernels/double_slit/pkg');
+      const mod: any = await import('../../../../../kernels/double_slit/pkg');
 
       // Some wasm-pack setups require calling the init function; others auto-init.
       // If the module exposes a default (init), call it once.
