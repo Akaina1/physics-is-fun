@@ -65,7 +65,7 @@ export default async function RootLayout({
       <body className={`${geistMono.variable} antialiased`}>
         <Starfield />
         <Header />
-        <main>{children}</main>
+        <main className="mt-6 mb-12">{children}</main>
         <SolarSystemOverlay />
         <Footer links={footerLinks} />
       </body>
