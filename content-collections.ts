@@ -28,11 +28,12 @@ const posts = defineCollection({
         [
           rehypePrettyCode,
           {
-            themes: {
-              light: 'github-light', // good for light mode
-              dark: 'github-dark', // good for dark mode
+            theme: {
+              light: 'github-light',
+              dark: 'github-dark',
             },
-            keepBackground: false, // let Tailwind bg utilities control backgrounds
+            keepBackground: false,
+            defaultLang: 'plaintext',
           },
         ],
       ],

@@ -22,9 +22,10 @@
 
   --accent: #99f6e4; /* neutrino teal */
   --accent-foreground: #779ea3;
+  --accent-code: #03a927;
 
-  --muted: #f1f5f9;
-  --muted-foreground: #556985;
+  --muted: #d1d8de;
+  --muted-foreground: #293444;
 
   --destructive: #fecaca;
   --destructive-foreground: #7f1d1d;
@@ -385,7 +386,7 @@ body {
 .mdx-p {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  line-height: 1.75;
+  line-height: 2;
   color: var(--muted-foreground);
 }
 
@@ -401,12 +402,12 @@ body {
 
 .mdx-code {
   border-radius: 0.25rem;
-  padding-left: 0.375rem;
-  padding-right: 0.375rem;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
+  padding: 0.125rem 0.375rem;
+  line-height: 1.5;
+  color: var(--accent-code);
   background-color: var(--muted);
-  color: var(--foreground);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .mdx-pre {
@@ -416,6 +417,25 @@ body {
   background-color: var(--card);
   color: var(--foreground);
   border: 1px solid var(--border);
+}
+
+.mdx-pre .mdx-code {
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+/* Rehype Pretty Code theme switching */
+.mdx-pre code[data-theme*=' '],
+.mdx-pre code[data-theme*=' '] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+.dark .mdx-pre code[data-theme*=' '],
+.dark .mdx-pre code[data-theme*=' '] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
 }
 
 .mdx-ul {
