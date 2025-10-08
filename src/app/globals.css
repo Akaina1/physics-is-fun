@@ -17,7 +17,7 @@
   --primary-foreground: #0b1220;
 
   --secondary: #c4b5fd; /* quantum purple */
-  --secondary-dark: #8b6ffa; /* neutrino teal */
+  --secondary-dark: #8b6ffa; /* deeper purple */
   --secondary-foreground: #0b1220;
 
   --accent: #99f6e4; /* neutrino teal */
@@ -102,9 +102,6 @@
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
-
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 body {
@@ -239,6 +236,101 @@ body {
   }
   .starfield-container {
     transition: none !important;
+  }
+}
+
+/* Solar system overlay (light mode) */
+.solar-overlay {
+  transform: scale(var(--solar-scale, 1));
+  transform-origin: 50% 50%;
+}
+
+.solar-overlay[data-paused='true'] * {
+  animation-play-state: paused !important;
+}
+
+.solar-sun {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + var(--solar-offset-y, 0px));
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 40% 40%,
+    #ffb74d 0%,
+    #f97316 60%,
+    #ef4444 100%
+  );
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.15);
+  animation: solar-pulse 6s ease-in-out infinite;
+}
+
+.solar-orbit {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + var(--solar-offset-y, 0px));
+  transform: translate(-50%, -50%);
+  width: var(--d);
+  height: var(--d);
+}
+
+.solar-scale {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  transform: scaleY(var(--e, 0.72));
+}
+
+.solar-orbit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: var(--stroke, 1px) dashed rgba(0, 0, 0, 0.28);
+}
+
+.solar-orbit-rot {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  animation: solar-rotate var(--period) linear infinite;
+}
+
+.solar-planet {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: var(--p-size);
+  height: var(--p-size);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+@keyframes solar-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes solar-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solar-orbit-rot,
+  .solar-sun {
+    animation: none !important;
   }
 }
 

@@ -5,6 +5,7 @@ import './globals.css';
 import Header from './_components/ui/Header';
 import Footer, { type FooterLink } from './_components/ui/Footer';
 import Starfield from './_components/ui/Starfield';
+import SolarSystemOverlay from './_components/ui/SolarSystemOverlay';
 import Script from 'next/script';
 import { cookies } from 'next/headers';
 import themeInitScript from '@/../scripts/init-theme.js';
@@ -65,6 +66,7 @@ export default async function RootLayout({
         <Starfield />
         <Header />
         <main>{children}</main>
+        <SolarSystemOverlay />
         <Footer links={footerLinks} />
       </body>
     </html>
