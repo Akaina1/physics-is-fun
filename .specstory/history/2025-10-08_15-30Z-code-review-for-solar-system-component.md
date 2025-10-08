@@ -1427,3 +1427,23 @@ Everything should be looking great now!
 
 ---
 
+_**User (2025-10-08 11:23Z)**_
+
+when in dark mode the slug page for blog posts has a background, we dont need it in dark mode since the background is already very readable, can remove and just keep it as is on light mode
+
+---
+
+_**Assistant (claude-4.5-sonnet)**_
+
+
+
+---
+
+Tool use: **search_replace**
+
+---
+
+
+
+---
+
