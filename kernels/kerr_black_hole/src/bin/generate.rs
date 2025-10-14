@@ -20,6 +20,10 @@ struct Args {
     #[arg(short, long)]
     preset: String,
 
+    /// Black hole type (e.g., "prograde", "retrograde", "schwarzschild")
+    #[arg(short, long, default_value = "prograde")]
+    black_hole_type: String,
+
     /// Image width in pixels
     #[arg(short, long, default_value_t = 1280)]
     width: u32,
@@ -35,30 +39,8 @@ struct Args {
     /// Export high-precision f64 data (large JSON file)
     #[arg(long, default_value_t = false)]
     export_precision: bool,
-
-    /// Black hole type: "kerr-prograde", "kerr-retrograde", "schwarzschild"
-    #[arg(short, long, default_value = "kerr-prograde")]
-    bh_type: String,
 }
 
-/// Parse the black hole type from the CLI string
-fn parse_black_hole_type(bh_type: &str) -> Result<BlackHoleType, String> {
-    match bh_type {
-        "kerr-prograde" => Ok(BlackHoleType::Kerr {
-            spin: 0.9,  // a/M = 0.9 (fast rotation, realistic)
-            direction: OrbitDirection::Prograde,
-        }),
-        "kerr-retrograde" => Ok(BlackHoleType::Kerr {
-            spin: 0.9,
-            direction: OrbitDirection::Retrograde,
-        }),
-        "schwarzschild" => Ok(BlackHoleType::Schwarzschild),
-        _ => Err(format!(
-            "Invalid black hole type: '{}'. Must be one of: kerr-prograde, kerr-retrograde, schwarzschild",
-            bh_type
-        )),
-    }
-}
 
 /// Parse the camera viewing angle from the preset name
 fn parse_camera_angle(preset: &str) -> Result<f64, String> {
@@ -70,6 +52,19 @@ fn parse_camera_angle(preset: &str) -> Result<f64, String> {
         _ => Err(format!(
             "Invalid preset: '{}'. Must be one of: face-on, 30deg, 60deg, edge-on",
             preset
+        )),
+    }
+}
+
+/// Parse the black hole type from the string
+fn parse_black_hole_type(bh_type: &str) -> Result<BlackHoleType, String> {
+    match bh_type {
+        "prograde" => Ok(BlackHoleType::kerr_prograde(0.9)),     // Kerr with prograde orbit
+        "retrograde" => Ok(BlackHoleType::kerr_retrograde(0.9)), // Kerr with retrograde orbit  
+        "schwarzschild" => Ok(BlackHoleType::schwarzschild()),   // Non-rotating black hole
+        _ => Err(format!(
+            "Invalid black hole type: '{}'. Must be one of: prograde, retrograde, schwarzschild",
+            bh_type
         )),
     }
 }
@@ -178,7 +173,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let workspace_root = find_workspace_root();
     
     // Parse black hole type
-    let bh_type = parse_black_hole_type(&args.bh_type)
+    let bh_type = parse_black_hole_type(&args.black_hole_type)
         .map_err(|e| e.to_string())?;
     
     // Parse camera angle from preset
@@ -245,7 +240,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     pb.finish_with_message("✓ Geodesic integration complete");
     
     // Create output directory path (relative to workspace root)
-    let output_dir = workspace_root.join(&args.output).join(&args.preset);
+    // Structure: public/blackhole/{bh_type}/{preset}/
+    let output_dir = workspace_root.join(&args.output).join(&args.black_hole_type).join(&args.preset);
     
     // Save all files
     println!("\n💾 Writing files...");
