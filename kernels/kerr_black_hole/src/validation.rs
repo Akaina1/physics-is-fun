@@ -114,6 +114,119 @@ impl ValidationStats {
     }
 }
 
+// ============================================================================
+// GEODESIC POTENTIAL VALIDATION
+// ============================================================================
+
+// Check if θ-potential allows motion toward equator
+// 
+// Physics: For a photon to reach the equatorial plane (θ=π/2), the θ-potential
+// Θ(θ) = Q - cos²θ[a²E² + L_z²/sin²θ] must be positive at the starting θ.
+// If Θ(θ) < 0, the photon is at a turning point and cannot change θ.
+pub fn check_theta_potential(
+    photon: &PhotonState,
+    a: f64,
+) -> (f64, bool) {
+    let theta = photon.theta;
+    let energy = photon.energy;
+    let angular_momentum = photon.angular_momentum;
+    let carter_q = photon.carter_q;
+    
+    let a2 = a * a;
+    let cos_theta = theta.cos();
+    let sin_theta = theta.sin();
+    let cos2_theta = cos_theta * cos_theta;
+    let sin2_theta = sin_theta * sin_theta;
+    
+    // Avoid division by zero at poles
+    if sin2_theta < 1e-10 {
+        return (0.0, false);
+    }
+    
+    // Calculate θ-potential: Θ(θ) = Q - cos²θ[a²E² + L_z²/sin²θ]
+    let term1 = a2 * energy * energy * cos2_theta;
+    let term2 = (angular_momentum * angular_momentum / sin2_theta) * cos2_theta;
+    let theta_potential = carter_q - term1 - term2;
+    
+    let can_reach_equator = theta_potential > 0.0;
+    
+    (theta_potential, can_reach_equator)
+}
+
+// Check if r-potential allows inward motion
+// 
+// Physics: For a photon to fall toward the black hole, the r-potential
+// R(r) must be positive. If R(r) < 0, the photon is at a turning point.
+pub fn check_r_potential(
+    photon: &PhotonState,
+    m: f64,
+    a: f64,
+) -> (f64, bool) {
+    let r = photon.r;
+    let energy = photon.energy;
+    let angular_momentum = photon.angular_momentum;
+    let carter_q = photon.carter_q;
+    
+    let r2 = r * r;
+    let a2 = a * a;
+    
+    // Δ = r² - 2Mr + a²
+    let delta_val = delta(r, m, a);
+    
+    // R(r) = [(r² + a²)E - aL_z]² - Δ[Q + (L_z - aE)²]
+    let term1 = (r2 + a2) * energy - a * angular_momentum;
+    let term1_sq = term1 * term1;
+    
+    let term2 = angular_momentum - a * energy;
+    let term2_sq = term2 * term2;
+    
+    let r_potential = term1_sq - delta_val * (carter_q + term2_sq);
+    
+    let can_fall_inward = r_potential > 0.0;
+    
+    (r_potential, can_fall_inward)
+}
+
+// Comprehensive geodesic validation
+pub fn validate_geodesic_state(
+    photon: &PhotonState,
+    m: f64,
+    a: f64,
+) -> GeodesicValidation {
+    let (theta_pot, theta_ok) = check_theta_potential(photon, a);
+    let (r_pot, r_ok) = check_r_potential(photon, m, a);
+    
+    GeodesicValidation {
+        theta_potential: theta_pot,
+        r_potential: r_pot,
+        can_reach_equator: theta_ok,
+        can_fall_inward: r_ok,
+        is_valid: theta_ok && r_ok,
+    }
+}
+
+#[derive(Debug)]
+pub struct GeodesicValidation {
+    pub theta_potential: f64,
+    pub r_potential: f64,
+    pub can_reach_equator: bool,
+    pub can_fall_inward: bool,
+    pub is_valid: bool,
+}
+
+impl GeodesicValidation {
+    pub fn report(&self) -> String {
+        format!(
+            "Geodesic Validation: Θ={:.6} ({}), R={:.6} ({}), Valid={}",
+            self.theta_potential,
+            if self.can_reach_equator { "OK" } else { "BLOCKED" },
+            self.r_potential,
+            if self.can_fall_inward { "OK" } else { "BLOCKED" },
+            self.is_valid
+        )
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
