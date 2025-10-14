@@ -8,6 +8,9 @@ use indicatif::{ProgressBar, ProgressStyle};
 use std::fs;
 use std::path::PathBuf;
 use std::env;
+use std::io::Write;
+use flate2::Compression;
+use flate2::write::GzEncoder;
 
 use kerr_black_hole::*;
 
@@ -153,11 +156,19 @@ fn save_transfer_maps(
     
     // Write high-precision data if available
     if let Some(ref hp_data) = maps.high_precision_data {
-        let hp_path = output_dir.join("high_precision.json");
+        let hp_path = output_dir.join("high_precision.json.gz");
         let hp_json = hp_data.to_json();
-        write_json(&hp_path, &hp_json)?;
-        println!("  ✓ Wrote High-Precision Data: {} ({:.2} MB)", 
-            hp_path.display(), 
+        
+        // Gzip compress the JSON
+        let file = fs::File::create(&hp_path)?;
+        let mut encoder = GzEncoder::new(file, Compression::default());
+        encoder.write_all(hp_json.as_bytes())?;
+        encoder.finish()?;
+        
+        let compressed_size = fs::metadata(&hp_path)?.len();
+        println!("  ✓ Wrote High-Precision Data: {} ({:.2} MB compressed, {:.2} MB uncompressed)", 
+            hp_path.display(),
+            compressed_size as f64 / 1_000_000.0,
             hp_json.len() as f64 / 1_000_000.0
         );
     }
