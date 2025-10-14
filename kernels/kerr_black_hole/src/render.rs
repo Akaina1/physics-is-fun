@@ -67,17 +67,6 @@ pub fn render_transfer_maps(
             // Convert to photon state
             let photon = ray.to_photon_state(black_hole);
             
-            // Debug: Print first pixel info
-            if x == config.width / 2 && y == config.height / 2 {
-                eprintln!("\n=== CENTER PIXEL DEBUG ===");
-                eprintln!("Pixel: ({}, {})", x, y);
-                eprintln!("Camera pos: ({:.2}, {:.2}, {:.2})", ray.origin[0], ray.origin[1], ray.origin[2]);
-                eprintln!("Ray dir: ({:.4}, {:.4}, {:.4})", ray.direction[0], ray.direction[1], ray.direction[2]);
-                eprintln!("Photon BL coords: r={:.2}, θ={:.4} rad ({:.1}°), φ={:.4} rad", 
-                    photon.r, photon.theta, photon.theta.to_degrees(), photon.phi);
-                eprintln!("Disc range: {:.2}M to {:.2}M", r_disc_inner, r_disc_outer);
-                eprintln!("========================\n");
-            }
             
             // Integrate geodesic
             let result = integrate_geodesic(
@@ -97,12 +86,6 @@ pub fn render_transfer_maps(
             maps.pack_pixel(x, y, &result);
             
             completed += 1;
-            
-            // Optional: print progress every 1000 pixels
-            if completed % 1000 == 0 {
-                let progress = (completed as f64 / total_pixels as f64) * 100.0;
-                println!("Progress: {:.1}%", progress);
-            }
         }
     }
     
