@@ -4,6 +4,8 @@ use crate::types::{BlackHole, Camera, RenderConfig, OrbitDirection};
 use crate::transfer_maps::{TransferMaps, Manifest};
 use crate::integration::integrate_geodesic;
 use crate::disc_model::generate_flux_lut;
+use rayon::prelude::*;
+use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
 
 // ============================================================================
 // MAIN RENDER FUNCTION
@@ -24,10 +26,10 @@ pub fn render_transfer_maps<F>(
     orbit_direction: OrbitDirection,
     preset_name: String,
     export_high_precision: bool,  // Enable f64 export for documentation
-    mut progress_callback: F,
+    progress_callback: F,
 ) -> TransferMaps 
 where
-    F: FnMut(u64),
+    F: Fn(u64) + Sync + Send,
 {
     // Calculate disc bounds
     let r_inner = black_hole.isco_radius(orbit_direction);
@@ -57,11 +59,13 @@ where
     
     let max_steps = 10000;
     
-    let mut disc_hits = 0;
-    let mut pixels_processed = 0u64;
+    // Thread-safe counters
+    let disc_hits = AtomicUsize::new(0);
+    let pixels_processed = AtomicU64::new(0);
     
-    // Loop over all pixels
-    for y in 0..config.height {
+    // Parallel loop over all pixels using Rayon
+    // Process rows in parallel for better cache locality
+    (0..config.height).into_par_iter().for_each(|y| {
         for x in 0..config.width {
             // Generate ray for this pixel
             let ray = camera.generate_ray(x, y, config);
@@ -79,22 +83,22 @@ where
                 max_steps,
             );
             
-            // Count disc hits
+            // Count disc hits (thread-safe atomic increment)
             if matches!(result, crate::geodesic::GeodesicResult::DiscHit { .. }) {
-                disc_hits += 1;
+                disc_hits.fetch_add(1, Ordering::Relaxed);
             }
             
-            // Pack result
+            // Pack result (thread-safe: each pixel writes to unique index)
             maps.pack_pixel(x, y, &result);
             
-            // Update progress
-            pixels_processed += 1;
-            progress_callback(pixels_processed);
+            // Update progress (thread-safe atomic increment)
+            let count = pixels_processed.fetch_add(1, Ordering::Relaxed) + 1;
+            progress_callback(count);
         }
-    }
+    });
     
-    // Update manifest with actual disc_hits count
-    maps.manifest.disc_hits = disc_hits;
+    // Update manifest with actual disc_hits count (load atomic value)
+    maps.manifest.disc_hits = disc_hits.load(Ordering::Relaxed);
     
     maps
 }

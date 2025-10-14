@@ -78,6 +78,11 @@ pub struct TransferMaps {
     pub high_precision_data: Option<HighPrecisionData>,
 }
 
+// SAFETY: TransferMaps can be safely shared across threads because:
+// - pack_pixel() ensures each thread writes to disjoint indices
+// - All fields are either immutable after construction or written to unique locations
+unsafe impl Sync for TransferMaps {}
+
 // High-precision f64 data export for documentation/analysis
 // This preserves the original computation accuracy for reference
 #[derive(Debug, Clone)]
@@ -160,7 +165,14 @@ impl TransferMaps {
         
         let high_precision_data = if export_high_precision {
             Some(HighPrecisionData {
-                positions: Vec::with_capacity(pixel_count),
+                positions: vec![PositionData {
+                    r: 0.0,
+                    phi: 0.0,
+                    energy: 0.0,
+                    angular_momentum: 0.0,
+                    order: 0,
+                    hit: false,
+                }; pixel_count],
             })
         } else {
             None
@@ -177,52 +189,60 @@ impl TransferMaps {
         }
     }
     
-    // Pack a single pixel's result
-    pub fn pack_pixel(&mut self, x: u32, y: u32, result: &GeodesicResult) {
+    // Thread-safe pixel packing
+    // SAFETY: Each thread writes to a unique pixel index, so no data races occur.
+    // We cast away the shared reference constraint because we know indices are disjoint.
+    pub fn pack_pixel(&self, x: u32, y: u32, result: &GeodesicResult) {
         let idx = (y * self.width + x) as usize;
         let t1_idx = idx * 4;
         let t2_idx = idx * 4;
         
-        match result {
-            GeodesicResult::DiscHit { r, phi, energy, angular_momentum, order } => {
-                // T1: (r, sin(φ), cos(φ), mask=1) - Direct f64 → f32
-                self.t1_rgba32f[t1_idx + 0] = *r as f32;
-                self.t1_rgba32f[t1_idx + 1] = phi.sin() as f32;
-                self.t1_rgba32f[t1_idx + 2] = phi.cos() as f32;
-                self.t1_rgba32f[t1_idx + 3] = 1.0;  // Hit mask
-                
-                // T2: (-k_t, k_φ, order, pad)
-                self.t2_rgba32f[t2_idx + 0] = *energy as f32;
-                self.t2_rgba32f[t2_idx + 1] = *angular_momentum as f32;
-                self.t2_rgba32f[t2_idx + 2] = *order as f32;
-                self.t2_rgba32f[t2_idx + 3] = 0.0;  // Padding
-                
-                // Store high-precision f64 data if enabled
-                if let Some(ref mut hp) = self.high_precision_data {
-                    hp.positions.push(PositionData {
-                        r: *r,
-                        phi: *phi,
-                        energy: *energy,
-                        angular_momentum: *angular_momentum,
-                        order: *order,
-                        hit: true,
-                    });
+        // SAFETY: Each thread writes to disjoint pixel indices
+        unsafe {
+            let t1_ptr = self.t1_rgba32f.as_ptr() as *mut f32;
+            let t2_ptr = self.t2_rgba32f.as_ptr() as *mut f32;
+            
+            match result {
+                GeodesicResult::DiscHit { r, phi, energy, angular_momentum, order } => {
+                    // T1: (r, sin(φ), cos(φ), mask=1)
+                    *t1_ptr.add(t1_idx) = *r as f32;
+                    *t1_ptr.add(t1_idx + 1) = phi.sin() as f32;
+                    *t1_ptr.add(t1_idx + 2) = phi.cos() as f32;
+                    *t1_ptr.add(t1_idx + 3) = 1.0;
+                    
+                    // T2: (-k_t, k_φ, order, pad)
+                    *t2_ptr.add(t2_idx) = *energy as f32;
+                    *t2_ptr.add(t2_idx + 1) = *angular_momentum as f32;
+                    *t2_ptr.add(t2_idx + 2) = *order as f32;
+                    *t2_ptr.add(t2_idx + 3) = 0.0;
+                    
+                    // High-precision data (if enabled)
+                    if let Some(ref hp) = self.high_precision_data {
+                        let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
+                        *hp_ptr.add(idx) = PositionData {
+                            r: *r,
+                            phi: *phi,
+                            energy: *energy,
+                            angular_momentum: *angular_momentum,
+                            order: *order,
+                            hit: true,
+                        };
+                    }
                 }
-            }
-            _ => {
-                // Captured or Escaped: leave as zeros (mask=0 means no hit)
-                // Already initialized to zero
-                
-                // Store high-precision f64 data if enabled (non-hit case)
-                if let Some(ref mut hp) = self.high_precision_data {
-                    hp.positions.push(PositionData {
-                        r: 0.0,
-                        phi: 0.0,
-                        energy: 0.0,
-                        angular_momentum: 0.0,
-                        order: 0,
-                        hit: false,
-                    });
+                _ => {
+                    // Non-hits: zeros already (skip writing T1/T2)
+                    // High-precision data (if enabled)
+                    if let Some(ref hp) = self.high_precision_data {
+                        let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
+                        *hp_ptr.add(idx) = PositionData {
+                            r: 0.0,
+                            phi: 0.0,
+                            energy: 0.0,
+                            angular_momentum: 0.0,
+                            order: 0,
+                            hit: false,
+                        };
+                    }
                 }
             }
         }
