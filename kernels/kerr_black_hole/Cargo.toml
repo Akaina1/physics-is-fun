@@ -1,0 +1,32 @@
+[package]
+name = "kerr_black_hole"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+# Library crate for the physics core
+crate-type = ["rlib"]
+
+[dependencies]
+# No external dependencies needed for core physics
+# We use f32/f64 (built-in types) for all computations
+
+# CLI dependencies (only used by generate binary)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+indicatif = "0.17"
+
+[[bin]]
+name = "generate"
+path = "src/bin/generate.rs"
+
+[profile.release]
+# Maximum optimization for physics calculations
+opt-level = 3
+# Link-time optimization for better performance
+lto = true
+# Single codegen unit for better optimization (slower compile, faster runtime)
+codegen-units = 1
+# Enable debug info even in release (useful for profiling)
+debug = false
