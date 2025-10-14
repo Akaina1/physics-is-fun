@@ -225,6 +225,8 @@ pub fn geodesic_dtheta_dlambda(
     
     let theta_potential = carter_q - term1 - term2;
     
+    // Validation moved to validation.rs module
+    
     // Σ = r² + a²cos²θ
     let sigma_val = sigma(r, theta, a);
     
