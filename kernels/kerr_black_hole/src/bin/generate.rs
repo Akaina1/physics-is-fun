@@ -63,7 +63,7 @@ fn parse_black_hole_type(bh_type: &str) -> Result<BlackHoleType, String> {
 /// Parse the camera viewing angle from the preset name
 fn parse_camera_angle(preset: &str) -> Result<f64, String> {
     match preset {
-        "face-on" => Ok(0.0),       // 0° inclination (top-down view)
+        "face-on" => Ok(0.1),        // 0.1° inclination (nearly top-down view, minimal pole issues)
         "30deg" => Ok(30.0),         // 30° inclination
         "60deg" => Ok(60.0),         // 60° inclination
         "edge-on" => Ok(89.9),       // ~90° inclination (edge-on, avoid exactly 90°)
@@ -195,7 +195,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let camera = Camera::new(
         50.0,          // Distance from black hole (50M, well outside disc)
         camera_angle,  // Inclination in degrees
-        45.0,          // Field of view in degrees
+        120.0,         // Wide field of view to capture disc
     );
     
     // Create render configuration
@@ -206,14 +206,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     };
     
     // Print configuration
-    println!("\n🌌 Kerr Black Hole Asset Generator");
-    println!("═══════════════════════════════════════");
+    println!("\nKerr Black Hole Asset Generator");
+    println!("=======================================");
     println!("  Preset: {}", args.preset);
     println!("  Black Hole: {}", bh_type.name());
-    println!("  Resolution: {}×{}", args.width, args.height);
-    println!("  Camera Angle: {:.1}°", camera_angle);
+    println!("  Resolution: {}x{}", args.width, args.height);
+    println!("  Camera Angle: {:.1} degrees", camera_angle);
     println!("  Export Precision: {}", args.export_precision);
-    println!("═══════════════════════════════════════\n");
+    println!("=======================================\n");
     
     // Create progress bar
     let total_pixels = (args.width * args.height) as u64;
@@ -225,7 +225,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     );
     
     // Render transfer maps
-    println!("🔬 Tracing geodesics...");
+    println!("Tracing geodesics...");
     
     // Extract orbit direction from black hole type
     let orbit_direction = match bh_type {
@@ -262,7 +262,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     if args.export_precision {
         if let Some(ref hp_data) = maps.high_precision_data {
             let stats = hp_data.statistics();
-            println!("\n🔬 High-Precision Statistics:");
+            println!("\nHigh-Precision Statistics:");
             println!("  Radius range: {:.6} - {:.6} M", stats.min_r, stats.max_r);
             println!("  Mean energy: {:.6}", stats.mean_energy);
             println!("  Mean L_z: {:.6}", stats.mean_l_z);
