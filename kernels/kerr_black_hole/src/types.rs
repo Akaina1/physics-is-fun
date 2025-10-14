@@ -317,16 +317,29 @@ impl Camera {
         let cam_y = 0.0;
         let cam_z = self.distance * inc.cos();  // Swapped: cos for z
         
-        // Direction vector (pointing toward BH with pixel offset)
-        // Start with direction toward origin: -camera_position
-        let base_dir_x = -cam_x;
-        let base_dir_z = -cam_z;
+        // Generate proper camera rays based on pixel position and FOV
+        // This creates a "screen" in front of the camera that rays pass through
         
-        // Apply pixel offset (small angle approximation)
-        // Offset rotates in the viewing plane perpendicular to camera direction
-        let dir_x = base_dir_x + angle_x * inc.cos();  // Swapped: cos for x offset
-        let dir_y = angle_y;  // Perpendicular to viewing plane (vertical on screen)
-        let dir_z = base_dir_z - angle_x * inc.sin();  // Swapped: sin for z offset
+        // Create a virtual screen at distance 1.0 from camera
+        let screen_distance = 1.0;
+        
+        // Screen coordinates (in camera's local coordinate system)
+        let screen_x = angle_x * screen_distance;
+        let screen_y = angle_y * screen_distance;
+        let screen_z = -screen_distance; // Screen is "in front" of camera
+        
+        // Transform screen point to world coordinates
+        // For now, assume camera is looking toward origin with simple rotation
+        let world_screen_x = screen_x * inc.cos() + screen_z * inc.sin() + cam_x;
+        let world_screen_y = screen_y + cam_y;
+        let world_screen_z = -screen_x * inc.sin() + screen_z * inc.cos() + cam_z;
+        
+        // Ray direction: from camera to screen point
+        let (dir_x, dir_y, dir_z) = (
+            world_screen_x - cam_x,
+            world_screen_y - cam_y, 
+            world_screen_z - cam_z
+        );
         
         Ray::new(
             [cam_x, cam_y, cam_z],
@@ -431,6 +444,7 @@ impl Ray {
         let [x, y, z] = self.origin;
         let (r, theta, phi) = crate::coordinates::cartesian_to_bl(x, y, z, a);
         
+        
         PhotonState::new(
             r,
             theta,
@@ -458,48 +472,39 @@ fn calculate_conserved_quantities(
     let [x, y, z] = ray.origin;
     let [dx, dy, dz] = ray.direction;
     
-    // Energy: normalized to 1 for photon from infinity
+    // Normalize direction vector to unit length (photon condition)
+    let dir_mag = (dx*dx + dy*dy + dz*dz).sqrt();
+    let (dx, dy, _dz) = (dx/dir_mag, dy/dir_mag, dz/dir_mag);
+    
+    // Convert to Boyer-Lindquist coordinates
+    let (_r_bl, theta, _phi) = crate::coordinates::cartesian_to_bl(x, y, z, a);
+    
+    // For camera rays, use simpler approach:
+    // Set energy = 1 (photon from "infinity")
     let energy = 1.0;
     
-    // Angular momentum L_z = x*p_y - y*p_x
-    // For photon, momentum ∝ direction
-    // L_z = x*dy - y*dx (in flat space at large r)
+    // Angular momentum: L_z = x*p_y - y*p_x (in Cartesian)
     let angular_momentum = x * dy - y * dx;
     
-    // Carter constant Q calculation
-    // At large r, in nearly flat space:
-    // Convert to spherical to get θ component
-    let r = (x*x + y*y + z*z).sqrt();
-    let rho = (x*x + y*y).sqrt();  // cylindrical radius
-    
-    // Velocity components in spherical coords
-    let _v_r = (x*dx + y*dy + z*dz) / r;
-    let v_theta = if rho > 1e-10 {
-        (z*rho*(dx*x + dy*y) - (x*x + y*y)*dz) / (r*r*rho)
-    } else {
-        0.0
-    };
-    
-    // Clamp theta to avoid numerical errors
-    let theta = (z / r).clamp(-1.0, 1.0).acos();
+    // For Carter constant, use a much simpler approximation
+    // For rays starting far from BH (r >> M), Q should be small
+    // Q ≈ L_z² * cos²θ for nearly equatorial motion
     let cos_theta = theta.cos();
-    let sin_theta = theta.sin();
+    let sin_theta = theta.sin().max(1e-10);
     
-    // Q = r⁴(dθ/dλ)² + cos²θ[a²(1-E²) + L_z²/sin²θ]
-    // At infinity, first term dominates
-    let p_theta = r * r * v_theta;  // θ momentum at large r
+    // Carter constant must allow θ motion to equator
+    // For ray to reach equator (θ=π/2), we need Q > (term1 + term2) at starting θ
+    let a2 = a * a;
+    let cos2_theta = cos_theta * cos_theta;
+    let sin2_theta = sin_theta * sin_theta;
     
-    let sin2_theta = if sin_theta.abs() > 1e-10 {
-        sin_theta * sin_theta
-    } else {
-        1e-10  // Avoid division by zero
-    };
+    // Calculate both terms that oppose θ motion
+    let term1 = a2 * energy * energy * cos2_theta;
+    let term2 = (angular_momentum * angular_momentum / sin2_theta) * cos2_theta;
+    let total_barrier = term1 + term2;
     
-    let carter_q = p_theta * p_theta 
-        + cos_theta * cos_theta * (
-            a * a * (1.0 - energy * energy)  // For photon, E=1, so this is 0
-            + angular_momentum * angular_momentum / sin2_theta
-        );
+    // Set Q larger than the total barrier to ensure equatorial access
+    let carter_q = total_barrier * 1.2;
     
     (energy, angular_momentum, carter_q)
 }

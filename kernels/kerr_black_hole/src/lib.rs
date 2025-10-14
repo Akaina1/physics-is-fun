@@ -51,6 +51,10 @@ pub use disc_model::{
 pub use validation::{
     check_null_invariant,
     ValidationStats,
+    check_theta_potential,
+    check_r_potential,
+    validate_geodesic_state,
+    GeodesicValidation,
 };
 
 pub use render::render_transfer_maps;
