@@ -49,3 +49,6 @@ kernels/**/target
 
 # wasm-pack output
 kernels/**/pkg
+
+# public folder
+public

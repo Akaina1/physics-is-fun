@@ -26011,7 +26011,105 @@ Great point! Let me think through what we have vs what we'll need for rendering:
 ## ✅ **What We Have (Complete)**
 1. **Physics Core** - Geodesic integration, Kerr metric, conserved quantities
 2. **Parallel Rendering** - Rayon parallelization (~12x speedup)
-3. **Transfer Maps** - T1 (positions), T2 (physics), Flux
+3. **Transfer Maps** - T1 (positions), T2 (physics), Flux LUT all generated
+4. **Data Export** - Binary files + gzipped high-precision JSON
+5. **Multi-BH Support** - Prograde, Retrograde, Schwarzschild
+6. **Build Script** - PowerShell automation for all 12 presets
+
+## ⚠️ **Potential Issues to Check**
+
+1. **Flux LUT Range** - Let me verify it matches the disc radii:
+   - Currently: `generate_flux_lut(r_inner, r_outer, r_inner, 256)`
+   - Should map radius range [r_inner, r_outer] to texture coordinates [0, 1]
+   - This looks correct ✅
+
+2. **Coordinate Mapping** - Do the transfer maps encode what the shader needs?
+   - T1: (r, sin(φ), cos(φ), mask) ✅ 
+   - T2: (energy, L_z, order, pad) ✅
+   - Shader can reconstruct (r, φ) and look up flux ✅
+
+3. **Missing Pieces for Rendering:**
+   - ❌ **WebGL2/regl shader code** - Not implemented yet
+   - ❌ **React component** - Not implemented yet
+   - ❌ **Texture loading logic** - Need to load .bin files as GPU textures
+   - ❌ **Animation logic** - Rotating disc over time
+
+4. **One Thing to Test Now:**
+   Let's generate one more preset to verify the radius range changes for different views:
+
+```powershell
+cargo run --release --bin generate -p kerr_black_hole -- --preset face-on --black-hole-type prograde --width 1920 --height 1080 --export-precision
+```
+
+Face-on should show **much wider radius range** (ISCO to 20M) vs edge-on (only ~20M). If we see varied radii, the physics is definitely working correctly!
+
+Want to do this quick test before moving to rendering?
+
+---
+
+_**User (2025-10-14 16:47Z)**_
+
+question, we are exporting pixel values for the shader with our precompute, correct?
+
+How do we integrate that into an animiation? 
+
+---
+
+_**Assistant (claude-4.5-sonnet)**_
+
+**Excellent question!** This is a key design decision.
+
+## What We're Exporting
+
+Yes, we export **per-pixel geodesic results** - essentially a "lookup table" for the shader:
+- **Input:** Pixel coordinate (x, y) on screen
+- **Output:** Where that ray hit the disc (r, φ, energy, L_z)
+
+## How Animation Works
+
+The **animation happens in the shader at runtime**, not in the precomputed data:
+
+### **The Key Insight:**
+- The **geodesic paths are static** (light always bends the same way)
+- The **disc appearance changes** as it rotates
+
+### **Animation Strategy:**
+
+```glsl
+// In the fragment shader:
+
+// 1. Read static geodesic data for this pixel
+vec4 t1 = texture(transferMap1, pixelCoord);
+float r = t1.x;           // Disc radius where ray hit
+float sinPhi = t1.y;      // Azimuthal angle
+float cosPhi = t1.z;
+float mask = t1.w;        // Did it hit?
+
+// 2. Reconstruct angle
+float phi = atan(sinPhi, cosPhi);
+
+// 3. Apply time-based rotation (THIS IS THE ANIMATION)
+float phi_rotated = phi + (time * rotation_speed);
+
+// 4. Look up disc properties at (r, phi_rotated)
+float flux = texture(fluxLUT, r / r_max).r;  // Brightness from radius
+vec3 color = compute_disc_color(r, phi_rotated, flux);
+```
+
+### **What Changes Per Frame:**
+- `time` variable increases
+- `phi_rotated` shifts the angular position
+- Same static transfer map, different visual result!
+
+### **Benefits:**
+- ✅ No physics computation at runtime
+- ✅ Instant 60 FPS animation
+- ✅ Can adjust rotation speed dynamically
+- ✅ Can add texture patterns, doppler shift, redshift effects
+
+**The precomputed data tells us "where light goes" - the shader tells us "what the disc looks like there".**
+
+Make sense?
 
 ---
 
