@@ -20,13 +20,3 @@ indicatif = "0.17"
 [[bin]]
 name = "generate"
 path = "src/bin/generate.rs"
-
-[profile.release]
-# Maximum optimization for physics calculations
-opt-level = 3
-# Link-time optimization for better performance
-lto = true
-# Single codegen unit for better optimization (slower compile, faster runtime)
-codegen-units = 1
-# Enable debug info even in release (useful for profiling)
-debug = false
