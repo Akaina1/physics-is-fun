@@ -21314,6 +21314,45 @@ Lines added: undefined, lines removed: 9
 
 ---
 
+Tool use: **search_replace**
+
+
+<details><summary>Edit file: kernels/kerr_black_hole/src/integration.rs</summary>
+
+**Chunk 1**
+Lines added: undefined, lines removed: 7
+
+```diff
+@@ -209,11 +209,4 @@
+      let base_step = 0.05;  // Base integration step size
+      
+-     // Debug flag: only print for one ray (center pixel from camera)
+-     let debug = photon.r > 49.0 && photon.r < 51.0;
+-     
+-     if debug {
+-         println!("\n--- Starting Integration ---");
+-         println!("Initial: r={:.2}, theta={:.6} rad ({:.2} degrees)", photon.r, photon.theta, photon.theta.to_degrees());
+-     }
+      
+      // Integration loop
+```
+
+</details>
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
 
 
 ---
