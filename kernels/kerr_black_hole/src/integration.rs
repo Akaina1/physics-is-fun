@@ -163,21 +163,22 @@ fn check_disc_intersection(
     // 2. Ray is traveling along the equator (both very close to π/2)
     
     let equator = PI / 2.0;
-    let tolerance = 0.02;  // ~1.15° tolerance for "on the equator"
+    // For a thin disc in the equatorial plane, we need to check:
+    // 1. Ray crosses the equatorial plane (θ = π/2)
+    // 2. OR ray is close enough to the plane (for face-on views where rays don't cross)
     
-    let theta_dist = (theta - equator).abs();
-    let prev_dist = (prev_theta - equator).abs();
-    
-    // Case 1: Crossed the equator
     let crossed = (prev_theta - equator) * (theta - equator) < 0.0;
     
-    // Case 2: Both points near the equator (traveling along it)
-    let on_equator = theta_dist < tolerance && prev_dist < tolerance;
+    // For face-on views, rays may not cross but can be close to the disc
+    // Use a generous tolerance that works for all viewing angles
+    let tolerance = 0.5;  // ~28.6° tolerance
+    let theta_dist = (theta - equator).abs();
+    let near_equator = theta_dist < tolerance;
     
     // Check if we're within the disc's radial extent
     let in_disc_radius = r >= r_inner && r <= r_outer;
     
-    (crossed || on_equator) && in_disc_radius
+    (crossed || near_equator) && in_disc_radius
 }
 
 // ============================================================================
@@ -207,13 +208,6 @@ pub fn integrate_geodesic(
     
     let base_step = 0.05;  // Base integration step size
     
-    // Debug flag: only print for one ray
-    let debug = photon.r > 49.0 && photon.r < 51.0 && (photon.theta - std::f64::consts::PI/2.0).abs() < 0.1;
-    
-    if debug {
-        eprintln!("\n--- Starting Integration ---");
-        eprintln!("Initial: r={:.2}, θ={:.6} rad ({:.2}°)", photon.r, photon.theta, photon.theta.to_degrees());
-    }
     
     // Integration loop
     for step in 0..max_steps {
@@ -247,19 +241,8 @@ pub fn integrate_geodesic(
         }
         
         // 3. Check for disc intersection
-        if debug && step < 10 {
-            let in_disc = state.r >= r_disc_inner && state.r <= r_disc_outer;
-            let equator_dist = (state.theta - std::f64::consts::PI/2.0).abs();
-            eprintln!("Step {}: r={:.2}, θ={:.6} ({:.2}°), prev_θ={:.6}, in_disc={}, eq_dist={:.4}", 
-                step, state.r, state.theta, state.theta.to_degrees(), prev_theta, in_disc, equator_dist);
-        }
-        
         if check_disc_intersection(state.r, state.theta, prev_theta, r_disc_inner, r_disc_outer) {
             disc_crossings += 1;
-            
-            if debug {
-                eprintln!(">>> DISC HIT at step {}! r={:.2}, θ={:.6}", step, state.r, state.theta);
-            }
             
             // Return the first hit (or we could track multiple orders)
             return GeodesicResult::DiscHit {
@@ -282,9 +265,6 @@ pub fn integrate_geodesic(
     }
     
     // If we reach max_steps without hitting anything, consider it escaped
-    if debug {
-        eprintln!(">>> Ray escaped or max_steps reached");
-    }
     GeodesicResult::Escaped
 }
 
