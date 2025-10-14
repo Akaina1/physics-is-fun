@@ -210,7 +210,7 @@ pub fn integrate_geodesic(
     
     
     // Integration loop
-    for step in 0..max_steps {
+    for _ in 0..max_steps {
         // Adaptive step size based on position
         let h = adaptive_step_size(state.r, state.theta, base_step);
         

@@ -53,9 +53,6 @@ pub fn render_transfer_maps(
     
     let max_steps = 10000;
     
-    // Progress tracking (optional, useful for CLI)
-    let total_pixels = config.pixel_count();
-    let mut completed = 0;
     let mut disc_hits = 0;
     
     // Loop over all pixels
@@ -85,14 +82,12 @@ pub fn render_transfer_maps(
             // Pack result
             maps.pack_pixel(x, y, &result);
             
-            completed += 1;
         }
     }
     
     // Update manifest with actual disc_hits count
     maps.manifest.disc_hits = disc_hits;
     
-    println!("Rendering complete: {} pixels", total_pixels);
     maps
 }
 
