@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "wasm:build": "node scripts/build-wasm.mjs",
-    "vercel-build": "bash ./scripts/vercel-build.sh"
+    "vercel-build": "bash ./scripts/vercel-build.sh",
+    "precompute:all": "powershell -ExecutionPolicy Bypass -File ./scripts/precompute-all.ps1"
   },
   "dependencies": {
     "@react-three/fiber": "^9.3.0",
