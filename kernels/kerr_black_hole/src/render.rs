@@ -17,14 +17,18 @@ use crate::disc_model::generate_flux_lut;
 // 3. Packs results into transfer maps
 // 4. Generates emissivity LUT
 // 5. Optionally exports high-precision f64 data
-pub fn render_transfer_maps(
+pub fn render_transfer_maps<F>(
     black_hole: &BlackHole,
     camera: &Camera,
     config: &RenderConfig,
     orbit_direction: OrbitDirection,
     preset_name: String,
     export_high_precision: bool,  // Enable f64 export for documentation
-) -> TransferMaps {
+    mut progress_callback: F,
+) -> TransferMaps 
+where
+    F: FnMut(u64),
+{
     // Calculate disc bounds
     let r_inner = black_hole.isco_radius(orbit_direction);
     let r_outer = 20.0;  // Could be configurable
@@ -54,6 +58,7 @@ pub fn render_transfer_maps(
     let max_steps = 10000;
     
     let mut disc_hits = 0;
+    let mut pixels_processed = 0u64;
     
     // Loop over all pixels
     for y in 0..config.height {
@@ -82,6 +87,9 @@ pub fn render_transfer_maps(
             // Pack result
             maps.pack_pixel(x, y, &result);
             
+            // Update progress
+            pixels_processed += 1;
+            progress_callback(pixels_processed);
         }
     }
     

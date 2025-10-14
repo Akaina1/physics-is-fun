@@ -235,6 +235,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         orbit_direction,
         args.preset.clone(),
         args.export_precision,
+        |pixels| {
+            pb.set_position(pixels);
+        },
     );
     
     pb.finish_with_message("✓ Geodesic integration complete");
