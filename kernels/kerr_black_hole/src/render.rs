@@ -2,7 +2,7 @@
 
 use crate::types::{BlackHole, Camera, RenderConfig, OrbitDirection};
 use crate::transfer_maps::{TransferMaps, Manifest};
-use crate::integration::integrate_geodesic;
+use crate::integration::integrate_geodesic_multi_order;
 use crate::disc_model::generate_flux_lut;
 use rayon::prelude::*;
 use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
@@ -52,7 +52,14 @@ where
     );
     
     // Initialize transfer maps with temp manifest
-    let mut maps = TransferMaps::new(config.width, config.height, temp_manifest, flux_samples, export_high_precision);
+    let mut maps = TransferMaps::new(
+        config.width, 
+        config.height, 
+        temp_manifest, 
+        flux_samples,
+        config.max_orders,
+        export_high_precision
+    );
     
     // Generate emissivity lookup table
     maps.flux_r32f = generate_flux_lut(r_inner, r_outer, r_inner, flux_samples);
@@ -73,23 +80,23 @@ where
             // Convert to photon state
             let photon = ray.to_photon_state(black_hole);
             
-            
-            // Integrate geodesic
-            let result = integrate_geodesic(
+            // Get all orders in a single integration pass
+            let results = integrate_geodesic_multi_order(
                 photon,
                 black_hole,
                 r_inner,
                 r_outer,
+                config.max_orders,
                 max_steps,
             );
             
-            // Count disc hits (thread-safe atomic increment)
-            if matches!(result, crate::geodesic::GeodesicResult::DiscHit { .. }) {
+            // Count disc hits (only order 0 to avoid double-counting)
+            if results[0].is_hit() {
                 disc_hits.fetch_add(1, Ordering::Relaxed);
             }
             
-            // Pack result (thread-safe: each pixel writes to unique index)
-            maps.pack_pixel(x, y, &result);
+            // Pack all order results
+            maps.pack_pixel_multi_order(x, y, &results);
             
             // Update progress (thread-safe atomic increment)
             let count = pixels_processed.fetch_add(1, Ordering::Relaxed) + 1;
