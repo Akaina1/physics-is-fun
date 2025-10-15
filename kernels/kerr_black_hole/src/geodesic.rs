@@ -91,18 +91,26 @@ impl PhotonState {
 // 
 // After we trace a light ray backward from the camera, we need to record:
 // - Did it hit the disc? (or escape to infinity / fall into horizon)
-// - If it hit the disc, where? (r, φ coordinates)
+// - If it hit the disc, where? (r, θ, φ coordinates)
 // - What are the conserved quantities? (for Doppler shift calculation)
 // - Which order is this? (primary, secondary, tertiary image)
+// - Path statistics and validation metrics
 #[derive(Debug, Clone, Copy)]
 pub enum GeodesicResult {
     // Ray hit the accretion disc at radius r and angle φ
     DiscHit {
-        r: f64,              // Radial coordinate where disc was hit
-        phi: f64,            // Azimuthal angle at hit point
-        energy: f64,         // Conserved energy E = -k_t
-        angular_momentum: f64, // Conserved L_z = k_φ
-        order: u8,           // 0=direct, 1=primary, 2=secondary, etc.
+        r: f64,                   // Radial coordinate where disc was hit
+        theta: f64,               // Polar angle at disc intersection
+        phi: f64,                 // Azimuthal angle at hit point
+        energy: f64,              // Conserved energy E = -k_t
+        angular_momentum: f64,    // Conserved L_z = k_φ
+        carter_q: f64,            // Carter constant Q
+        impact_parameter: f64,    // b = L_z/E
+        redshift_factor: f64,     // Gravitational redshift g-factor
+        affine_parameter: f64,    // Affine parameter λ at hit
+        phi_wraps: f64,           // Number of φ wraps around BH
+        order: u8,                // 0=direct, 1=primary, 2=secondary, etc.
+        null_invariant_error: f64, // |g_μν k^μ k^ν| for validation
     },
     
     // Ray fell into the black hole (crossed horizon)
@@ -120,10 +128,16 @@ impl GeodesicResult {
     }
     
     // Get the disc hit data, if any (returns None otherwise)
-    pub fn disc_hit_data(&self) -> Option<(f64, f64, f64, f64, u8)> {
+    pub fn disc_hit_data(&self) -> Option<(f64, f64, f64, f64, f64, f64, f64, f64, f64, f64, u8, f64)> {
         match self {
-            GeodesicResult::DiscHit { r, phi, energy, angular_momentum, order } => {
-                Some((*r, *phi, *energy, *angular_momentum, *order))
+            GeodesicResult::DiscHit { 
+                r, theta, phi, energy, angular_momentum, carter_q, 
+                impact_parameter, redshift_factor, affine_parameter, phi_wraps,
+                order, null_invariant_error 
+            } => {
+                Some((*r, *theta, *phi, *energy, *angular_momentum, *carter_q, 
+                      *impact_parameter, *redshift_factor, *affine_parameter, *phi_wraps,
+                      *order, *null_invariant_error))
             }
             _ => None,
         }
@@ -274,5 +288,126 @@ pub fn geodesic_dphi_dlambda(
     
     // dφ/dλ = [frame_drag + ang_mom_term] / Σ
     (frame_drag + ang_mom_term) / sigma_val
+}
+
+// Compute the null geodesic invariant g_μν k^μ k^ν
+// 
+// Physics: For null (lightlike) geodesics, this should be exactly 0
+// We use this as a validation check for numerical accuracy
+// 
+// Returns: |g_μν k^μ k^ν| (absolute value of the invariant, should be ~0)
+// 
+// Note: This is derived from the first integral of geodesic motion:
+// g_μν (dx^μ/dλ)(dx^ν/dλ) = constant = 0 for null geodesics
+pub fn compute_null_invariant(
+    r: f64,
+    theta: f64,
+    energy: f64,          // E = -k_t
+    angular_momentum: f64, // L_z = k_φ
+    carter_q: f64,        // Q (Carter constant)
+    m: f64,
+    a: f64,
+) -> f64 {
+    let r2 = r * r;
+    let a2 = a * a;
+    let sin2_theta = theta.sin().powi(2);
+    
+    let delta_val = delta(r, m, a);
+    let sigma_val = sigma(r, theta, a);
+    
+    // From Carter's formulation, the null geodesic condition is:
+    // Σ² g_μν k^μ k^ν = -[(r²+a²)E - aL_z]² + Δ[(L_z - aE)² + Q] + Q
+    //
+    // For a valid null geodesic with properly chosen E, L_z, Q, this equals 0
+    
+    let term1 = (r2 + a2) * energy - a * angular_momentum;
+    let term2 = angular_momentum - a * energy;
+    
+    // The Carter null condition:
+    // R(r) + Θ(θ) = 0 when expanded properly
+    // R(r) = [(r²+a²)E - aL_z]² - Δ[Q + (L_z-aE)²]
+    // Θ(θ) = Q - [a²E²cos²θ + L_z²cos²θ/sin²θ]
+    
+    // Simpler approach: use the first integral directly
+    // For null geodesics: (dr/dλ)² + V_eff = 0 where V_eff is the effective potential
+    // The invariant is: Σ⁻² [R(r) + Θ(θ)]
+    
+    let r_potential = term1 * term1 - delta_val * (carter_q + term2 * term2);
+    
+    let cos2_theta = theta.cos().powi(2);
+    let theta_potential = carter_q - a2 * energy * energy * cos2_theta 
+                          - (angular_momentum * angular_momentum / sin2_theta.max(1e-10)) * cos2_theta;
+    
+    // The null invariant (normalized by Σ²)
+    let invariant = (r_potential + theta_potential) / (sigma_val * sigma_val);
+    
+    invariant.abs()
+}
+
+// Compute the redshift factor g at a point on the disc
+// 
+// Physics: g = -u_μ k^μ
+// where u_μ is the 4-velocity of the disc material (in covariant form)
+// and k^μ is the photon 4-momentum (contravariant)
+// 
+// This gives the ratio of emitted to observed frequency: ν_obs/ν_emit = g
+// Includes both gravitational redshift (from metric) and Doppler shift (from disc motion)
+pub fn compute_redshift_factor(
+    r: f64,
+    theta: f64,
+    energy: f64,
+    angular_momentum: f64,
+    m: f64,
+    a: f64,
+    omega_disc: f64,  // Angular velocity of disc at this radius
+) -> f64 {
+    let r2 = r * r;
+    let a2 = a * a;
+    let sigma_val = sigma(r, theta, a);
+    let sin2_theta = theta.sin().powi(2);
+    
+    // Kerr metric components in Boyer-Lindquist coordinates
+    let g_tt = -(1.0 - 2.0 * m * r / sigma_val);
+    let g_t_phi = -2.0 * m * r * a * sin2_theta / sigma_val;
+    let g_phi_phi = (r2 + a2 + 2.0 * m * r * a2 * sin2_theta / sigma_val) * sin2_theta;
+    
+    // For a circular orbit in the equatorial plane with angular velocity Ω:
+    // The 4-velocity must satisfy: g_μν u^μ u^ν = -1
+    // With the constraint: u^φ = Ω u^t (corotating disc)
+    
+    // Substituting: g_tt (u^t)² + 2 g_tφ u^t u^φ + g_φφ (u^φ)² = -1
+    //              g_tt (u^t)² + 2 g_tφ Ω (u^t)² + g_φφ Ω² (u^t)² = -1
+    //              (u^t)² [g_tt + 2Ω g_tφ + Ω² g_φφ] = -1
+    
+    let norm_factor = g_tt + 2.0 * omega_disc * g_t_phi + omega_disc * omega_disc * g_phi_phi;
+    
+    // u^t (contravariant time component)
+    let u_t = if norm_factor < 0.0 {
+        1.0 / (-norm_factor).sqrt()
+    } else {
+        // Fallback for numerical edge cases
+        1.0
+    };
+    
+    // u^φ (contravariant phi component)
+    let u_phi = omega_disc * u_t;
+    
+    // Now compute u_μ (covariant components) using g_μν:
+    // u_t = g_tt u^t + g_tφ u^φ
+    // u_φ = g_φt u^t + g_φφ u^φ  (note: g_φt = g_tφ by symmetry)
+    
+    let u_cov_t = g_tt * u_t + g_t_phi * u_phi;
+    let u_cov_phi = g_t_phi * u_t + g_phi_phi * u_phi;
+    
+    // Photon 4-momentum (contravariant):
+    // k^t = -E (energy, defined as -p_t)
+    // k^φ = L_z (angular momentum)
+    let k_t = -energy;
+    let k_phi = angular_momentum;
+    
+    // Redshift factor: g = -u_μ k^μ = -(u_t k^t + u_φ k^φ)
+    let redshift = -(u_cov_t * k_t + u_cov_phi * k_phi);
+    
+    redshift.abs()
 }
 
