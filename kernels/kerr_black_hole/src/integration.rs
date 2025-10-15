@@ -185,36 +185,40 @@ fn check_disc_intersection(
 // MAIN GEODESIC INTEGRATION
 // ============================================================================
 
-// Integrate a single geodesic from initial photon state
+// Integrate a single geodesic and collect ALL disc crossings up to max_orders
 // 
-// This is the main ray tracing function that:
-// 1. Steps the geodesic using RK4
-// 2. Checks for disc intersections
-// 3. Detects horizon crossing or escape
-// 4. Returns the result (hit/captured/escaped)
-pub fn integrate_geodesic(
+// This is more efficient than tracing separately per order - we do one integration
+// and collect multiple crossings along the way.
+// 
+// Physics: Photons can cross the disc plane multiple times due to extreme
+// gravitational lensing. Each crossing creates a different "order" image:
+// - Order 0: Primary image (direct view)
+// - Order 1: Secondary image (photon ring - wraps ~180-360° around BH)
+// - Order 2+: Higher-order images (increasingly faint subrings)
+// 
+// Returns: Vec of results, one per order (0..max_orders)
+//          Non-hits are marked as Escaped/Captured
+pub fn integrate_geodesic_multi_order(
     photon: PhotonState,
     black_hole: &BlackHole,
-    r_disc_inner: f64,   // ISCO radius
-    r_disc_outer: f64,   // Outer edge of disc
-    max_steps: usize,    // Safety limit to prevent infinite loops
-) -> GeodesicResult {
+    r_disc_inner: f64,
+    r_disc_outer: f64,
+    max_orders: u8,
+    max_steps: usize,
+) -> Vec<GeodesicResult> {
     let m = black_hole.mass;
     let a = black_hole.spin;
     let r_horizon = black_hole.horizon_radius();
     
     let mut state = IntegrationState::new(&photon);
+    let mut results = vec![GeodesicResult::Escaped; max_orders as usize];
     let mut disc_crossings = 0u8;
     
-    let base_step = 0.05;  // Base integration step size
-    
+    let base_step = 0.05;
     
     // Integration loop
     for _ in 0..max_steps {
-        // Adaptive step size based on position
         let h = adaptive_step_size(state.r, state.theta, base_step);
-        
-        // Save previous theta for disc crossing detection
         let prev_theta = state.theta;
         
         // Take one RK4 step
@@ -230,41 +234,72 @@ pub fn integrate_geodesic(
         
         // Check stopping conditions
         
-        // 1. Crossed horizon → captured
-        if state.r < r_horizon * 1.01 {  // Small buffer for numerical safety
-            return GeodesicResult::Captured;
+        // 1. Crossed horizon → mark remaining as captured
+        if state.r < r_horizon * 1.01 {
+            for i in disc_crossings..max_orders {
+                results[i as usize] = GeodesicResult::Captured;
+            }
+            return results;
         }
         
-        // 2. Escaped to infinity
-        if state.r > 1000.0 {  // Far enough to consider "escaped"
-            return GeodesicResult::Escaped;
+        // 2. Escaped to infinity → remaining already marked as Escaped
+        if state.r > 1000.0 {
+            return results;
         }
         
         // 3. Check for disc intersection
         if check_disc_intersection(state.r, state.theta, prev_theta, r_disc_inner, r_disc_outer) {
+            // Store this crossing if we haven't collected all orders yet
+            if disc_crossings < max_orders {
+                results[disc_crossings as usize] = GeodesicResult::DiscHit {
+                    r: state.r,
+                    phi: state.phi,
+                    energy: photon.energy,
+                    angular_momentum: photon.angular_momentum,
+                    order: disc_crossings,
+                };
+            }
+            
             disc_crossings += 1;
             
-            // Return the first hit (or we could track multiple orders)
-            return GeodesicResult::DiscHit {
-                r: state.r,
-                phi: state.phi,
-                energy: photon.energy,
-                angular_momentum: photon.angular_momentum,
-                order: disc_crossings - 1,  // 0=primary, 1=secondary, etc.
-            };
+            // Early termination: if we have all orders, stop integrating
+            if disc_crossings >= max_orders {
+                return results;
+            }
+            
+            // Otherwise continue to find next order
         }
         
-        // Safety check: if θ goes out of bounds, something's wrong
+        // Safety checks
         if state.theta < 0.0 || state.theta > PI {
-            // Wrap theta back into valid range
             state.theta = state.theta.rem_euclid(PI);
         }
         
-        // Normalize phi to [0, 2π]
         state.phi = state.phi.rem_euclid(2.0 * PI);
     }
     
-    // If we reach max_steps without hitting anything, consider it escaped
-    GeodesicResult::Escaped
+    // Max steps reached - return what we have
+    results
+}
+
+// Legacy single-order function (for backward compatibility)
+// 
+// This wraps the multi-order function to maintain API compatibility
+pub fn integrate_geodesic(
+    photon: PhotonState,
+    black_hole: &BlackHole,
+    r_disc_inner: f64,   // ISCO radius
+    r_disc_outer: f64,   // Outer edge of disc
+    max_steps: usize,    // Safety limit to prevent infinite loops
+) -> GeodesicResult {
+    let results = integrate_geodesic_multi_order(
+        photon,
+        black_hole,
+        r_disc_inner,
+        r_disc_outer,
+        1,  // Only get order 0
+        max_steps,
+    );
+    results[0]
 }
 
