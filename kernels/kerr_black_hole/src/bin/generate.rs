@@ -19,7 +19,7 @@ use kerr_black_hole::*;
 #[command(name = "generate")]
 #[command(about = "Generate Kerr black hole transfer maps and flux LUTs", long_about = None)]
 struct Args {
-    /// Preset name (e.g., "face-on", "30deg", "60deg", "edge-on")
+    /// Preset name (e.g., "30deg", "45deg", "60deg", "75deg")
     #[arg(short, long)]
     preset: String,
 
@@ -59,14 +59,20 @@ struct Args {
 
 
 /// Parse the camera viewing angle from the preset name
+/// 
+/// Inclination angles chosen for optimal black hole visualization:
+/// - 30° = Overhead view, clear photon ring, minimal Doppler asymmetry
+/// - 45° = Balanced view, good photon ring + moderate Doppler shift
+/// - 60° = Angled view, dramatic lensing + strong Doppler asymmetry (like Interstellar)
+/// - 75° = Near edge-on, extreme Doppler shift + thin disc appearance (like M87*)
 fn parse_camera_angle(preset: &str) -> Result<f64, String> {
     match preset {
-        "face-on" => Ok(0.1),        // 0.1° inclination (nearly top-down view, minimal pole issues)
-        "30deg" => Ok(30.0),         // 30° inclination
-        "60deg" => Ok(60.0),         // 60° inclination
-        "edge-on" => Ok(89.9),       // ~90° inclination (edge-on, avoid exactly 90°)
+        "30deg" => Ok(30.0),         // Overhead - clear photon ring
+        "45deg" => Ok(45.0),         // Balanced - classic black hole view
+        "60deg" => Ok(60.0),         // Angled - dramatic (Interstellar-like)
+        "75deg" => Ok(75.0),         // Near edge-on - extreme effects (M87*-like)
         _ => Err(format!(
-            "Invalid preset: '{}'. Must be one of: face-on, 30deg, 60deg, edge-on",
+            "Invalid preset: '{}'. Must be one of: 30deg, 45deg, 60deg, 75deg",
             preset
         )),
     }
