@@ -1,5 +1,11 @@
 # Precompute all black hole transfer maps
 # 3 black hole types × 4 viewing presets = 12 total generations
+#
+# Viewing angles optimized for black hole visualization:
+# - 30deg: Overhead view, clear photon ring
+# - 45deg: Balanced view, classic appearance
+# - 60deg: Dramatic lensing (Interstellar-like)
+# - 75deg: Near edge-on, extreme effects (M87*-like)
 
 param(
     [int]$Width = 1920,
@@ -19,15 +25,15 @@ if ($QuickTest) {
     Write-Host "Quick test mode: ${Width}x${Height}, orders=$MaxOrders" -ForegroundColor Yellow
 }
 
-# Configuration
-$presets = @("face-on", "30deg", "60deg", "edge-on")
+# Configuration - Physics-optimized viewing angles
+$presets = @("30deg", "45deg", "60deg", "75deg")
 
 # You can override orders per preset if needed
 $presetOrders = @{
-    "face-on" = $MaxOrders
     "30deg" = $MaxOrders
+    "45deg" = $MaxOrders
     "60deg" = $MaxOrders
-    "edge-on" = $MaxOrders
+    "75deg" = $MaxOrders
 }
 
 $bhTypes = @(
