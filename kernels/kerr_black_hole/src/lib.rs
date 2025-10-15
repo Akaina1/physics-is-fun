@@ -38,7 +38,7 @@ pub use coordinates::{
     a_squared,
 };
 
-pub use integration::integrate_geodesic;
+pub use integration::{integrate_geodesic, integrate_geodesic_multi_order};
 
 pub use transfer_maps::{TransferMaps, Manifest, HighPrecisionData, PositionData, DataStatistics};
 
