@@ -118,12 +118,30 @@ pub struct HighPrecisionData {
 
 #[derive(Debug, Clone, Copy, Default)]
 pub struct PositionData {
+    // Position at disc intersection
     pub r: f64,              // Radial coordinate
+    pub theta: f64,          // Polar angle at disc intersection
     pub phi: f64,            // Azimuthal angle
-    pub energy: f64,         // Conserved energy
-    pub angular_momentum: f64, // Conserved L_z
-    pub order: u8,           // Geodesic order
+    
+    // Conserved quantities (complete set)
+    pub energy: f64,         // Conserved energy E
+    pub angular_momentum: f64, // Conserved angular momentum L_z
+    pub carter_q: f64,       // Carter constant Q
+    
+    // Derived quantities
+    pub impact_parameter: f64,  // b = L_z/E (classical impact parameter)
+    pub redshift_factor: f64,   // Gravitational redshift g-factor
+    
+    // Path information
+    pub affine_parameter: f64,  // Affine parameter λ at disc hit
+    pub phi_wraps: f64,        // Number of azimuthal wraps (φ_total / 2π)
+    
+    // Order/status
+    pub order: u8,           // Geodesic order (0=primary, 1=secondary, etc.)
     pub hit: bool,           // Did it hit the disc?
+    
+    // Validation metrics
+    pub null_invariant_error: f64, // |g_μν k^μ k^ν| (should be ~0 for null geodesic)
 }
 
 impl HighPrecisionData {
@@ -135,8 +153,10 @@ impl HighPrecisionData {
         for (i, pos) in self.positions.iter().enumerate() {
             if pos.hit {
                 json.push_str(&format!(
-                    "    {{\"r\": {:.15}, \"phi\": {:.15}, \"energy\": {:.15}, \"angular_momentum\": {:.15}, \"order\": {}, \"hit\": true}}",
-                    pos.r, pos.phi, pos.energy, pos.angular_momentum, pos.order
+                    "    {{\"r\": {:.15}, \"theta\": {:.15}, \"phi\": {:.15}, \"energy\": {:.15}, \"angular_momentum\": {:.15}, \"carter_q\": {:.15}, \"impact_parameter\": {:.15}, \"redshift_factor\": {:.15}, \"affine_parameter\": {:.15}, \"phi_wraps\": {:.15}, \"order\": {}, \"null_invariant_error\": {:.15}, \"hit\": true}}",
+                    pos.r, pos.theta, pos.phi, pos.energy, pos.angular_momentum, pos.carter_q, 
+                    pos.impact_parameter, pos.redshift_factor, pos.affine_parameter, pos.phi_wraps,
+                    pos.order, pos.null_invariant_error
                 ));
             } else {
                 json.push_str("    {\"hit\": false}");
@@ -159,30 +179,156 @@ impl HighPrecisionData {
             return DataStatistics::default();
         }
         
+        // Separate by order
+        let order_0: Vec<_> = hit_pixels.iter().filter(|p| p.order == 0).collect();
+        let order_1: Vec<_> = hit_pixels.iter().filter(|p| p.order == 1).collect();
+        let order_2_plus: Vec<_> = hit_pixels.iter().filter(|p| p.order >= 2).collect();
+        
+        // Collect all values
         let r_values: Vec<f64> = hit_pixels.iter().map(|p| p.r).collect();
-        let energy_values: Vec<f64> = hit_pixels.iter().map(|p| p.energy).collect();
         let l_z_values: Vec<f64> = hit_pixels.iter().map(|p| p.angular_momentum).collect();
+        let energy_values: Vec<f64> = hit_pixels.iter().map(|p| p.energy).collect();
+        let q_values: Vec<f64> = hit_pixels.iter().map(|p| p.carter_q).collect();
+        let impact_values: Vec<f64> = hit_pixels.iter().map(|p| p.impact_parameter).collect();
+        let phi_wraps: Vec<f64> = hit_pixels.iter().map(|p| p.phi_wraps).collect();
+        let null_errors: Vec<f64> = hit_pixels.iter().map(|p| p.null_invariant_error).collect();
+        
+        // Helper functions
+        let mean = |vals: &[f64]| vals.iter().sum::<f64>() / vals.len() as f64;
+        let std_dev = |vals: &[f64], mean_val: f64| {
+            (vals.iter().map(|v| (v - mean_val).powi(2)).sum::<f64>() / vals.len() as f64).sqrt()
+        };
+        let median = |vals: &mut Vec<f64>| {
+            vals.sort_by(|a, b| a.partial_cmp(b).unwrap());
+            vals[vals.len() / 2]
+        };
+        
+        // Calculate means
+        let mean_r = mean(&r_values);
+        let mean_l_z = mean(&l_z_values);
+        let mean_energy = mean(&energy_values);
+        let mean_q = mean(&q_values);
+        let mean_impact = mean(&impact_values);
+        
+        // Median radius
+        let mut r_sorted = r_values.clone();
+        let median_r = median(&mut r_sorted);
+        
+        // Per-order affine parameters
+        let mean_affine_0 = if !order_0.is_empty() {
+            order_0.iter().map(|p| p.affine_parameter).sum::<f64>() / order_0.len() as f64
+        } else { 0.0 };
+        
+        let mean_affine_1 = if !order_1.is_empty() {
+            order_1.iter().map(|p| p.affine_parameter).sum::<f64>() / order_1.len() as f64
+        } else { 0.0 };
+        
+        let mean_affine_2 = if !order_2_plus.is_empty() {
+            order_2_plus.iter().map(|p| p.affine_parameter).sum::<f64>() / order_2_plus.len() as f64
+        } else { 0.0 };
         
         DataStatistics {
+            // Overall counts
             total_pixels: self.positions.len(),
-            hit_pixels: hit_pixels.len(),
+            total_hits: hit_pixels.len(),
+            
+            // Per-order breakdown
+            order_0_hits: order_0.len(),
+            order_1_hits: order_1.len(),
+            order_2_plus_hits: order_2_plus.len(),
+            
+            // Radius statistics
             min_r: r_values.iter().cloned().fold(f64::INFINITY, f64::min),
             max_r: r_values.iter().cloned().fold(f64::NEG_INFINITY, f64::max),
-            mean_energy: energy_values.iter().sum::<f64>() / energy_values.len() as f64,
-            mean_l_z: l_z_values.iter().sum::<f64>() / l_z_values.len() as f64,
+            mean_r,
+            median_r,
+            std_r: std_dev(&r_values, mean_r),
+            
+            // Angular momentum statistics
+            min_l_z: l_z_values.iter().cloned().fold(f64::INFINITY, f64::min),
+            max_l_z: l_z_values.iter().cloned().fold(f64::NEG_INFINITY, f64::max),
+            mean_l_z,
+            std_l_z: std_dev(&l_z_values, mean_l_z),
+            
+            // Energy statistics
+            mean_energy,
+            std_energy: std_dev(&energy_values, mean_energy),
+            
+            // Carter constant statistics
+            min_q: q_values.iter().cloned().fold(f64::INFINITY, f64::min),
+            max_q: q_values.iter().cloned().fold(f64::NEG_INFINITY, f64::max),
+            mean_q,
+            std_q: std_dev(&q_values, mean_q),
+            
+            // Impact parameter statistics
+            min_impact_param: impact_values.iter().cloned().fold(f64::INFINITY, f64::min),
+            max_impact_param: impact_values.iter().cloned().fold(f64::NEG_INFINITY, f64::max),
+            mean_impact_param: mean_impact,
+            
+            // Path statistics
+            mean_affine_param_order_0: mean_affine_0,
+            mean_affine_param_order_1: mean_affine_1,
+            mean_affine_param_order_2: mean_affine_2,
+            max_phi_wraps: phi_wraps.iter().cloned().fold(f64::NEG_INFINITY, f64::max),
+            mean_phi_wraps: mean(&phi_wraps),
+            
+            // Validation metrics
+            max_null_invariant_error: null_errors.iter().cloned().fold(f64::NEG_INFINITY, f64::max),
+            mean_null_invariant_error: mean(&null_errors),
         }
     }
 }
 
 // Statistics for documentation in MDX
-#[derive(Debug, Clone, Copy, Default, Serialize)]
+#[derive(Debug, Clone, Default, Serialize)]
 pub struct DataStatistics {
+    // Overall counts
     pub total_pixels: usize,
-    pub hit_pixels: usize,
+    pub total_hits: usize,
+    
+    // Per-order breakdown
+    pub order_0_hits: usize,
+    pub order_1_hits: usize,
+    pub order_2_plus_hits: usize,
+    
+    // Radius statistics
     pub min_r: f64,
     pub max_r: f64,
-    pub mean_energy: f64,
+    pub mean_r: f64,
+    pub median_r: f64,
+    pub std_r: f64,
+    
+    // Angular momentum statistics
+    pub min_l_z: f64,
+    pub max_l_z: f64,
     pub mean_l_z: f64,
+    pub std_l_z: f64,
+    
+    // Energy statistics
+    pub mean_energy: f64,
+    pub std_energy: f64,
+    
+    // Carter constant statistics
+    pub min_q: f64,
+    pub max_q: f64,
+    pub mean_q: f64,
+    pub std_q: f64,
+    
+    // Impact parameter statistics
+    pub min_impact_param: f64,
+    pub max_impact_param: f64,
+    pub mean_impact_param: f64,
+    
+    // Path statistics
+    pub mean_affine_param_order_0: f64,
+    pub mean_affine_param_order_1: f64,
+    pub mean_affine_param_order_2: f64,
+    pub max_phi_wraps: f64,
+    pub mean_phi_wraps: f64,
+    
+    // Validation metrics
+    pub max_null_invariant_error: f64,
+    pub mean_null_invariant_error: f64,
 }
 
 impl TransferMaps {
@@ -234,7 +380,11 @@ impl TransferMaps {
             let t2_ptr = self.t2_rgba32f.as_ptr() as *mut f32;
             
             match result {
-                GeodesicResult::DiscHit { r, phi, energy, angular_momentum, order } => {
+                GeodesicResult::DiscHit { 
+                    r, phi, energy, angular_momentum, 
+                    theta, carter_q, impact_parameter, redshift_factor, 
+                    affine_parameter, phi_wraps, order, null_invariant_error 
+                } => {
                     // T1: (r, sin(φ), cos(φ), mask=1)
                     *t1_ptr.add(t1_idx) = *r as f32;
                     *t1_ptr.add(t1_idx + 1) = phi.sin() as f32;
@@ -252,11 +402,18 @@ impl TransferMaps {
                         let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
                         *hp_ptr.add(idx) = PositionData {
                             r: *r,
+                            theta: *theta,
                             phi: *phi,
                             energy: *energy,
                             angular_momentum: *angular_momentum,
+                            carter_q: *carter_q,
+                            impact_parameter: *impact_parameter,
+                            redshift_factor: *redshift_factor,
+                            affine_parameter: *affine_parameter,
+                            phi_wraps: *phi_wraps,
                             order: *order,
                             hit: true,
+                            null_invariant_error: *null_invariant_error,
                         };
                     }
                 }
@@ -299,7 +456,9 @@ impl TransferMaps {
                     _ => (t5_ptr, t6_ptr, 0.1),      // Tertiary+: 10% (very faint)
                 };
                 
-                if let GeodesicResult::DiscHit { r, phi, energy, angular_momentum, order: ord } = result {
+                if let GeodesicResult::DiscHit { 
+                    r, phi, energy, angular_momentum, order: ord, .. 
+                } = result {
                     // Position texture: (r, sin(φ), cos(φ), weight)
                     *pos_ptr.add(tex_idx) = *r as f32;
                     *pos_ptr.add(tex_idx + 1) = phi.sin() as f32;
@@ -319,14 +478,25 @@ impl TransferMaps {
                     let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
                     
                     *hp_ptr.add(hp_idx) = match result {
-                        GeodesicResult::DiscHit { r, phi, energy, angular_momentum, order } => {
+                        GeodesicResult::DiscHit { 
+                            r, theta, phi, energy, angular_momentum, carter_q,
+                            impact_parameter, redshift_factor, affine_parameter, phi_wraps,
+                            order, null_invariant_error 
+                        } => {
                             PositionData {
                                 r: *r,
+                                theta: *theta,
                                 phi: *phi,
                                 energy: *energy,
                                 angular_momentum: *angular_momentum,
+                                carter_q: *carter_q,
+                                impact_parameter: *impact_parameter,
+                                redshift_factor: *redshift_factor,
+                                affine_parameter: *affine_parameter,
+                                phi_wraps: *phi_wraps,
                                 order: *order,
                                 hit: true,
+                                null_invariant_error: *null_invariant_error,
                             }
                         }
                         _ => PositionData::default(),
