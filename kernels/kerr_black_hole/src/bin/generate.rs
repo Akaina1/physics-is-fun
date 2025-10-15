@@ -35,6 +35,14 @@ struct Args {
     #[arg(short = 'H', long, default_value_t = 720)]
     height: u32,
 
+    /// Maximum number of geodesic orders to trace (1-5)
+    /// 1 = primary image only
+    /// 2 = primary + photon ring (recommended)
+    /// 3 = primary + photon ring + first subring
+    /// 4-5 = higher order subrings (for scientific analysis)
+    #[arg(short = 'O', long, default_value_t = 2, value_parser = clap::value_parser!(u8).range(1..=5))]
+    max_orders: u8,
+
     /// Output directory for generated assets
     #[arg(short, long, default_value = "public/blackhole")]
     output: PathBuf,
@@ -42,6 +50,11 @@ struct Args {
     /// Export high-precision f64 data (large JSON file)
     #[arg(long, default_value_t = false)]
     export_precision: bool,
+
+    /// Gzip compress the high-precision JSON output (creates .json.gz instead of .json)
+    /// Only applies when --export-precision is enabled
+    #[arg(long, default_value_t = false)]
+    gzip: bool,
 }
 
 
@@ -120,25 +133,60 @@ fn find_workspace_root() -> PathBuf {
 fn save_transfer_maps(
     maps: &TransferMaps,
     output_dir: &PathBuf,
+    gzip: bool,
 ) -> std::io::Result<()> {
     // Create output directory if it doesn't exist
     fs::create_dir_all(output_dir)?;
     
-    // Write T1 transfer map (RGBA32F: positions, angles, mask)
+    // Write T1 transfer map (Order 0 positions)
     let t1_path = output_dir.join("t1_rgba32f.bin");
     write_binary(&t1_path, &maps.t1_rgba32f)?;
-    println!("  ✓ Wrote T1: {} ({:.2} MB)", 
+    println!("  ✓ Wrote T1 (Order 0 positions): {} ({:.2} MB)", 
         t1_path.display(), 
         (maps.t1_rgba32f.len() * 4) as f64 / 1_000_000.0
     );
     
-    // Write T2 transfer map (RGBA32F: energy, momentum, order)
+    // Write T2 transfer map (Order 0 physics)
     let t2_path = output_dir.join("t2_rgba32f.bin");
     write_binary(&t2_path, &maps.t2_rgba32f)?;
-    println!("  ✓ Wrote T2: {} ({:.2} MB)", 
+    println!("  ✓ Wrote T2 (Order 0 physics): {} ({:.2} MB)", 
         t2_path.display(), 
         (maps.t2_rgba32f.len() * 4) as f64 / 1_000_000.0
     );
+    
+    // Write T3/T4 if max_orders > 1
+    if maps.max_orders > 1 {
+        let t3_path = output_dir.join("t3_rgba32f.bin");
+        write_binary(&t3_path, &maps.t3_rgba32f)?;
+        println!("  ✓ Wrote T3 (Order 1 positions): {} ({:.2} MB)", 
+            t3_path.display(), 
+            (maps.t3_rgba32f.len() * 4) as f64 / 1_000_000.0
+        );
+        
+        let t4_path = output_dir.join("t4_rgba32f.bin");
+        write_binary(&t4_path, &maps.t4_rgba32f)?;
+        println!("  ✓ Wrote T4 (Order 1 physics): {} ({:.2} MB)", 
+            t4_path.display(), 
+            (maps.t4_rgba32f.len() * 4) as f64 / 1_000_000.0
+        );
+    }
+    
+    // Write T5/T6 if max_orders > 2
+    if maps.max_orders > 2 {
+        let t5_path = output_dir.join("t5_rgba32f.bin");
+        write_binary(&t5_path, &maps.t5_rgba32f)?;
+        println!("  ✓ Wrote T5 (Order 2+ positions): {} ({:.2} MB)", 
+            t5_path.display(), 
+            (maps.t5_rgba32f.len() * 4) as f64 / 1_000_000.0
+        );
+        
+        let t6_path = output_dir.join("t6_rgba32f.bin");
+        write_binary(&t6_path, &maps.t6_rgba32f)?;
+        println!("  ✓ Wrote T6 (Order 2+ physics): {} ({:.2} MB)", 
+            t6_path.display(), 
+            (maps.t6_rgba32f.len() * 4) as f64 / 1_000_000.0
+        );
+    }
     
     // Write flux LUT (R32F: 1D emissivity lookup table)
     let flux_path = output_dir.join("flux_r32f.bin");
@@ -156,24 +204,46 @@ fn save_transfer_maps(
     
     // Write high-precision data if available
     if let Some(ref hp_data) = maps.high_precision_data {
-        let hp_path = output_dir.join("high_precision.json.gz");
         let hp_json = hp_data.to_json();
         
-        // Gzip compress the JSON
-        let file = fs::File::create(&hp_path)?;
-        let mut encoder = GzEncoder::new(file, Compression::default());
-        encoder.write_all(hp_json.as_bytes())?;
-        encoder.finish()?;
-        
-        let compressed_size = fs::metadata(&hp_path)?.len();
-        println!("  ✓ Wrote High-Precision Data: {} ({:.2} MB compressed, {:.2} MB uncompressed)", 
-            hp_path.display(),
-            compressed_size as f64 / 1_000_000.0,
-            hp_json.len() as f64 / 1_000_000.0
-        );
+        if gzip {
+            // Write gzipped version
+            let hp_path = output_dir.join("high_precision.json.gz");
+            let file = fs::File::create(&hp_path)?;
+            let mut encoder = GzEncoder::new(file, Compression::default());
+            encoder.write_all(hp_json.as_bytes())?;
+            encoder.finish()?;
+            
+            let compressed_size = fs::metadata(&hp_path)?.len();
+            println!("  ✓ Wrote High-Precision Data (gzipped): {} ({:.2} MB compressed, {:.2} MB uncompressed)", 
+                hp_path.display(),
+                compressed_size as f64 / 1_000_000.0,
+                hp_json.len() as f64 / 1_000_000.0
+            );
+        } else {
+            // Write raw JSON
+            let hp_path = output_dir.join("high_precision.json");
+            write_json(&hp_path, &hp_json)?;
+            println!("  ✓ Wrote High-Precision Data (JSON): {} ({:.2} MB)", 
+                hp_path.display(),
+                hp_json.len() as f64 / 1_000_000.0
+            );
+        }
     }
     
     Ok(())
+}
+
+/// Get description of order count for logging
+fn order_description(orders: u8) -> &'static str {
+    match orders {
+        1 => "primary only",
+        2 => "primary + photon ring",
+        3 => "primary + photon ring + subring",
+        4 => "up to 3rd order",
+        5 => "up to 4th order",
+        _ => "unknown",
+    }
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -208,7 +278,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let config = RenderConfig {
         width: args.width,
         height: args.height,
-        max_orders: 2,  // Track primary and secondary images
+        max_orders: args.max_orders,
     };
     
     // Print configuration
@@ -218,6 +288,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("  Black Hole: {}", bh_type.name());
     println!("  Resolution: {}x{}", args.width, args.height);
     println!("  Camera Angle: {:.1} degrees", camera_angle);
+    println!("  Max Orders: {} ({})", args.max_orders, order_description(args.max_orders));
     println!("  Export Precision: {}", args.export_precision);
     println!("=======================================\n");
     
@@ -259,7 +330,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     
     // Save all files
     println!("\n💾 Writing files...");
-    save_transfer_maps(&maps, &output_dir)?;
+    save_transfer_maps(&maps, &output_dir, args.gzip)?;
     
     // Print statistics
     println!("\n📊 Statistics:");
