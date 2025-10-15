@@ -1,7 +1,7 @@
 // Geodesic integration using RK4 method
 
 use std::f64::consts::PI;
-use crate::geodesic::{PhotonState, GeodesicResult, geodesic_dr_dlambda, geodesic_dtheta_dlambda, geodesic_dphi_dlambda};
+use crate::geodesic::{PhotonState, GeodesicResult, geodesic_dr_dlambda, geodesic_dtheta_dlambda, geodesic_dphi_dlambda, compute_null_invariant, compute_redshift_factor};
 use crate::types::{BlackHole};
 
 // ============================================================================
@@ -15,6 +15,8 @@ struct IntegrationState {
     r: f64,
     theta: f64,
     phi: f64,
+    lambda: f64,      // Affine parameter (integrated step size)
+    initial_phi: f64, // Starting phi value (to track wraps)
     sign_r: f64,      // ±1: direction of radial motion
     sign_theta: f64,  // ±1: direction of polar motion
 }
@@ -25,6 +27,8 @@ impl IntegrationState {
             r: photon.r,
             theta: photon.theta,
             phi: photon.phi,
+            lambda: 0.0,
+            initial_phi: photon.phi,
             sign_r: -1.0,      // Start moving inward (toward BH)
             sign_theta: 1.0,   // Start moving toward equator
         }
@@ -123,9 +127,21 @@ fn rk4_step(
         r: new_r,
         theta: new_theta,
         phi: new_phi,
+        lambda: state.lambda + h,
+        initial_phi: state.initial_phi,
         sign_r: new_sign_r,
         sign_theta: new_sign_theta,
     }
+}
+
+// Calculate Keplerian angular velocity at radius r
+// For a Keplerian disc orbiting a Kerr black hole
+fn keplerian_omega(r: f64, m: f64, a: f64) -> f64 {
+    // Ω = M^(1/2) / (r^(3/2) + a M^(1/2))
+    // This is the angular velocity for a circular orbit in the equatorial plane
+    let sqrt_m = m.sqrt();
+    let r_3_2 = r.powf(1.5);
+    sqrt_m / (r_3_2 + a * sqrt_m)
 }
 
 // Adaptive step size control
@@ -157,28 +173,33 @@ fn check_disc_intersection(
     r_inner: f64,
     r_outer: f64,
 ) -> bool {
-    // The disc lies in the equatorial plane (θ = π/2)
-    // We need to detect TWO cases:
-    // 1. Ray crosses the equator (prev and current theta on opposite sides)
-    // 2. Ray is traveling along the equator (both very close to π/2)
+    // The accretion disc is a geometrically thin, optically thick structure
+    // centered on the equatorial plane (θ = π/2)
+    // 
+    // Physical disc model (Shakura-Sunyaev):
+    // - Scale height H(r) = (H/R) × r, where H/R ≈ 0.01-0.1 for thin discs
+    // - Disc exists in volume: |z| < H(r), or equivalently |θ - π/2| < H/r
+    // 
+    // We use H/R = 0.05 (realistic for geometrically thin disc)
     
     let equator = PI / 2.0;
-    // For a thin disc in the equatorial plane, we need to check:
-    // 1. Ray crosses the equatorial plane (θ = π/2)
-    // 2. OR ray is close enough to the plane (for face-on views where rays don't cross)
     
+    // Physical disc thickness: H/R = 0.05
+    // At radius r, the disc extends from θ = π/2 - H/r to θ = π/2 + H/r
+    const HEIGHT_TO_RADIUS: f64 = 0.05;
+    let disc_half_thickness = HEIGHT_TO_RADIUS;  // In radians, approximately H/r for r >> H
+    
+    // Check if ray crosses the equatorial plane
     let crossed = (prev_theta - equator) * (theta - equator) < 0.0;
     
-    // For face-on views, rays may not cross but can be close to the disc
-    // Use a generous tolerance that works for all viewing angles
-    let tolerance = 0.5;  // ~28.6° tolerance
+    // Check if ray is within disc thickness (emission volume)
     let theta_dist = (theta - equator).abs();
-    let near_equator = theta_dist < tolerance;
+    let in_disc_volume = theta_dist < disc_half_thickness;
     
     // Check if we're within the disc's radial extent
     let in_disc_radius = r >= r_inner && r <= r_outer;
     
-    (crossed || near_equator) && in_disc_radius
+    (crossed || in_disc_volume) && in_disc_radius
 }
 
 // ============================================================================
@@ -251,12 +272,33 @@ pub fn integrate_geodesic_multi_order(
         if check_disc_intersection(state.r, state.theta, prev_theta, r_disc_inner, r_disc_outer) {
             // Store this crossing if we haven't collected all orders yet
             if disc_crossings < max_orders {
+                // Calculate all derived quantities
+                let impact_param = photon.angular_momentum / photon.energy;
+                let omega = keplerian_omega(state.r, m, a);
+                let redshift = compute_redshift_factor(
+                    state.r, state.theta, photon.energy, photon.angular_momentum, m, a, omega
+                );
+                let null_error = compute_null_invariant(
+                    state.r, state.theta, photon.energy, photon.angular_momentum, photon.carter_q, m, a
+                );
+                
+                // Calculate phi wraps (total phi travel / 2π)
+                let phi_total = (state.phi - state.initial_phi).abs();
+                let phi_wraps = phi_total / (2.0 * PI);
+                
                 results[disc_crossings as usize] = GeodesicResult::DiscHit {
                     r: state.r,
+                    theta: state.theta,
                     phi: state.phi,
                     energy: photon.energy,
                     angular_momentum: photon.angular_momentum,
+                    carter_q: photon.carter_q,
+                    impact_parameter: impact_param,
+                    redshift_factor: redshift,
+                    affine_parameter: state.lambda,
+                    phi_wraps,
                     order: disc_crossings,
+                    null_invariant_error: null_error,
                 };
             }
             
