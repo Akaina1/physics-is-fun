@@ -104,13 +104,13 @@ where
     println!("\n🔬 Diagnostic: Sample Rays");
     println!("Center (x={}, y={}):", config.width / 2, config.height / 2);
     println!("  θ={:.6} rad, sign_theta={}, p_θ direction={}", 
-        sample_photon.theta, sample_sign_theta, if sample_sign_theta > 0.0 { "increasing (away from equator)" } else { "decreasing (toward equator)" });
+        sample_photon.theta, sample_sign_theta, if sample_sign_theta > 0.0 { "increasing (toward equator)" } else { "decreasing (away from equator)" });
     println!("Top (x={}, y=0):", config.width / 2);
     println!("  θ={:.6} rad, sign_theta={}, p_θ direction={}", 
-        top_photon.theta, top_sign, if top_sign > 0.0 { "increasing (away from equator)" } else { "decreasing (toward equator)" });
+        top_photon.theta, top_sign, if top_sign > 0.0 { "increasing (toward equator)" } else { "decreasing (away from equator)" });
     println!("Bottom (x={}, y={}):", config.width / 2, config.height - 1);
     println!("  θ={:.6} rad, sign_theta={}, p_θ direction={}", 
-        bottom_photon.theta, bottom_sign, if bottom_sign > 0.0 { "increasing (away from equator)" } else { "decreasing (toward equator)" });
+        bottom_photon.theta, bottom_sign, if bottom_sign > 0.0 { "increasing (toward equator)" } else { "decreasing (away from equator)" });
     println!();
     println!("Center pixel:");
     println!("  Conserved:   E={:.6}, L_z={:.6}, Q={:.6}", 
