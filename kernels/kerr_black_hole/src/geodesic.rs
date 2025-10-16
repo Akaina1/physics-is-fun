@@ -208,10 +208,8 @@ pub fn geodesic_dr_dlambda(
 
 // Compute dθ/dλ (polar equation of motion)
 // 
-// Physics: Θ(θ) = Q - cos²θ[a²(E² - 1) + L_z²/sin²θ]
+// Physics (null): Θ(θ) = Q + a²E² cos²θ - (L_z²/sin²θ) cos²θ
 //          dθ/dλ = ±√Θ(θ) / Σ
-// 
-// For photons (massless), we use E²-1 → E² (slight modification)
 pub fn geodesic_dtheta_dlambda(
     r: f64,
     theta: f64,
@@ -232,12 +230,11 @@ pub fn geodesic_dtheta_dlambda(
         return 0.0;
     }
     
-    // Θ(θ) = Q - cos²θ × [a²E² + L_z²/sin²θ]
-    // For photons from infinity, E ≈ 1, so a²(E²-1) ≈ 0, simplifies to:
+    // Θ(θ) = Q + a²E² cos²θ - (L_z²/sin²θ) cos²θ
     let term1 = a2 * energy * energy * cos2_theta;
     let term2 = (angular_momentum * angular_momentum / sin2_theta) * cos2_theta;
     
-    let theta_potential = carter_q - term1 - term2;
+    let theta_potential = carter_q + term1 - term2;
     
     // Validation moved to validation.rs module
     
@@ -307,41 +304,45 @@ pub fn compute_null_invariant(
     carter_q: f64,        // Q (Carter constant)
     m: f64,
     a: f64,
+    sign_r: f64,          // ±1: direction of radial motion
+    sign_theta: f64,      // ±1: direction of polar motion
 ) -> f64 {
+    // Metric (covariant)
     let r2 = r * r;
     let a2 = a * a;
-    let sin2_theta = theta.sin().powi(2);
+    let st = theta.sin();
+    let st2 = st * st;
+    let sg = sigma(r, theta, a);
+    let dl = delta(r, m, a);
     
-    let delta_val = delta(r, m, a);
-    let sigma_val = sigma(r, theta, a);
+    let g_tt = -(1.0 - 2.0 * m * r / sg);
+    let g_tphi = -2.0 * m * r * a * st2 / sg;
+    let g_rr = sg / dl;
+    let g_thth = sg;
+    let g_phph = ((r2 + a2) * (r2 + a2) - a2 * dl * st2) * st2 / sg;
     
-    // From Carter's formulation, the null geodesic condition is:
-    // Σ² g_μν k^μ k^ν = -[(r²+a²)E - aL_z]² + Δ[(L_z - aE)² + Q] + Q
-    //
-    // For a valid null geodesic with properly chosen E, L_z, Q, this equals 0
-    
+    // Potentials
     let term1 = (r2 + a2) * energy - a * angular_momentum;
     let term2 = angular_momentum - a * energy;
+    let r_pot = term1 * term1 - dl * (carter_q + term2 * term2);  // R(r) radial potential
+    let cos2 = theta.cos() * theta.cos();
+    let theta_pot = carter_q + a2 * energy * energy * cos2        // Θ(θ) polar potential
+              - (angular_momentum * angular_momentum / st2.max(1e-300)) * cos2;
     
-    // The Carter null condition:
-    // R(r) + Θ(θ) = 0 when expanded properly
-    // R(r) = [(r²+a²)E - aL_z]² - Δ[Q + (L_z-aE)²]
-    // Θ(θ) = Q - [a²E²cos²θ + L_z²cos²θ/sin²θ]
+    // Contravariant components
+    let kr = if r_pot > 0.0 { sign_r * (r_pot.sqrt() / sg) } else { 0.0 };
+    let kth = if theta_pot > 0.0 { sign_theta * (theta_pot.sqrt() / sg) } else { 0.0 };
     
-    // Simpler approach: use the first integral directly
-    // For null geodesics: (dr/dλ)² + V_eff = 0 where V_eff is the effective potential
-    // The invariant is: Σ⁻² [R(r) + Θ(θ)]
+    // Solve for k^t and k^phi from k_t=-E and k_phi=Lz
+    // [ g_tt   g_tphi ] [k^t ] = [-E]
+    // [ g_tphi g_phph ] [k^phi]   [ Lz]
+    let det = g_tt * g_phph - g_tphi * g_tphi;
+    let kt = (-energy * g_phph - g_tphi * angular_momentum) / det;
+    let kphi = (g_tphi * energy + g_tt * angular_momentum) / det;
     
-    let r_potential = term1 * term1 - delta_val * (carter_q + term2 * term2);
-    
-    let cos2_theta = theta.cos().powi(2);
-    let theta_potential = carter_q - a2 * energy * energy * cos2_theta 
-                          - (angular_momentum * angular_momentum / sin2_theta.max(1e-10)) * cos2_theta;
-    
-    // The null invariant (normalized by Σ²)
-    let invariant = (r_potential + theta_potential) / (sigma_val * sigma_val);
-    
-    invariant.abs()
+    // g_{μν} k^μ k^ν
+    let ni = g_tt * kt * kt + 2.0 * g_tphi * kt * kphi + g_rr * kr * kr + g_thth * kth * kth + g_phph * kphi * kphi;
+    ni.abs()
 }
 
 // Compute the redshift factor g at a point on the disc
@@ -390,23 +391,17 @@ pub fn compute_redshift_factor(
     };
     
     // u^φ (contravariant phi component)
-    let u_phi = omega_disc * u_t;
+    let u_phi_contra = omega_disc * u_t;
     
-    // Now compute u_μ (covariant components) using g_μν:
-    // u_t = g_tt u^t + g_tφ u^φ
-    // u_φ = g_φt u^t + g_φφ u^φ  (note: g_φt = g_tφ by symmetry)
+    // Photon 4-momentum (covariant):
+    // k_t = -E (energy)
+    // k_φ = L_z (angular momentum)
+    let k_t_cov = -energy;
+    let k_phi_cov = angular_momentum;
     
-    let u_cov_t = g_tt * u_t + g_t_phi * u_phi;
-    let u_cov_phi = g_t_phi * u_t + g_phi_phi * u_phi;
-    
-    // Photon 4-momentum (contravariant):
-    // k^t = -E (energy, defined as -p_t)
-    // k^φ = L_z (angular momentum)
-    let k_t = -energy;
-    let k_phi = angular_momentum;
-    
-    // Redshift factor: g = -u_μ k^μ = -(u_t k^t + u_φ k^φ)
-    let redshift = -(u_cov_t * k_t + u_cov_phi * k_phi);
+    // Redshift factor: g = -u^μ k_μ = -(u^t k_t + u^φ k_φ)
+    // where u^t and u^φ are contravariant, k_t and k_φ are covariant
+    let redshift = -(u_t * k_t_cov + u_phi_contra * k_phi_cov);
     
     redshift.abs()
 }
