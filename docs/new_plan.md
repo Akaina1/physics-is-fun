@@ -680,3 +680,137 @@ pub fn generate_wraps_vs_impact_scatter_svg(
 - K epsilon = 1e-12 (roundoff tolerance)
 - Mahalanobis threshold = 4.5 (stricter than 3.0)
 - Local MAD z-score threshold = 6.0 for spatial outliers
+
+---
+
+## Additional Notes - EXTRA :
+
+## 🔴 **Magnification / Caustic Analysis** (Complex, Needs Neighbor Data)
+
+### What it does:
+
+Compute the **Jacobian determinant** of the ray-disc mapping to find where gravitational lensing creates extreme brightness (caustics) and compute magnification factors.
+
+### The math:
+
+The magnification is:
+
+```
+μ = |∂(α,β)/∂(r,ϕ)|⁻¹
+```
+
+where `(α,β)` are image-plane coords and `(r,ϕ)` are disc hit coords.
+
+To compute this, you need the **finite-difference Jacobian**:
+
+```
+∂r/∂α ≈ (r[i+1,j] - r[i-1,j]) / (2Δα)
+∂r/∂β ≈ (r[i,j+1] - r[i,j-1]) / (2Δβ)
+∂ϕ/∂α ≈ (ϕ[i+1,j] - ϕ[i-1,j]) / (2Δα)
+∂ϕ/∂β ≈ (ϕ[i,j+1] - ϕ[i,j-1]) / (2Δβ)
+```
+
+Then:
+
+```
+μ = 1 / |∂r/∂α · ∂ϕ/∂β - ∂r/∂β · ∂ϕ/∂α|
+```
+
+### Why it's difficult:
+
+1. **Needs neighbor pixel data** - For each pixel `[i,j]`, you need:
+   - `r_hit` and `phi_hit` from neighbors: `[i±1, j]` and `[i, j±1]`
+   - But your current data structure is **flat** (just a list of hits)
+   - You'd need to either:
+     - **Store neighbor indices** in each record: `neighbor_indices: [u32; 4]`
+     - **Build a 2D lookup table** from the flat list (image[y][x] → record)
+
+2. **Handling missing neighbors** - What if:
+   - Pixel `[i,j]` hits the disc, but `[i+1,j]` misses?
+   - Or they hit at **different orders**?
+   - Or across a **caustic** where the mapping is discontinuous?
+   - You need robust logic to skip/interpolate/flag these cases
+
+3. **Disc coordinate wrapping** - φ wraps at 2π:
+   - If `phi[i+1,j] = 0.1` and `phi[i-1,j] = 6.2`, the naive difference is wrong
+   - Need `atan2`-style unwrapping: `Δφ = (φ₂ - φ₁ + π) % 2π - π`
+
+4. **Order separation** - You should compute magnification **per order**:
+   - Order 0 has its own caustic structure
+   - Order 1 (photon ring) has a **super-high** magnification ridge
+   - Mixing them gives garbage
+   - So you need to filter: "only compute Jacobian for pixels where `[i,j]` and all 4 neighbors have `order == k`"
+
+5. **Visualization complexity** - Caustics are:
+   - **Ridges** of infinite magnification (1D curves in 2D)
+   - Need edge-detection or gradient-based rendering
+   - Often shown as log-scale heatmaps with manual color clipping
+
+### Code complexity example:
+
+```rust
+// In transfer_maps.rs, add:
+pub struct PositionData {
+    // ... existing fields ...
+    pub neighbor_up: Option<usize>,     // index in positions array
+    pub neighbor_down: Option<usize>,
+    pub neighbor_left: Option<usize>,
+    pub neighbor_right: Option<usize>,
+}
+
+// In analyzer:
+fn compute_magnification(data: &HpData, manifest: &Manifest) -> Vec<f64> {
+    let mut magnification = vec![f64::NAN; data.positions.len()];
+
+    for (idx, pos) in data.positions.iter().enumerate() {
+        // Skip if any neighbor missing or different order
+        let neighbors = [pos.neighbor_up, pos.neighbor_down,
+                        pos.neighbor_left, pos.neighbor_right];
+
+        if neighbors.iter().any(|n| n.is_none()) { continue; }
+
+        let up = &data.positions[neighbors[0].unwrap()];
+        let down = &data.positions[neighbors[1].unwrap()];
+        let left = &data.positions[neighbors[2].unwrap()];
+        let right = &data.positions[neighbors[3].unwrap()];
+
+        if ![up, down, left, right].iter().all(|n| n.order == pos.order) {
+            continue;  // Order mismatch
+        }
+
+        // Finite differences (with φ wrapping!)
+        let dr_dx = (right.r - left.r) / (2.0 * pixel_size_x);
+        let dr_dy = (up.r - down.r) / (2.0 * pixel_size_y);
+
+        let dphi_dx = unwrap_phi_diff(right.phi - left.phi) / (2.0 * pixel_size_x);
+        let dphi_dy = unwrap_phi_diff(up.phi - down.phi) / (2.0 * pixel_size_y);
+
+        // Jacobian determinant
+        let det = dr_dx * dphi_dy - dr_dy * dphi_dx;
+        magnification[idx] = 1.0 / det.abs();
+
+        // Clip caustic infinities
+        if magnification[idx] > 1e6 { magnification[idx] = 1e6; }
+    }
+
+    magnification
+}
+
+fn unwrap_phi_diff(dphi: f64) -> f64 {
+    // Handle 2π wrapping
+    if dphi > PI { dphi - 2.0*PI }
+    else if dphi < -PI { dphi + 2.0*PI }
+    else { dphi }
+}
+```
+
+**Then** you need to render it as a heatmap, which requires exporting a 2D grid back to the HTML...
+
+---
+
+## **TL;DR:**
+
+| Feature              | Why Hard                                                    | Effort      | Value Unless Paper                 |
+| -------------------- | ----------------------------------------------------------- | ----------- | ---------------------------------- |
+| **Convergence test** | Re-run entire simulation multiple times; quadruples compute | 🔴🔴🔴 High | ❌ Low (only for reviewers)        |
+| **Magnification**    | Complex neighbors logic + φ wrapping + caustic edge cases   | 🔴🔴🔴 High | ⚠️ Medium (cool visual, but niche) |
