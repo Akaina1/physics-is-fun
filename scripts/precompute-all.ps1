@@ -1,16 +1,16 @@
 # Precompute all black hole transfer maps
-# 3 black hole types × 4 viewing presets = 12 total generations
+# 3 black hole types × 5 scene presets = 15 total generations
 #
-# Viewing angles optimized for black hole visualization:
-# - 30deg: Overhead view, clear photon ring
-# - 45deg: Balanced view, classic appearance
-# - 60deg: Dramatic lensing (Interstellar-like)
-# - 75deg: Near edge-on, extreme effects (M87*-like)
+# Scene presets bundle inclination, VFOV, distance, and orders for consistent look:
+# - balanced: 45° incl, 45° VFOV, 75% fill, 3 orders - Hero shots & promo stills
+# - context: 45° incl, 45° VFOV, 70% fill, 2 orders - Wide establishing shots
+# - dramatic: 60° incl, 60° VFOV, 75% fill, 3 orders - Interstellar-ish look
+# - edge-on: 75° incl, 75° VFOV, 75% fill, 3 orders - M87-style extreme view
+# - detail: 45° incl, 45° VFOV, 85% fill, 3 orders - Close-up for texture tests
 
 param(
     [int]$Width = 1920,
     [int]$Height = 1080,
-    [int]$MaxOrders = 3,           # Default to 3 orders for good visual quality
     [switch]$ExportPrecision = $true,
     [switch]$QuickTest             # Use 720p for quick tests
 )
@@ -21,20 +21,11 @@ $ErrorActionPreference = "Stop"
 if ($QuickTest) {
     $Width = 1280
     $Height = 720
-    $MaxOrders = 2
-    Write-Host "Quick test mode: ${Width}x${Height}, orders=$MaxOrders" -ForegroundColor Yellow
+    Write-Host "Quick test mode: ${Width}x${Height}" -ForegroundColor Yellow
 }
 
-# Configuration - Physics-optimized viewing angles
-$presets = @("30deg", "45deg", "60deg", "75deg")
-
-# You can override orders per preset if needed
-$presetOrders = @{
-    "30deg" = $MaxOrders
-    "45deg" = $MaxOrders
-    "60deg" = $MaxOrders
-    "75deg" = $MaxOrders
-}
+# Scene presets - each bundles all camera parameters
+$presets = @("balanced", "context", "dramatic", "edge-on", "detail")
 
 $bhTypes = @(
     @{name="Prograde Kerr"; type="prograde"},
@@ -45,7 +36,6 @@ $bhTypes = @(
 Write-Host "`nKerr Black Hole Transfer Map Generator" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "Resolution: ${Width}x${Height}" -ForegroundColor Cyan
-Write-Host "Max Orders: $MaxOrders" -ForegroundColor Cyan
 Write-Host "Export Precision: $ExportPrecision" -ForegroundColor Cyan
 Write-Host "========================================`n" -ForegroundColor Cyan
 
@@ -60,18 +50,16 @@ foreach ($bh in $bhTypes) {
     
     foreach ($preset in $presets) {
         $currentConfig++
-        $orders = $presetOrders[$preset]
         
-        Write-Host "[$currentConfig/$totalConfigs] $preset (orders: $orders)..." -ForegroundColor Green
+        Write-Host "[$currentConfig/$totalConfigs] $preset..." -ForegroundColor Green
         
-        # Build cargo arguments
+        # Build cargo arguments (scene presets bundle orders automatically)
         $cargoArgs = @(
             "run", "--release", "--bin", "generate", "-p", "kerr_black_hole", "--",
             "--preset", $preset,
             "--black-hole-type", $bh.type,
             "--width", $Width,
-            "--height", $Height,
-            "--max-orders", $orders
+            "--height", $Height
         )
         
         if ($ExportPrecision) {

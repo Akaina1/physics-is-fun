@@ -19,7 +19,7 @@ use kerr_black_hole::*;
 #[command(name = "generate")]
 #[command(about = "Generate Kerr black hole transfer maps and flux LUTs", long_about = None)]
 struct Args {
-    /// Preset name (e.g., "30deg", "45deg", "60deg", "75deg")
+    /// Scene preset: "balanced", "context", "dramatic", "edge-on", or "detail"
     #[arg(short, long)]
     preset: String,
 
@@ -28,20 +28,12 @@ struct Args {
     black_hole_type: String,
 
     /// Image width in pixels
-    #[arg(short, long, default_value_t = 1280)]
+    #[arg(short, long, default_value_t = 1920)]
     width: u32,
 
     /// Image height in pixels
-    #[arg(short = 'H', long, default_value_t = 720)]
+    #[arg(short = 'H', long, default_value_t = 1080)]
     height: u32,
-
-    /// Maximum number of geodesic orders to trace (1-5)
-    /// 1 = primary image only
-    /// 2 = primary + photon ring (recommended)
-    /// 3 = primary + photon ring + first subring
-    /// 4-5 = higher order subrings (for scientific analysis)
-    #[arg(short = 'O', long, default_value_t = 2, value_parser = clap::value_parser!(u8).range(1..=5))]
-    max_orders: u8,
 
     /// Output directory for generated assets
     #[arg(short, long, default_value = "public/blackhole")]
@@ -58,57 +50,80 @@ struct Args {
 }
 
 
-/// Parse the camera viewing angle from the preset name
-/// 
-/// Inclination angles chosen for optimal black hole visualization:
-/// - 30° = Overhead view, clear photon ring, minimal Doppler asymmetry
-/// - 45° = Balanced view, good photon ring + moderate Doppler shift
-/// - 60° = Angled view, dramatic lensing + strong Doppler asymmetry (like Interstellar)
-/// - 75° = Near edge-on, extreme Doppler shift + thin disc appearance (like M87*)
-fn parse_camera_angle(preset: &str) -> Result<f64, String> {
-    match preset {
-        "30deg" => Ok(30.0),         // Overhead - clear photon ring
-        "45deg" => Ok(45.0),         // Balanced - classic black hole view
-        "60deg" => Ok(60.0),         // Angled - dramatic (Interstellar-like)
-        "75deg" => Ok(75.0),         // Near edge-on - extreme effects (M87*-like)
-        _ => Err(format!(
-            "Invalid preset: '{}'. Must be one of: 30deg, 45deg, 60deg, 75deg",
-            preset
-        )),
+/// Scene preset configuration
+/// Bundles inclination, VFOV, fill fraction, and orders for consistent look
+#[derive(Debug, Clone)]
+struct ScenePreset {
+    name: &'static str,
+    description: &'static str,
+    inclination: f64,  // degrees
+    vfov: f64,         // degrees (vertical field of view)
+    fill: f64,         // target vertical fill fraction (0.0-1.0)
+    orders: u8,        // recommended max orders
+    expected_miss: &'static str, // expected miss rate range
+}
+
+impl ScenePreset {
+    /// Calculate camera distance for this preset given disc outer radius
+    /// Formula: D = R_out / tan(fill * VFOV / 2)
+    fn camera_distance(&self, r_outer: f64) -> f64 {
+        let vfov_rad = self.vfov.to_radians();
+        r_outer / ((self.fill * vfov_rad / 2.0).tan())
     }
 }
 
-/// Get camera distance and FOV for a given preset
-/// 
-/// Pairs FOV with distance so the disc fills ~75% of the frame width
-/// Formula: D = r_outer / tan(0.5 * w * FOV) where w=0.75 (target fill)
-/// 
-/// Returns: (distance_in_M, fov_in_degrees)
-fn get_camera_params(preset: &str, r_outer: f64) -> (f64, f64) {
-    let w = 0.75; // Target 75% width fill
-    
+/// Get scene preset configuration
+fn get_scene_preset(preset: &str) -> Result<ScenePreset, String> {
     match preset {
-        "30deg" => {
-            let fov: f64 = 30.0;
-            let d = r_outer / (0.5 * w * fov.to_radians()).tan();
-            (d, fov)
-        },
-        "45deg" => {
-            let fov: f64 = 45.0;
-            let d = r_outer / (0.5 * w * fov.to_radians()).tan();
-            (d, fov)
-        },
-        "60deg" => {
-            let fov: f64 = 60.0;
-            let d = r_outer / (0.5 * w * fov.to_radians()).tan();
-            (d, fov)
-        },
-        "75deg" => {
-            let fov: f64 = 75.0;
-            let d = r_outer / (0.5 * w * fov.to_radians()).tan();
-            (d * 0.9, fov) // Reduce D by 10% for high inclination to keep disc prominent
-        },
-        _ => (50.0, 45.0), // Fallback
+        "balanced" => Ok(ScenePreset {
+            name: "Balanced (Hero)",
+            description: "Default for promo stills & hero shots",
+            inclination: 45.0,
+            vfov: 45.0,
+            fill: 0.75,
+            orders: 3,
+            expected_miss: "~70-80%",
+        }),
+        "context" => Ok(ScenePreset {
+            name: "Context (Wide)",
+            description: "Wide establishing shot with breathing room",
+            inclination: 45.0,
+            vfov: 45.0,
+            fill: 0.70,
+            orders: 2,
+            expected_miss: "~75-85%",
+        }),
+        "dramatic" => Ok(ScenePreset {
+            name: "Dramatic (Interstellar-ish)",
+            description: "Strong Doppler asymmetry, bold lensing",
+            inclination: 60.0,
+            vfov: 60.0,
+            fill: 0.75,
+            orders: 3,
+            expected_miss: "~75-85%",
+        }),
+        "edge-on" => Ok(ScenePreset {
+            name: "Edge-on (M87-style)",
+            description: "Very thin disc, extreme Doppler contrast",
+            inclination: 75.0,
+            vfov: 75.0,
+            fill: 0.75,
+            orders: 3,
+            expected_miss: "~80-90%",
+        }),
+        "detail" => Ok(ScenePreset {
+            name: "Detail (Close-up)",
+            description: "Lower miss rate, great for texture/flux tests",
+            inclination: 45.0,
+            vfov: 45.0,
+            fill: 0.85,
+            orders: 3,
+            expected_miss: "~60-70%",
+        }),
+        _ => Err(format!(
+            "Invalid preset: '{}'. Must be one of: balanced, context, dramatic, edge-on, detail",
+            preset
+        )),
     }
 }
 
@@ -297,8 +312,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let bh_type = parse_black_hole_type(&args.black_hole_type)
         .map_err(|e| e.to_string())?;
     
-    // Parse camera angle from preset
-    let camera_angle = parse_camera_angle(&args.preset)
+    // Get scene preset
+    let scene = get_scene_preset(&args.preset)
         .map_err(|e| e.to_string())?;
     
     // Create black hole
@@ -307,32 +322,35 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         bh_type,
     );
     
-    // Get camera distance and FOV matched to the disc size
+    // Calculate camera distance from scene preset
     let r_outer = 20.0; // Disc outer radius
-    let (camera_distance, camera_fov) = get_camera_params(&args.preset, r_outer);
+    let camera_distance = scene.camera_distance(r_outer);
     
-    // Create camera with matched distance/FOV pair
+    // Create camera from scene preset
     let camera = Camera::new(
-        camera_distance,  // Distance paired with FOV for proper framing
-        camera_angle,     // Inclination in degrees
-        camera_fov,       // FOV matched to distance
+        camera_distance,     // Distance calculated from fill target
+        scene.inclination,   // Inclination from scene preset
+        scene.vfov,          // Vertical FOV from scene preset
     );
     
     // Create render configuration
     let config = RenderConfig {
         width: args.width,
         height: args.height,
-        max_orders: args.max_orders,
+        max_orders: scene.orders,  // Use preset's recommended orders
     };
     
     // Print configuration
     println!("\nKerr Black Hole Asset Generator");
     println!("=======================================");
-    println!("  Preset: {}", args.preset);
+    println!("  Scene: {} - {}", scene.name, scene.description);
     println!("  Black Hole: {}", bh_type.name());
     println!("  Resolution: {}x{}", args.width, args.height);
-    println!("  Camera: distance={:.1}M, inclination={:.1}°, FOV={:.1}°", camera_distance, camera_angle, camera_fov);
-    println!("  Max Orders: {} ({})", args.max_orders, order_description(args.max_orders));
+    println!("  Camera: distance={:.1}M, inclination={:.1}°, VFOV={:.1}°", 
+        camera_distance, scene.inclination, scene.vfov);
+    println!("  Fill Target: {:.0}% vertical", scene.fill * 100.0);
+    println!("  Max Orders: {} ({})", scene.orders, order_description(scene.orders));
+    println!("  Expected Miss: {}", scene.expected_miss);
     println!("  Export Precision: {}", args.export_precision);
     println!("=======================================\n");
     
