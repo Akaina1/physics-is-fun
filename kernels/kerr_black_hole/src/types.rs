@@ -298,12 +298,17 @@ impl Camera {
         let ndc_x = (pixel_x as f64 / (config.width - 1) as f64) * 2.0 - 1.0;
         let ndc_y = (pixel_y as f64 / (config.height - 1) as f64) * 2.0 - 1.0;
         
-        // Apply aspect ratio and FOV to get angular offset
+        // Pinhole camera: apply tan to the angle (not linear!)
         let aspect = config.aspect_ratio();
-        let half_fov = self.fov_rad() / 2.0;
+        let half_fov = self.fov_rad() * 0.5;
         
-        let angle_x = ndc_x * half_fov * aspect;
-        let angle_y = ndc_y * half_fov;
+        let ax = (ndc_x * half_fov).tan();  // Proper pinhole projection
+        let ay = (ndc_y * half_fov).tan();
+        
+        // Screen coordinates with aspect ratio applied
+        let screen_x = ax * aspect;
+        let screen_y = ay;
+        let screen_z = -1.0;  // Pinhole at z = -1
         
         // Camera is at distance D along +x axis, looking toward origin
         // Rotated by inclination angle around y-axis
@@ -313,23 +318,11 @@ impl Camera {
         // Inclination rotates camera around the y-axis in the x-z plane
         // 0° = face-on (along +z axis, looking down at disc)
         // 90° = edge-on (along +x axis, looking at disc edge)
-        let cam_x = self.distance * inc.sin();  // Swapped: sin for x
+        let cam_x = self.distance * inc.sin();
         let cam_y = 0.0;
-        let cam_z = self.distance * inc.cos();  // Swapped: cos for z
-        
-        // Generate proper camera rays based on pixel position and FOV
-        // This creates a "screen" in front of the camera that rays pass through
-        
-        // Create a virtual screen at distance 1.0 from camera
-        let screen_distance = 1.0;
-        
-        // Screen coordinates (in camera's local coordinate system)
-        let screen_x = angle_x * screen_distance;
-        let screen_y = angle_y * screen_distance;
-        let screen_z = -screen_distance; // Screen is "in front" of camera
+        let cam_z = self.distance * inc.cos();
         
         // Transform screen point to world coordinates
-        // For now, assume camera is looking toward origin with simple rotation
         let world_screen_x = screen_x * inc.cos() + screen_z * inc.sin() + cam_x;
         let world_screen_y = screen_y + cam_y;
         let world_screen_z = -screen_x * inc.sin() + screen_z * inc.cos() + cam_z;
@@ -434,79 +427,185 @@ impl Ray {
     
     // Convert to initial photon state with conserved quantities
     // This is where we calculate E, L_z, Q from the ray direction
-    pub fn to_photon_state(&self, black_hole: &BlackHole) -> PhotonState {
+    pub fn to_photon_state(&self, black_hole: &BlackHole) -> (PhotonState, f64) {
+        let m = black_hole.mass;
         let a = black_hole.spin;
         
-        // Calculate conserved quantities from ray direction
-        let (energy, angular_momentum, carter_q) = calculate_conserved_quantities(self, a);
+        // Calculate conserved quantities using LNRF/ZAMO tetrad at finite distance
+        let (energy, angular_momentum, carter_q, initial_sign_theta) = calculate_conserved_quantities_lnrf(self, m, a);
         
         // Convert origin to Boyer-Lindquist coordinates
         let [x, y, z] = self.origin;
         let (r, theta, phi) = crate::coordinates::cartesian_to_bl(x, y, z, a);
         
-        
-        PhotonState::new(
+        let photon = PhotonState::new(
             r,
             theta,
             phi,
             energy,
             angular_momentum,
             carter_q,
-        )
+        );
+        
+        (photon, initial_sign_theta)
     }
 }
 
-// Calculate conserved quantities from ray at infinity
-// 
-// Physics: For a photon coming from infinity toward the black hole,
-// we can calculate E, L_z, Q from its initial position and direction
-// 
-// At large distance (flat spacetime approximation):
-// - E ≈ 1 (normalized energy for photon from infinity)
-// - L_z = r × p_φ (angular momentum)
-// - Q = (p_θ)² + cos²θ [a²(1-E²) + L_z²/sin²θ]
-fn calculate_conserved_quantities(
+// (legacy infinity-mapping initializer removed)
+
+/// Build BL-aligned orthonormal triad in world/Cartesian space
+/// Returns (ê_r, ê_θ, ê_φ) as world-space unit vectors at BL position (r, θ, φ)
+/// These are the standard spherical-like coordinate directions evaluated at the camera point
+#[inline]
+fn bl_aligned_triad_world(th: f64, ph: f64) -> ([f64; 3], [f64; 3], [f64; 3]) {
+    let (st, ct) = (th.sin(), th.cos());
+    let (sph, cph) = (ph.sin(), ph.cos());
+
+    // Unit vectors in Cartesian corresponding to BL coordinate lines
+    // (standard spherical directions at this point)
+    let e_r_cart = [st * cph, st * sph, ct];           // ∂x/∂r normalized (radial)
+    let e_th_cart = [ct * cph, ct * sph, -st];         // (1/r) ∂x/∂θ direction (polar)
+    let e_ph_cart = [-sph, cph, 0.0];                  // (1/(ρ sinθ)) ∂x/∂φ direction (azimuthal)
+
+    // Orthonormalize defensively (they should already be orthonormal in flat limit)
+    let norm = |v: [f64; 3]| {
+        let l = (v[0] * v[0] + v[1] * v[1] + v[2] * v[2]).sqrt();
+        [v[0] / l, v[1] / l, v[2] / l]
+    };
+    let e_r = norm(e_r_cart);
+    let e_th = norm(e_th_cart);
+    let e_ph = norm(e_ph_cart);
+
+    (e_r, e_th, e_ph)
+}
+
+// LNRF/ZAMO tetrad-based initialization for finite-distance observer
+// Returns conserved quantities (E, L_z, Q) and initial sign_theta from local orthonormal frame
+fn calculate_conserved_quantities_lnrf(
     ray: &Ray,
+    m: f64,
     a: f64,
-) -> (f64, f64, f64) {
+) -> (f64, f64, f64, f64) {
     let [x, y, z] = ray.origin;
-    let [dx, dy, dz] = ray.direction;
+    let (r0, th0, ph0) = crate::coordinates::cartesian_to_bl(x, y, z, a);
+
+    // BL-aligned orthonormal triad in world coords (standard spherical basis)
+    let (e_r, e_th, e_ph) = bl_aligned_triad_world(th0, ph0);
+
+    // Project the already-correct world ray direction into BL basis
+    let n = ray.direction; // unit vector from generate_ray()
+    let mut nr = n[0] * e_r[0] + n[1] * e_r[1] + n[2] * e_r[2];
+    let mut nth = n[0] * e_th[0] + n[1] * e_th[1] + n[2] * e_th[2];
+    let mut nph = n[0] * e_ph[0] + n[1] * e_ph[1] + n[2] * e_ph[2];
+
+    // Renormalize to unit length (kill numerical drift)
+    let nlen = (nr * nr + nth * nth + nph * nph).sqrt();
+    nr = nr / nlen;
+    nth = nth / nlen;
+    nph = nph / nlen;
+
+    // Tetrad mapping
+    let (_e_t_t, e_t_phi, e_r_r, e_th_th, e_ph_phi) = lnrf_vector_tetrad_coeffs(r0, th0, m, a);
+    let pr = e_r_r * nr;
+    let pth = e_th_th * nth;
+    let pphi = e_t_phi + e_ph_phi * nph;
+
+    // Metric components and future-directed p^t root of null condition
+    let (g_tt, g_tphi, g_rr, g_thth, g_phph) = kerr_metric_cov(r0, th0, m, a);
+    let a_q = g_tt;
+    let b_q = 2.0 * g_tphi * pphi;
+    let c_q = g_rr*pr*pr + g_thth*pth*pth + g_phph*pphi*pphi;
+    let disc = (b_q*b_q - 4.0*a_q*c_q).max(0.0);
+    let sqrt_disc = disc.sqrt();
+    let root1 = (-b_q + sqrt_disc) / (2.0 * a_q);
+    let root2 = (-b_q - sqrt_disc) / (2.0 * a_q);
+    let mut pt = if root1 > 0.0 && root2 > 0.0 { root1.max(root2) } else if root1 > 0.0 { root1 } else { root2 };
+    if !(pt.is_finite() && pt > 0.0) { pt = root1.max(root2); }
+
+    // Covariant components
+    let p_t   = g_tt*pt + g_tphi*pphi;
+    let p_phi = g_tphi*pt + g_phph*pphi;
+    let p_th  = g_thth*pth;
+
+    // Conserved quantities
+    let energy = -p_t;
+    let angular_momentum = p_phi;
+    let ct = th0.cos();
+    let st2 = th0.sin().powi(2).max(1e-300);
+    let carter_q = p_th * p_th + ct * ct * (angular_momentum * angular_momentum / st2 - a * a * energy * energy);
     
-    // Normalize direction vector to unit length (photon condition)
-    let dir_mag = (dx*dx + dy*dy + dz*dz).sqrt();
-    let (dx, dy, _dz) = (dx/dir_mag, dy/dir_mag, dz/dir_mag);
-    
-    // Convert to Boyer-Lindquist coordinates
-    let (_r_bl, theta, _phi) = crate::coordinates::cartesian_to_bl(x, y, z, a);
-    
-    // For camera rays, use simpler approach:
-    // Set energy = 1 (photon from "infinity")
-    let energy = 1.0;
-    
-    // Angular momentum: L_z = x*p_y - y*p_x (in Cartesian)
-    let angular_momentum = x * dy - y * dx;
-    
-    // For Carter constant, use a much simpler approximation
-    // For rays starting far from BH (r >> M), Q should be small
-    // Q ≈ L_z² * cos²θ for nearly equatorial motion
-    let cos_theta = theta.cos();
-    let sin_theta = theta.sin().max(1e-10);
-    
-    // Carter constant must allow θ motion to equator
-    // For ray to reach equator (θ=π/2), we need Q > (term1 + term2) at starting θ
+    // Initial sign of theta motion from the actual momentum
+    let initial_sign_theta = if p_th >= 0.0 { 1.0 } else { -1.0 };
+
+    // Sanity checks (debug builds only)
+    #[cfg(debug_assertions)]
+    {
+        // Θ₀ should equal p_θ² with our Q definition
+        let a2 = a * a;
+        let cos2 = th0.cos().powi(2);
+        let sin2 = th0.sin().powi(2).max(1e-300);
+        let theta_pot = carter_q + a2 * energy * energy * cos2 - (angular_momentum * angular_momentum / sin2) * cos2;
+        debug_assert!(
+            (theta_pot - (p_th * p_th)).abs() < 1e-10,
+            "Theta potential mismatch at init: Θ={:.3e}, p_θ²={:.3e}",
+            theta_pot,
+            p_th * p_th
+        );
+
+        // K (non-negative Carter quantity) should be >= 0
+        let k_nonneg = carter_q + (angular_momentum - a * energy).powi(2);
+        debug_assert!(
+            k_nonneg >= -1e-10,
+            "K = Q + (Lz - aE)² should be non-negative: K={:.3e}",
+            k_nonneg
+        );
+
+        // Null invariant should be tiny at init
+        let inv0 = crate::geodesic::compute_null_invariant(r0, th0, energy, angular_momentum, carter_q, m, a, -1.0, initial_sign_theta);
+        debug_assert!(
+            inv0 < 1e-10,
+            "Init null invariant too large: {:.3e}",
+            inv0
+        );
+    }
+
+    (energy, angular_momentum, carter_q, initial_sign_theta)
+}
+
+// LNRF contravariant tetrad coefficients e_(a)^μ at (r, θ)
+fn lnrf_vector_tetrad_coeffs(r: f64, th: f64, m: f64, a: f64) -> (f64, f64, f64, f64, f64) {
+    let (sigma, delta, big_a, st2, _ct2, omega) = kerr_scalars(r, th, m, a);
+    let e_t_t = (big_a / (sigma * delta)).sqrt();
+    let e_t_phi = omega * e_t_t;
+    let e_r_r = (delta / sigma).sqrt();
+    let e_th_th = 1.0 / sigma.sqrt();
+    let e_ph_phi = (sigma / big_a).sqrt() / st2.sqrt().max(1e-300);
+    (e_t_t, e_t_phi, e_r_r, e_th_th, e_ph_phi)
+}
+
+// Kerr metric covariant components at (r, θ)
+fn kerr_metric_cov(r: f64, th: f64, m: f64, a: f64) -> (f64, f64, f64, f64, f64) {
+    let (sigma, delta, big_a, st2, _ct2, _omega) = kerr_scalars(r, th, m, a);
+    let g_tt = -(1.0 - 2.0 * m * r / sigma);
+    let g_tphi = -2.0 * a * m * r * st2 / sigma;
+    let g_rr = sigma / delta;
+    let g_thth = sigma;
+    let g_phph = big_a * st2 / sigma;
+    (g_tt, g_tphi, g_rr, g_thth, g_phph)
+}
+
+// Kerr scalars at (r, θ)
+fn kerr_scalars(r: f64, th: f64, m: f64, a: f64) -> (f64, f64, f64, f64, f64, f64) {
+    let (st, ct) = (th.sin(), th.cos());
+    let st2 = st * st;
+    let ct2 = ct * ct;
+    let r2 = r * r;
     let a2 = a * a;
-    let cos2_theta = cos_theta * cos_theta;
-    let sin2_theta = sin_theta * sin_theta;
-    
-    // Calculate both terms that oppose θ motion
-    let term1 = a2 * energy * energy * cos2_theta;
-    let term2 = (angular_momentum * angular_momentum / sin2_theta) * cos2_theta;
-    let total_barrier = term1 + term2;
-    
-    // Set Q larger than the total barrier to ensure equatorial access
-    let carter_q = total_barrier * 1.2;
-    
-    (energy, angular_momentum, carter_q)
+    let sigma = r2 + a2 * ct2;
+    let delta = r2 - 2.0 * m * r + a2;
+    let big_a = (r2 + a2) * (r2 + a2) - a2 * delta * st2;
+    let omega = 2.0 * a * m * r / big_a;
+    (sigma, delta, big_a, st2, ct2, omega)
 }
 
 // Re-export PhotonState from geodesic module
