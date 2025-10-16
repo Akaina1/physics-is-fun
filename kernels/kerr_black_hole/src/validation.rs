@@ -120,8 +120,8 @@ impl ValidationStats {
 
 // Check if θ-potential allows motion toward equator
 // 
-// Physics: For a photon to reach the equatorial plane (θ=π/2), the θ-potential
-// Θ(θ) = Q - cos²θ[a²E² + L_z²/sin²θ] must be positive at the starting θ.
+// Physics (null): For a photon to reach the equatorial plane (θ=π/2), the θ-potential
+// Θ(θ) = Q + a²E² cos²θ - (L_z²/sin²θ) cos²θ must be positive at the starting θ.
 // If Θ(θ) < 0, the photon is at a turning point and cannot change θ.
 pub fn check_theta_potential(
     photon: &PhotonState,
@@ -143,10 +143,10 @@ pub fn check_theta_potential(
         return (0.0, false);
     }
     
-    // Calculate θ-potential: Θ(θ) = Q - cos²θ[a²E² + L_z²/sin²θ]
+    // Calculate θ-potential (null form)
     let term1 = a2 * energy * energy * cos2_theta;
     let term2 = (angular_momentum * angular_momentum / sin2_theta) * cos2_theta;
-    let theta_potential = carter_q - term1 - term2;
+    let theta_potential = carter_q + term1 - term2;
     
     let can_reach_equator = theta_potential > 0.0;
     
