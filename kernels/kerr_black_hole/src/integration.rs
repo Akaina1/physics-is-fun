@@ -1,4 +1,4 @@
-// Geodesic integration using RK4 method
+// Geodesic integration using RK8(7) adaptive method (DOPRI8) with bisection at disc crossings
 
 use std::f64::consts::PI;
 use crate::geodesic::{PhotonState, GeodesicResult, geodesic_dr_dlambda, geodesic_dtheta_dlambda, geodesic_dphi_dlambda, compute_null_invariant, compute_redshift_factor};
@@ -22,28 +22,93 @@ struct IntegrationState {
 }
 
 impl IntegrationState {
-    fn new(photon: &PhotonState) -> Self {
+    fn new(photon: &PhotonState, initial_sign_theta: f64) -> Self {
         Self {
             r: photon.r,
             theta: photon.theta,
             phi: photon.phi,
             lambda: 0.0,
             initial_phi: photon.phi,
-            sign_r: -1.0,      // Start moving inward (toward BH)
-            sign_theta: 1.0,   // Start moving toward equator
+            sign_r: -1.0,                     // Start moving inward (toward BH)
+            sign_theta: initial_sign_theta,   // Use actual ray direction
         }
     }
 }
 
-// Single step of RK4 (4th order Runge-Kutta) integration
-// 
-// Physics: RK4 is a numerical method for solving ODEs (ordinary differential equations)
-// It's more accurate than simple Euler method:
-// - Euler: y_{n+1} = y_n + h*f(y_n)  [1st order, large errors]
-// - RK4: Uses 4 evaluations per step for 4th order accuracy [much better!]
-// 
-// For our geodesic: dy/dλ = f(y), where y = (r, θ, φ)
-fn rk4_step(
+// ---------------------------------------------------------------------------
+// DOPRI8(7) helpers and stepper
+// ---------------------------------------------------------------------------
+
+#[inline]
+fn kerr_helpers(r: f64, th: f64, a: f64) -> (f64, f64, f64, f64, f64, f64) {
+    let ct = th.cos();
+    let st = th.sin().abs().max(1e-300);
+    let r2 = r * r;
+    let a2 = a * a;
+    let rho2 = r2 + a2 * ct * ct;
+    let delta = r2 - 2.0 * r + a2;
+    (ct, st, r2, a2, rho2, delta)
+}
+
+#[inline]
+fn carter_potentials(
+    r: f64,
+    th: f64,
+    a: f64,
+    e: f64,
+    lz: f64,
+    q: f64,
+) -> (f64, f64) {
+    let (ct, st, r2, a2, _rho2, delta) = kerr_helpers(r, th, a);
+    let p = e * (r2 + a2) - a * lz;
+    let k = q + (lz - a * e) * (lz - a * e);
+    let mut big_r = p * p - delta * k;
+    let cot = ct / st;
+    let mut theta_pot = q + a2 * e * e * ct * ct - (lz * lz) * cot * cot;
+
+    if big_r < 0.0 && big_r > -1e-24 { big_r = 0.0; }
+    if theta_pot < 0.0 && theta_pot > -1e-24 { theta_pot = 0.0; }
+    (big_r.max(0.0), theta_pot.max(0.0))
+}
+
+struct DormandPrince8Coefficients {
+    a: [[f64; 12]; 12],
+    b8: [f64; 13],
+    b7: [f64; 13],
+}
+
+impl DormandPrince8Coefficients {
+    fn new() -> Self {
+        Self {
+            a: [
+                [1.0/18.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                [1.0/48.0, 1.0/16.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                [1.0/32.0, 0.0, 3.0/32.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                [5.0/16.0, 0.0, -75.0/64.0, 75.0/64.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                [3.0/80.0, 0.0, 0.0, 3.0/16.0, 3.0/20.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                [29443841.0/614563906.0, 0.0, 0.0, 77736538.0/692538347.0, -28693883.0/1125000000.0, 23124283.0/1800000000.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                [16016141.0/946692911.0, 0.0, 0.0, 61564180.0/158732637.0, 22789713.0/633445777.0, 545815736.0/2771057229.0, -180193667.0/1043307555.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                [39632708.0/573591083.0, 0.0, 0.0, -433636366.0/683701615.0, -421739975.0/2616292301.0, 100302831.0/723423059.0, 790204164.0/839813087.0, 800635310.0/3783071287.0, 0.0, 0.0, 0.0, 0.0],
+                [246121993.0/1340847787.0, 0.0, 0.0, -37695042795.0/15268766246.0, -309121744.0/1061227803.0, -12992083.0/490766935.0, 6005943493.0/2108947869.0, 393006217.0/1396673457.0, 123872331.0/1001029789.0, 0.0, 0.0, 0.0],
+                [-1028468189.0/846180014.0, 0.0, 0.0, 8478235783.0/508512852.0, 1311729495.0/1432422823.0, -10304129995.0/1701304382.0, -48777925059.0/3047939560.0, 15336726248.0/1032824649.0, -45442868181.0/3398467696.0, 3065993473.0/597172653.0, 0.0, 0.0],
+                [185892177.0/718116043.0, 0.0, 0.0, -3185094517.0/667107341.0, -477755414.0/1098053517.0, -703635378.0/230739211.0, 5731566787.0/1027545527.0, 5232866602.0/850066563.0, -4093664535.0/808688257.0, 3962137247.0/1805957418.0, 65686358.0/487910083.0, 0.0],
+                [403863854.0/491063109.0, 0.0, 0.0, -5068492393.0/434740067.0, -411421997.0/543043805.0, 652783627.0/914296604.0, 11173962825.0/925320556.0, -13158990841.0/6184727034.0, 3936647629.0/1978049680.0, -160528059.0/685178525.0, 248638103.0/1413531060.0, 0.0],
+            ],
+            b8: [
+                14005451.0/335480064.0, 0.0, 0.0, 0.0, 0.0, -59238493.0/1068277825.0,
+                181606767.0/758867731.0, 561292985.0/797845732.0, -1041891430.0/1371343529.0,
+                760417239.0/1151165299.0, 118820643.0/751138087.0, -528747749.0/2220607170.0, 1.0/4.0,
+            ],
+            b7: [
+                13451932.0/455176623.0, 0.0, 0.0, 0.0, 0.0, -808719846.0/976000145.0,
+                1757004468.0/5645159321.0, 656045339.0/265891186.0, -3867574721.0/1518517206.0,
+                465885868.0/322736535.0, 53011238.0/667516719.0, 2.0/45.0, 0.0,
+            ],
+        }
+    }
+}
+
+fn dopri8_step(
     state: &IntegrationState,
     energy: f64,
     angular_momentum: f64,
@@ -51,87 +116,112 @@ fn rk4_step(
     m: f64,
     a: f64,
     step_size: f64,
-) -> IntegrationState {
+    coeff: &DormandPrince8Coefficients,
+) -> (IntegrationState, f64) {
     let h = step_size;
-    
-    // k1 = f(y_n)
-    let dr1 = geodesic_dr_dlambda(
-        state.r, state.theta, energy, angular_momentum, carter_q, m, a, state.sign_r
-    );
-    let dtheta1 = geodesic_dtheta_dlambda(
-        state.r, state.theta, energy, angular_momentum, carter_q, a, state.sign_theta
-    );
-    let dphi1 = geodesic_dphi_dlambda(
-        state.r, state.theta, energy, angular_momentum, m, a
-    );
-    
-    // k2 = f(y_n + h/2 * k1)
-    let r2 = state.r + 0.5 * h * dr1;
-    let theta2 = state.theta + 0.5 * h * dtheta1;
-    let dr2 = geodesic_dr_dlambda(
-        r2, theta2, energy, angular_momentum, carter_q, m, a, state.sign_r
-    );
-    let dtheta2 = geodesic_dtheta_dlambda(
-        r2, theta2, energy, angular_momentum, carter_q, a, state.sign_theta
-    );
-    let dphi2 = geodesic_dphi_dlambda(
-        r2, theta2, energy, angular_momentum, m, a
-    );
-    
-    // k3 = f(y_n + h/2 * k2)
-    let r3 = state.r + 0.5 * h * dr2;
-    let theta3 = state.theta + 0.5 * h * dtheta2;
-    let dr3 = geodesic_dr_dlambda(
-        r3, theta3, energy, angular_momentum, carter_q, m, a, state.sign_r
-    );
-    let dtheta3 = geodesic_dtheta_dlambda(
-        r3, theta3, energy, angular_momentum, carter_q, a, state.sign_theta
-    );
-    let dphi3 = geodesic_dphi_dlambda(
-        r3, theta3, energy, angular_momentum, m, a
-    );
-    
-    // k4 = f(y_n + h * k3)
-    let r4 = state.r + h * dr3;
-    let theta4 = state.theta + h * dtheta3;
-    let dr4 = geodesic_dr_dlambda(
-        r4, theta4, energy, angular_momentum, carter_q, m, a, state.sign_r
-    );
-    let dtheta4 = geodesic_dtheta_dlambda(
-        r4, theta4, energy, angular_momentum, carter_q, a, state.sign_theta
-    );
-    let dphi4 = geodesic_dphi_dlambda(
-        r4, theta4, energy, angular_momentum, m, a
-    );
-    
-    // Combine: y_{n+1} = y_n + h/6 * (k1 + 2*k2 + 2*k3 + k4)
-    let new_r = state.r + (h / 6.0) * (dr1 + 2.0*dr2 + 2.0*dr3 + dr4);
-    let new_theta = state.theta + (h / 6.0) * (dtheta1 + 2.0*dtheta2 + 2.0*dtheta3 + dtheta4);
-    let new_phi = state.phi + (h / 6.0) * (dphi1 + 2.0*dphi2 + 2.0*dphi3 + dphi4);
-    
-    // Check for turning points and flip signs if needed
+
+    let mut k_r = [0.0f64; 13];
+    let mut k_theta = [0.0f64; 13];
+    let mut k_phi = [0.0f64; 13];
+
+    k_r[0] = geodesic_dr_dlambda(state.r, state.theta, energy, angular_momentum, carter_q, m, a, state.sign_r);
+    k_theta[0] = geodesic_dtheta_dlambda(state.r, state.theta, energy, angular_momentum, carter_q, a, state.sign_theta);
+    k_phi[0] = geodesic_dphi_dlambda(state.r, state.theta, energy, angular_momentum, m, a);
+
+    for i in 1..13 {
+        let mut r_temp = state.r;
+        let mut theta_temp = state.theta;
+        for j in 0..i { r_temp += h * coeff.a[i-1][j] * k_r[j]; theta_temp += h * coeff.a[i-1][j] * k_theta[j]; }
+
+        let (r_pot, theta_pot) = carter_potentials(r_temp, theta_temp, a, energy, angular_momentum, carter_q);
+        let local_sign_r = if (r_temp - state.r) >= 0.0 { 1.0 } else { -1.0 };
+        let local_sign_theta = if (theta_temp - state.theta) >= 0.0 { 1.0 } else { -1.0 };
+        let adj_sign_r = if r_pot <= 0.0 { -local_sign_r } else { local_sign_r };
+        let adj_sign_theta = if theta_pot <= 0.0 { -local_sign_theta } else { local_sign_theta };
+
+        k_r[i] = geodesic_dr_dlambda(r_temp, theta_temp, energy, angular_momentum, carter_q, m, a, adj_sign_r);
+        k_theta[i] = geodesic_dtheta_dlambda(r_temp, theta_temp, energy, angular_momentum, carter_q, a, adj_sign_theta);
+        k_phi[i] = geodesic_dphi_dlambda(r_temp, theta_temp, energy, angular_momentum, m, a);
+    }
+
+    let mut new_r = state.r;
+    let mut new_theta = state.theta;
+    let mut new_phi = state.phi;
+    for i in 0..13 { new_r += h * coeff.b8[i] * k_r[i]; new_theta += h * coeff.b8[i] * k_theta[i]; new_phi += h * coeff.b8[i] * k_phi[i]; }
+
+    let mut r7 = state.r; let mut theta7 = state.theta; let mut phi7 = state.phi;
+    for i in 0..13 { r7 += h * coeff.b7[i] * k_r[i]; theta7 += h * coeff.b7[i] * k_theta[i]; phi7 += h * coeff.b7[i] * k_phi[i]; }
+
+    let error_r = (new_r - r7).abs();
+    let error_theta = (new_theta - theta7).abs();
+    let error_phi = (new_phi - phi7).abs();
+    let error_estimate = error_r.max(error_theta).max(error_phi);
+
+    let (r_pot_before, theta_pot_before) = carter_potentials(state.r, state.theta, a, energy, angular_momentum, carter_q);
+    let (r_pot_after, theta_pot_after) = carter_potentials(new_r, new_theta, a, energy, angular_momentum, carter_q);
+
     let mut new_sign_r = state.sign_r;
     let mut new_sign_theta = state.sign_theta;
-    
-    // Radial turning point: if dr/dλ changes sign or goes to zero
-    if dr1 * dr4 < 0.0 || dr4.abs() < 1e-10 {
-        new_sign_r = -state.sign_r;
+    if r_pot_before > 0.0 && r_pot_after == 0.0 { new_sign_r = -new_sign_r; }
+    if theta_pot_before > 0.0 && theta_pot_after == 0.0 { new_sign_theta = -new_sign_theta; }
+    if r_pot_before * r_pot_after < 0.0 { new_sign_r = -new_sign_r; }
+    if theta_pot_before * theta_pot_after < 0.0 { new_sign_theta = -new_sign_theta; }
+
+    let new_state = IntegrationState { r: new_r, theta: new_theta, phi: new_phi, lambda: state.lambda + h, initial_phi: state.initial_phi, sign_r: new_sign_r, sign_theta: new_sign_theta };
+    (new_state, error_estimate)
+}
+
+fn compute_next_step_size(current_h: f64, error: f64, tolerance: f64, safety_factor: f64) -> f64 {
+    if error < 1e-14 { return current_h * 5.0; }
+    let factor = (tolerance / error).powf(1.0 / 8.0) * safety_factor;
+    let factor_clamped = factor.max(0.2).min(5.0);
+    current_h * factor_clamped
+}
+
+fn bisect_disc_intersection(
+    state_before: &IntegrationState,
+    state_after: &IntegrationState,
+    energy: f64,
+    angular_momentum: f64,
+    carter_q: f64,
+    m: f64,
+    a: f64,
+    coeff: &DormandPrince8Coefficients,
+    max_iterations: usize,
+) -> IntegrationState {
+    let equator = PI / 2.0;
+    let tolerance = 1e-12;
+
+    let mut lambda_left = state_before.lambda;
+    let mut lambda_right = state_after.lambda;
+    let mut theta_left = state_before.theta;
+    let mut theta_right = state_after.theta;
+
+    if (theta_left - equator) * (theta_right - equator) >= 0.0 {
+        return if (theta_left - equator).abs() < (theta_right - equator).abs() { *state_before } else { *state_after };
     }
-    
-    // Polar turning point: if dθ/dλ changes sign (bounce off poles or equator)
-    if dtheta1 * dtheta4 < 0.0 || dtheta4.abs() < 1e-10 {
-        new_sign_theta = -state.sign_theta;
+
+    for _ in 0..max_iterations {
+        let frac = (equator - theta_left) / (theta_right - theta_left);
+        let lambda_mid = lambda_left + frac * (lambda_right - lambda_left);
+        let step_size = lambda_mid - state_before.lambda;
+        let (mid_state, _) = dopri8_step(state_before, energy, angular_momentum, carter_q, m, a, step_size, coeff);
+        let theta_mid = mid_state.theta;
+        if (theta_mid - equator).abs() < tolerance { return mid_state; }
+        if (theta_mid - equator) * (theta_right - equator) < 0.0 {
+            lambda_left = lambda_mid; theta_left = theta_mid;
+        } else {
+            lambda_right = lambda_mid; theta_right = theta_mid;
+        }
+        if (lambda_right - lambda_left).abs() < 1e-15 {
+            let final_step = (lambda_left + lambda_right) * 0.5 - state_before.lambda;
+            let (final_state, _) = dopri8_step(state_before, energy, angular_momentum, carter_q, m, a, final_step, coeff);
+            return final_state;
+        }
     }
-    
-    IntegrationState {
-        r: new_r,
-        theta: new_theta,
-        phi: new_phi,
-        lambda: state.lambda + h,
-        initial_phi: state.initial_phi,
-        sign_r: new_sign_r,
-        sign_theta: new_sign_theta,
-    }
+    let final_step = (lambda_left + lambda_right) * 0.5 - state_before.lambda;
+    let (final_state, _) = dopri8_step(state_before, energy, angular_momentum, carter_q, m, a, final_step, coeff);
+    final_state
 }
 
 // Calculate Keplerian angular velocity at radius r
@@ -150,11 +240,11 @@ fn keplerian_omega(r: f64, m: f64, a: f64) -> f64 {
 // → Need smaller steps for accuracy
 // Far from BH, geodesics are nearly straight
 // → Can use larger steps for efficiency
+// (legacy helper retained if needed)
+#[allow(dead_code)]
 fn adaptive_step_size(r: f64, theta: f64, base_step: f64) -> f64 {
-    // Smaller steps near horizon and near equator (where disc is)
-    let r_factor = (r / 2.0).max(0.1);  // Smaller for small r
-    let theta_factor = (theta - PI/2.0).abs().max(0.1);  // Smaller near equator
-    
+    let r_factor = (r / 2.0).max(0.1);
+    let theta_factor = (theta - PI/2.0).abs().max(0.1);
     base_step * r_factor * theta_factor
 }
 
@@ -166,6 +256,7 @@ fn adaptive_step_size(r: f64, theta: f64, base_step: f64) -> f64 {
 // 
 // Physics: The disc is a thin structure in the equatorial plane (θ = π/2)
 // It extends from r_inner (ISCO) to r_outer (e.g., 20M)
+#[allow(dead_code)]
 fn check_disc_intersection(
     r: f64,
     theta: f64,
@@ -221,6 +312,7 @@ fn check_disc_intersection(
 //          Non-hits are marked as Escaped/Captured
 pub fn integrate_geodesic_multi_order(
     photon: PhotonState,
+    initial_sign_theta: f64,
     black_hole: &BlackHole,
     r_disc_inner: f64,
     r_disc_outer: f64,
@@ -231,96 +323,113 @@ pub fn integrate_geodesic_multi_order(
     let a = black_hole.spin;
     let r_horizon = black_hole.horizon_radius();
     
-    let mut state = IntegrationState::new(&photon);
+    let mut state = IntegrationState::new(&photon, initial_sign_theta);
     let mut results = vec![GeodesicResult::Escaped; max_orders as usize];
     let mut disc_crossings = 0u8;
-    
-    let base_step = 0.05;
-    
-    // Integration loop
-    for _ in 0..max_steps {
-        let h = adaptive_step_size(state.r, state.theta, base_step);
-        let prev_theta = state.theta;
-        
-        // Take one RK4 step
-        state = rk4_step(
-            &state,
-            photon.energy,
-            photon.angular_momentum,
-            photon.carter_q,
-            m,
-            a,
-            h,
-        );
-        
-        // Check stopping conditions
-        
-        // 1. Crossed horizon → mark remaining as captured
-        if state.r < r_horizon * 1.01 {
-            for i in disc_crossings..max_orders {
-                results[i as usize] = GeodesicResult::Captured;
+
+    let tolerance = 1e-10;
+    let safety_factor = 0.9;
+    let mut h: f64 = 0.05;
+    let h_min: f64 = 1e-8;
+    let h_max: f64 = 0.5;
+
+    let coeff = DormandPrince8Coefficients::new();
+    let mut steps_taken = 0usize;
+    let mut _steps_rejected = 0usize;
+
+    while steps_taken < max_steps {
+        // Step size will be adapted by the PI controller based on error; no pre-limiter
+
+        let (trial_state, error) = dopri8_step(&state, photon.energy, photon.angular_momentum, photon.carter_q, m, a, h, &coeff);
+
+        if error <= tolerance || h <= h_min {
+            // accept step
+            let prev = state;
+            state = trial_state;
+            steps_taken += 1;
+
+            // Update signs from continuity (primary) and turning points (secondary)
+            let dr = state.r - prev.r;
+            let dth = state.theta - prev.theta;
+
+            // Primary: continuity by finite difference
+            if dr.abs() > 1e-12 {
+                state.sign_r = if dr >= 0.0 { 1.0 } else { -1.0 };
             }
-            return results;
-        }
-        
-        // 2. Escaped to infinity → remaining already marked as Escaped
-        if state.r > 1000.0 {
-            return results;
-        }
-        
-        // 3. Check for disc intersection
-        if check_disc_intersection(state.r, state.theta, prev_theta, r_disc_inner, r_disc_outer) {
-            // Store this crossing if we haven't collected all orders yet
-            if disc_crossings < max_orders {
-                // Calculate all derived quantities
-                let impact_param = photon.angular_momentum / photon.energy;
-                let omega = keplerian_omega(state.r, m, a);
-                let redshift = compute_redshift_factor(
-                    state.r, state.theta, photon.energy, photon.angular_momentum, m, a, omega
-                );
-                let null_error = compute_null_invariant(
-                    state.r, state.theta, photon.energy, photon.angular_momentum, photon.carter_q, m, a
-                );
-                
-                // Calculate phi wraps (total phi travel / 2π)
-                let phi_total = (state.phi - state.initial_phi).abs();
-                let phi_wraps = phi_total / (2.0 * PI);
-                
-                results[disc_crossings as usize] = GeodesicResult::DiscHit {
-                    r: state.r,
-                    theta: state.theta,
-                    phi: state.phi,
-                    energy: photon.energy,
-                    angular_momentum: photon.angular_momentum,
-                    carter_q: photon.carter_q,
-                    impact_parameter: impact_param,
-                    redshift_factor: redshift,
-                    affine_parameter: state.lambda,
-                    phi_wraps,
-                    order: disc_crossings,
-                    null_invariant_error: null_error,
-                };
+            if dth.abs() > 1e-12 {
+                state.sign_theta = if dth >= 0.0 { 1.0 } else { -1.0 };
             }
-            
-            disc_crossings += 1;
-            
-            // Early termination: if we have all orders, stop integrating
-            if disc_crossings >= max_orders {
+
+            // Secondary: robust flip at turning points using potentials
+            let (r_pot_before, th_pot_before) = carter_potentials(prev.r, prev.theta, a, photon.energy, photon.angular_momentum, photon.carter_q);
+            let (r_pot_after, th_pot_after) = carter_potentials(state.r, state.theta, a, photon.energy, photon.angular_momentum, photon.carter_q);
+
+            if r_pot_before > 0.0 && r_pot_after == 0.0 {
+                state.sign_r = -state.sign_r;
+            }
+            if th_pot_before > 0.0 && th_pot_after == 0.0 {
+                state.sign_theta = -state.sign_theta;
+            }
+            if r_pot_before * r_pot_after < 0.0 {
+                state.sign_r = -state.sign_r;
+            }
+            if th_pot_before * th_pot_after < 0.0 {
+                state.sign_theta = -state.sign_theta;
+            }
+
+            // Stopping conditions
+            if state.r < r_horizon * 1.01 {
+                for i in disc_crossings..max_orders { results[i as usize] = GeodesicResult::Captured; }
                 return results;
             }
-            
-            // Otherwise continue to find next order
+            if state.r > 1000.0 { return results; }
+
+            // Disc crossing detection with bisection refinement
+            let equator = PI / 2.0;
+            let crossed = (prev.theta - equator) * (state.theta - equator) < 0.0;
+            if crossed {
+                let exact_state = bisect_disc_intersection(&prev, &state, photon.energy, photon.angular_momentum, photon.carter_q, m, a, &coeff, 20);
+                let within_radius = exact_state.r >= r_disc_inner && exact_state.r <= r_disc_outer;
+                if within_radius {
+                    if disc_crossings < max_orders {
+                        let impact_param = photon.angular_momentum / photon.energy;
+                        let omega = keplerian_omega(exact_state.r, m, a);
+                        let redshift = compute_redshift_factor(exact_state.r, exact_state.theta, photon.energy, photon.angular_momentum, m, a, omega);
+                        let null_error = compute_null_invariant(exact_state.r, exact_state.theta, photon.energy, photon.angular_momentum, photon.carter_q, m, a, exact_state.sign_r, exact_state.sign_theta);
+                        let phi_total = (exact_state.phi - exact_state.initial_phi).abs();
+                        let phi_wraps = phi_total / (2.0 * PI);
+                        results[disc_crossings as usize] = GeodesicResult::DiscHit {
+                            r: exact_state.r,
+                            theta: exact_state.theta,
+                            phi: exact_state.phi,
+                            energy: photon.energy,
+                            angular_momentum: photon.angular_momentum,
+                            carter_q: photon.carter_q,
+                            impact_parameter: impact_param,
+                            redshift_factor: redshift,
+                            affine_parameter: exact_state.lambda,
+                            phi_wraps,
+                            order: disc_crossings,
+                            null_invariant_error: null_error,
+                        };
+                    }
+                    disc_crossings += 1;
+                    if disc_crossings >= max_orders { return results; }
+                }
+            }
+
+            if state.theta < 0.0 || state.theta > PI { state.theta = state.theta.rem_euclid(PI); }
+            state.phi = state.phi.rem_euclid(2.0 * PI);
+
+            h = compute_next_step_size(h, error.max(1e-16), tolerance, safety_factor);
+            h = h.max(h_min).min(h_max);
+        } else {
+            _steps_rejected += 1;
+            h = compute_next_step_size(h, error, tolerance, safety_factor);
+            h = h.max(h_min).min(h_max);
         }
-        
-        // Safety checks
-        if state.theta < 0.0 || state.theta > PI {
-            state.theta = state.theta.rem_euclid(PI);
-        }
-        
-        state.phi = state.phi.rem_euclid(2.0 * PI);
     }
-    
-    // Max steps reached - return what we have
+
     results
 }
 
@@ -336,6 +445,7 @@ pub fn integrate_geodesic(
 ) -> GeodesicResult {
     let results = integrate_geodesic_multi_order(
         photon,
+        1.0,  // Default: moving toward equator (legacy behavior)
         black_hole,
         r_disc_inner,
         r_disc_outer,
