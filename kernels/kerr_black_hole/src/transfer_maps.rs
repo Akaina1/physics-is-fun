@@ -118,6 +118,10 @@ pub struct HighPrecisionData {
 
 #[derive(Debug, Clone, Copy, Default)]
 pub struct PositionData {
+    // Pixel coordinates (NEW for spatial analysis)
+    pub pixel_x: u32,        // X coordinate in image
+    pub pixel_y: u32,        // Y coordinate in image
+    
     // Position at disc intersection
     pub r: f64,              // Radial coordinate
     pub theta: f64,          // Polar angle at disc intersection
@@ -153,13 +157,13 @@ impl HighPrecisionData {
         for (i, pos) in self.positions.iter().enumerate() {
             if pos.hit {
                 json.push_str(&format!(
-                    "    {{\"r\": {:.15}, \"theta\": {:.15}, \"phi\": {:.15}, \"energy\": {:.15}, \"angular_momentum\": {:.15}, \"carter_q\": {:.15}, \"impact_parameter\": {:.15}, \"redshift_factor\": {:.15}, \"affine_parameter\": {:.15}, \"phi_wraps\": {:.15}, \"order\": {}, \"null_invariant_error\": {:.15}, \"hit\": true}}",
-                    pos.r, pos.theta, pos.phi, pos.energy, pos.angular_momentum, pos.carter_q, 
+                    "    {{\"pixel_x\": {}, \"pixel_y\": {}, \"r\": {:.15}, \"theta\": {:.15}, \"phi\": {:.15}, \"energy\": {:.15}, \"angular_momentum\": {:.15}, \"carter_q\": {:.15}, \"impact_parameter\": {:.15}, \"redshift_factor\": {:.15}, \"affine_parameter\": {:.15}, \"phi_wraps\": {:.15}, \"order\": {}, \"null_invariant_error\": {:.15}, \"hit\": true}}",
+                    pos.pixel_x, pos.pixel_y, pos.r, pos.theta, pos.phi, pos.energy, pos.angular_momentum, pos.carter_q, 
                     pos.impact_parameter, pos.redshift_factor, pos.affine_parameter, pos.phi_wraps,
                     pos.order, pos.null_invariant_error
                 ));
             } else {
-                json.push_str("    {\"hit\": false}");
+                json.push_str(&format!("    {{\"pixel_x\": {}, \"pixel_y\": {}, \"hit\": false}}", pos.pixel_x, pos.pixel_y));
             }
             
             if i < self.positions.len() - 1 {
@@ -401,6 +405,8 @@ impl TransferMaps {
                     if let Some(ref hp) = self.high_precision_data {
                         let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
                         *hp_ptr.add(idx) = PositionData {
+                            pixel_x: x,
+                            pixel_y: y,
                             r: *r,
                             theta: *theta,
                             phi: *phi,
@@ -422,7 +428,11 @@ impl TransferMaps {
                     // High-precision data (if enabled)
                     if let Some(ref hp) = self.high_precision_data {
                         let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
-                        *hp_ptr.add(idx) = PositionData::default();
+                        *hp_ptr.add(idx) = PositionData {
+                            pixel_x: x,
+                            pixel_y: y,
+                            ..Default::default()
+                        };
                     }
                 }
             }
@@ -484,6 +494,8 @@ impl TransferMaps {
                             order, null_invariant_error 
                         } => {
                             PositionData {
+                                pixel_x: x,
+                                pixel_y: y,
                                 r: *r,
                                 theta: *theta,
                                 phi: *phi,
@@ -499,7 +511,11 @@ impl TransferMaps {
                                 null_invariant_error: *null_invariant_error,
                             }
                         }
-                        _ => PositionData::default(),
+                        _ => PositionData {
+                            pixel_x: x,
+                            pixel_y: y,
+                            ..Default::default()
+                        },
                     };
                 }
             }
