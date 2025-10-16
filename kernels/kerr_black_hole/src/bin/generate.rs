@@ -78,6 +78,40 @@ fn parse_camera_angle(preset: &str) -> Result<f64, String> {
     }
 }
 
+/// Get camera distance and FOV for a given preset
+/// 
+/// Pairs FOV with distance so the disc fills ~75% of the frame width
+/// Formula: D = r_outer / tan(0.5 * w * FOV) where w=0.75 (target fill)
+/// 
+/// Returns: (distance_in_M, fov_in_degrees)
+fn get_camera_params(preset: &str, r_outer: f64) -> (f64, f64) {
+    let w = 0.75; // Target 75% width fill
+    
+    match preset {
+        "30deg" => {
+            let fov: f64 = 30.0;
+            let d = r_outer / (0.5 * w * fov.to_radians()).tan();
+            (d, fov)
+        },
+        "45deg" => {
+            let fov: f64 = 45.0;
+            let d = r_outer / (0.5 * w * fov.to_radians()).tan();
+            (d, fov)
+        },
+        "60deg" => {
+            let fov: f64 = 60.0;
+            let d = r_outer / (0.5 * w * fov.to_radians()).tan();
+            (d, fov)
+        },
+        "75deg" => {
+            let fov: f64 = 75.0;
+            let d = r_outer / (0.5 * w * fov.to_radians()).tan();
+            (d * 0.9, fov) // Reduce D by 10% for high inclination to keep disc prominent
+        },
+        _ => (50.0, 45.0), // Fallback
+    }
+}
+
 /// Parse the black hole type from the string
 fn parse_black_hole_type(bh_type: &str) -> Result<BlackHoleType, String> {
     match bh_type {
@@ -273,11 +307,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         bh_type,
     );
     
-    // Create camera with parsed angle
+    // Get camera distance and FOV matched to the disc size
+    let r_outer = 20.0; // Disc outer radius
+    let (camera_distance, camera_fov) = get_camera_params(&args.preset, r_outer);
+    
+    // Create camera with matched distance/FOV pair
     let camera = Camera::new(
-        50.0,          // Distance from black hole (50M, well outside disc)
-        camera_angle,  // Inclination in degrees
-        120.0,         // Wide field of view to capture disc
+        camera_distance,  // Distance paired with FOV for proper framing
+        camera_angle,     // Inclination in degrees
+        camera_fov,       // FOV matched to distance
     );
     
     // Create render configuration
@@ -293,7 +331,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("  Preset: {}", args.preset);
     println!("  Black Hole: {}", bh_type.name());
     println!("  Resolution: {}x{}", args.width, args.height);
-    println!("  Camera Angle: {:.1} degrees", camera_angle);
+    println!("  Camera: distance={:.1}M, inclination={:.1}°, FOV={:.1}°", camera_distance, camera_angle, camera_fov);
     println!("  Max Orders: {} ({})", args.max_orders, order_description(args.max_orders));
     println!("  Export Precision: {}", args.export_precision);
     println!("=======================================\n");
