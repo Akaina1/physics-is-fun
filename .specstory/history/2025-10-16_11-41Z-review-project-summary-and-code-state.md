@@ -18324,7 +18324,36 @@ perfect!!
 
 _**Assistant (claude-4.5-sonnet)**_
 
+Excellent! Let me update the TODO list to mark all the chart tasks as completed:
 
+---
+
+Tool use: **todo_write**
+
+## Todo List
+
+- [x] Add NI Error Histogram (log-scale, color-coded by quality)
+- [x] Add Radial Hit Distribution (hits vs radius, per-order overlay)
+- [x] Add Radial Profile Plot (multi-line: hits, redshift, phi-wraps vs r)
+- [x] Add Angular Distribution Polar Chart (φ angle hit density)
+- [x] Build and test all charts
+
+---
+
+Perfect! 🎉 All four charts are now implemented and working beautifully:
+
+1. **✅ NI Error Histogram** - Log-scale bins with color-coded quality thresholds (green for <1e-12, yellow for <1e-9, red for ≥1e-9)
+2. **✅ Radial Hit Distribution** - Stacked bar chart showing Order 0, 1, and 2+ hits across radius bins
+3. **✅ Radial Profile Plot** - Multi-line chart showing hit count, redshift factor, and φ-wraps vs radius, with ISCO marker
+4. **✅ Angular Distribution** - Polar chart showing φ angle hit density, perfect for visualizing frame-dragging asymmetry
+
+The analyzer now generates publication-quality visualizations that academics would find valuable for understanding:
+- Numerical accuracy (NI distribution)
+- Disc emission geography (radial patterns)  
+- Relativistic effects (redshift, lensing)
+- Frame-dragging asymmetry (angular patterns)
+
+All charts are properly sized at 680px width to fit the 2-column grid layout without overflow. The HTML report is self-contained with inline SVG, no external dependencies, and ready to share or print to PDF!
 
 ---
 
