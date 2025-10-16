@@ -18357,3 +18357,2559 @@ All charts are properly sized at 680px width to fit the 2-column grid layout wit
 
 ---
 
+_**User (2025-10-16 18:38Z)**_
+
+alright awesome, let's review some more additions to consider:
+
+### Quick wins (low dev effort, high insight)
+
+* **Hit taxonomy:** Split misses into *escaped to infinity* vs *captured by horizon* vs *aborted (numerical)*, with counts and a tiny pie chart. This helps explain why the miss rate is large.
+* **Turning-point counts:** Histograms of the number of (r) and (\theta) turning points per ray (0,1,2+). Turning points correlate with lensing complexity and ring order.
+* **Invariant drift vs. affine parameter:** A line chart of median / p95 NI as a function of (\lambda). Shows that constraint violations don’t grow with path length.
+* **K validation heatmap:** Image-plane heatmap of (K) (or small negative deviations clipped) to visually flag any region with potential sign/mapping bugs.
+* **Order mask thumbnails:** Small 2D thumbnails for order=0,1,2+ regions. This makes the photon ring structure “pop” for readers. (Your current aggregates imply this but a map is visceral.) 
+
+### Research-grade (great for a paper or methods appendix)
+
+* **Critical curve / shadow boundary extraction:** Compute the image-plane locus separating captured vs. escaped geodesics (the Kerr critical curve). Report **diameter, axis ratio, and centroid offset** vs. spin/inclination; compare to known Kerr predictions. This is a standard benchmark against EHT-style observables.
+* **Magnification / caustic analysis:** Estimate the **Jacobian magnification** (\mu = \left|\partial(\alpha,\beta)/\partial(r,\phi)\right|^{-1}) via finite differencing neighboring pixels’ hit coordinates. Map (\mu) across the image; identify caustic ridges that align with the photon ring.
+* **Transfer function diagnostics:** 2D histogram of *(image-plane radius)* vs. *(emission radius at hit)* for each order (the “ray–disc transfer function”). It shows where the brightness should concentrate for common emissivity laws.
+* **Time delay map:** If you keep affine parameter (\lambda) at hit (or coordinate time), render a **relative time-delay** map. Useful for echo/variability studies and a cool blog visual.
+* **Asymmetry quantification:** Report left–right flux (or hit-count) ratio and its dependence on **(a)** and **inclination**. Frame dragging shows up cleanly here; add a simple spin sweep figure.
+* **Wrap-angle precision check:** Plot (\phi)-wraps vs. impact parameter (b) with theoretical trends near the photon sphere (log divergence in deflection). Good sanity check of geodesic accuracy at high order.
+
+### Numerical & reproducibility
+
+* **Convergence test panel:** Re-integrate a 1–2% pixel stratified sample with tighter tolerances/step size; report **error vs. cost** curves (NI, hit classification stability, (\Delta r,\Delta\phi)). This answers “are we numerically converged?”.
+* **Outlier spotlight:** List top-N NI and (K<0) outliers with their pixel coords and states; link them from the HTML so clicking highlights them on the maps.
+* **Provenance block:** Add code git SHA, build flags, compiler, dataset checksums to the report footer for academic traceability.
+
+### Blog-friendly visuals
+
+* **Animated order reveal:** Tiny inline GIF/SVG where order 0 → 1 → 2+ layers fade in. Great teaching device.
+* **“Why so many misses?” explainer:** One panel showing the camera frustum vs. disc solid angle and the captured-cone into the horizon. Puts your 70–85% miss rate in context.
+* **Before/after NI fix:** A small two-bar comparison of NI p99 and miss taxonomy from earlier runs to now, telling the story of your fixes. 
+
+### Data to add to your JSON (to unlock the above)
+
+* `captured`: bool (horizon hit), `escaped`: bool (to ∞), `turns_r`, `turns_theta`, `lambda_hit` (or `t_hit`), and the disk polar hit coords `(r_hit, phi_hit)`. Optional: store neighbor pixel indices to simplify finite-diff Jacobians for magnification.
+
+--- 
+
+Whats integration difficutly for these?
+
+
+---
+
+_**Assistant (claude-4.5-sonnet)**_
+
+Great question! Let me break down the integration difficulty for each addition:
+
+## ✅ **QUICK WINS** (Easy → Medium)
+
+| Item | Difficulty | Reason |
+|------|-----------|---------|
+| **Hit taxonomy (escaped/captured/aborted)** | 🟢 Easy | Already have `hit` bool; just need to add 2 more fields to classify misses in `integration.rs` |
+| **Turning-point counts** | 🟢 Easy | Already tracking sign flips in integrator; just need to count them and export |
+| **Invariant drift vs λ** | 🟡 Medium | Need to bin by `affine_parameter` and compute stats per bin (already have both fields) |
+| **K validation heatmap** | 🟢 Easy | K = Q + (L_z - aE)² already computed; just render as 2D heatmap |
+| **Order mask thumbnails** | 🟢 Easy | Already aggregating per-pixel order masks; just render as small images |
+
+## 🔬 **RESEARCH-GRADE** (Medium → Hard)
+
+| Item | Difficulty | Reason |
+|------|-----------|---------|
+| **Critical curve extraction** | 🟡 Medium | Need edge detection on captured/escaped boundary; basic image processing |
+| **Magnification / caustic** | 🔴 Hard | Requires finite-diff Jacobian from neighboring pixels; need neighbor indices in data |
+| **Transfer function (2D histogram)** | 🟢 Easy | Just bin by (image radius, emission radius) - already have both |
+| **Time delay map** | 🟢 Easy | Already have `affine_parameter`; just render as heatmap with relative values |
+| **Asymmetry quantification** | 🟢 Easy | Split hits by left/right hemisphere and compute ratio |
+| **Wrap-angle vs impact parameter** | 🟡 Medium | Have phi-wraps; need to compute impact parameter (b = L_z/E) from existing fields |
+
+## 📊 **NUMERICAL & REPRODUCIBILITY** (Medium → Hard)
+
+| Item | Difficulty | Reason |
+|------|-----------|---------|
+| **Convergence test panel** | 🔴 Hard | Requires re-running integration with different tolerances; significant compute |
+| **Outlier spotlight** | 🟢 Easy | Just sort by NI/K, take top-N, format as table |
+| **Provenance block** | 🟢 Easy | Add git SHA, rustc version, timestamps to manifest |
+
+## 🎨 **BLOG-FRIENDLY** (Medium → Very Hard)
+
+| Item | Difficulty | Reason |
+|------|-----------|---------|
+| **Animated order reveal** | 🔴 Very Hard | Requires generating animation frames or SVG animations |
+| **"Why misses?" explainer** | 🟡 Medium | Static diagram/illustration; mostly design work |
+| **Before/after comparison** | 🟢 Easy | Just need old data file; render side-by-side bars |
+
+---
+
+## 📦 **DATA ADDITIONS NEEDED**
+
+To unlock the above, you'd need to add to `PositionData` in `transfer_maps.rs`:
+
+```rust
+pub captured: bool,        // 🟢 Easy - add in integrator
+pub escaped: bool,         // 🟢 Easy - add in integrator  
+pub aborted: bool,         // 🟢 Easy - add in integrator
+pub turns_r: u8,          // 🟢 Easy - already counting
+pub turns_theta: u8,      // 🟢 Easy - already counting
+// Already have: affine_parameter, r, phi for hits
+```
+
+Optional for advanced features:
+```rust
+pub neighbor_indices: [u32; 4],  // 🟡 Medium - for Jacobian
+```
+
+---
+
+## 🎯 **MY RECOMMENDATION** (Ranked by value/effort):
+
+**Tier 1 - Do these now (< 1 hour total):**
+1. Hit taxonomy (escaped/captured/aborted) + pie chart
+2. Order mask thumbnails  
+3. Outlier spotlight table
+4. Provenance block
+
+**Tier 2 - Next session (1-2 hours):**
+5. K validation heatmap
+6. Transfer function 2D histogram
+7. Asymmetry quantification
+8. Time delay map
+
+**Tier 3 - Research paper quality (2-4 hours):**
+9. Critical curve extraction
+10. Turning-point histograms
+11. Wrap-angle vs b plot
+
+**Tier 4 - Skip unless writing a methods paper:**
+- Convergence test (expensive compute)
+- Magnification/caustics (complex, need neighbor data)
+- Animations (time-consuming, limited ROI)
+
+Want me to implement Tier 1 right now?
+
+---
+
+_**User (2025-10-16 18:38Z)**_
+
+explain these 2 more and why they are difficult;
+
+Tier 4 - Skip unless writing a methods paper:
+Convergence test (expensive compute)
+Magnification/caustics (complex, need neighbor data)
+
+---
+
+_**Assistant (claude-4.5-sonnet)**_
+
+Great question! Let me explain why these are particularly difficult:
+
+---
+
+## 🔴 **Convergence Test Panel** (Expensive Compute)
+
+### What it does:
+Re-run geodesic integration for a subset of pixels with **different numerical settings** (tighter tolerances, smaller steps, higher-order integrator) and compare results to detect if you're numerically converged.
+
+### Why it's difficult:
+
+1. **Requires re-integration** - You can't just analyze existing data. You need to:
+   - Pick a stratified sample (e.g., 1-2% of pixels across different regions)
+   - Re-run the entire `integrate_geodesic` for each pixel with:
+     - `atol = 1e-14` (tighter than current `1e-12`)
+     - `rtol = 1e-14` (tighter than current `1e-12`)
+     - Smaller max step size
+   - Compare the new results to your baseline
+
+2. **Compute cost multiplies** - If you test 3 tolerance levels × 2000 sample pixels:
+   - That's 6000 extra geodesic integrations
+   - Each might take 2-5x longer due to smaller steps
+   - For a 1080p render, that's **~10 minutes of extra compute** just for validation
+
+3. **Need comparison logic** - You have to:
+   - Match up pixel coordinates between runs
+   - Compute deltas: `Δr_hit`, `Δφ_hit`, `ΔNI`, `Δorder` (did classification change?)
+   - Bin by tolerance and plot error curves
+   - Determine "converged" threshold
+
+4. **Data storage** - Either:
+   - Store multiple HP JSON files (one per tolerance)
+   - Or embed convergence data in a separate structure
+   - Either way, file sizes balloon
+
+### Code complexity example:
+```rust
+// You'd need something like:
+struct ConvergenceTest {
+    baseline_tolerance: (f64, f64),
+    test_tolerances: Vec<(f64, f64)>,
+    sample_pixels: Vec<(u32, u32)>,
+    results: Vec<ConvergenceResult>,  // per pixel, per tolerance
+}
+
+struct ConvergenceResult {
+    pixel: (u32, u32),
+    tolerance: (f64, f64),
+    delta_r: f64,
+    delta_phi: f64,
+    delta_ni: f64,
+    order_changed: bool,
+    integration_time_ms: f64,
+}
+
+// Then run the entire simulation loop AGAIN for each tolerance
+```
+
+**Bottom line:** It's a **mini research project** just to set up, run, and visualize. Only worth it if you're writing a paper and reviewers ask "how do you know you're converged?"
+
+---
+
+## 🔴 **Magnification / Caustic Analysis** (Complex, Needs Neighbor Data)
+
+### What it does:
+Compute the **Jacobian determinant** of the ray-disc mapping to find where gravitational lensing creates extreme brightness (caustics) and compute magnification factors.
+
+### The math:
+The magnification is:
+```
+μ = |∂(α,β)/∂(r,ϕ)|⁻¹
+```
+where `(α,β)` are image-plane coords and `(r,ϕ)` are disc hit coords.
+
+To compute this, you need the **finite-difference Jacobian**:
+```
+∂r/∂α ≈ (r[i+1,j] - r[i-1,j]) / (2Δα)
+∂r/∂β ≈ (r[i,j+1] - r[i,j-1]) / (2Δβ)
+∂ϕ/∂α ≈ (ϕ[i+1,j] - ϕ[i-1,j]) / (2Δα)
+∂ϕ/∂β ≈ (ϕ[i,j+1] - ϕ[i,j-1]) / (2Δβ)
+```
+
+Then:
+```
+μ = 1 / |∂r/∂α · ∂ϕ/∂β - ∂r/∂β · ∂ϕ/∂α|
+```
+
+### Why it's difficult:
+
+1. **Needs neighbor pixel data** - For each pixel `[i,j]`, you need:
+   - `r_hit` and `phi_hit` from neighbors: `[i±1, j]` and `[i, j±1]`
+   - But your current data structure is **flat** (just a list of hits)
+   - You'd need to either:
+     - **Store neighbor indices** in each record: `neighbor_indices: [u32; 4]`
+     - **Build a 2D lookup table** from the flat list (image[y][x] → record)
+
+2. **Handling missing neighbors** - What if:
+   - Pixel `[i,j]` hits the disc, but `[i+1,j]` misses? 
+   - Or they hit at **different orders**?
+   - Or across a **caustic** where the mapping is discontinuous?
+   - You need robust logic to skip/interpolate/flag these cases
+
+3. **Disc coordinate wrapping** - φ wraps at 2π:
+   - If `phi[i+1,j] = 0.1` and `phi[i-1,j] = 6.2`, the naive difference is wrong
+   - Need `atan2`-style unwrapping: `Δφ = (φ₂ - φ₁ + π) % 2π - π`
+
+4. **Order separation** - You should compute magnification **per order**:
+   - Order 0 has its own caustic structure
+   - Order 1 (photon ring) has a **super-high** magnification ridge
+   - Mixing them gives garbage
+   - So you need to filter: "only compute Jacobian for pixels where `[i,j]` and all 4 neighbors have `order == k`"
+
+5. **Visualization complexity** - Caustics are:
+   - **Ridges** of infinite magnification (1D curves in 2D)
+   - Need edge-detection or gradient-based rendering
+   - Often shown as log-scale heatmaps with manual color clipping
+
+### Code complexity example:
+```rust
+// In transfer_maps.rs, add:
+pub struct PositionData {
+    // ... existing fields ...
+    pub neighbor_up: Option<usize>,     // index in positions array
+    pub neighbor_down: Option<usize>,
+    pub neighbor_left: Option<usize>,
+    pub neighbor_right: Option<usize>,
+}
+
+// In analyzer:
+fn compute_magnification(data: &HpData, manifest: &Manifest) -> Vec<f64> {
+    let mut magnification = vec![f64::NAN; data.positions.len()];
+    
+    for (idx, pos) in data.positions.iter().enumerate() {
+        // Skip if any neighbor missing or different order
+        let neighbors = [pos.neighbor_up, pos.neighbor_down, 
+                        pos.neighbor_left, pos.neighbor_right];
+        
+        if neighbors.iter().any(|n| n.is_none()) { continue; }
+        
+        let up = &data.positions[neighbors[0].unwrap()];
+        let down = &data.positions[neighbors[1].unwrap()];
+        let left = &data.positions[neighbors[2].unwrap()];
+        let right = &data.positions[neighbors[3].unwrap()];
+        
+        if ![up, down, left, right].iter().all(|n| n.order == pos.order) {
+            continue;  // Order mismatch
+        }
+        
+        // Finite differences (with φ wrapping!)
+        let dr_dx = (right.r - left.r) / (2.0 * pixel_size_x);
+        let dr_dy = (up.r - down.r) / (2.0 * pixel_size_y);
+        
+        let dphi_dx = unwrap_phi_diff(right.phi - left.phi) / (2.0 * pixel_size_x);
+        let dphi_dy = unwrap_phi_diff(up.phi - down.phi) / (2.0 * pixel_size_y);
+        
+        // Jacobian determinant
+        let det = dr_dx * dphi_dy - dr_dy * dphi_dx;
+        magnification[idx] = 1.0 / det.abs();
+        
+        // Clip caustic infinities
+        if magnification[idx] > 1e6 { magnification[idx] = 1e6; }
+    }
+    
+    magnification
+}
+
+fn unwrap_phi_diff(dphi: f64) -> f64 {
+    // Handle 2π wrapping
+    if dphi > PI { dphi - 2.0*PI }
+    else if dphi < -PI { dphi + 2.0*PI }
+    else { dphi }
+}
+```
+
+**Then** you need to render it as a heatmap, which requires exporting a 2D grid back to the HTML...
+
+---
+
+## **TL;DR:**
+
+| Feature | Why Hard | Effort | Value Unless Paper |
+|---------|----------|--------|-------------------|
+| **Convergence test** | Re-run entire simulation multiple times; quadruples compute | 🔴🔴🔴 High | ❌ Low (only for reviewers) |
+| **Magnification** | Complex neighbors logic + φ wrapping + caustic edge cases | 🔴🔴🔴 High | ⚠️ Medium (cool visual, but niche) |
+
+Both are **cool for academic papers**, but overkill for a blog post or internal validation. The quick wins (hit taxonomy, thumbnails, outliers) give you **90% of the insight** for **10% of the effort**.
+
+---
+
+Still want me to implement **Tier 1** (the easy wins)? 😄
+
+---
+
+_**User (2025-10-16 18:38Z)**_
+
+so we will definitley implement all of tier 1 - 3 and i think after that we will at least review and consider doing Magnification/caustics since it sounds really cool.
+
+Give me a general plan for tier 1 - 3 implementation.
+
+Do we need any changes to the physics logic? additional fields?
+
+---
+
+_**Assistant (claude-4.5-sonnet)**_
+
+Excellent! Let me create a detailed plan for Tiers 1-3 implementation.
+
+---
+
+## 📋 **IMPLEMENTATION PLAN: TIERS 1-3**
+
+### **Phase 1: Data Collection (Physics/Integration Layer)**
+*Location: `kernels/kerr_black_hole/src/`*
+
+#### Changes needed in `types.rs`:
+```rust
+// Add to PhotonState or create a new tracking struct
+pub struct GeodesicStats {
+    pub turns_r: u8,
+    pub turns_theta: u8,
+}
+```
+
+#### Changes needed in `integration.rs`:
+1. **Track turning points** - Already counting sign flips, just export them:
+   ```rust
+   // In integrate_geodesic_multi_order, track:
+   let mut turns_r = 0u8;
+   let mut turns_theta = 0u8;
+   
+   // When sign flips (already detecting this):
+   if r_pot_before > 0.0 && r_pot_after == 0.0 {
+       turns_r += 1;
+   }
+   if th_pot_before > 0.0 && th_pot_after == 0.0 {
+       turns_theta += 1;
+   }
+   ```
+
+2. **Classify miss reasons** - Determine why geodesic didn't hit:
+   ```rust
+   enum MissReason {
+       Escaped,    // r → ∞
+       Captured,   // r → r_horizon
+       Aborted,    // Numerical issue (step limit, NaN, etc)
+   }
+   
+   // At end of integration:
+   let miss_reason = if state.r > 1000.0 {
+       MissReason::Escaped
+   } else if state.r < r_horizon + 0.01 {
+       MissReason::Captured
+   } else {
+       MissReason::Aborted
+   };
+   ```
+
+#### Changes needed in `transfer_maps.rs`:
+```rust
+pub struct PositionData {
+    // ... existing fields ...
+    
+    // New fields for Tier 1-3:
+    pub escaped: bool,      // Miss: escaped to infinity
+    pub captured: bool,     // Miss: fell into horizon
+    pub aborted: bool,      // Miss: numerical abort
+    pub turns_r: u8,        // Number of radial turning points
+    pub turns_theta: u8,    // Number of polar turning points
+}
+```
+
+**Estimated effort:** 🟢 **1-2 hours** (straightforward additions)
+
+---
+
+### **Phase 2: Analyzer Enhancements (Data Processing)**
+*Location: `kernels/kerr_black_hole/src/bin/analyze/`*
+
+#### **Tier 1 Tasks:**
+
+##### 1️⃣ **Hit Taxonomy** (30 min)
+- Compute in `compute_statistics()`:
+  ```rust
+  let escaped_count = pixel_agg.iter().filter(|p| !p.any_hit && is_escaped).count();
+  let captured_count = pixel_agg.iter().filter(|p| !p.any_hit && is_captured).count();
+  let aborted_count = pixel_agg.iter().filter(|p| !p.any_hit && is_aborted).count();
+  ```
+- Add pie chart in `charts.rs`:
+  ```rust
+  pub fn generate_miss_taxonomy_pie(escaped: usize, captured: usize, aborted: usize) -> String
+  ```
+
+##### 2️⃣ **Order Mask Thumbnails** (45 min)
+- Generate 3 small images (order 0, 1, 2+):
+  ```rust
+  pub fn generate_order_thumbnail_svg(width: u32, height: u32, mask: &[bool], order: u8) -> String
+  ```
+- Render as tiny raster-like SVG (e.g., 200×112 for 1920×1080 data, downsample)
+
+##### 3️⃣ **Outlier Spotlight** (20 min)
+- Sort by NI, take top-10:
+  ```rust
+  let mut ni_outliers: Vec<_> = hits.iter().enumerate().collect();
+  ni_outliers.sort_by(|(_, a), (_, b)| b.null_invariant_error.partial_cmp(&a.null_invariant_error).unwrap());
+  let top_10 = &ni_outliers[..10.min(ni_outliers.len())];
+  ```
+- Format as HTML table with pixel coords
+
+##### 4️⃣ **Provenance Block** (15 min)
+- Add to manifest during generation:
+  ```rust
+  pub git_sha: String,
+  pub rustc_version: String,
+  pub timestamp: String,
+  ```
+- Display in footer
+
+**Tier 1 Total:** 🟢 **~2 hours**
+
+---
+
+#### **Tier 2 Tasks:**
+
+##### 5️⃣ **K Validation Heatmap** (1 hour)
+- Compute K for every pixel:
+  ```rust
+  let k_values: Vec<f64> = hp_data.positions.iter().map(|r| {
+      r.carter_q + (r.angular_momentum - a * r.energy).powi(2)
+  }).collect();
+  ```
+- Render as 2D heatmap (downsampled):
+  ```rust
+  pub fn generate_k_heatmap_svg(width: u32, height: u32, k_grid: &[f64]) -> String
+  ```
+- Color scale: green (K>0), yellow (K≈0), red (K<0)
+
+##### 6️⃣ **Transfer Function 2D Histogram** (1.5 hours)
+- Bin by (image_radius, emission_radius) for each order:
+  ```rust
+  let image_r = ((pixel_x as f64 - cx).powi(2) + (pixel_y as f64 - cy).powi(2)).sqrt();
+  let emission_r = hp_record.r;
+  
+  // 2D histogram: bins[order][image_r_bin][emission_r_bin] += 1
+  ```
+- Generate 3 heatmaps (one per order)
+
+##### 7️⃣ **Asymmetry Quantification** (45 min)
+- Split by left/right hemisphere:
+  ```rust
+  let phi_normalized = hp_record.phi.rem_euclid(2.0 * PI);
+  let is_approaching = phi_normalized < PI;
+  
+  let approaching_count = hits.iter().filter(|r| is_approaching(r)).count();
+  let receding_count = hits.len() - approaching_count;
+  let asymmetry_ratio = approaching_count as f64 / receding_count as f64;
+  ```
+- Bar chart comparing left vs right
+
+##### 8️⃣ **Time Delay Map** (45 min)
+- Compute relative delays:
+  ```rust
+  let min_lambda = hits.iter().map(|r| r.affine_parameter).min();
+  let relative_delay = hp_record.affine_parameter - min_lambda;
+  ```
+- Render as 2D heatmap (downsampled)
+
+**Tier 2 Total:** 🟡 **~4 hours**
+
+---
+
+#### **Tier 3 Tasks:**
+
+##### 9️⃣ **Critical Curve Extraction** (2 hours)
+- Build 2D grid of captured/escaped:
+  ```rust
+  let mut capture_grid = vec![vec![false; width]; height];
+  for pos in &hp_data.positions {
+      capture_grid[pos.pixel_y][pos.pixel_x] = pos.captured;
+  }
+  ```
+- Edge detection (Sobel or simple neighbor diff):
+  ```rust
+  fn find_boundary_pixels(grid: &[Vec<bool>]) -> Vec<(u32, u32)>
+  ```
+- Fit ellipse, compute diameter, axis ratio, centroid offset
+- Overlay on thumbnail or separate diagram
+
+##### 🔟 **Turning-Point Histograms** (1 hour)
+- Histogram of `turns_r` and `turns_theta`:
+  ```rust
+  let turns_r_hist = compute_histogram(&hits.map(|h| h.turns_r), 0..=10);
+  let turns_theta_hist = compute_histogram(&hits.map(|h| h.turns_theta), 0..=10);
+  ```
+- Dual bar charts side-by-side
+
+##### 1️⃣1️⃣ **Wrap-Angle vs Impact Parameter** (1.5 hours)
+- Compute impact parameter:
+  ```rust
+  let b = hp_record.angular_momentum / hp_record.energy;
+  ```
+- Scatter plot: x=b, y=phi_wraps, color by order
+- Add theoretical curve near photon sphere (b_crit)
+
+**Tier 3 Total:** 🟡 **~4.5 hours**
+
+---
+
+## 📦 **DATA STRUCTURE CHANGES SUMMARY**
+
+### `transfer_maps.rs::PositionData`:
+```rust
+pub struct PositionData {
+    // Existing fields (no changes)
+    pub pixel_x: u32,
+    pub pixel_y: u32,
+    pub r: f64,
+    pub theta: f64,
+    pub phi: f64,
+    pub energy: f64,
+    pub angular_momentum: f64,
+    pub carter_q: f64,
+    pub impact_parameter: f64,
+    pub redshift_factor: f64,
+    pub affine_parameter: f64,
+    pub phi_wraps: f64,
+    pub order: u8,
+    pub hit: bool,
+    pub null_invariant_error: f64,
+    
+    // NEW FIELDS (Tier 1-3):
+    pub escaped: bool,        // 🆕
+    pub captured: bool,       // 🆕
+    pub aborted: bool,        // 🆕
+    pub turns_r: u8,         // 🆕
+    pub turns_theta: u8,     // 🆕
+}
+```
+
+**JSON impact:** ~10 bytes per record → +5MB for 1080p dataset (acceptable)
+
+---
+
+## 🎯 **IMPLEMENTATION ORDER**
+
+### **Session 1** (2 hours) - Tier 1:
+1. Add miss classification to `integration.rs`
+2. Add turning point tracking to `integration.rs`
+3. Update `PositionData` struct
+4. Rebuild & regenerate test data
+5. Implement Tier 1 analyzer features
+
+### **Session 2** (4 hours) - Tier 2:
+1. K validation heatmap
+2. Transfer function histograms
+3. Asymmetry quantification
+4. Time delay map
+
+### **Session 3** (4.5 hours) - Tier 3:
+1. Critical curve extraction
+2. Turning-point histograms
+3. Wrap-angle vs b plot
+
+**Total estimated time:** ~10.5 hours across 3 sessions
+
+---
+
+## ⚠️ **BREAKING CHANGES**
+
+Adding fields to `PositionData` means:
+- Old `high_precision.json` files won't have these fields
+- Need `#[serde(default)]` on new fields for backward compatibility
+- Or regenerate all presets (preferred for clean data)
+
+---
+
+Ready to start with **Session 1 (Tier 1)** implementation? 🚀
+
+---
+
+_**User (2025-10-16 18:38Z)**_
+
+we regenerate data with every change so no need to worry about breaking changes or backwards compat.
+
+another question; can we identify and classify outliers in the data? how would we determine that a data point from our high precision data is considered an outlier?
+
+---
+
+_**Assistant (claude-4.5-sonnet)**_
+
+Excellent question! Yes, we can identify outliers using multiple criteria. Here's how:
+
+---
+
+## 🎯 **OUTLIER CLASSIFICATION STRATEGIES**
+
+### **1. Statistical Outliers (IQR Method)**
+Standard approach for numerical fields:
+
+```rust
+fn compute_outlier_threshold(values: &[f64]) -> (f64, f64) {
+    let mut sorted = values.to_vec();
+    sorted.sort_by(|a, b| a.partial_cmp(b).unwrap());
+    
+    let q1 = sorted[sorted.len() / 4];
+    let q3 = sorted[3 * sorted.len() / 4];
+    let iqr = q3 - q1;
+    
+    let lower_bound = q1 - 1.5 * iqr;
+    let upper_bound = q3 + 1.5 * iqr;
+    
+    (lower_bound, upper_bound)
+}
+
+// Apply to:
+// - null_invariant_error (flag if > p99 or > 1.5×IQR above median)
+// - affine_parameter (extremely long/short paths)
+// - redshift_factor (extreme Doppler shifts)
+```
+
+**Use case:** Find geodesics with unusually high NI errors, extreme path lengths, or anomalous redshift.
+
+---
+
+### **2. Physical Constraint Violations**
+
+These are **definite outliers** (bugs or edge cases):
+
+```rust
+struct PhysicalOutlier {
+    pixel: (u32, u32),
+    violation: ViolationType,
+    severity: f64,
+}
+
+enum ViolationType {
+    NegativeK(f64),           // K = Q + (L_z - aE)² < 0 (should never happen)
+    LargeNullInvariant(f64),  // NI > 1e-9 (poor integration)
+    InvalidRadius(f64),       // r < r_horizon or r > r_max
+    InvalidTheta(f64),        // θ outside [0, π]
+    NegativeEnergy(f64),      // E < 0 for photon
+    InfiniteValue,            // NaN or ±∞ in any field
+}
+
+fn classify_physical_outliers(pos: &PositionData, a: f64) -> Option<PhysicalOutlier> {
+    let k = pos.carter_q + (pos.angular_momentum - a * pos.energy).powi(2);
+    
+    if k < -1e-10 {
+        return Some(PhysicalOutlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            violation: ViolationType::NegativeK(k),
+            severity: k.abs(),
+        });
+    }
+    
+    if pos.null_invariant_error > 1e-9 {
+        return Some(PhysicalOutlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            violation: ViolationType::LargeNullInvariant(pos.null_invariant_error),
+            severity: pos.null_invariant_error.log10(), // log scale
+        });
+    }
+    
+    if pos.energy < 0.0 {
+        return Some(PhysicalOutlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            violation: ViolationType::NegativeEnergy(pos.energy),
+            severity: pos.energy.abs(),
+        });
+    }
+    
+    if pos.r.is_nan() || pos.theta.is_nan() || pos.phi.is_nan() {
+        return Some(PhysicalOutlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            violation: ViolationType::InfiniteValue,
+            severity: f64::INFINITY,
+        });
+    }
+    
+    // Add more checks...
+    None
+}
+```
+
+**Use case:** Flag pixels that violate GR constraints → potential bugs in initialization or integration.
+
+---
+
+### **3. Contextual Outliers (Spatial)**
+
+Pixels that disagree with their neighbors:
+
+```rust
+fn detect_spatial_outliers(
+    grid: &[Vec<Option<PositionData>>], 
+    x: usize, 
+    y: usize
+) -> Option<SpatialOutlier> {
+    let center = &grid[y][x]?;
+    
+    // Collect 8-neighbor values
+    let neighbors: Vec<_> = [
+        (-1,-1), (0,-1), (1,-1),
+        (-1, 0),         (1, 0),
+        (-1, 1), (0, 1), (1, 1),
+    ].iter()
+        .filter_map(|(dx, dy)| {
+            let nx = (x as i32 + dx) as usize;
+            let ny = (y as i32 + dy) as usize;
+            grid.get(ny)?.get(nx)?.as_ref()
+        })
+        .collect();
+    
+    if neighbors.len() < 4 { return None; } // Edge pixel, skip
+    
+    // Check order discontinuity
+    let neighbor_orders: Vec<u8> = neighbors.iter().map(|n| n.order).collect();
+    let median_order = median(&neighbor_orders);
+    
+    if (center.order as i32 - median_order as i32).abs() > 1 {
+        return Some(SpatialOutlier {
+            pixel: (center.pixel_x, center.pixel_y),
+            issue: "Order jump: pixel is order {} but neighbors are order {}",
+            severity: (center.order as i32 - median_order as i32).abs() as f64,
+        });
+    }
+    
+    // Check emission radius discontinuity (for same order)
+    let same_order_neighbors: Vec<_> = neighbors.iter()
+        .filter(|n| n.order == center.order && n.hit)
+        .collect();
+    
+    if same_order_neighbors.len() >= 3 {
+        let neighbor_r_mean: f64 = same_order_neighbors.iter()
+            .map(|n| n.r)
+            .sum::<f64>() / same_order_neighbors.len() as f64;
+        
+        let r_deviation = (center.r - neighbor_r_mean).abs() / neighbor_r_mean;
+        
+        if r_deviation > 0.5 {  // 50% deviation from neighbors
+            return Some(SpatialOutlier {
+                pixel: (center.pixel_x, center.pixel_y),
+                issue: "Emission radius discontinuity",
+                severity: r_deviation,
+            });
+        }
+    }
+    
+    None
+}
+```
+
+**Use case:** Find "salt & pepper noise" - isolated pixels with wildly different order or emission radius from neighbors.
+
+---
+
+### **4. Multi-Dimensional Outliers (Mahalanobis Distance)**
+
+For detecting outliers in the (E, L_z, Q) space:
+
+```rust
+fn compute_mahalanobis_outliers(hits: &[&HpRecord]) -> Vec<(usize, f64)> {
+    // Extract features: [E, L_z, Q, lambda, NI]
+    let features: Vec<[f64; 5]> = hits.iter().map(|h| [
+        h.energy,
+        h.angular_momentum,
+        h.carter_q,
+        h.affine_parameter,
+        h.null_invariant_error.log10(),  // log scale
+    ]).collect();
+    
+    // Compute mean and covariance
+    let mean = compute_mean(&features);
+    let cov = compute_covariance(&features, &mean);
+    let cov_inv = invert_matrix(&cov);
+    
+    // Mahalanobis distance for each point
+    hits.iter().enumerate().map(|(i, _)| {
+        let diff = subtract(&features[i], &mean);
+        let m_dist = (diff.T * cov_inv * diff).sqrt();
+        (i, m_dist)
+    })
+    .filter(|(_, dist)| *dist > 3.0)  // 3-sigma threshold
+    .collect()
+}
+```
+
+**Use case:** Find rays with unusual combinations of conserved quantities (potential init errors).
+
+---
+
+## 🏷️ **OUTLIER CATEGORIES & THRESHOLDS**
+
+Here's a practical classification system:
+
+```rust
+#[derive(Debug, Clone)]
+pub struct Outlier {
+    pub pixel_x: u32,
+    pub pixel_y: u32,
+    pub category: OutlierCategory,
+    pub severity: OutlierSeverity,
+    pub details: String,
+    pub value: f64,
+}
+
+pub enum OutlierCategory {
+    // Physics violations (CRITICAL)
+    NegativeK,              // K < 0
+    LargeNullInvariant,     // NI > 1e-9
+    InvalidState,           // NaN, r < r_h, etc.
+    
+    // Statistical outliers (WARNING)
+    ExtremeNI,              // NI in top 0.1% but < 1e-9
+    ExtremePath,            // λ > p99 or < p1
+    ExtremeDoppler,         // |g - 1| > p99
+    ExtremeLensing,         // φ-wraps > p99
+    
+    // Spatial outliers (INFO)
+    OrderJump,              // Order differs from all neighbors
+    RadiusDiscontinuity,    // r differs >50% from neighbors
+    IsolatedHit,            // Only hit pixel in 8-neighbor region
+}
+
+pub enum OutlierSeverity {
+    Critical,   // Red flag - physics violation
+    High,       // Likely numerical issue
+    Medium,     // Statistical anomaly
+    Low,        // Interesting edge case
+}
+```
+
+---
+
+## 📊 **SPECIFIC THRESHOLD RECOMMENDATIONS**
+
+Based on your current data quality:
+
+| Metric | Normal Range | Outlier Threshold | Severity |
+|--------|-------------|-------------------|----------|
+| **Null Invariant** | < 1e-12 | > 1e-9 | 🔴 Critical |
+| | 1e-12 to 1e-9 | > p99 | 🟡 High |
+| **Carter K** | ≥ 0 | < -1e-10 | 🔴 Critical |
+| **Energy** | > 0 | ≤ 0 | 🔴 Critical |
+| **Affine λ** | 10M - 200M | > p99 + 1.5×IQR | 🟡 Medium |
+| **Redshift g** | 0.8 - 5.2 | > 10 or < 0.5 | 🟡 High |
+| **φ-wraps** | 0 - 1.1 | > 2.0 | 🟢 Low (just high-order) |
+| **Radius r** | 2.3M - 20M | < r_h or > r_max | 🔴 Critical |
+| **Theta θ** | 0 - π | Outside [0,π] | 🔴 Critical |
+| **Turning points** | 0 - 4 | > 6 | 🟡 Medium |
+
+---
+
+## 🎨 **VISUALIZATION IN HTML REPORT**
+
+### **Outlier Summary Card:**
+```html
+<div class="card">
+  <h3>🚨 Outlier Detection</h3>
+  <div class="outlier-summary">
+    <span class="critical">3 Critical</span>
+    <span class="high">12 High</span>
+    <span class="medium">47 Medium</span>
+  </div>
+  
+  <details>
+    <summary>Critical Outliers (3)</summary>
+    <table>
+      <tr><th>Pixel</th><th>Issue</th><th>Value</th></tr>
+      <tr><td>(512, 340)</td><td>K < 0</td><td>-2.3e-8</td></tr>
+      <tr><td>(891, 120)</td><td>NI > 1e-9</td><td>3.2e-7</td></tr>
+      <tr><td>(1024, 768)</td><td>r < r_horizon</td><td>0.98M</td></tr>
+    </table>
+  </details>
+</div>
+```
+
+### **Outlier Heatmap:**
+Render a thumbnail where outlier pixels are colored by severity:
+- 🔴 Red = Critical
+- 🟡 Yellow = High
+- 🟠 Orange = Medium
+- ⚫ Black = Normal
+
+---
+
+## 🔍 **IMPLEMENTATION PLAN**
+
+Add to `Stats` struct:
+```rust
+pub struct Stats {
+    // ... existing fields ...
+    
+    // Outliers
+    pub outliers: Vec<Outlier>,
+    pub critical_count: usize,
+    pub high_count: usize,
+    pub medium_count: usize,
+}
+```
+
+Add to `compute_statistics()`:
+```rust
+// Detect outliers
+let mut outliers = Vec::new();
+
+// 1. Physical violations
+for (idx, rec) in hp_data.positions.iter().enumerate() {
+    if let Some(outlier) = classify_physical_outliers(rec, manifest.spin) {
+        outliers.push(outlier);
+    }
+}
+
+// 2. Statistical outliers
+let (ni_lower, ni_upper) = compute_outlier_threshold(&ni_values);
+for rec in &hp_data.positions {
+    if rec.null_invariant_error > ni_upper {
+        outliers.push(Outlier {
+            pixel_x: rec.pixel_x,
+            pixel_y: rec.pixel_y,
+            category: OutlierCategory::ExtremeNI,
+            severity: OutlierSeverity::Medium,
+            value: rec.null_invariant_error,
+            details: format!("NI = {:.2e} (p99 = {:.2e})", rec.null_invariant_error, stats.ni_p99),
+        });
+    }
+}
+
+// 3. Spatial outliers (if we build 2D grid)
+// ...
+
+// Sort by severity
+outliers.sort_by_key(|o| match o.severity {
+    OutlierSeverity::Critical => 0,
+    OutlierSeverity::High => 1,
+    OutlierSeverity::Medium => 2,
+    OutlierSeverity::Low => 3,
+});
+```
+
+---
+
+## ✅ **ANSWER TO YOUR QUESTION**
+
+**How do we determine outliers?**
+
+1. **Physics violations** → Automatic outliers (K<0, NI>1e-9, NaN)
+2. **Statistical:** p99 + 1.5×IQR for NI, λ, g, φ-wraps
+3. **Spatial:** Disagrees with 8-neighbors on order or r
+4. **Multi-dimensional:** Mahalanobis distance in (E, L_z, Q) space
+
+**For your current data quality**, I recommend:
+- 🔴 **Critical:** K<0, NI>1e-9, NaN, r<r_h
+- 🟡 **High:** NI in [1e-12, 1e-9] AND in top 1%
+- 🟠 **Medium:** Any metric > p99 + 1.5×IQR
+
+This will catch real bugs while not over-flagging normal high-order geodesics.
+
+---
+
+Want me to add outlier detection to the **Tier 1 implementation**? It fits naturally with the "Outlier Spotlight" task! 🎯
+
+---
+
+_**User (2025-10-16 18:38Z)**_
+
+feedback to consider;
+
+### Strengthen the statistics
+
+* **Use log space for NI** everywhere (histos, IQR/MAD, thresholds). NI is heavy-tailed; log10(NI) makes cutoffs stable.
+* **Prefer robust MAD over IQR** for small subsets:
+
+  * Compute (m=\mathrm{median}(x)), ( \mathrm{MAD}=\mathrm{median}(|x-m|) ).
+  * Flag if (|x-m|/(1.4826,\mathrm{MAD}) > 3.5). This is less brittle than IQR when you have caustic-driven tails.
+* **Order-aware thresholds:** run statistical outlier tests separately per **order** (0, 1, 2+). Physics differs by order; one global threshold will over-flag the rings.
+
+### Guard against false positives
+
+* **Near-ring & caustics:** expect big gradients. When doing spatial checks, relax discontinuity tests if the pixel (or its neighbors) have **high magnification** (large ∂hit/∂image, or high derivative proxy like |Δr_hit| between neighbors). Otherwise you’ll flag lots of true features as “salt & pepper.”
+* **Set a numerical epsilon for K:** treat (K < -10^{-12}) (or a tolerance proportional to machine epsilon × scale) as Critical; small negatives (|K|\le \varepsilon) label as “≈0 (roundoff)” to avoid noise alarms.
+
+### Clarify miss taxonomy
+
+Your HP file includes misses—great! Split them:
+
+* **Captured** (crossed horizon),
+* **Escaped** (to ∞),
+* **Aborted/invalid** (NaN/overflow/step fail).
+  Show a tiny pie + counts. It explains the big “miss rate” at a glance.
+
+### Improve spatial tests
+
+* **Edge handling:** for border pixels use **4-neighbor** (von Neumann) instead of 8; require ≥3 valid neighbors before judging.
+* **Local z-score not raw percent diff:** compare (r_\text{hit}) (or g, wraps) to local neighborhood median with MAD scaling to avoid over-flagging near strong gradients.
+* **Order-consistent neighborhood:** only compare to neighbors of the **same order** (you already started doing this—keep it strict).
+
+### Multivariate outliers
+
+* **Per-order Mahalanobis:** compute μ and Σ in ([E, L_z, Q, \lambda, \log_{10}\text{NI}]) **per order**. Flag (D_M>3). This catches weird combos that pass 1D tests.
+* **Feature scaling:** standardize features before Σ to keep units from dominating.
+
+### Add two tiny physics checks
+
+* **Theta sign continuity:** track sign( (p_\theta) ) flips count. Many rapid flips often indicate turning-point jitter; a few flips are fine.
+* **Turning points counts:** record (N_r, N_\theta) and histogram them per order. Outliers: (N_r>6) or (N_\theta>6).
+
+### What to show in the HTML
+
+* **Outlier Summary card** (you drafted): keep the Critical/High/Medium counts, and list top 10 with pixel coords; link them to an “outlier overlay” thumbnail.
+* **Outlier overlay heatmap:** small image-plane preview with severity colors (🔴 Critical, 🟡 High, 🟠 Medium). Toggle per category.
+* **Drill-down modal:** clicking an outlier opens a panel with:
+
+  * raw record values,
+  * neighbor mini-table,
+  * computed K and null invariant details,
+  * order & turning-point info.
+
+### Practical thresholds (refined)
+
+* **Critical**
+
+  * (K < -10^{-12})
+  * NI (> 10^{-9})
+  * NaN/∞ in state
+  * (r < r_\text{hor}) (when not classified as “captured”) or θ ∉ [0,π]
+* **High**
+
+  * NI in top **0.1%** (in log-space) **and** > (10^{-12})
+  * Mahalanobis (> 4.5) (per order)
+  * Local MAD z-score (> 6) for (r_\text{hit}) or g (same order)
+* **Medium**
+
+  * Affine λ outside ([p1, p99] + 1.5\times\mathrm{IQR}) (per order)
+  * Wraps > p99 (per order) **and** not on ring band (to avoid ring false positives)
+
+### Tiny implementation nudges
+
+* Compute **global & per-order percentiles** once (p50/p95/p99), store in your `Stats`.
+* Keep an **index grid** (width×height) mapping to HP records so spatial checks are O(1).
+* Run outlier detection in **two passes**: (1) physics/NaN Criticals, (2) robust stats for High/Medium. Short-circuit Criticals early.
+
+### Bonus (if you have 1–2 hours)
+
+* **Shadow boundary sanity:** produce a thin outline separating captured vs. escaped in the overlay; if it’s ragged or has holes → highlight those boundary pixels as “boundary roughness” (often numerical).
+* **Temporal stability flag (for animations):** if you render multiple frames, carry over pixel IDs and count **outlier persistence**. A pixel that flickers in/out as an outlier across frames is more likely numerical than physical.
+
+
+---
+
+_**Assistant (claude-4.5-sonnet)**_
+
+Excellent feedback! This is much more sophisticated and will produce far more robust outlier detection. Let me integrate all of this into the plan:
+
+---
+
+## 📋 **UPDATED OUTLIER DETECTION PLAN**
+
+### **Phase 1: Enhanced Statistics Infrastructure**
+
+#### **1. Add Robust Statistical Functions**
+*Location: `kernels/kerr_black_hole/src/bin/analyze/stats.rs` (new file)*
+
+```rust
+/// Median Absolute Deviation (more robust than IQR)
+pub fn compute_mad(values: &[f64]) -> (f64, f64) {
+    let median = compute_median(values);
+    let deviations: Vec<f64> = values.iter()
+        .map(|v| (v - median).abs())
+        .collect();
+    let mad = compute_median(&deviations);
+    (median, mad)
+}
+
+/// MAD-based z-score
+pub fn mad_zscore(value: f64, median: f64, mad: f64) -> f64 {
+    const MAD_SCALE: f64 = 1.4826; // Consistency constant for normal distribution
+    (value - median) / (MAD_SCALE * mad)
+}
+
+/// Log-space statistics for heavy-tailed distributions
+pub fn compute_log_stats(values: &[f64]) -> LogStats {
+    let log_values: Vec<f64> = values.iter()
+        .filter(|v| **v > 0.0)
+        .map(|v| v.log10())
+        .collect();
+    
+    let (median, mad) = compute_mad(&log_values);
+    let p99 = percentile(&log_values, 0.99);
+    
+    LogStats { median, mad, p99 }
+}
+
+/// Per-order statistics
+pub struct OrderStats {
+    pub ni_log_median: f64,
+    pub ni_log_mad: f64,
+    pub lambda_median: f64,
+    pub lambda_mad: f64,
+    pub g_median: f64,
+    pub g_mad: f64,
+    pub wraps_p99: f64,
+    pub turns_r_p99: u8,
+    pub turns_theta_p99: u8,
+}
+
+pub fn compute_order_stats(hits: &[&HpRecord], order: u8) -> OrderStats {
+    let order_hits: Vec<_> = hits.iter()
+        .filter(|h| h.order == order)
+        .collect();
+    
+    // NI in log space
+    let ni_values: Vec<f64> = order_hits.iter()
+        .map(|h| h.null_invariant_error)
+        .collect();
+    let (ni_log_median, ni_log_mad) = compute_mad(
+        &ni_values.iter().map(|v| v.log10()).collect::<Vec<_>>()
+    );
+    
+    // Lambda (affine parameter)
+    let lambda_values: Vec<f64> = order_hits.iter()
+        .map(|h| h.affine_parameter)
+        .collect();
+    let (lambda_median, lambda_mad) = compute_mad(&lambda_values);
+    
+    // Redshift
+    let g_values: Vec<f64> = order_hits.iter()
+        .map(|h| h.redshift_factor)
+        .collect();
+    let (g_median, g_mad) = compute_mad(&g_values);
+    
+    // Wraps & turns
+    let wraps_p99 = percentile(&order_hits.iter().map(|h| h.phi_wraps).collect::<Vec<_>>(), 0.99);
+    let turns_r_p99 = percentile(&order_hits.iter().map(|h| h.turns_r as f64).collect::<Vec<_>>(), 0.99) as u8;
+    let turns_theta_p99 = percentile(&order_hits.iter().map(|h| h.turns_theta as f64).collect::<Vec<_>>(), 0.99) as u8;
+    
+    OrderStats {
+        ni_log_median, ni_log_mad,
+        lambda_median, lambda_mad,
+        g_median, g_mad,
+        wraps_p99,
+        turns_r_p99, turns_theta_p99,
+    }
+}
+```
+
+---
+
+### **Phase 2: Physics Violation Detection (Critical)**
+
+```rust
+const K_EPSILON: f64 = 1e-12;  // Numerical roundoff tolerance
+
+pub enum OutlierCategory {
+    // Critical (🔴 Red)
+    NegativeK,              // K < -1e-12
+    LargeNullInvariant,     // NI > 1e-9
+    InvalidState,           // NaN, ±∞
+    InvalidRadius,          // r < r_horizon (when not captured) or r > r_max
+    InvalidTheta,           // θ ∉ [0, π]
+    NegativeEnergy,         // E ≤ 0
+    
+    // High (🟡 Yellow)
+    ExtremeNI,              // NI in top 0.1% (log-space) AND > 1e-12
+    MahalanobisOutlier,     // D_M > 4.5 per order
+    SpatialDiscontinuity,   // Local MAD z-score > 6
+    
+    // Medium (🟠 Orange)
+    ExtremeAffine,          // λ outside [p1, p99] + 1.5×MAD per order
+    ExtremeWraps,           // Wraps > p99 per order (not on ring band)
+    RapidTurningPoints,     // N_r or N_θ > 6
+    
+    // Info (⚪ White with border)
+    RoundoffK,              // |K| < 1e-12 (≈0, roundoff)
+}
+
+fn classify_physical_outliers(
+    pos: &PositionData, 
+    a: f64, 
+    r_horizon: f64,
+    r_max: f64,
+) -> Option<Outlier> {
+    // Critical checks (short-circuit early)
+    
+    // 1. NaN/Infinity
+    if pos.r.is_nan() || pos.theta.is_nan() || pos.phi.is_nan() ||
+       pos.energy.is_nan() || pos.angular_momentum.is_nan() || pos.carter_q.is_nan() {
+        return Some(Outlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            category: OutlierCategory::InvalidState,
+            severity: OutlierSeverity::Critical,
+            value: f64::NAN,
+            details: "NaN in geodesic state".to_string(),
+        });
+    }
+    
+    // 2. Carter constant K
+    let k = pos.carter_q + (pos.angular_momentum - a * pos.energy).powi(2);
+    if k < -K_EPSILON {
+        return Some(Outlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            category: OutlierCategory::NegativeK,
+            severity: OutlierSeverity::Critical,
+            value: k,
+            details: format!("K = {:.3e} < 0 (should be ≥ 0)", k),
+        });
+    }
+    
+    // 3. Null invariant
+    if pos.null_invariant_error > 1e-9 {
+        return Some(Outlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            category: OutlierCategory::LargeNullInvariant,
+            severity: OutlierSeverity::Critical,
+            value: pos.null_invariant_error,
+            details: format!("NI = {:.3e} >> 1e-9", pos.null_invariant_error),
+        });
+    }
+    
+    // 4. Radius bounds
+    if pos.hit && pos.r < r_horizon {
+        return Some(Outlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            category: OutlierCategory::InvalidRadius,
+            severity: OutlierSeverity::Critical,
+            value: pos.r,
+            details: format!("r = {:.3} < r_horizon = {:.3}", pos.r, r_horizon),
+        });
+    }
+    
+    if pos.r > r_max {
+        return Some(Outlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            category: OutlierCategory::InvalidRadius,
+            severity: OutlierSeverity::Critical,
+            value: pos.r,
+            details: format!("r = {:.3} > r_max = {:.3}", pos.r, r_max),
+        });
+    }
+    
+    // 5. Theta bounds
+    if pos.theta < 0.0 || pos.theta > std::f64::consts::PI {
+        return Some(Outlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            category: OutlierCategory::InvalidTheta,
+            severity: OutlierSeverity::Critical,
+            value: pos.theta,
+            details: format!("θ = {:.3} ∉ [0, π]", pos.theta),
+        });
+    }
+    
+    // 6. Energy
+    if pos.energy <= 0.0 {
+        return Some(Outlier {
+            pixel: (pos.pixel_x, pos.pixel_y),
+            category: OutlierCategory::NegativeEnergy,
+            severity: OutlierSeverity::Critical,
+            value: pos.energy,
+            details: format!("E = {:.3} ≤ 0", pos.energy),
+        });
+    }
+    
+    None
+}
+```
+
+---
+
+### **Phase 3: Statistical Outliers (Order-Aware)**
+
+```rust
+fn detect_statistical_outliers(
+    hits: &[&HpRecord],
+    order_stats: &HashMap<u8, OrderStats>,
+) -> Vec<Outlier> {
+    let mut outliers = Vec::new();
+    
+    for hit in hits {
+        let stats = &order_stats[&hit.order];
+        
+        // 1. Extreme NI (log-space, top 0.1%)
+        let ni_log = hit.null_invariant_error.log10();
+        let ni_zscore = mad_zscore(ni_log, stats.ni_log_median, stats.ni_log_mad);
+        
+        if ni_zscore > 3.5 && hit.null_invariant_error > 1e-12 {
+            // Check if in top 0.1% globally
+            let rank = compute_rank(hit.null_invariant_error, &all_ni_values);
+            if rank > 0.999 {
+                outliers.push(Outlier {
+                    pixel: (hit.pixel_x, hit.pixel_y),
+                    category: OutlierCategory::ExtremeNI,
+                    severity: OutlierSeverity::High,
+                    value: hit.null_invariant_error,
+                    details: format!("NI = {:.3e}, z-score = {:.2} (order {})", 
+                        hit.null_invariant_error, ni_zscore, hit.order),
+                });
+            }
+        }
+        
+        // 2. Extreme affine parameter
+        let lambda_zscore = mad_zscore(hit.affine_parameter, stats.lambda_median, stats.lambda_mad);
+        if lambda_zscore.abs() > 3.5 {
+            outliers.push(Outlier {
+                pixel: (hit.pixel_x, hit.pixel_y),
+                category: OutlierCategory::ExtremeAffine,
+                severity: OutlierSeverity::Medium,
+                value: hit.affine_parameter,
+                details: format!("λ = {:.1}M, z-score = {:.2} (order {})", 
+                    hit.affine_parameter, lambda_zscore, hit.order),
+            });
+        }
+        
+        // 3. Extreme wraps (not on ring band)
+        if hit.phi_wraps > stats.wraps_p99 {
+            // TODO: Add ring band check (skip if near photon ring radius)
+            outliers.push(Outlier {
+                pixel: (hit.pixel_x, hit.pixel_y),
+                category: OutlierCategory::ExtremeWraps,
+                severity: OutlierSeverity::Medium,
+                value: hit.phi_wraps,
+                details: format!("φ-wraps = {:.2}, p99 = {:.2} (order {})", 
+                    hit.phi_wraps, stats.wraps_p99, hit.order),
+            });
+        }
+        
+        // 4. Rapid turning points
+        if hit.turns_r > 6 || hit.turns_theta > 6 {
+            outliers.push(Outlier {
+                pixel: (hit.pixel_x, hit.pixel_y),
+                category: OutlierCategory::RapidTurningPoints,
+                severity: OutlierSeverity::Medium,
+                value: (hit.turns_r.max(hit.turns_theta)) as f64,
+                details: format!("N_r = {}, N_θ = {}", hit.turns_r, hit.turns_theta),
+            });
+        }
+    }
+    
+    outliers
+}
+```
+
+---
+
+### **Phase 4: Spatial Outliers (Improved)**
+
+```rust
+struct IndexGrid {
+    grid: Vec<Vec<Option<usize>>>,  // index into hp_data.positions
+    width: usize,
+    height: usize,
+}
+
+impl IndexGrid {
+    fn from_hp_data(data: &HpData, width: usize, height: usize) -> Self {
+        let mut grid = vec![vec![None; width]; height];
+        for (idx, pos) in data.positions.iter().enumerate() {
+            grid[pos.pixel_y as usize][pos.pixel_x as usize] = Some(idx);
+        }
+        IndexGrid { grid, width, height }
+    }
+    
+    fn get_neighbors_same_order(&self, x: usize, y: usize, order: u8, data: &HpData) -> Vec<usize> {
+        let mut neighbors = Vec::new();
+        
+        // 4-neighbor (von Neumann) for edge pixels
+        let is_edge = x == 0 || x == self.width - 1 || y == 0 || y == self.height - 1;
+        let offsets = if is_edge {
+            vec![(0, -1), (-1, 0), (1, 0), (0, 1)]
+        } else {
+            vec![
+                (-1, -1), (0, -1), (1, -1),
+                (-1,  0),          (1,  0),
+                (-1,  1), (0,  1), (1,  1),
+            ]
+        };
+        
+        for (dx, dy) in offsets {
+            let nx = (x as i32 + dx) as usize;
+            let ny = (y as i32 + dy) as usize;
+            
+            if let Some(&Some(idx)) = self.grid.get(ny).and_then(|row| row.get(nx)) {
+                if data.positions[idx].order == order && data.positions[idx].hit {
+                    neighbors.push(idx);
+                }
+            }
+        }
+        
+        neighbors
+    }
+}
+
+fn detect_spatial_outliers(
+    data: &HpData,
+    index_grid: &IndexGrid,
+) -> Vec<Outlier> {
+    let mut outliers = Vec::new();
+    
+    for (center_idx, center) in data.positions.iter().enumerate() {
+        if !center.hit { continue; }
+        
+        let neighbors = index_grid.get_neighbors_same_order(
+            center.pixel_x as usize, 
+            center.pixel_y as usize, 
+            center.order, 
+            data
+        );
+        
+        // Require at least 3 neighbors for spatial test
+        if neighbors.len() < 3 { continue; }
+        
+        // Local MAD z-score for emission radius
+        let neighbor_r: Vec<f64> = neighbors.iter()
+            .map(|&idx| data.positions[idx].r)
+            .collect();
+        let (r_median, r_mad) = compute_mad(&neighbor_r);
+        let r_zscore = mad_zscore(center.r, r_median, r_mad);
+        
+        if r_zscore.abs() > 6.0 {
+            outliers.push(Outlier {
+                pixel: (center.pixel_x, center.pixel_y),
+                category: OutlierCategory::SpatialDiscontinuity,
+                severity: OutlierSeverity::High,
+                value: center.r,
+                details: format!("r_hit = {:.2}, neighbor median = {:.2}, z = {:.2} (order {})", 
+                    center.r, r_median, r_zscore, center.order),
+            });
+        }
+        
+        // Similar check for redshift
+        let neighbor_g: Vec<f64> = neighbors.iter()
+            .map(|&idx| data.positions[idx].redshift_factor)
+            .collect();
+        let (g_median, g_mad) = compute_mad(&neighbor_g);
+        let g_zscore = mad_zscore(center.redshift_factor, g_median, g_mad);
+        
+        if g_zscore.abs() > 6.0 {
+            outliers.push(Outlier {
+                pixel: (center.pixel_x, center.pixel_y),
+                category: OutlierCategory::SpatialDiscontinuity,
+                severity: OutlierSeverity::High,
+                value: center.redshift_factor,
+                details: format!("g = {:.3}, neighbor median = {:.3}, z = {:.2} (order {})", 
+                    center.redshift_factor, g_median, g_zscore, center.order),
+            });
+        }
+    }
+    
+    outliers
+}
+```
+
+---
+
+### **Phase 5: Multivariate Outliers (Per-Order Mahalanobis)**
+
+```rust
+fn detect_mahalanobis_outliers(
+    hits: &[&HpRecord],
+    order: u8,
+) -> Vec<Outlier> {
+    let order_hits: Vec<_> = hits.iter()
+        .filter(|h| h.order == order)
+        .collect();
+    
+    if order_hits.len() < 10 { return vec![]; } // Need sufficient samples
+    
+    // Extract features: [E, L_z, Q, λ, log10(NI)]
+    let features: Vec<[f64; 5]> = order_hits.iter().map(|h| [
+        h.energy,
+        h.angular_momentum,
+        h.carter_q,
+        h.affine_parameter,
+        h.null_invariant_error.log10(),
+    ]).collect();
+    
+    // Standardize features (zero mean, unit variance)
+    let standardized = standardize_features(&features);
+    
+    // Compute covariance matrix and invert
+    let mean = compute_mean(&standardized);
+    let cov = compute_covariance(&standardized, &mean);
+    let cov_inv = invert_5x5(&cov);
+    
+    // Mahalanobis distance for each point
+    let mut outliers = Vec::new();
+    for (i, h) in order_hits.iter().enumerate() {
+        let diff = subtract(&standardized[i], &mean);
+        let m_dist_sq = matrix_mult(&diff, &cov_inv, &diff);
+        let m_dist = m_dist_sq.sqrt();
+        
+        if m_dist > 4.5 {
+            outliers.push(Outlier {
+                pixel: (h.pixel_x, h.pixel_y),
+                category: OutlierCategory::MahalanobisOutlier,
+                severity: OutlierSeverity::High,
+                value: m_dist,
+                details: format!("D_M = {:.2} in (E, L_z, Q, λ, log NI) space (order {})", 
+                    m_dist, order),
+            });
+        }
+    }
+    
+    outliers
+}
+```
+
+---
+
+### **Phase 6: HTML Visualization**
+
+```rust
+fn generate_outlier_summary_html(outliers: &[Outlier], stats: &Stats) -> String {
+    let critical: Vec<_> = outliers.iter().filter(|o| matches!(o.severity, OutlierSeverity::Critical)).collect();
+    let high: Vec<_> = outliers.iter().filter(|o| matches!(o.severity, OutlierSeverity::High)).collect();
+    let medium: Vec<_> = outliers.iter().filter(|o| matches!(o.severity, OutlierSeverity::Medium)).collect();
+    
+    format!(r##"
+<h2>🚨 Outlier Detection</h2>
+<div class="card">
+  <div class="outlier-summary">
+    <span class="badge critical">{} Critical</span>
+    <span class="badge high">{} High</span>
+    <span class="badge medium">{} Medium</span>
+  </div>
+  
+  <details open>
+    <summary>🔴 Critical Outliers ({})</summary>
+    <p class="section-desc">Physics violations requiring investigation</p>
+    <table>
+      <tr><th>Pixel</th><th>Category</th><th>Value</th><th>Details</th></tr>
+      {}
+    </table>
+  </details>
+  
+  <details>
+    <summary>🟡 High Priority ({})</summary>
+    <p class="section-desc">Statistical anomalies, top 0.1%</p>
+    <table>
+      <tr><th>Pixel</th><th>Category</th><th>Value</th><th>Details</th></tr>
+      {}
+    </table>
+  </details>
+  
+  <h3 style="margin-top:24px">Outlier Spatial Distribution</h3>
+  <div class="chart-grid">
+    <div>{}</div>
+  </div>
+</div>
+"##,
+        critical.len(), high.len(), medium.len(),
+        critical.len(),
+        format_outlier_table(&critical[..critical.len().min(10)]),
+        high.len(),
+        format_outlier_table(&high[..high.len().min(10)]),
+        generate_outlier_overlay_svg(outliers, stats.width, stats.height)
+    )
+}
+```
+
+---
+
+## ⏱️ **UPDATED EFFORT ESTIMATE**
+
+| Component | Old Estimate | New Estimate | Reason |
+|-----------|-------------|--------------|---------|
+| Stats infrastructure | - | 1.5 hours | MAD, log-space, per-order stats |
+| Physics checks | 20 min | 30 min | Added K epsilon, better bounds |
+| Statistical outliers | - | 1 hour | Order-aware, MAD z-scores |
+| Spatial outliers | - | 2 hours | Index grid, neighbor filtering |
+| Mahalanobis | - | 2 hours | Matrix ops, standardization |
+| HTML visualization | 20 min | 1 hour | Overlay thumbnail, modal details |
+| **TOTAL** | ~40 min | **~8 hours** | Much more robust! |
+
+---
+
+This is now **research-grade outlier detection**. Want to proceed with this enhanced version as part of Tier 1-3? 🚀
+
+---
+
+_**User (2025-10-16 18:38Z)**_
+
+yes, integrate this into the previous plan we had, create a full detailed plan document including our goals, what we want to implement, and brief details/code snippits, no full implementations in the plan just enough to understand our thought process now for when we revist it tomorrow
+
+here is our previous plan:
+
+Excellent! Let me create a detailed plan for Tiers 1-3 implementation.
+
+---
+
+## 📋 **IMPLEMENTATION PLAN: TIERS 1-3**
+
+### **Phase 1: Data Collection (Physics/Integration Layer)**
+*Location: `kernels/kerr_black_hole/src/`*
+
+#### Changes needed in `types.rs`:
+```rust
+// Add to PhotonState or create a new tracking struct
+pub struct GeodesicStats {
+    pub turns_r: u8,
+    pub turns_theta: u8,
+}
+```
+
+#### Changes needed in `integration.rs`:
+1. **Track turning points** - Already counting sign flips, just export them:
+   ```rust
+   // In integrate_geodesic_multi_order, track:
+   let mut turns_r = 0u8;
+   let mut turns_theta = 0u8;
+   
+   // When sign flips (already detecting this):
+   if r_pot_before > 0.0 && r_pot_after == 0.0 {
+       turns_r += 1;
+   }
+   if th_pot_before > 0.0 && th_pot_after == 0.0 {
+       turns_theta += 1;
+   }
+   ```
+
+2. **Classify miss reasons** - Determine why geodesic didn't hit:
+   ```rust
+   enum MissReason {
+       Escaped,    // r → ∞
+       Captured,   // r → r_horizon
+       Aborted,    // Numerical issue (step limit, NaN, etc)
+   }
+   
+   // At end of integration:
+   let miss_reason = if state.r > 1000.0 {
+       MissReason::Escaped
+   } else if state.r < r_horizon + 0.01 {
+       MissReason::Captured
+   } else {
+       MissReason::Aborted
+   };
+   ```
+
+#### Changes needed in `transfer_maps.rs`:
+```rust
+pub struct PositionData {
+    // ... existing fields ...
+    
+    // New fields for Tier 1-3:
+    pub escaped: bool,      // Miss: escaped to infinity
+    pub captured: bool,     // Miss: fell into horizon
+    pub aborted: bool,      // Miss: numerical abort
+    pub turns_r: u8,        // Number of radial turning points
+    pub turns_theta: u8,    // Number of polar turning points
+}
+```
+
+**Estimated effort:** 🟢 **1-2 hours** (straightforward additions)
+
+---
+
+### **Phase 2: Analyzer Enhancements (Data Processing)**
+*Location: `kernels/kerr_black_hole/src/bin/analyze/`*
+
+#### **Tier 1 Tasks:**
+
+##### 1️⃣ **Hit Taxonomy** (30 min)
+- Compute in `compute_statistics()`:
+  ```rust
+  let escaped_count = pixel_agg.iter().filter(|p| !p.any_hit && is_escaped).count();
+  let captured_count = pixel_agg.iter().filter(|p| !p.any_hit && is_captured).count();
+  let aborted_count = pixel_agg.iter().filter(|p| !p.any_hit && is_aborted).count();
+  ```
+- Add pie chart in `charts.rs`:
+  ```rust
+  pub fn generate_miss_taxonomy_pie(escaped: usize, captured: usize, aborted: usize) -> String
+  ```
+
+##### 2️⃣ **Order Mask Thumbnails** (45 min)
+- Generate 3 small images (order 0, 1, 2+):
+  ```rust
+  pub fn generate_order_thumbnail_svg(width: u32, height: u32, mask: &[bool], order: u8) -> String
+  ```
+- Render as tiny raster-like SVG (e.g., 200×112 for 1920×1080 data, downsample)
+
+##### 3️⃣ **Outlier Spotlight** (20 min)
+- Sort by NI, take top-10:
+  ```rust
+  let mut ni_outliers: Vec<_> = hits.iter().enumerate().collect();
+  ni_outliers.sort_by(|(_, a), (_, b)| b.null_invariant_error.partial_cmp(&a.null_invariant_error).unwrap());
+  let top_10 = &ni_outliers[..10.min(ni_outliers.len())];
+  ```
+- Format as HTML table with pixel coords
+
+##### 4️⃣ **Provenance Block** (15 min)
+- Add to manifest during generation:
+  ```rust
+  pub git_sha: String,
+  pub rustc_version: String,
+  pub timestamp: String,
+  ```
+- Display in footer
+
+**Tier 1 Total:** 🟢 **~2 hours**
+
+---
+
+#### **Tier 2 Tasks:**
+
+##### 5️⃣ **K Validation Heatmap** (1 hour)
+- Compute K for every pixel:
+  ```rust
+  let k_values: Vec<f64> = hp_data.positions.iter().map(|r| {
+      r.carter_q + (r.angular_momentum - a * r.energy).powi(2)
+  }).collect();
+  ```
+- Render as 2D heatmap (downsampled):
+  ```rust
+  pub fn generate_k_heatmap_svg(width: u32, height: u32, k_grid: &[f64]) -> String
+  ```
+- Color scale: green (K>0), yellow (K≈0), red (K<0)
+
+##### 6️⃣ **Transfer Function 2D Histogram** (1.5 hours)
+- Bin by (image_radius, emission_radius) for each order:
+  ```rust
+  let image_r = ((pixel_x as f64 - cx).powi(2) + (pixel_y as f64 - cy).powi(2)).sqrt();
+  let emission_r = hp_record.r;
+  
+  // 2D histogram: bins[order][image_r_bin][emission_r_bin] += 1
+  ```
+- Generate 3 heatmaps (one per order)
+
+##### 7️⃣ **Asymmetry Quantification** (45 min)
+- Split by left/right hemisphere:
+  ```rust
+  let phi_normalized = hp_record.phi.rem_euclid(2.0 * PI);
+  let is_approaching = phi_normalized < PI;
+  
+  let approaching_count = hits.iter().filter(|r| is_approaching(r)).count();
+  let receding_count = hits.len() - approaching_count;
+  let asymmetry_ratio = approaching_count as f64 / receding_count as f64;
+  ```
+- Bar chart comparing left vs right
+
+##### 8️⃣ **Time Delay Map** (45 min)
+- Compute relative delays:
+  ```rust
+  let min_lambda = hits.iter().map(|r| r.affine_parameter).min();
+  let relative_delay = hp_record.affine_parameter - min_lambda;
+  ```
+- Render as 2D heatmap (downsampled)
+
+**Tier 2 Total:** 🟡 **~4 hours**
+
+---
+
+#### **Tier 3 Tasks:**
+
+##### 9️⃣ **Critical Curve Extraction** (2 hours)
+- Build 2D grid of captured/escaped:
+  ```rust
+  let mut capture_grid = vec![vec![false; width]; height];
+  for pos in &hp_data.positions {
+      capture_grid[pos.pixel_y][pos.pixel_x] = pos.captured;
+  }
+  ```
+- Edge detection (Sobel or simple neighbor diff):
+  ```rust
+  fn find_boundary_pixels(grid: &[Vec<bool>]) -> Vec<(u32, u32)>
+  ```
+- Fit ellipse, compute diameter, axis ratio, centroid offset
+- Overlay on thumbnail or separate diagram
+
+##### 🔟 **Turning-Point Histograms** (1 hour)
+- Histogram of `turns_r` and `turns_theta`:
+  ```rust
+  let turns_r_hist = compute_histogram(&hits.map(|h| h.turns_r), 0..=10);
+  let turns_theta_hist = compute_histogram(&hits.map(|h| h.turns_theta), 0..=10);
+  ```
+- Dual bar charts side-by-side
+
+##### 1️⃣1️⃣ **Wrap-Angle vs Impact Parameter** (1.5 hours)
+- Compute impact parameter:
+  ```rust
+  let b = hp_record.angular_momentum / hp_record.energy;
+  ```
+- Scatter plot: x=b, y=phi_wraps, color by order
+- Add theoretical curve near photon sphere (b_crit)
+
+**Tier 3 Total:** 🟡 **~4.5 hours**
+
+---
+
+## 📦 **DATA STRUCTURE CHANGES SUMMARY**
+
+### `transfer_maps.rs::PositionData`:
+```rust
+pub struct PositionData {
+    // Existing fields (no changes)
+    pub pixel_x: u32,
+    pub pixel_y: u32,
+    pub r: f64,
+    pub theta: f64,
+    pub phi: f64,
+    pub energy: f64,
+    pub angular_momentum: f64,
+    pub carter_q: f64,
+    pub impact_parameter: f64,
+    pub redshift_factor: f64,
+    pub affine_parameter: f64,
+    pub phi_wraps: f64,
+    pub order: u8,
+    pub hit: bool,
+    pub null_invariant_error: f64,
+    
+    // NEW FIELDS (Tier 1-3):
+    pub escaped: bool,        // 🆕
+    pub captured: bool,       // 🆕
+    pub aborted: bool,        // 🆕
+    pub turns_r: u8,         // 🆕
+    pub turns_theta: u8,     // 🆕
+}
+```
+
+**JSON impact:** ~10 bytes per record → +5MB for 1080p dataset (acceptable)
+
+---
+
+## 🎯 **IMPLEMENTATION ORDER**
+
+### **Session 1** (2 hours) - Tier 1:
+1. Add miss classification to `integration.rs`
+2. Add turning point tracking to `integration.rs`
+3. Update `PositionData` struct
+4. Rebuild & regenerate test data
+5. Implement Tier 1 analyzer features
+
+### **Session 2** (4 hours) - Tier 2:
+1. K validation heatmap
+2. Transfer function histograms
+3. Asymmetry quantification
+4. Time delay map
+
+### **Session 3** (4.5 hours) - Tier 3:
+1. Critical curve extraction
+2. Turning-point histograms
+3. Wrap-angle vs b plot
+
+**Total estimated time:** ~10.5 hours across 3 sessions
+
+---
+
+
+---
+
+_**Assistant (claude-4.5-sonnet)**_
+
+# Kerr Black Hole Analyzer: Enhanced Diagnostics & Outlier Detection Plan
+
+## Project Goals
+
+Enhance the high-precision geodesic data analyzer with comprehensive diagnostic tools to:
+1. **Explain the high miss rate** through detailed miss taxonomy (escaped/captured/aborted)
+2. **Validate numerical accuracy** with robust outlier detection and quality metrics
+3. **Provide research-grade analysis** suitable for academic papers and technical blogs
+4. **Visualize complex relativistic phenomena** (lensing, frame-dragging, caustics)
+
+---
+
+## Implementation Tiers
+
+### Tier 1: Quick Wins (2 hours)
+Core diagnostic features with immediate value
+
+### Tier 2: Research Metrics (4 hours)
+Advanced visualizations for deeper analysis
+
+### Tier 3: Publication Quality (4.5 hours)
+Academic-grade features for papers and presentations
+
+### Enhanced: Robust Outlier Detection (8 hours)
+Research-grade statistical validation integrated throughout all tiers
+
+**Total Estimated Time:** ~18.5 hours across multiple sessions
+
+---
+
+## Phase 1: Data Collection (Physics Layer)
+
+**Location:** `kernels/kerr_black_hole/src/`
+
+### 1.1 Track Turning Points (`integration.rs`)
+
+Already detecting sign flips in radial and polar motion; need to count and export them:
+
+```rust
+// In integrate_geodesic_multi_order
+let mut turns_r = 0u8;
+let mut turns_theta = 0u8;
+
+// When potential crosses zero (already detecting):
+if r_pot_before > 0.0 && r_pot_after == 0.0 {
+    turns_r += 1;
+}
+if th_pot_before > 0.0 && th_pot_after == 0.0 {
+    turns_theta += 1;
+}
+
+// Return with hit result
+```
+
+### 1.2 Classify Miss Reasons (`integration.rs`)
+
+Determine why rays don't hit the disc:
+
+```rust
+enum MissReason {
+    Escaped,    // r → ∞ (> 1000M)
+    Captured,   // r → r_horizon (< r_h + 0.01M)
+    Aborted,    // Numerical failure (NaN, step limit)
+}
+
+// At end of integration loop:
+let (escaped, captured, aborted) = if !hit {
+    if state.r > 1000.0 {
+        (true, false, false)
+    } else if state.r < r_horizon + 0.01 {
+        (false, true, false)
+    } else {
+        (false, false, true)
+    }
+} else {
+    (false, false, false)
+};
+```
+
+### 1.3 Expand Data Structure (`transfer_maps.rs`)
+
+Add new fields to `PositionData`:
+
+```rust
+pub struct PositionData {
+    // ... existing 15 fields ...
+    
+    // NEW: Miss classification
+    pub escaped: bool,
+    pub captured: bool,
+    pub aborted: bool,
+    
+    // NEW: Geodesic complexity
+    pub turns_r: u8,
+    pub turns_theta: u8,
+}
+```
+
+**JSON Impact:** ~10 bytes/record → +5MB for 1080p (acceptable)
+
+Update `to_json()` and `pack_pixel()` functions to include new fields.
+
+---
+
+## Phase 2: Statistical Infrastructure
+
+**Location:** `kernels/kerr_black_hole/src/bin/analyze/stats.rs` (NEW FILE)
+
+### 2.1 Robust Statistics Functions
+
+```rust
+/// Median Absolute Deviation (more robust than IQR for heavy-tailed data)
+pub fn compute_mad(values: &[f64]) -> (f64, f64) {
+    let median = compute_median(values);
+    let deviations: Vec<f64> = values.iter()
+        .map(|v| (v - median).abs())
+        .collect();
+    let mad = compute_median(&deviations);
+    (median, mad)
+}
+
+/// MAD-based z-score (handles outliers better than standard deviation)
+pub fn mad_zscore(value: f64, median: f64, mad: f64) -> f64 {
+    const MAD_SCALE: f64 = 1.4826; // Consistency constant for normal dist
+    (value - median) / (MAD_SCALE * mad)
+}
+
+/// Log-space statistics for null invariant (heavy-tailed)
+pub fn compute_log_stats(values: &[f64]) -> LogStats {
+    let log_values: Vec<f64> = values.iter()
+        .filter(|v| **v > 0.0)
+        .map(|v| v.log10())
+        .collect();
+    
+    let (median, mad) = compute_mad(&log_values);
+    // Returns statistics in log space
+}
+```
+
+### 2.2 Per-Order Statistics
+
+Critical for avoiding false positives (different physics per order):
+
+```rust
+pub struct OrderStats {
+    pub ni_log_median: f64,    // Null invariant (log scale)
+    pub ni_log_mad: f64,
+    pub lambda_median: f64,    // Affine parameter
+    pub lambda_mad: f64,
+    pub g_median: f64,         // Redshift
+    pub g_mad: f64,
+    pub wraps_p99: f64,        // φ-wraps 99th percentile
+    pub turns_r_p99: u8,       // Turning points
+    pub turns_theta_p99: u8,
+}
+
+pub fn compute_order_stats(hits: &[&HpRecord], order: u8) -> OrderStats {
+    // Filter to specific order, compute MAD for each metric
+    // Use log space for NI, linear for others
+}
+```
+
+### 2.3 Spatial Index Grid
+
+For efficient neighbor lookups (O(1) instead of O(n)):
+
+```rust
+pub struct IndexGrid {
+    grid: Vec<Vec<Option<usize>>>,  // Maps (x,y) → index in positions array
+    width: usize,
+    height: usize,
+}
+
+impl IndexGrid {
+    pub fn from_hp_data(data: &HpData, width: usize, height: usize) -> Self;
+    
+    /// Get neighbors of same order (4-neighbor for edges, 8-neighbor interior)
+    pub fn get_neighbors_same_order(&self, x: usize, y: usize, order: u8, data: &HpData) -> Vec<usize>;
+}
+```
+
+---
+
+## Phase 3: Tier 1 Implementation (2 hours)
+
+**Location:** `kernels/kerr_black_hole/src/bin/analyze/`
+
+### 3.1 Hit Taxonomy with Pie Chart (30 min)
+
+Update `compute_statistics()` in `main.rs`:
+
+```rust
+// Count miss reasons
+let escaped_count = hp_data.positions.iter()
+    .filter(|p| !p.hit && p.escaped).count();
+let captured_count = hp_data.positions.iter()
+    .filter(|p| !p.hit && p.captured).count();
+let aborted_count = hp_data.positions.iter()
+    .filter(|p| !p.hit && p.aborted).count();
+
+// Add to Stats struct
+pub miss_escaped: usize,
+pub miss_captured: usize,
+pub miss_aborted: usize,
+```
+
+Create pie chart in `charts.rs`:
+
+```rust
+pub fn generate_miss_taxonomy_pie(
+    escaped: usize, 
+    captured: usize, 
+    aborted: usize,
+    total: usize
+) -> String {
+    // SVG pie chart with 3 segments
+    // Colors: blue (escaped), red (captured), gray (aborted)
+    // Include percentages in labels
+}
+```
+
+### 3.2 Order Mask Thumbnails (45 min)
+
+Generate small binary images showing which pixels hit at each order:
+
+```rust
+pub fn generate_order_thumbnail_svg(
+    width: u32,  // e.g., 200 (downsampled from 1920)
+    height: u32, // e.g., 112 (downsampled from 1080)
+    pixel_orders: &[Option<u8>],  // Flattened grid
+    target_order: u8,
+) -> String {
+    // Downsample: bin pixels into larger blocks
+    // Render as SVG rects: white if order matches, black otherwise
+    // Add border, title
+}
+```
+
+Create 3 thumbnails (order 0, 1, 2+) side-by-side in HTML.
+
+### 3.3 Enhanced Outlier Spotlight (2 hours)
+
+**Now includes robust detection, not just top-N sorting.**
+
+#### Outlier Categories:
+
+```rust
+pub enum OutlierCategory {
+    // CRITICAL (physics violations)
+    NegativeK,              // K < -1e-12
+    LargeNullInvariant,     // NI > 1e-9
+    InvalidState,           // NaN, ±∞
+    InvalidRadius,          // r out of bounds
+    InvalidTheta,           // θ ∉ [0,π]
+    
+    // HIGH (statistical anomalies, top 0.1%)
+    ExtremeNI,              // NI log z-score > 3.5 AND top 0.1%
+    MahalanobisOutlier,     // D_M > 4.5 in (E, L_z, Q, λ, log NI) space
+    SpatialDiscontinuity,   // Local MAD z-score > 6 from neighbors
+    
+    // MEDIUM (interesting edge cases)
+    ExtremeAffine,          // λ MAD z-score > 3.5
+    ExtremeWraps,           // φ-wraps > p99 (not on ring band)
+    RapidTurningPoints,     // N_r or N_θ > 6
+    
+    // INFO
+    RoundoffK,              // |K| < 1e-12 (numerical zero)
+}
+
+pub struct Outlier {
+    pub pixel: (u32, u32),
+    pub category: OutlierCategory,
+    pub severity: OutlierSeverity,  // Critical/High/Medium/Low
+    pub value: f64,
+    pub details: String,  // Human-readable explanation
+}
+```
+
+#### Detection Pipeline (2-pass):
+
+```rust
+fn detect_outliers(
+    hp_data: &HpData,
+    manifest: &Manifest,
+    order_stats: &HashMap<u8, OrderStats>,
+    index_grid: &IndexGrid,
+) -> Vec<Outlier> {
+    let mut outliers = Vec::new();
+    
+    // PASS 1: Critical (short-circuit)
+    for pos in &hp_data.positions {
+        if let Some(crit) = classify_physical_outliers(pos, manifest.spin, r_h, r_max) {
+            outliers.push(crit);
+        }
+    }
+    
+    // PASS 2: Statistical & Spatial (order-aware)
+    outliers.extend(detect_statistical_outliers(&hits, &order_stats));
+    outliers.extend(detect_spatial_outliers(hp_data, &index_grid));
+    outliers.extend(detect_mahalanobis_outliers(&hits, order));
+    
+    // Sort by severity
+    outliers.sort_by_key(|o| (o.severity as u8, o.pixel));
+    outliers
+}
+```
+
+### 3.4 Provenance Block (15 min)
+
+Add to `Manifest` in `transfer_maps.rs`:
+
+```rust
+pub git_sha: String,         // From `git rev-parse HEAD`
+pub rustc_version: String,   // From `rustc --version`
+pub build_timestamp: String, // ISO 8601
+```
+
+Populate during generation in `bin/generate.rs`:
+
+```rust
+let git_sha = std::process::Command::new("git")
+    .args(&["rev-parse", "HEAD"])
+    .output()
+    .ok()
+    .and_then(|o| String::from_utf8(o.stdout).ok())
+    .unwrap_or_else(|| "unknown".to_string());
+```
+
+Display in HTML footer.
+
+---
+
+## Phase 4: Tier 2 Implementation (4 hours)
+
+### 4.1 K Validation Heatmap (1 hour)
+
+Visualize Carter constant across image plane:
+
+```rust
+// Compute K for all pixels
+let k_grid: Vec<f64> = hp_data.positions.iter().map(|p| {
+    p.carter_q + (p.angular_momentum - a * p.energy).powi(2)
+}).collect();
+
+// Downsample to manageable size (e.g., 400×225)
+let downsampled = downsample_grid(&k_grid, width, height, 400, 225);
+
+// Render heatmap
+pub fn generate_k_heatmap_svg(grid: &[f64], width: usize, height: usize) -> String {
+    // Color scale: 
+    // - Green: K > 1e-10
+    // - Yellow: |K| < 1e-10 (≈0)
+    // - Red: K < -1e-10 (violation)
+}
+```
+
+### 4.2 Transfer Function 2D Histogram (1.5 hours)
+
+Shows ray-disc transfer mapping (where image pixels land on disc):
+
+```rust
+// For each order, bin by (image_radius, emission_radius)
+let image_center = (width / 2, height / 2);
+
+for rec in &hp_data.positions {
+    if !rec.hit { continue; }
+    
+    let image_r = f64::hypot(
+        rec.pixel_x as f64 - image_center.0 as f64,
+        rec.pixel_y as f64 - image_center.1 as f64
+    );
+    let emission_r = rec.r;
+    
+    // Bin into 2D histogram
+    bins[rec.order][image_r_bin][emission_r_bin] += 1;
+}
+
+// Generate 3 heatmaps (order 0, 1, 2+)
+pub fn generate_transfer_function_svg(
+    histogram: &[[usize; EMISSION_BINS]; IMAGE_BINS],
+    order: u8,
+) -> String;
+```
+
+### 4.3 Asymmetry Quantification (45 min)
+
+Frame-dragging causes left/right asymmetry:
+
+```rust
+// Split by approaching (0 < φ < π) vs receding (π < φ < 2π)
+let approaching: Vec<_> = hits.iter()
+    .filter(|h| h.phi.rem_euclid(2.0 * PI) < PI)
+    .collect();
+let receding: Vec<_> = hits.iter()
+    .filter(|h| h.phi.rem_euclid(2.0 * PI) >= PI)
+    .collect();
+
+let asymmetry_ratio = approaching.len() as f64 / receding.len() as f64;
+
+// Stacked bar chart showing counts + percentages
+pub fn generate_asymmetry_bar_chart(
+    approaching_count: usize,
+    receding_count: usize,
+) -> String;
+```
+
+### 4.4 Time Delay Map (45 min)
+
+Visualize relative light travel times:
+
+```rust
+// Compute min affine parameter (earliest arrival)
+let min_lambda = hits.iter()
+    .map(|h| h.affine_parameter)
+    .min_by(|a, b| a.partial_cmp(b).unwrap())
+    .unwrap_or(0.0);
+
+// Build delay grid
+let delay_grid: Vec<f64> = hp_data.positions.iter().map(|p| {
+    if p.hit {
+        p.affine_parameter - min_lambda
+    } else {
+        f64::NAN
+    }
+}).collect();
+
+// Render as heatmap (warmer = later arrival)
+pub fn generate_time_delay_heatmap_svg(
+    grid: &[f64],
+    width: usize,
+    height: usize,
+) -> String;
+```
+
+---
+
+## Phase 5: Tier 3 Implementation (4.5 hours)
+
+### 5.1 Critical Curve Extraction (2 hours)
+
+Find boundary between captured and escaped rays (Kerr shadow):
+
+```rust
+// Build binary grid
+let mut capture_grid = vec![vec![false; width]; height];
+for pos in &hp_data.positions {
+    capture_grid[pos.pixel_y as usize][pos.pixel_x as usize] = pos.captured;
+}
+
+// Edge detection (simple neighbor diff)
+fn find_boundary_pixels(grid: &[Vec<bool>]) -> Vec<(u32, u32)> {
+    let mut boundary = Vec::new();
+    for y in 1..grid.len()-1 {
+        for x in 1..grid[0].len()-1 {
+            // If differs from any 4-neighbor, it's an edge
+            let center = grid[y][x];
+            if grid[y-1][x] != center || grid[y+1][x] != center ||
+               grid[y][x-1] != center || grid[y][x+1] != center {
+                boundary.push((x as u32, y as u32));
+            }
+        }
+    }
+    boundary
+}
+
+// Fit ellipse to boundary points (least-squares)
+fn fit_ellipse(points: &[(u32, u32)]) -> EllipseParams {
+    // Returns: center, semi_major, semi_minor, rotation, axis_ratio
+}
+
+// Report metrics in HTML
+```
+
+### 5.2 Turning-Point Histograms (1 hour)
+
+Visualize geodesic complexity:
+
+```rust
+// Histogram turns_r and turns_theta
+let turns_r_hist = compute_histogram(
+    &hits.map(|h| h.turns_r),
+    0..=10
+);
+let turns_theta_hist = compute_histogram(
+    &hits.map(|h| h.turns_theta),
+    0..=10
+);
+
+// Dual bar charts side-by-side
+pub fn generate_turning_points_histogram_svg(
+    r_hist: &[(u8, usize)],
+    theta_hist: &[(u8, usize)],
+) -> String;
+```
+
+### 5.3 Wrap-Angle vs Impact Parameter (1.5 hours)
+
+Test against theoretical predictions:
+
+```rust
+// Compute impact parameter for each ray
+let scatter_data: Vec<(f64, f64, u8)> = hits.iter().map(|h| {
+    let b = h.angular_momentum / h.energy;  // Impact parameter
+    (b, h.phi_wraps, h.order)
+}).collect();
+
+// Scatter plot with order-based coloring
+pub fn generate_wraps_vs_impact_scatter_svg(
+    data: &[(f64, f64, u8)],
+    b_photon_sphere: f64,  // Theoretical critical value
+) -> String {
+    // x-axis: impact parameter b
+    // y-axis: φ-wraps
+    // Color by order
+    // Add vertical line at b_crit (photon sphere)
+}
+```
+
+---
+
+## Phase 6: HTML Report Integration
+
+### 6.1 Outlier Summary Section
+
+```html
+<h2>🚨 Outlier Detection & Validation</h2>
+<div class="card">
+  <div class="outlier-summary">
+    <span class="badge critical">{critical_count} Critical</span>
+    <span class="badge high">{high_count} High</span>
+    <span class="badge medium">{medium_count} Medium</span>
+  </div>
+  
+  <details open>
+    <summary>Critical Outliers ({critical_count})</summary>
+    <p class="section-desc">Physics violations requiring investigation</p>
+    <table>
+      <!-- Top 10 critical outliers with pixel coords, category, value -->
+    </table>
+  </details>
+  
+  <h3>Outlier Spatial Distribution</h3>
+  <div class="chart-grid">
+    <div>{outlier_overlay_svg}</div>
+  </div>
+</div>
+```
+
+### 6.2 Miss Taxonomy Section
+
+```html
+<h2>📊 Miss Taxonomy</h2>
+<div class="card">
+  <p class="section-desc">Why 83% of rays don't hit the disc</p>
+  <div class="chart-grid">
+    <div>{miss_pie_chart}</div>
+    <div>
+      <table>
+        <tr><td>Escaped to ∞</td><td>{escaped_count}</td><td>{escaped_pct}%</td></tr>
+        <tr><td>Captured by horizon</td><td>{captured_count}</td><td>{captured_pct}%</td></tr>
+        <tr><td>Numerical abort</td><td>{aborted_count}</td><td>{aborted_pct}%</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+```
+
+### 6.3 Enhanced Footer
+
+```html
+<footer>
+  <p>Generated by Kerr Black Hole High-Precision Analyzer</p>
+  <p>Preset: {preset} | {width}×{height} | {orders} orders | {inclination}° inclination</p>
+  <details>
+    <summary>Provenance</summary>
+    <ul>
+      <li>Git SHA: {git_sha}</li>
+      <li>Rust: {rustc_version}</li>
+      <li>Generated: {timestamp}</li>
+    </ul>
+  </details>
+</footer>
+```
+
+---
+
+## Implementation Sessions
+
+### Session 1: Data Collection & Infrastructure (3 hours)
+1. Add fields to `PositionData` (`transfer_maps.rs`)
+2. Track turning points (`integration.rs`)
+3. Classify miss reasons (`integration.rs`)
+4. Create `stats.rs` with MAD/log-space functions
+5. Rebuild & regenerate test data
+6. **Checkpoint:** Verify new fields in JSON output
+
+### Session 2: Tier 1 Features (2 hours)
+1. Hit taxonomy + pie chart
+2. Order mask thumbnails
+3. Basic outlier spotlight (top-N)
+4. Provenance block
+5. **Checkpoint:** Review HTML with Tier 1 features
+
+### Session 3: Enhanced Outlier Detection (8 hours)
+1. Implement physics violation checks
+2. Per-order statistics infrastructure
+3. Statistical outliers (MAD z-scores, log-space NI)
+4. Spatial outliers (index grid, neighbor checks)
+5. Mahalanobis distance (multivariate)
+6. Outlier overlay heatmap
+7. **Checkpoint:** Verify critical/high/medium classification
+
+### Session 4: Tier 2 Features (4 hours)
+1. K validation heatmap
+2. Transfer function 2D histograms
+3. Asymmetry quantification
+4. Time delay map
+5. **Checkpoint:** Review all Tier 2 visualizations
+
+### Session 5: Tier 3 Features (4.5 hours)
+1. Critical curve extraction & ellipse fitting
+2. Turning-point histograms
+3. Wrap-angle vs impact parameter scatter
+4. **Checkpoint:** Full report review
+
+### Session 6: Polish & Documentation (1 hour)
+1. CSS refinements
+2. Responsive layout testing
+3. Add tooltips/explanations
+4. Final validation run
+
+---
+
+## Success Criteria
+
+- [ ] All 5 new fields exported correctly in HP JSON
+- [ ] Miss taxonomy explains >95% of misses
+- [ ] Outlier detection flags <1% of pixels as critical
+- [ ] K validation shows zero red pixels (K<0)
+- [ ] Transfer functions show expected ISCO peak
+- [ ] Critical curve matches theoretical Kerr predictions
+- [ ] Turning-point histograms peak at expected values
+- [ ] HTML report loads in <2s, self-contained, print-ready
+
+---
+
+## Notes for Tomorrow
+
+- No backward compatibility needed (regenerating all data)
+- Use MAD instead of IQR throughout for robustness
+- Always work in log-space for null invariant
+- Per-order thresholds critical to avoid false positives
+- Spatial checks require ≥3 same-order neighbors
+- K epsilon = 1e-12 (roundoff tolerance)
+- Mahalanobis threshold = 4.5 (stricter than 3.0)
+- Local MAD z-score threshold = 6.0 for spatial outliers
+
+---
+
