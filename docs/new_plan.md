@@ -33,6 +33,25 @@ Research-grade statistical validation integrated throughout all tiers
 
 ---
 
+## 🎯 **ADDITIONAL DATA POINTS TO ADD**:
+
+**Tier 1 - Do these now (< 1 hour total):**
+
+1. Hit taxonomy (escaped/captured/aborted) + pie chart
+2. Order mask thumbnails
+3. Outlier spotlight table
+4. Provenance block
+
+**Tier 2 - Next session (1-2 hours):** 5. K validation heatmap 6. Transfer function 2D histogram 7. Asymmetry quantification 8. Time delay map
+
+**Tier 3 - Research paper quality (2-4 hours):** 9. Critical curve extraction 10. Turning-point histograms 11. Wrap-angle vs b plot
+
+**Tier 4 - future additions if time permits:**
+
+- Magnification/caustics (complex, need neighbor data)
+
+---
+
 ## Phase 1: Data Collection (Physics Layer)
 
 **Location:** `kernels/kerr_black_hole/src/`
@@ -807,10 +826,3 @@ fn unwrap_phi_diff(dphi: f64) -> f64 {
 **Then** you need to render it as a heatmap, which requires exporting a 2D grid back to the HTML...
 
 ---
-
-## **TL;DR:**
-
-| Feature              | Why Hard                                                    | Effort      | Value Unless Paper                 |
-| -------------------- | ----------------------------------------------------------- | ----------- | ---------------------------------- |
-| **Convergence test** | Re-run entire simulation multiple times; quadruples compute | 🔴🔴🔴 High | ❌ Low (only for reviewers)        |
-| **Magnification**    | Complex neighbors logic + φ wrapping + caustic edge cases   | 🔴🔴🔴 High | ⚠️ Medium (cool visual, but niche) |
