@@ -111,13 +111,27 @@ pub enum GeodesicResult {
         phi_wraps: f64,           // Number of φ wraps around BH
         order: u8,                // 0=direct, 1=primary, 2=secondary, etc.
         null_invariant_error: f64, // |g_μν k^μ k^ν| for validation
+        turns_r: u8,              // Total radial turning points
+        turns_theta: u8,          // Total polar turning points
     },
     
     // Ray fell into the black hole (crossed horizon)
-    Captured,
+    Captured {
+        turns_r: u8,              // Turning points before capture
+        turns_theta: u8,          // Turning points before capture
+    },
     
     // Ray escaped to infinity (no disc intersection)
-    Escaped,
+    Escaped {
+        turns_r: u8,              // Turning points before escape
+        turns_theta: u8,          // Turning points before escape
+    },
+    
+    // Integration aborted due to numerical issues or step limit
+    Aborted {
+        turns_r: u8,              // Turning points before abort
+        turns_theta: u8,          // Turning points before abort
+    },
 }
 
 impl GeodesicResult {
@@ -128,18 +142,28 @@ impl GeodesicResult {
     }
     
     // Get the disc hit data, if any (returns None otherwise)
-    pub fn disc_hit_data(&self) -> Option<(f64, f64, f64, f64, f64, f64, f64, f64, f64, f64, u8, f64)> {
+    pub fn disc_hit_data(&self) -> Option<(f64, f64, f64, f64, f64, f64, f64, f64, f64, f64, u8, f64, u8, u8)> {
         match self {
             GeodesicResult::DiscHit { 
                 r, theta, phi, energy, angular_momentum, carter_q, 
                 impact_parameter, redshift_factor, affine_parameter, phi_wraps,
-                order, null_invariant_error 
+                order, null_invariant_error, turns_r, turns_theta
             } => {
                 Some((*r, *theta, *phi, *energy, *angular_momentum, *carter_q, 
                       *impact_parameter, *redshift_factor, *affine_parameter, *phi_wraps,
-                      *order, *null_invariant_error))
+                      *order, *null_invariant_error, *turns_r, *turns_theta))
             }
             _ => None,
+        }
+    }
+    
+    // Get turning point data for any result type
+    pub fn turning_points(&self) -> (u8, u8) {
+        match self {
+            GeodesicResult::DiscHit { turns_r, turns_theta, .. } => (*turns_r, *turns_theta),
+            GeodesicResult::Captured { turns_r, turns_theta } => (*turns_r, *turns_theta),
+            GeodesicResult::Escaped { turns_r, turns_theta } => (*turns_r, *turns_theta),
+            GeodesicResult::Aborted { turns_r, turns_theta } => (*turns_r, *turns_theta),
         }
     }
 }
