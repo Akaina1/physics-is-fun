@@ -39,8 +39,13 @@ where
     // Number of samples for flux LUT (standard for texture lookups)
     let flux_samples = 256;
     
+    // Capture build provenance from compile-time environment variables
+    let git_sha = option_env!("BUILD_GIT_SHA").map(|s| s.to_string());
+    let rustc_version = option_env!("BUILD_RUSTC_VERSION").map(|s| s.to_string());
+    let build_timestamp = option_env!("BUILD_TIMESTAMP").map(|s| s.to_string());
+    
     // Temporary manifest for initialization (disc_hits will be updated later)
-    let temp_manifest = Manifest::new(
+    let temp_manifest = Manifest::with_provenance(
         config.width,
         config.height,
         preset_name.clone(),
@@ -50,6 +55,9 @@ where
         r_inner,
         r_outer,
         0,  // disc_hits placeholder
+        git_sha,
+        rustc_version,
+        build_timestamp,
     );
     
     // Initialize transfer maps with temp manifest
@@ -65,7 +73,7 @@ where
     // Generate emissivity lookup table
     maps.flux_r32f = generate_flux_lut(r_inner, r_outer, r_inner, flux_samples);
     
-    let max_steps = 10000;
+    let max_steps = 20000;  // testing increased values for precision
     
     // Thread-safe counters
     let disc_hits = AtomicUsize::new(0);
