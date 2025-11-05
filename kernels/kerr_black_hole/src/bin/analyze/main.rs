@@ -4,6 +4,7 @@
 
 mod charts;
 mod generate_summary;
+mod stats;
 
 use generate_summary::{Stats, Manifest, generate_html_report};
 
@@ -34,13 +35,13 @@ struct HpRecord {
     _theta: f64,
     #[serde(default)]
     phi: f64,  // Used for angular distribution
-    #[serde(default)]
+    #[serde(default, rename = "energy")]
     _energy: f64,
-    #[serde(default)]
+    #[serde(default, rename = "angular_momentum")]
     _angular_momentum: f64,
-    #[serde(default)]
+    #[serde(default, rename = "carter_q")]
     _carter_q: f64,
-    #[serde(default)]
+    #[serde(default, rename = "impact_parameter")]
     _impact_parameter: f64,
     #[serde(default)]
     redshift_factor: f64,
@@ -53,6 +54,36 @@ struct HpRecord {
     hit: bool,
     #[serde(default)]
     null_invariant_error: f64,
+    // NEW: Miss classification
+    #[serde(default)]
+    escaped: bool,
+    #[serde(default)]
+    captured: bool,
+    #[serde(default)]
+    aborted: bool,
+    // NEW: Geodesic complexity
+    #[serde(default)]
+    turns_r: u8,
+    #[serde(default)]
+    turns_theta: u8,
+}
+
+// Implement GeodesicRecord trait for stats module
+impl stats::GeodesicRecord for HpRecord {
+    fn null_invariant_error(&self) -> f64 { self.null_invariant_error }
+    fn affine_parameter(&self) -> f64 { self.affine_parameter }
+    fn redshift_factor(&self) -> f64 { self.redshift_factor }
+    fn phi_wraps(&self) -> f64 { self.phi_wraps }
+    fn turns_r(&self) -> u8 { self.turns_r }
+    fn turns_theta(&self) -> u8 { self.turns_theta }
+    fn order(&self) -> u8 { self.order }
+}
+
+// Implement CriticalCurveRecord trait for stats module
+impl stats::CriticalCurveRecord for HpRecord {
+    fn pixel_x(&self) -> u32 { self.pixel_x }
+    fn pixel_y(&self) -> u32 { self.pixel_y }
+    fn is_captured(&self) -> bool { self.captured }
 }
 
 /// Wrapper for HP JSON structure
@@ -107,11 +138,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     pb.inc(1);
     
     pb.set_message(format!("Computing statistics ({} records)...", hp_data.positions.len()));
-    let stats = compute_statistics(&hp_data, &manifest);
+    let (stats, pixel_orders) = compute_statistics(&hp_data, &manifest);
     pb.inc(1);
     
     pb.set_message("Generating HTML report...");
-    let html = generate_html_report(&stats, &manifest);
+    let html = generate_html_report(&stats, &manifest, &pixel_orders);
     pb.inc(1);
     
     pb.finish_with_message("✓ Analysis complete");
@@ -134,8 +165,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> Stats {
+fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> (Stats, Vec<Option<u8>>) {
     let total_pixels = (manifest.width * manifest.height) as usize;
+    
+    // Extract manifest fields for use in chart generation
+    let width = manifest.width;
+    let height = manifest.height;
+    let spin = manifest.spin;
+    let r_in = manifest.r_in;
+    let r_out = manifest.r_out;
     
     // Initialize per-pixel aggregation
     let mut pixel_agg = vec![PixelAgg::default(); total_pixels];
@@ -156,6 +194,57 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> Stats {
     // Count hit pixels
     let total_hit_pixels = pixel_agg.iter().filter(|p| p.any_hit).count();
     let miss_pixels = total_pixels - total_hit_pixels;
+    
+    // NEW: Miss taxonomy (Tier 1.1) - Classify miss pixels by primary reason
+    // Each pixel gets ONE classification based on priority: captured > aborted > escaped
+    use std::collections::HashMap;
+    
+    #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+    enum MissReason {
+        Escaped,
+        Captured,
+        Aborted,
+    }
+    
+    let mut miss_classification: HashMap<(u32, u32), MissReason> = HashMap::new();
+    
+    for rec in &hp_data.positions {
+        if !rec.hit {
+            let pixel = (rec.pixel_x, rec.pixel_y);
+            let current = miss_classification.get(&pixel);
+            
+            // Priority: Captured (most interesting) > Aborted (numerical) > Escaped (default)
+            let new_reason = if rec.captured {
+                MissReason::Captured
+            } else if rec.aborted {
+                MissReason::Aborted
+            } else {
+                MissReason::Escaped
+            };
+            
+            // Update if higher priority or first time seeing this pixel
+            match current {
+                None => { miss_classification.insert(pixel, new_reason); },
+                Some(MissReason::Escaped) => { 
+                    // Anything is higher priority than escaped
+                    miss_classification.insert(pixel, new_reason); 
+                },
+                Some(MissReason::Aborted) => {
+                    // Only captured is higher priority
+                    if new_reason == MissReason::Captured {
+                        miss_classification.insert(pixel, new_reason);
+                    }
+                },
+                Some(MissReason::Captured) => {
+                    // Already highest priority, don't change
+                },
+            }
+        }
+    }
+    
+    let miss_escaped = miss_classification.values().filter(|r| **r == MissReason::Escaped).count();
+    let miss_captured = miss_classification.values().filter(|r| **r == MissReason::Captured).count();
+    let miss_aborted = miss_classification.values().filter(|r| **r == MissReason::Aborted).count();
     
     // Order distribution per pixel
     let only_order_0 = pixel_agg.iter().filter(|p| p.order_mask == 0b001).count();
@@ -246,6 +335,14 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> Stats {
         order: r.order,
         _hit: r.hit,
         null_invariant_error: r.null_invariant_error,
+        // NEW: Tier 2 - Additional fields for K validation
+        energy: r._energy,
+        angular_momentum: r._angular_momentum,
+        carter_q: r._carter_q,
+        impact_parameter: r._impact_parameter,
+        // NEW: Tier 3 - Turning points
+        turns_r: r.turns_r,
+        turns_theta: r.turns_theta,
     }).collect();
     let chart_hit_refs: Vec<&charts::HpRecord> = chart_hits.iter().collect();
     
@@ -261,7 +358,84 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> Stats {
     // Chart data: Angular distribution
     let angular_distribution = charts::compute_angular_distribution(&chart_hit_refs);
     
-    Stats {
+    // NEW: Tier 1.3 - Top-10 null invariant outliers
+    let mut ni_outliers: Vec<_> = hits.iter().collect();
+    ni_outliers.sort_by(|a, b| b.null_invariant_error.partial_cmp(&a.null_invariant_error).unwrap_or(std::cmp::Ordering::Equal));
+    let top_ni_outliers: Vec<(u32, u32, u8, f64)> = ni_outliers.iter()
+        .take(10)
+        .map(|r| (r.pixel_x, r.pixel_y, r.order, r.null_invariant_error))
+        .collect();
+    
+    // NEW: Tier 2.1 - K validation heatmap
+    let k_heatmap_svg = charts::generate_k_heatmap_svg(
+        &chart_hit_refs,
+        spin,
+        width,
+        height,
+        (400, 225)  // Downsample to reasonable size
+    );
+    
+    // NEW: Tier 2.2 - Transfer function 2D histograms (3 for orders 0, 1, 2+)
+    let image_center = (width as f64 / 2.0, height as f64 / 2.0);
+    
+    // Calculate ISCO for equatorial orbit in Kerr spacetime
+    // Reference: Bardeen, Press, Teukolsky (1972)
+    // Convention: spin > 0 = prograde, spin < 0 = retrograde, spin = 0 = Schwarzschild
+    let r_isco = if spin.abs() < 1e-10 {
+        // Schwarzschild: ISCO at 6M
+        6.0
+    } else {
+        // Kerr: General formula (works for both prograde and retrograde)
+        // For retrograde, the negative spin naturally gives larger ISCO
+        let z1 = 1.0 + (1.0 - spin.powi(2)).powf(1.0/3.0) 
+            * ((1.0 + spin).powf(1.0/3.0) + (1.0 - spin).powf(1.0/3.0));
+        let z2 = (3.0 * spin.powi(2) + z1.powi(2)).sqrt();
+        // Note: For retrograde (spin < 0), use the + sign before the sqrt
+        // For prograde (spin > 0), use the - sign before the sqrt
+        if spin > 0.0 {
+            // Prograde: co-rotating orbit (smaller ISCO)
+            3.0 + z2 - ((3.0 - z1) * (3.0 + z1 + 2.0 * z2)).sqrt()
+        } else {
+            // Retrograde: counter-rotating orbit (larger ISCO)
+            3.0 + z2 + ((3.0 - z1) * (3.0 + z1 + 2.0 * z2)).sqrt()
+        }
+    };
+    let transfer_o0_svg = charts::generate_transfer_function_svg(
+        &chart_hit_refs, 0, r_in, r_out, r_isco, image_center
+    );
+    let transfer_o1_svg = charts::generate_transfer_function_svg(
+        &chart_hit_refs, 1, r_in, r_out, r_isco, image_center
+    );
+    let transfer_o2_svg = charts::generate_transfer_function_svg(
+        &chart_hit_refs, 2, r_in, r_out, r_isco, image_center
+    );
+    
+    // NEW: Tier 2.4 - Time delay map heatmap
+    let time_delay_svg = charts::generate_time_delay_heatmap_svg(
+        &chart_hit_refs,
+        width,
+        height,
+        (400, 225)
+    );
+    
+    // NEW: Tier 3.1 - Critical curve extraction and ellipse fitting
+    let critical_curve = stats::extract_critical_curve(&hp_data.positions, width as usize, height as usize);
+    let ellipse_params = stats::fit_ellipse(&critical_curve);
+    
+    // NEW: Tier 3.2 - Turning-point histograms
+    let turning_histogram_svg = charts::generate_turning_points_histogram_svg(&chart_hit_refs);
+    
+    // NEW: Tier 3.3 - Wrap-angle vs impact parameter scatter
+    let wraps_scatter_svg = charts::generate_wraps_vs_impact_scatter_svg(&chart_hit_refs, spin);
+    
+    // NEW: Tier 1.2 - Build order map for thumbnails
+    // Store the order_mask bitmask for each pixel (not just lowest order)
+    // This allows thumbnails to show ALL pixels where each order hits
+    let pixel_orders: Vec<Option<u8>> = pixel_agg.iter()
+        .map(|p| if p.any_hit { Some(p.order_mask) } else { None })
+        .collect();
+    
+    let stats = Stats {
         total_pixels,
         total_hit_pixels,
         total_hits: hits.len(),
@@ -272,6 +446,9 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> Stats {
         only_order_0,
         orders_0_and_1,
         orders_2_plus,
+        miss_escaped,
+        miss_captured,
+        miss_aborted,
         ni_min,
         ni_max,
         ni_mean,
@@ -299,7 +476,19 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> Stats {
         radial_histogram,
         radial_profile,
         angular_distribution,
-    }
+        top_ni_outliers,
+        k_heatmap_svg,
+        transfer_o0_svg,
+        transfer_o1_svg,
+        transfer_o2_svg,
+        time_delay_svg,
+        critical_curve_points: critical_curve.len(),
+        ellipse_params,
+        turning_histogram_svg,
+        wraps_scatter_svg,
+    };
+    
+    (stats, pixel_orders)
 }
 
 // Chart computation and HTML generation are now in separate modules
