@@ -2,6 +2,7 @@
 name = "kerr_black_hole"
 version = "0.1.0"
 edition = "2021"
+build = "build.rs"
 
 [lib]
 # Library crate for the physics core
@@ -18,6 +19,9 @@ clap = { version = "4.5", features = ["derive"] }
 indicatif = "0.17"
 rayon = "1.10"
 flate2 = "1.0"
+
+[build-dependencies]
+chrono = "0.4"
 
 [[bin]]
 name = "generate"
