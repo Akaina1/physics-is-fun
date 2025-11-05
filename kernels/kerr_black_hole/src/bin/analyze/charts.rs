@@ -15,6 +15,14 @@ pub struct HpRecord {
     pub order: u8,
     pub _hit: bool,
     pub null_invariant_error: f64,
+    // NEW: Tier 2 - Additional fields for K validation and transfer functions
+    pub energy: f64,
+    pub angular_momentum: f64,
+    pub carter_q: f64,
+    pub impact_parameter: f64,
+    // NEW: Tier 3 - Turning points for histogram
+    pub turns_r: u8,
+    pub turns_theta: u8,
 }
 
 /// Chart data computation functions
@@ -459,5 +467,840 @@ pub fn generate_angular_distribution_svg(distribution: &[(f64, usize)]) -> Strin
         grid,
         bars,
         labels
+    )
+}
+
+// ============================================================================
+// TIER 1: MISS TAXONOMY PIE CHART
+// ============================================================================
+
+/// Generate SVG pie chart for miss taxonomy (escaped/captured/aborted)
+pub fn generate_miss_taxonomy_pie(
+    escaped: usize,
+    captured: usize,
+    aborted: usize,
+    total_miss: usize,
+) -> String {
+    if total_miss == 0 {
+        return String::from("<svg width=\"300\" height=\"200\"><text x=\"150\" y=\"100\" text-anchor=\"middle\" fill=\"#6b7280\">No misses</text></svg>");
+    }
+    
+    let size = 300;
+    let center = size / 2;
+    let radius = 100;
+    
+    // Calculate percentages and angles
+    let escaped_pct = escaped as f64 / total_miss as f64;
+    let captured_pct = captured as f64 / total_miss as f64;
+    let aborted_pct = aborted as f64 / total_miss as f64;
+    
+    // Colors: blue (escaped), red (captured), gray (aborted)
+    let colors = ["#3B82F6", "#EF4444", "#6B7280"];
+    let labels = ["Escaped", "Captured", "Aborted"];
+    let counts = [escaped, captured, aborted];
+    let percentages = [escaped_pct, captured_pct, aborted_pct];
+    
+    // Generate pie slices
+    let mut current_angle = 0.0; // Start at right (3 o'clock) for better label visibility
+    let mut slices = String::new();
+    let mut legend_items = String::new();
+    
+    for i in 0..3 {
+        if counts[i] == 0 {
+            continue;
+        }
+        
+        let angle_deg = percentages[i] * 360.0;
+        let end_angle = current_angle + angle_deg;
+        
+        // Convert to radians
+        let start_rad = current_angle * PI / 180.0;
+        let end_rad = end_angle * PI / 180.0;
+        
+        // Calculate path
+        let x1 = center as f64 + radius as f64 * start_rad.cos();
+        let y1 = center as f64 + radius as f64 * start_rad.sin();
+        let x2 = center as f64 + radius as f64 * end_rad.cos();
+        let y2 = center as f64 + radius as f64 * end_rad.sin();
+        
+        let large_arc = if angle_deg > 180.0 { 1 } else { 0 };
+        
+        slices.push_str(&format!(
+            r##"<path d="M {} {} L {:.2} {:.2} A {} {} 0 {} 1 {:.2} {:.2} Z" fill="{}" stroke="white" stroke-width="2"/>"##,
+            center, center, x1, y1, radius, radius, large_arc, x2, y2, colors[i]
+        ));
+        
+        // Add percentage label in slice (only if slice is >8%)
+        if percentages[i] > 0.08 {  // Only show label if slice is >8%
+            let mid_angle = (start_rad + end_rad) / 2.0;
+            let label_radius = if percentages[i] > 0.6 {
+                // For very large slices, put label closer to center
+                radius as f64 * 0.5
+            } else {
+                // For smaller slices, put label at 70% radius
+                radius as f64 * 0.7
+            };
+            let label_x = center as f64 + label_radius * mid_angle.cos();
+            let label_y = center as f64 + label_radius * mid_angle.sin();
+            
+            // Use contrasting colors: white text with black outline for visibility
+            slices.push_str(&format!(
+                r##"<text x="{:.1}" y="{:.1}" text-anchor="middle" dominant-baseline="middle" font-size="16" font-weight="700" fill="white" stroke="#000" stroke-width="2" paint-order="stroke">{:.1}%</text>"##,
+                label_x, label_y, percentages[i] * 100.0
+            ));
+        }
+        
+        // Legend item
+        let legend_y = 250 + i * 25;
+        legend_items.push_str(&format!(
+            r##"<rect x="20" y="{}" width="16" height="16" fill="{}" rx="2"/><text x="42" y="{}" font-size="13" fill="#374151">{}: {} ({:.1}%)</text>"##,
+            legend_y, colors[i], legend_y + 12, labels[i], counts[i], percentages[i] * 100.0
+        ));
+        
+        current_angle = end_angle;
+    }
+    
+    format!(r##"<svg width="{}" height="340" xmlns="http://www.w3.org/2000/svg">
+  <text x="{}" y="20" text-anchor="middle" font-size="14" font-weight="600" fill="#374151">Miss Taxonomy</text>
+  <text x="{}" y="35" text-anchor="middle" font-size="11" fill="#6b7280">{} total misses</text>
+  {}
+  {}
+</svg>"##,
+        size, center, center, total_miss, slices, legend_items
+    )
+}
+
+// ============================================================================
+// TIER 1: ORDER MASK THUMBNAILS
+// ============================================================================
+
+/// Generate binary thumbnail showing which pixels hit at a specific order
+/// Downsamples the image by binning (e.g., 8×8 blocks → 1 pixel)
+pub fn generate_order_thumbnail_svg(
+    width: u32,
+    height: u32,
+    pixel_orders: &[Option<u8>],  // None = miss, Some(order_mask) = bitmask of orders that hit
+    target_order: u8,
+    downsample_factor: u32,  // e.g., 8 means 8×8 → 1 pixel
+) -> String {
+    let thumb_width = (width + downsample_factor - 1) / downsample_factor;
+    let thumb_height = (height + downsample_factor - 1) / downsample_factor;
+    
+    // Compute SVG size (constrain to reasonable dimensions)
+    let svg_width = (thumb_width * 2).min(200);
+    let svg_height = (thumb_height * 2).min(120);
+    let pixel_size = svg_width as f64 / thumb_width as f64;
+    
+    let mut rects = String::new();
+    let mut hit_count = 0;
+    let mut total_count = 0;
+    
+    for ty in 0..thumb_height {
+        for tx in 0..thumb_width {
+            // Sample block: check if any pixel in this block has target_order
+            let mut block_has_order = false;
+            
+            for dy in 0..downsample_factor {
+                for dx in 0..downsample_factor {
+                    let px = tx * downsample_factor + dx;
+                    let py = ty * downsample_factor + dy;
+                    
+                    if px >= width || py >= height {
+                        continue;
+                    }
+                    
+                    let idx = (py * width + px) as usize;
+                    if idx < pixel_orders.len() {
+                        if let Some(order_mask) = pixel_orders[idx] {
+                            // Check if the target order bit is set in the bitmask
+                            if target_order == 2 {
+                                // Special case: order 2+ means any bit >= 2 is set
+                                if order_mask >= 0b100 {
+                                    block_has_order = true;
+                                    break;
+                                }
+                            } else {
+                                // Check if the specific order bit is set
+                                let bit = 1 << target_order;
+                                if (order_mask & bit) != 0 {
+                                    block_has_order = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                if block_has_order {
+                    break;
+                }
+            }
+            
+            total_count += 1;
+            if block_has_order {
+                hit_count += 1;
+                // Draw white pixel for hit
+                let x = tx as f64 * pixel_size;
+                let y = ty as f64 * pixel_size;
+                rects.push_str(&format!(
+                    r#"<rect x="{:.1}" y="{:.1}" width="{:.1}" height="{:.1}" fill="white"/>"#,
+                    x, y, pixel_size, pixel_size
+                ));
+            }
+        }
+    }
+    
+    let title = if target_order == 2 {
+        "Order 2+".to_string()
+    } else {
+        format!("Order {}", target_order)
+    };
+    
+    let coverage = hit_count as f64 / total_count as f64 * 100.0;
+    
+    format!("<svg width=\"{}\" height=\"{}\" xmlns=\"http://www.w3.org/2000/svg\">
+  <g transform=\"translate(0, 20)\">
+    <rect width=\"{}\" height=\"{}\" fill=\"#111827\"/>
+    {}
+  </g>
+  <text x=\"{}\" y=\"12\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"600\" fill=\"#374151\">{}</text>
+  <text x=\"{}\" y=\"{}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#6b7280\">{:.1}% coverage</text>
+</svg>",
+        svg_width, svg_height + 50,
+        svg_width, svg_height,
+        rects,
+        svg_width / 2, title,
+        svg_width / 2, svg_height + 38, coverage
+    )
+}
+
+// ============================================================================
+// TIER 2: K VALIDATION HEATMAP
+// ============================================================================
+
+/// Generate K (Carter constant) validation heatmap
+/// K = Q + (L_z - aE)² should always be ≥ 0 for physical geodesics
+pub fn generate_k_heatmap_svg(
+    hits: &[&HpRecord],
+    spin: f64,
+    width: u32,
+    height: u32,
+    downsample: (usize, usize),  // Target dimensions (e.g., 400, 225)
+) -> String {
+    let (target_w, target_h) = downsample;
+    let block_w = (width as usize + target_w - 1) / target_w;
+    let block_h = (height as usize + target_h - 1) / target_h;
+    
+    // Build grid: accumulate K values per block
+    let mut grid: Vec<Vec<Vec<f64>>> = vec![vec![Vec::new(); target_w]; target_h];
+    
+    for hit in hits {
+        let bx = (hit._pixel_x as usize / block_w).min(target_w - 1);
+        let by = (hit._pixel_y as usize / block_h).min(target_h - 1);
+        
+        // Compute K = Q + (L_z - a*E)²
+        let e = hit.energy;
+        let lz = hit.angular_momentum;
+        let q = hit.carter_q;
+        let k = q + (lz - spin * e).powi(2);
+        
+        grid[by][bx].push(k);
+    }
+    
+    // Compute average K per block and track min/max
+    let mut k_min = f64::INFINITY;
+    let mut k_max = f64::NEG_INFINITY;
+    let mut k_grid: Vec<Vec<Option<f64>>> = vec![vec![None; target_w]; target_h];
+    
+    for by in 0..target_h {
+        for bx in 0..target_w {
+            if !grid[by][bx].is_empty() {
+                let avg = grid[by][bx].iter().sum::<f64>() / grid[by][bx].len() as f64;
+                k_grid[by][bx] = Some(avg);
+                k_min = k_min.min(avg);
+                k_max = k_max.max(avg);
+            }
+        }
+    }
+    
+    // Generate SVG heatmap
+    let svg_w = 600;
+    let svg_h = (svg_w as f64 * target_h as f64 / target_w as f64) as usize;
+    let pixel_w = svg_w as f64 / target_w as f64;
+    let pixel_h = svg_h as f64 / target_h as f64;
+    
+    let mut rects = String::new();
+    let mut negative_count = 0;
+    let mut total_count = 0;
+    
+    for by in 0..target_h {
+        for bx in 0..target_w {
+            if let Some(k) = k_grid[by][bx] {
+                total_count += 1;
+                
+                // Color scale: green (K>0), yellow (K≈0), red (K<0)
+                let color = if k < -1e-12 {
+                    negative_count += 1;
+                    "#EF4444"  // Red: violation
+                } else if k.abs() < 1e-12 {
+                    "#FCD34D"  // Yellow: roundoff
+                } else {
+                    // Green gradient based on log(K)
+                    let intensity = (k.log10().max(-15.0) / -15.0 * 200.0) as u8;
+                    rects.push_str(&format!(
+                        r#"<rect x="{:.1}" y="{:.1}" width="{:.1}" height="{:.1}" fill="rgb(34,{},34)"/>"#,
+                        bx as f64 * pixel_w, by as f64 * pixel_h, pixel_w, pixel_h, 197 - intensity
+                    ));
+                    continue;
+                };
+                
+                rects.push_str(&format!(
+                    r#"<rect x="{:.1}" y="{:.1}" width="{:.1}" height="{:.1}" fill="{}"/>"#,
+                    bx as f64 * pixel_w, by as f64 * pixel_h, pixel_w, pixel_h, color
+                ));
+            }
+        }
+    }
+    
+    let status = if negative_count == 0 {
+        "✓ All geodesics physical (K ≥ 0)"
+    } else {
+        "⚠ Physics violations detected"
+    };
+    
+    format!("<svg width=\"{}\" height=\"{}\" xmlns=\"http://www.w3.org/2000/svg\">
+  <text x=\"{}\" y=\"20\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"600\" fill=\"#374151\">Carter Constant (K) Validation</text>
+  <text x=\"{}\" y=\"35\" text-anchor=\"middle\" font-size=\"11\" fill=\"#6b7280\">{} | {} blocks sampled | {} negative</text>
+  <g transform=\"translate(0, 50)\">
+    {}
+  </g>
+  <g transform=\"translate(20, {})\">
+    <text x=\"0\" y=\"0\" font-size=\"11\" fill=\"#374151\">Legend:</text>
+    <rect x=\"0\" y=\"5\" width=\"20\" height=\"10\" fill=\"#22C55E\" rx=\"2\"/>
+    <text x=\"25\" y=\"14\" font-size=\"10\" fill=\"#6b7280\">K &gt; 0 (physical)</text>
+    <rect x=\"120\" y=\"5\" width=\"20\" height=\"10\" fill=\"#FCD34D\" rx=\"2\"/>
+    <text x=\"145\" y=\"14\" font-size=\"10\" fill=\"#6b7280\">K ≈ 0 (roundoff)</text>
+    <rect x=\"240\" y=\"5\" width=\"20\" height=\"10\" fill=\"#EF4444\" rx=\"2\"/>
+    <text x=\"265\" y=\"14\" font-size=\"10\" fill=\"#6b7280\">K &lt; 0 (violation)</text>
+  </g>
+</svg>",
+        svg_w, svg_h + 100,
+        svg_w / 2, svg_w / 2,
+        status, total_count, negative_count,
+        rects,
+        svg_h + 65
+    )
+}
+
+// ============================================================================
+// TIER 2: TRANSFER FUNCTION 2D HISTOGRAM
+// ============================================================================
+
+/// Generate transfer function 2D histogram (image radius → emission radius)
+/// Shows how rays map from observer screen to disc
+pub fn generate_transfer_function_svg(
+    hits: &[&HpRecord],
+    order: u8,
+    r_in: f64,
+    r_out: f64,
+    r_isco: f64,
+    image_center: (f64, f64),  // Center of image in pixels
+) -> String {
+    // Filter by order (use >= 2 for "2+" category)
+    let order_hits: Vec<_> = if order == 2 {
+        hits.iter().filter(|h| h.order >= 2).copied().collect()
+    } else {
+        hits.iter().filter(|h| h.order == order).copied().collect()
+    };
+    
+    if order_hits.is_empty() {
+        return format!("<svg width=\"400\" height=\"400\"><text x=\"200\" y=\"200\" text-anchor=\"middle\" fill=\"#6b7280\">No hits for order {}</text></svg>", order);
+    }
+    
+    // Compute image radius for each hit (distance from image center)
+    let data: Vec<(f64, f64)> = order_hits.iter().map(|h| {
+        let dx = h._pixel_x as f64 - image_center.0;
+        let dy = h._pixel_y as f64 - image_center.1;
+        let image_r = (dx * dx + dy * dy).sqrt();
+        let emission_r = h.r;
+        (image_r, emission_r)
+    }).collect();
+    
+    // Determine image radius range
+    let image_r_max = data.iter().map(|(ir, _)| *ir).fold(f64::NEG_INFINITY, f64::max);
+    
+    // Create 2D histogram: 50×50 bins
+    let bins = 50;
+    let mut grid: Vec<Vec<usize>> = vec![vec![0; bins]; bins];
+    
+    for (image_r, emission_r) in &data {
+        let ix = ((*image_r / image_r_max) * (bins as f64)).floor() as usize;
+        let iy = (((*emission_r - r_in) / (r_out - r_in)) * (bins as f64)).floor() as usize;
+        
+        if ix < bins && iy < bins {
+            grid[bins - 1 - iy][ix] += 1;  // Flip y for bottom-to-top
+        }
+    }
+    
+    // Find max count for color scaling
+    let max_count = grid.iter().flatten().max().copied().unwrap_or(1);
+    
+    // Generate heatmap SVG
+    let svg_w = 400;
+    let svg_h = 400;
+    let margin = 50;
+    let plot_w = svg_w - 2 * margin;
+    let plot_h = svg_h - 2 * margin;
+    let cell_w = plot_w as f64 / bins as f64;
+    let cell_h = plot_h as f64 / bins as f64;
+    
+    let mut rects = String::new();
+    
+    for (iy, row) in grid.iter().enumerate() {
+        for (ix, &count) in row.iter().enumerate() {
+            if count > 0 {
+                // Log-scale color intensity
+                let intensity = ((count as f64).ln() / (max_count as f64).ln() * 200.0) as u8;
+                let color = format!("rgb({},{},{})", 55 + intensity, 55 + intensity, 200);
+                
+                let x = margin + (ix as f64 * cell_w) as usize;
+                let y = margin + (iy as f64 * cell_h) as usize;
+                
+                rects.push_str(&format!(
+                    r#"<rect x="{}" y="{}" width="{:.1}" height="{:.1}" fill="{}" />"#,
+                    x, y, cell_w, cell_h, color
+                ));
+            }
+        }
+    }
+    
+    // Add ISCO line if in range
+    let isco_y = if r_isco >= r_in && r_isco <= r_out {
+        let frac = (r_isco - r_in) / (r_out - r_in);
+        Some(margin + plot_h - (frac * plot_h as f64) as usize)
+    } else {
+        None
+    };
+    
+    let isco_line = if let Some(y) = isco_y {
+        format!("<line x1=\"{}\" y1=\"{}\" x2=\"{}\" y2=\"{}\" stroke=\"#EF4444\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/><text x=\"{}\" y=\"{}\" font-size=\"10\" fill=\"#EF4444\">ISCO</text>",
+            margin, y, margin + plot_w, y, margin + plot_w + 5, y + 4)
+    } else {
+        String::new()
+    };
+    
+    let order_label = if order == 2 { "2+".to_string() } else { order.to_string() };
+    
+    format!("<svg width=\"{}\" height=\"{}\" xmlns=\"http://www.w3.org/2000/svg\">
+  <text x=\"{}\" y=\"20\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"600\" fill=\"#374151\">Transfer Function — Order {}</text>
+  <text x=\"{}\" y=\"35\" text-anchor=\"middle\" font-size=\"11\" fill=\"#6b7280\">{} rays</text>
+  
+  <!-- Heatmap -->
+  <rect x=\"{}\" y=\"{}\" width=\"{}\" height=\"{}\" fill=\"#111827\" />
+  {}
+  {}
+  
+  <!-- Axes -->
+  <line x1=\"{}\" y1=\"{}\" x2=\"{}\" y2=\"{}\" stroke=\"#6b7280\" stroke-width=\"2\"/>
+  <line x1=\"{}\" y1=\"{}\" x2=\"{}\" y2=\"{}\" stroke=\"#6b7280\" stroke-width=\"2\"/>
+  
+  <!-- Labels -->
+  <text x=\"{}\" y=\"{}\" text-anchor=\"middle\" font-size=\"11\" fill=\"#374151\">Image Radius (px)</text>
+  <text x=\"15\" y=\"{}\" text-anchor=\"middle\" font-size=\"11\" fill=\"#374151\" transform=\"rotate(-90, 15, {})\">Emission Radius (M)</text>
+  
+  <!-- Axis ticks -->
+  <text x=\"{}\" y=\"{}\" text-anchor=\"middle\" font-size=\"9\" fill=\"#6b7280\">0</text>
+  <text x=\"{}\" y=\"{}\" text-anchor=\"middle\" font-size=\"9\" fill=\"#6b7280\">{:.0}</text>
+  <text x=\"{}\" y=\"{}\" text-anchor=\"end\" font-size=\"9\" fill=\"#6b7280\">{:.1}</text>
+  <text x=\"{}\" y=\"{}\" text-anchor=\"end\" font-size=\"9\" fill=\"#6b7280\">{:.1}</text>
+</svg>",
+        svg_w, svg_h + 20,
+        svg_w / 2, order_label, svg_w / 2, order_hits.len(),
+        margin, margin, plot_w, plot_h,
+        rects,
+        isco_line,
+        margin, margin + plot_h, margin + plot_w, margin + plot_h,
+        margin, margin, margin, margin + plot_h,
+        svg_w / 2, svg_h + 10,
+        svg_h / 2, svg_h / 2,
+        margin, margin + plot_h + 15,
+        margin + plot_w, margin + plot_h + 15, image_r_max,
+        margin - 5, margin + plot_h, r_out,
+        margin - 5, margin, r_in
+    )
+}
+
+// ============================================================================
+// TIER 2: TIME DELAY MAP HEATMAP
+// ============================================================================
+
+/// Generate time delay map showing relative light travel times via affine parameter
+pub fn generate_time_delay_heatmap_svg(
+    hits: &[&HpRecord],
+    width: u32,
+    height: u32,
+    downsample: (usize, usize),  // Target dimensions (e.g., 400, 225)
+) -> String {
+    let (target_w, target_h) = downsample;
+    let block_w = (width as usize + target_w - 1) / target_w;
+    let block_h = (height as usize + target_h - 1) / target_h;
+    
+    // Build grid: accumulate affine parameter values per block
+    let mut grid: Vec<Vec<Vec<f64>>> = vec![vec![Vec::new(); target_w]; target_h];
+    
+    for hit in hits {
+        let bx = (hit._pixel_x as usize / block_w).min(target_w - 1);
+        let by = (hit._pixel_y as usize / block_h).min(target_h - 1);
+        grid[by][bx].push(hit._affine_parameter);
+    }
+    
+    // Compute average affine parameter per block
+    let mut lambda_grid: Vec<Vec<Option<f64>>> = vec![vec![None; target_w]; target_h];
+    let mut lambda_min = f64::INFINITY;
+    let mut lambda_max = f64::NEG_INFINITY;
+    
+    for by in 0..target_h {
+        for bx in 0..target_w {
+            if !grid[by][bx].is_empty() {
+                let avg = grid[by][bx].iter().sum::<f64>() / grid[by][bx].len() as f64;
+                lambda_grid[by][bx] = Some(avg);
+                lambda_min = lambda_min.min(avg);
+                lambda_max = lambda_max.max(avg);
+            }
+        }
+    }
+    
+    // Normalize: relative delay from minimum
+    let svg_w = 600;
+    let svg_h = (svg_w as f64 * target_h as f64 / target_w as f64) as usize;
+    let pixel_w = svg_w as f64 / target_w as f64;
+    let pixel_h = svg_h as f64 / target_h as f64;
+    
+    let mut rects = String::new();
+    let range = lambda_max - lambda_min;
+    
+    for by in 0..target_h {
+        for bx in 0..target_w {
+            if let Some(lambda) = lambda_grid[by][bx] {
+                // Normalize to [0, 1]
+                let normalized = if range > 0.0 { (lambda - lambda_min) / range } else { 0.0 };
+                
+                // Warm colors: earlier arrival (blue) → later arrival (red/yellow)
+                let (r, g, b) = if normalized < 0.5 {
+                    // Blue to cyan to green
+                    let t = normalized * 2.0;
+                    let r = 0;
+                    let g = (t * 180.0) as u8 + 75;
+                    let b = ((1.0 - t) * 200.0) as u8 + 55;
+                    (r, g, b)
+                } else {
+                    // Green to yellow to red
+                    let t = (normalized - 0.5) * 2.0;
+                    let r = (t * 200.0) as u8 + 55;
+                    let g = ((1.0 - t) * 180.0) as u8 + 75;
+                    let b = 0;
+                    (r, g, b)
+                };
+                
+                rects.push_str(&format!(
+                    r#"<rect x="{:.1}" y="{:.1}" width="{:.1}" height="{:.1}" fill="rgb({},{},{})"/>"#,
+                    bx as f64 * pixel_w, by as f64 * pixel_h, pixel_w, pixel_h, r, g, b
+                ));
+            }
+        }
+    }
+    
+    format!("<svg width=\"{}\" height=\"{}\" xmlns=\"http://www.w3.org/2000/svg\">
+  <text x=\"{}\" y=\"20\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"600\" fill=\"#374151\">Relative Light Travel Time (Affine Parameter)</text>
+  <text x=\"{}\" y=\"35\" text-anchor=\"middle\" font-size=\"11\" fill=\"#6b7280\">Δλ: {:.1}M — {:.1}M (range: {:.1}M)</text>
+  <g transform=\"translate(0, 50)\">
+    {}
+  </g>
+  <g transform=\"translate(20, {})\">
+    <text x=\"0\" y=\"0\" font-size=\"11\" fill=\"#374151\">Color Scale:</text>
+    <defs>
+      <linearGradient id=\"timeGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">
+        <stop offset=\"0%\" style=\"stop-color:rgb(0,75,255);stop-opacity:1\" />
+        <stop offset=\"50%\" style=\"stop-color:rgb(0,255,0);stop-opacity:1\" />
+        <stop offset=\"100%\" style=\"stop-color:rgb(255,75,0);stop-opacity:1\" />
+      </linearGradient>
+    </defs>
+    <rect x=\"0\" y=\"5\" width=\"200\" height=\"15\" fill=\"url(#timeGradient)\" rx=\"2\"/>
+    <text x=\"0\" y=\"30\" font-size=\"10\" fill=\"#6b7280\">Earlier</text>
+    <text x=\"200\" y=\"30\" text-anchor=\"end\" font-size=\"10\" fill=\"#6b7280\">Later</text>
+  </g>
+</svg>",
+        svg_w, svg_h + 100,
+        svg_w / 2, svg_w / 2,
+        lambda_min, lambda_max, range,
+        rects,
+        svg_h + 65
+    )
+}
+
+// ============================================================================
+// TIER 3: TURNING-POINT HISTOGRAMS
+// ============================================================================
+
+pub fn generate_turning_points_histogram_svg(
+    hits: &[&HpRecord],
+) -> String {
+    let width = 600;
+    let height = 300;
+    let margin = 60;
+    let chart_w = (width - margin * 2) / 2 - 20;
+    let chart_h = height - margin * 2;
+    
+    // Bin turning points: 0-10+
+    let mut r_bins = vec![0usize; 11]; // bins 0-9, 10 is "10+"
+    let mut theta_bins = vec![0usize; 11];
+    
+    for h in hits {
+        let r_idx = (h.turns_r as usize).min(10);
+        let theta_idx = (h.turns_theta as usize).min(10);
+        r_bins[r_idx] += 1;
+        theta_bins[theta_idx] += 1;
+    }
+    
+    let max_r = r_bins.iter().copied().max().unwrap_or(1);
+    let max_theta = theta_bins.iter().copied().max().unwrap_or(1);
+    let max_count = max_r.max(max_theta).max(1);
+    
+    // Generate bars for turns_r
+    let bar_w = chart_w as f64 / 11.0;
+    let mut r_bars = String::new();
+    for (i, &count) in r_bins.iter().enumerate() {
+        if count > 0 {
+            let bar_h = (count as f64 / max_count as f64) * chart_h as f64;
+            let x = i as f64 * bar_w;
+            let y = chart_h as f64 - bar_h;
+            r_bars.push_str(&format!(
+                "    <rect x=\"{:.1}\" y=\"{:.1}\" width=\"{:.1}\" height=\"{:.1}\" fill=\"#3B82F6\" opacity=\"0.8\" rx=\"2\"/>\n",
+                x, y, bar_w * 0.85, bar_h
+            ));
+            r_bars.push_str(&format!(
+                "    <text x=\"{:.1}\" y=\"{:.1}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#374151\">{}</text>\n",
+                x + bar_w * 0.425, y - 5.0, count
+            ));
+        }
+    }
+    
+    // Generate bars for turns_theta
+    let mut theta_bars = String::new();
+    for (i, &count) in theta_bins.iter().enumerate() {
+        if count > 0 {
+            let bar_h = (count as f64 / max_count as f64) * chart_h as f64;
+            let x = i as f64 * bar_w;
+            let y = chart_h as f64 - bar_h;
+            theta_bars.push_str(&format!(
+                "    <rect x=\"{:.1}\" y=\"{:.1}\" width=\"{:.1}\" height=\"{:.1}\" fill=\"#8B5CF6\" opacity=\"0.8\" rx=\"2\"/>\n",
+                x, y, bar_w * 0.85, bar_h
+            ));
+            theta_bars.push_str(&format!(
+                "    <text x=\"{:.1}\" y=\"{:.1}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#374151\">{}</text>\n",
+                x + bar_w * 0.425, y - 5.0, count
+            ));
+        }
+    }
+    
+    // X-axis labels
+    let mut r_labels = String::new();
+    let mut theta_labels = String::new();
+    for i in 0..=10 {
+        let x = i as f64 * bar_w + bar_w * 0.425;
+        let label = if i == 10 { "10+".to_string() } else { i.to_string() };
+        r_labels.push_str(&format!(
+            "    <text x=\"{:.1}\" y=\"{}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#6b7280\">{}</text>\n",
+            x, chart_h + 20, label
+        ));
+        theta_labels.push_str(&format!(
+            "    <text x=\"{:.1}\" y=\"{}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#6b7280\">{}</text>\n",
+            x, chart_h + 20, label
+        ));
+    }
+    
+    format!("<svg width=\"{}\" height=\"{}\" xmlns=\"http://www.w3.org/2000/svg\">
+  <text x=\"{}\" y=\"20\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"600\" fill=\"#374151\">Turning Points Distribution</text>
+  
+  <!-- Radial Turning Points (turns_r) -->
+  <g transform=\"translate({}, 50)\">
+    <text x=\"{}\" y=\"0\" text-anchor=\"middle\" font-size=\"12\" fill=\"#3B82F6\" font-weight=\"500\">Radial (r)</text>
+    <g transform=\"translate(0, 20)\">
+{}
+{}
+      <line x1=\"0\" y1=\"{}\" x2=\"{}\" y2=\"{}\" stroke=\"#E5E7EB\" stroke-width=\"1\"/>
+      <text x=\"{}\" y=\"{}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#6b7280\">Turning points</text>
+    </g>
+  </g>
+  
+  <!-- Polar Turning Points (turns_theta) -->
+  <g transform=\"translate({}, 50)\">
+    <text x=\"{}\" y=\"0\" text-anchor=\"middle\" font-size=\"12\" fill=\"#8B5CF6\" font-weight=\"500\">Polar (θ)</text>
+    <g transform=\"translate(0, 20)\">
+{}
+{}
+      <line x1=\"0\" y1=\"{}\" x2=\"{}\" y2=\"{}\" stroke=\"#E5E7EB\" stroke-width=\"1\"/>
+      <text x=\"{}\" y=\"{}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#6b7280\">Turning points</text>
+    </g>
+  </g>
+</svg>",
+        width, height,
+        width / 2,
+        margin, chart_w as f64 / 2.0,
+        r_bars, r_labels,
+        chart_h, chart_w, chart_h,
+        chart_w as f64 / 2.0, chart_h + 35,
+        margin + chart_w + 40, chart_w as f64 / 2.0,
+        theta_bars, theta_labels,
+        chart_h, chart_w, chart_h,
+        chart_w as f64 / 2.0, chart_h + 35
+    )
+}
+
+// ============================================================================
+// TIER 3: WRAP-ANGLE VS IMPACT PARAMETER SCATTER PLOT
+// ============================================================================
+
+pub fn generate_wraps_vs_impact_scatter_svg(
+    hits: &[&HpRecord],
+    spin: f64,
+) -> String {
+    let width = 600;
+    let height = 400;
+    let margin = 60;
+    let chart_w = width - margin * 2;
+    let chart_h = height - margin * 2;
+    
+    // Collect impact parameter b and phi-wraps for each hit
+    let points: Vec<(f64, f64, u8)> = hits.iter()
+        .filter_map(|h| {
+            if h.impact_parameter.abs() > 1e-12 && h.phi_wraps.is_finite() {
+                Some((h.impact_parameter, h.phi_wraps, h.order))
+            } else {
+                None
+            }
+        })
+        .collect();
+    
+    if points.is_empty() {
+        return format!("<svg width=\"{}\" height=\"{}\" xmlns=\"http://www.w3.org/2000/svg\">
+  <text x=\"{}\" y=\"{}\" text-anchor=\"middle\" fill=\"#6b7280\">No valid data for wrap-angle analysis</text>
+</svg>", width, height, width / 2, height / 2);
+    }
+    
+    // Find data bounds
+    let b_min = points.iter().map(|(b, _, _)| *b).fold(f64::INFINITY, f64::min);
+    let b_max = points.iter().map(|(b, _, _)| *b).fold(f64::NEG_INFINITY, f64::max);
+    let wraps_max = points.iter().map(|(_, w, _)| *w).fold(0.0, f64::max);
+    
+    // Add padding
+    let b_range = (b_max - b_min).max(1.0);
+    let b_min_plot = b_min - b_range * 0.1;
+    let b_max_plot = b_max + b_range * 0.1;
+    let wraps_range = wraps_max + 1.0;
+    
+    // Photon sphere radius for Kerr (approximate for visualization)
+    // For a=0: r_ph = 3M, b_crit ≈ 3√3 M ≈ 5.196
+    // For spinning: more complex, use simple approximation
+    let b_photon_approx = 5.196 * (1.0 - 0.3 * spin.abs()); // Rough approximation
+    
+    // Generate scatter points
+    let mut circles = String::new();
+    for (b, wraps, order) in &points {
+        let x = ((b - b_min_plot) / (b_max_plot - b_min_plot)) * chart_w as f64;
+        let y = chart_h as f64 - (wraps / wraps_range) * chart_h as f64;
+        
+        let (color, radius) = match order {
+            0 => ("#22C55E", 2.5),
+            1 => ("#3B82F6", 3.0),
+            _ => ("#8B5CF6", 3.5),
+        };
+        
+        circles.push_str(&format!(
+            "    <circle cx=\"{:.1}\" cy=\"{:.1}\" r=\"{:.1}\" fill=\"{}\" opacity=\"0.6\"/>\n",
+            x, y, radius, color
+        ));
+    }
+    
+    // Photon sphere vertical line
+    let x_photon = ((b_photon_approx - b_min_plot) / (b_max_plot - b_min_plot)) * chart_w as f64;
+    let photon_line = if x_photon >= 0.0 && x_photon <= chart_w as f64 {
+        format!("    <line x1=\"{:.1}\" y1=\"0\" x2=\"{:.1}\" y2=\"{}\" stroke=\"#EF4444\" stroke-width=\"2\" stroke-dasharray=\"5,5\" opacity=\"0.6\"/>\n    <text x=\"{:.1}\" y=\"-5\" text-anchor=\"middle\" font-size=\"10\" fill=\"#EF4444\">b_photon ≈ {:.2}</text>\n",
+            x_photon, x_photon, chart_h, x_photon, b_photon_approx)
+    } else {
+        String::new()
+    };
+    
+    // Axis labels
+    let x_ticks = 5;
+    let y_ticks = 5;
+    let mut x_labels = String::new();
+    let mut y_labels = String::new();
+    
+    for i in 0..=x_ticks {
+        let b_val = b_min_plot + (b_max_plot - b_min_plot) * (i as f64 / x_ticks as f64);
+        let x = (i as f64 / x_ticks as f64) * chart_w as f64;
+        x_labels.push_str(&format!(
+            "    <text x=\"{:.1}\" y=\"{}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#6b7280\">{:.1}</text>\n",
+            x, chart_h + 20, b_val
+        ));
+        x_labels.push_str(&format!(
+            "    <line x1=\"{:.1}\" y1=\"{}\" x2=\"{:.1}\" y2=\"{}\" stroke=\"#E5E7EB\" stroke-width=\"1\"/>\n",
+            x, chart_h, x, chart_h + 5
+        ));
+    }
+    
+    for i in 0..=y_ticks {
+        let w_val = (wraps_range * (i as f64 / y_ticks as f64)).round();
+        let y = chart_h as f64 - (i as f64 / y_ticks as f64) * chart_h as f64;
+        y_labels.push_str(&format!(
+            "    <text x=\"-10\" y=\"{:.1}\" text-anchor=\"end\" font-size=\"10\" fill=\"#6b7280\">{:.0}</text>\n",
+            y + 4.0, w_val
+        ));
+        y_labels.push_str(&format!(
+            "    <line x1=\"-5\" y1=\"{:.1}\" x2=\"0\" y2=\"{:.1}\" stroke=\"#E5E7EB\" stroke-width=\"1\"/>\n",
+            y, y
+        ));
+    }
+    
+    format!("<svg width=\"{}\" height=\"{}\" xmlns=\"http://www.w3.org/2000/svg\">
+  <text x=\"{}\" y=\"20\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"600\" fill=\"#374151\">Wrap-Angle vs Impact Parameter</text>
+  
+  <g transform=\"translate({}, 50)\">
+    <!-- Chart content -->
+{}
+{}
+    
+    <!-- Axes -->
+    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"{}\" stroke=\"#9CA3AF\" stroke-width=\"2\"/>
+    <line x1=\"0\" y1=\"{}\" x2=\"{}\" y2=\"{}\" stroke=\"#9CA3AF\" stroke-width=\"2\"/>
+    
+    <!-- Labels -->
+{}
+{}
+    
+    <!-- Axis titles -->
+    <text x=\"{}\" y=\"{}\" text-anchor=\"middle\" font-size=\"12\" fill=\"#374151\">Impact parameter b = L_z/E</text>
+    <text x=\"-15\" y=\"{}\" text-anchor=\"middle\" font-size=\"12\" fill=\"#374151\" transform=\"rotate(-90, -15, {})\">φ-wraps</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform=\"translate(20, {})\">
+    <circle cx=\"5\" cy=\"5\" r=\"2.5\" fill=\"#22C55E\" opacity=\"0.6\"/>
+    <text x=\"15\" y=\"9\" font-size=\"10\" fill=\"#6b7280\">Order 0</text>
+    <circle cx=\"70\" cy=\"5\" r=\"3\" fill=\"#3B82F6\" opacity=\"0.6\"/>
+    <text x=\"80\" y=\"9\" font-size=\"10\" fill=\"#6b7280\">Order 1</text>
+    <circle cx=\"135\" cy=\"5\" r=\"3.5\" fill=\"#8B5CF6\" opacity=\"0.6\"/>
+    <text x=\"145\" y=\"9\" font-size=\"10\" fill=\"#6b7280\">Order 2+</text>
+  </g>
+</svg>",
+        width, height,
+        width / 2,
+        margin,
+        photon_line, circles,
+        chart_h, chart_h, chart_w, chart_h,
+        x_labels, y_labels,
+        chart_w / 2, chart_h + 40,
+        chart_h / 2, chart_h / 2,
+        height - 25
     )
 }
