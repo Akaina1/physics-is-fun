@@ -31,6 +31,14 @@ pub struct Manifest {
     pub t6_url: Option<String>,  // Order 2+ physics (if orders > 2)
     pub flux_url: String,
     pub disc_hits: usize,
+    
+    // NEW: Tier 1.4 - Provenance tracking
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub git_sha: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub rustc_version: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub build_timestamp: Option<String>,
 }
 
 impl Manifest {
@@ -44,6 +52,36 @@ impl Manifest {
         r_in: f64,
         r_out: f64,
         disc_hits: usize,
+    ) -> Self {
+        Self::with_provenance(
+            width,
+            height,
+            preset,
+            inclination,
+            spin,
+            orders,
+            r_in,
+            r_out,
+            disc_hits,
+            None,
+            None,
+            None,
+        )
+    }
+    
+    pub fn with_provenance(
+        width: u32,
+        height: u32,
+        preset: String,
+        inclination: f64,
+        spin: f64,
+        orders: u8,
+        r_in: f64,
+        r_out: f64,
+        disc_hits: usize,
+        git_sha: Option<String>,
+        rustc_version: Option<String>,
+        build_timestamp: Option<String>,
     ) -> Self {
         let base_url = format!("/blackhole/{}", preset);
         
@@ -64,6 +102,11 @@ impl Manifest {
             t6_url: if orders > 2 { Some(format!("{}/t6_rgba32f.bin", base_url)) } else { None },
             flux_url: format!("{}/flux_r32f.bin", base_url),
             disc_hits,
+            
+            // NEW: Tier 1.4 - Provenance from build environment
+            git_sha,
+            rustc_version,
+            build_timestamp,
         }
     }
 }
@@ -146,6 +189,15 @@ pub struct PositionData {
     
     // Validation metrics
     pub null_invariant_error: f64, // |g_μν k^μ k^ν| (should be ~0 for null geodesic)
+    
+    // NEW: Miss classification
+    pub escaped: bool,       // r → ∞ (> 1000M)
+    pub captured: bool,      // r → r_horizon (< r_h + 0.01M)
+    pub aborted: bool,       // Numerical failure (NaN, step limit)
+    
+    // NEW: Geodesic complexity
+    pub turns_r: u8,         // Total radial turning points
+    pub turns_theta: u8,     // Total polar turning points
 }
 
 impl HighPrecisionData {
@@ -154,19 +206,30 @@ impl HighPrecisionData {
     pub fn to_json(&self) -> String {
         let mut json = String::from("{\n  \"positions\": [\n");
         
-        for (i, pos) in self.positions.iter().enumerate() {
+        // Filter out uninitialized slots (pixel_x = 0 && pixel_y = 0 && all flags false)
+        let valid_positions: Vec<&PositionData> = self.positions.iter()
+            .filter(|pos| {
+                // Keep if it's a hit, or if it's a miss with at least one flag set
+                pos.hit || pos.escaped || pos.captured || pos.aborted
+            })
+            .collect();
+        
+        for (i, pos) in valid_positions.iter().enumerate() {
             if pos.hit {
                 json.push_str(&format!(
-                    "    {{\"pixel_x\": {}, \"pixel_y\": {}, \"r\": {:.15}, \"theta\": {:.15}, \"phi\": {:.15}, \"energy\": {:.15}, \"angular_momentum\": {:.15}, \"carter_q\": {:.15}, \"impact_parameter\": {:.15}, \"redshift_factor\": {:.15}, \"affine_parameter\": {:.15}, \"phi_wraps\": {:.15}, \"order\": {}, \"null_invariant_error\": {:.15}, \"hit\": true}}",
+                    "    {{\"pixel_x\": {}, \"pixel_y\": {}, \"r\": {:.15}, \"theta\": {:.15}, \"phi\": {:.15}, \"energy\": {:.15}, \"angular_momentum\": {:.15}, \"carter_q\": {:.15}, \"impact_parameter\": {:.15}, \"redshift_factor\": {:.15}, \"affine_parameter\": {:.15}, \"phi_wraps\": {:.15}, \"order\": {}, \"null_invariant_error\": {:.15}, \"turns_r\": {}, \"turns_theta\": {}, \"hit\": true}}",
                     pos.pixel_x, pos.pixel_y, pos.r, pos.theta, pos.phi, pos.energy, pos.angular_momentum, pos.carter_q, 
                     pos.impact_parameter, pos.redshift_factor, pos.affine_parameter, pos.phi_wraps,
-                    pos.order, pos.null_invariant_error
+                    pos.order, pos.null_invariant_error, pos.turns_r, pos.turns_theta
                 ));
             } else {
-                json.push_str(&format!("    {{\"pixel_x\": {}, \"pixel_y\": {}, \"hit\": false}}", pos.pixel_x, pos.pixel_y));
+                json.push_str(&format!(
+                    "    {{\"pixel_x\": {}, \"pixel_y\": {}, \"hit\": false, \"escaped\": {}, \"captured\": {}, \"aborted\": {}}}",
+                    pos.pixel_x, pos.pixel_y, pos.escaped, pos.captured, pos.aborted
+                ));
             }
             
-            if i < self.positions.len() - 1 {
+            if i < valid_positions.len() - 1 {
                 json.push_str(",\n");
             }
         }
@@ -387,7 +450,8 @@ impl TransferMaps {
                 GeodesicResult::DiscHit { 
                     r, phi, energy, angular_momentum, 
                     theta, carter_q, impact_parameter, redshift_factor, 
-                    affine_parameter, phi_wraps, order, null_invariant_error 
+                    affine_parameter, phi_wraps, order, null_invariant_error,
+                    turns_r, turns_theta
                 } => {
                     // T1: (r, sin(φ), cos(φ), mask=1)
                     *t1_ptr.add(t1_idx) = *r as f32;
@@ -420,17 +484,58 @@ impl TransferMaps {
                             order: *order,
                             hit: true,
                             null_invariant_error: *null_invariant_error,
+                            escaped: false,
+                            captured: false,
+                            aborted: false,
+                            turns_r: *turns_r,
+                            turns_theta: *turns_theta,
                         };
                     }
                 }
-                _ => {
-                    // Non-hits: zeros already (skip writing T1/T2)
-                    // High-precision data (if enabled)
+                GeodesicResult::Escaped { turns_r, turns_theta } => {
                     if let Some(ref hp) = self.high_precision_data {
                         let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
                         *hp_ptr.add(idx) = PositionData {
                             pixel_x: x,
                             pixel_y: y,
+                            hit: false,
+                            escaped: true,
+                            captured: false,
+                            aborted: false,
+                            turns_r: *turns_r,
+                            turns_theta: *turns_theta,
+                            ..Default::default()
+                        };
+                    }
+                }
+                GeodesicResult::Captured { turns_r, turns_theta } => {
+                    if let Some(ref hp) = self.high_precision_data {
+                        let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
+                        *hp_ptr.add(idx) = PositionData {
+                            pixel_x: x,
+                            pixel_y: y,
+                            hit: false,
+                            escaped: false,
+                            captured: true,
+                            aborted: false,
+                            turns_r: *turns_r,
+                            turns_theta: *turns_theta,
+                            ..Default::default()
+                        };
+                    }
+                }
+                GeodesicResult::Aborted { turns_r, turns_theta } => {
+                    if let Some(ref hp) = self.high_precision_data {
+                        let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
+                        *hp_ptr.add(idx) = PositionData {
+                            pixel_x: x,
+                            pixel_y: y,
+                            hit: false,
+                            escaped: false,
+                            captured: false,
+                            aborted: true,
+                            turns_r: *turns_r,
+                            turns_theta: *turns_theta,
                             ..Default::default()
                         };
                     }
@@ -467,7 +572,7 @@ impl TransferMaps {
                 };
                 
                 if let GeodesicResult::DiscHit { 
-                    r, phi, energy, angular_momentum, order: ord, .. 
+                    r, phi, energy, angular_momentum, order: ord, turns_r, turns_theta, .. 
                 } = result {
                     // Position texture: (r, sin(φ), cos(φ), weight)
                     *pos_ptr.add(tex_idx) = *r as f32;
@@ -484,16 +589,17 @@ impl TransferMaps {
                 
                 // High-precision data
                 if let Some(ref hp) = self.high_precision_data {
-                    let hp_idx = idx * self.max_orders as usize + order;
                     let hp_ptr = hp.positions.as_ptr() as *mut PositionData;
                     
-                    *hp_ptr.add(hp_idx) = match result {
+                    match result {
                         GeodesicResult::DiscHit { 
                             r, theta, phi, energy, angular_momentum, carter_q,
                             impact_parameter, redshift_factor, affine_parameter, phi_wraps,
-                            order, null_invariant_error 
+                            order, null_invariant_error, turns_r, turns_theta
                         } => {
-                            PositionData {
+                            // Write hit record at its order slot
+                            let hp_idx = idx * self.max_orders as usize + (*order as usize);
+                            *hp_ptr.add(hp_idx) = PositionData {
                                 pixel_x: x,
                                 pixel_y: y,
                                 r: *r,
@@ -509,14 +615,65 @@ impl TransferMaps {
                                 order: *order,
                                 hit: true,
                                 null_invariant_error: *null_invariant_error,
-                            }
+                                escaped: false,
+                                captured: false,
+                                aborted: false,
+                                turns_r: *turns_r,
+                                turns_theta: *turns_theta,
+                            };
                         }
-                        _ => PositionData {
-                            pixel_x: x,
-                            pixel_y: y,
-                            ..Default::default()
+                        GeodesicResult::Escaped { turns_r, turns_theta } => {
+                            // Miss record: write ONLY ONCE at order 0 slot
+                            if order == 0 {
+                                let hp_idx = idx * self.max_orders as usize;
+                                *hp_ptr.add(hp_idx) = PositionData {
+                                    pixel_x: x,
+                                    pixel_y: y,
+                                    hit: false,
+                                    escaped: true,
+                                    captured: false,
+                                    aborted: false,
+                                    turns_r: *turns_r,
+                                    turns_theta: *turns_theta,
+                                    ..Default::default()
+                                };
+                            }
                         },
-                    };
+                        GeodesicResult::Captured { turns_r, turns_theta } => {
+                            // Miss record: write ONLY ONCE at order 0 slot
+                            if order == 0 {
+                                let hp_idx = idx * self.max_orders as usize;
+                                *hp_ptr.add(hp_idx) = PositionData {
+                                    pixel_x: x,
+                                    pixel_y: y,
+                                    hit: false,
+                                    escaped: false,
+                                    captured: true,
+                                    aborted: false,
+                                    turns_r: *turns_r,
+                                    turns_theta: *turns_theta,
+                                    ..Default::default()
+                                };
+                            }
+                        },
+                        GeodesicResult::Aborted { turns_r, turns_theta } => {
+                            // Miss record: write ONLY ONCE at order 0 slot
+                            if order == 0 {
+                                let hp_idx = idx * self.max_orders as usize;
+                                *hp_ptr.add(hp_idx) = PositionData {
+                                    pixel_x: x,
+                                    pixel_y: y,
+                                    hit: false,
+                                    escaped: false,
+                                    captured: false,
+                                    aborted: true,
+                                    turns_r: *turns_r,
+                                    turns_theta: *turns_theta,
+                                    ..Default::default()
+                                };
+                            }
+                        },
+                    }
                 }
             }
         }
