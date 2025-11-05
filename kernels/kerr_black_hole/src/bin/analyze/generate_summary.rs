@@ -20,6 +20,11 @@ pub struct Stats {
     pub orders_0_and_1: usize,
     pub orders_2_plus: usize,
     
+    // NEW: Miss taxonomy (Tier 1.1)
+    pub miss_escaped: usize,
+    pub miss_captured: usize,
+    pub miss_aborted: usize,
+    
     // Null invariant
     pub ni_min: f64,
     pub ni_max: f64,
@@ -58,6 +63,22 @@ pub struct Stats {
     pub radial_histogram: Vec<(f64, usize, usize, usize)>,
     pub radial_profile: Vec<(f64, usize, f64, f64)>,
     pub angular_distribution: Vec<(f64, usize)>,
+    
+    // NEW: Tier 1.3 - Outlier spotlight
+    pub top_ni_outliers: Vec<(u32, u32, u8, f64)>,  // (pixel_x, pixel_y, order, ni_value)
+    
+    // NEW: Tier 2 - Research metrics (SVG strings pre-generated)
+    pub k_heatmap_svg: String,
+    pub transfer_o0_svg: String,
+    pub transfer_o1_svg: String,
+    pub transfer_o2_svg: String,
+    pub time_delay_svg: String,
+    
+    // NEW: Tier 3 - Publication quality
+    pub critical_curve_points: usize,
+    pub ellipse_params: Option<super::stats::EllipseParams>,
+    pub turning_histogram_svg: String,
+    pub wraps_scatter_svg: String,
 }
 
 /// Manifest metadata
@@ -73,9 +94,14 @@ pub struct Manifest {
     pub r_out: f64,
     #[serde(alias = "disc_hits")]  // Accept old name for backward compatibility
     pub _disc_hits: usize,
+    
+    // NEW: Tier 1.4 - Provenance tracking
+    pub git_sha: Option<String>,
+    pub rustc_version: Option<String>,
+    pub build_timestamp: Option<String>,
 }
 
-pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
+pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[Option<u8>]) -> String {
     let miss_pct = stats.miss_pixels as f64 / stats.total_pixels as f64 * 100.0;
     let hit_pct = stats.total_hit_pixels as f64 / stats.total_pixels as f64 * 100.0;
     
@@ -91,6 +117,51 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
         stats.g_boosted_count as f64 / stats.g_dimmed_count as f64
     } else {
         0.0
+    };
+    
+    // Conditional interpretation messages based on actual data quality
+    
+    // 1. Null Invariant Quality Message
+    let ni_under_1e12_pct = stats.ni_under_1e12 as f64 / stats.total_hits as f64 * 100.0;
+    let (ni_message, ni_message_class) = if ni_under_1e12_pct >= 95.0 {
+        ("✓ Excellent: 95%+ rays meet publication standard (NI < 1e-12)", "ok")
+    } else if ni_under_1e12_pct >= 80.0 {
+        ("⚠ Good: Most rays are publishable quality, some numerical drift", "warn")
+    } else if ni_under_1e9_pct >= 95.0 {
+        ("⚠ Acceptable for visualization, consider tightening tolerances for publication", "warn")
+    } else {
+        ("❌ Poor numerical quality - increase integration accuracy", "bad")
+    };
+    
+    // 2. Doppler Asymmetry Message
+    let spin_param = manifest.spin.abs();
+    let (doppler_message, doppler_message_class) = if spin_param < 0.05 {
+        // Near-Schwarzschild: expect symmetry
+        if (g_asymmetry - 1.0).abs() < 0.2 {
+            ("✓ Symmetric redshift distribution (as expected for low spin)", "ok")
+        } else {
+            ("⚠ Unexpected asymmetry for near-Schwarzschild metric", "warn")
+        }
+    } else {
+        // Kerr: expect strong asymmetry from frame-dragging
+        if g_asymmetry > 2.0 {
+            ("✓ Clear Doppler asymmetry from frame-dragging", "ok")
+        } else if g_asymmetry > 1.3 {
+            ("⚠ Weak asymmetry - check spin parameter or disc geometry", "warn")
+        } else {
+            ("❌ No asymmetry detected - frame-dragging signature missing", "bad")
+        }
+    };
+    
+    // 3. Max Wraps Interpretation
+    let wraps_interpretation = if stats.phi_wraps_max > 3.0 {
+        "extreme lensing near photon sphere!"
+    } else if stats.phi_wraps_max > 1.5 {
+        "strong gravitational lensing"
+    } else if stats.phi_wraps_max > 0.8 {
+        "moderate lensing (typical for disc imaging)"
+    } else {
+        "mostly direct paths"
     };
     
     // Generate radial distribution bars
@@ -112,10 +183,99 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
     let ni_histogram_svg = charts::generate_ni_histogram_svg(&stats.ni_histogram);
     let radial_histogram_svg = charts::generate_radial_histogram_svg(&stats.radial_histogram, manifest.r_in, manifest.r_out);
     
+    // NEW: Tier 1.1 - Miss taxonomy pie chart
+    let miss_taxonomy_pie_svg = charts::generate_miss_taxonomy_pie(
+        stats.miss_escaped,
+        stats.miss_captured,
+        stats.miss_aborted,
+        stats.miss_pixels
+    );
+    
+    // NEW: Tier 1.2 - Order mask thumbnails (3 thumbnails)
+    let downsample = if manifest.width > 1600 { 8 } else { 4 };
+    let order_0_thumb = charts::generate_order_thumbnail_svg(
+        manifest.width, manifest.height, pixel_orders, 0, downsample
+    );
+    let order_1_thumb = charts::generate_order_thumbnail_svg(
+        manifest.width, manifest.height, pixel_orders, 1, downsample
+    );
+    let order_2plus_thumb = charts::generate_order_thumbnail_svg(
+        manifest.width, manifest.height, pixel_orders, 2, downsample
+    );
+    
+    // NEW: Tier 1.3 - Outlier table rows
+    let outlier_rows = stats.top_ni_outliers.iter()
+        .enumerate()
+        .map(|(i, (px, py, order, ni))| {
+            let severity_class = if *ni >= 1e-9 { "high" } else if *ni >= 1e-12 { "medium" } else { "low" };
+            let severity_text = if *ni >= 1e-9 { "High Attention" } else if *ni >= 1e-12 { "Medium" } else { "Low" };
+            format!(
+                r#"<tr><td>{}</td><td>({}, {})</td><td>{}</td><td class="{}">{:.2e}</td><td class="{}">{}</td></tr>"#,
+                i + 1, px, py, order, severity_class, ni, severity_class, severity_text
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("\n    ");
+    
+    // NEW: Tier 1.4 - Provenance text (inline in footer)
+    let provenance_text = {
+        let mut parts = Vec::new();
+        if let Some(ref sha) = manifest.git_sha {
+            parts.push(format!("SHA: {}", sha));
+        }
+        if let Some(ref version) = manifest.rustc_version {
+            parts.push(format!("rustc: {}", version));
+        }
+        if let Some(ref timestamp) = manifest.build_timestamp {
+            parts.push(format!("built: {}", timestamp));
+        }
+        if !parts.is_empty() {
+            format!(" | {}", parts.join(" | "))
+        } else {
+            String::new()
+        }
+    };
+    
     // Calculate ISCO for radial profile
-    let r_isco = 3.0 + 2.0 * ((3.0 - manifest.spin) * (3.0 + manifest.spin + 2.0 * (3.0 - manifest.spin).sqrt())).sqrt();
+    // Reference: Bardeen, Press, Teukolsky (1972)
+    // Convention: spin > 0 = prograde, spin < 0 = retrograde, spin = 0 = Schwarzschild
+    let r_isco = if manifest.spin.abs() < 1e-10 {
+        // Schwarzschild: ISCO at 6M
+        6.0
+    } else {
+        // Kerr: General formula (works for both prograde and retrograde)
+        let z1 = 1.0 + (1.0 - manifest.spin.powi(2)).powf(1.0/3.0) 
+            * ((1.0 + manifest.spin).powf(1.0/3.0) + (1.0 - manifest.spin).powf(1.0/3.0));
+        let z2 = (3.0 * manifest.spin.powi(2) + z1.powi(2)).sqrt();
+        if manifest.spin > 0.0 {
+            // Prograde: co-rotating orbit (smaller ISCO)
+            3.0 + z2 - ((3.0 - z1) * (3.0 + z1 + 2.0 * z2)).sqrt()
+        } else {
+            // Retrograde: counter-rotating orbit (larger ISCO)
+            3.0 + z2 + ((3.0 - z1) * (3.0 + z1 + 2.0 * z2)).sqrt()
+        }
+    };
     let radial_profile_svg = charts::generate_radial_profile_svg(&stats.radial_profile, manifest.r_in, manifest.r_out, r_isco);
     let angular_distribution_svg = charts::generate_angular_distribution_svg(&stats.angular_distribution);
+    
+    // NEW: Tier 3.1 - Ellipse parameters block
+    let ellipse_block = if let Some(ref ellipse) = stats.ellipse_params {
+        format!(r#"<table style="margin-top:12px">
+    <tr><th>Parameter</th><th>Value</th></tr>
+    <tr><td>Center (x, y)</td><td>({:.1}, {:.1})</td></tr>
+    <tr><td>Semi-major axis</td><td>{:.1} px</td></tr>
+    <tr><td>Semi-minor axis</td><td>{:.1} px</td></tr>
+    <tr><td>Rotation</td><td>{:.2}°</td></tr>
+    <tr><td>Axis ratio (b/a)</td><td>{:.3}</td></tr>
+  </table>
+  <p class="section-desc" style="margin-top:12px">Fitted ellipse approximates the black hole shadow boundary. Axis ratio near 1.0 indicates circular shadow (low spin or face-on view).</p>"#,
+            ellipse.center_x, ellipse.center_y,
+            ellipse.semi_major, ellipse.semi_minor,
+            ellipse.rotation.to_degrees(),
+            ellipse.axis_ratio)
+    } else {
+        r#"<p class="section-desc" style="margin-top:12px">No ellipse fit available (insufficient boundary points).</p>"#.to_string()
+    };
     
     format!(r#"<!doctype html>
 <html lang="en">
@@ -136,9 +296,9 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
   th,td{{padding:10px 12px; border-bottom:1px solid #f3f4f6; text-align:right}}
   th:first-child, td:first-child{{text-align:left}}
   th{{font-weight:600; background:#f9fafb; color:#374151}}
-  .ok{{color:#059669}}
-  .warn{{color:#d97706}}
-  .bad{{color:#dc2626}}
+  .low{{color:#059669}}
+  .medium{{color:#6366f1}}
+  .high{{color:#d97706}}
   details{{border:1px solid #e5e7eb; border-radius:8px; padding:12px; margin-top:12px; background:white}}
   summary{{cursor:pointer; font-weight:600; color:#4b5563}}
   .bar{{height:20px; background:linear-gradient(90deg, #3b82f6, #60a5fa); border-radius:4px; transition:width 0.3s}}
@@ -190,6 +350,95 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
   </table>
 </div>
 
+<h2>🎯 Miss Taxonomy (NEW)</h2>
+<div class="card">
+  <p class="section-desc">Classification of rays that don't hit the accretion disc.</p>
+  <div class="chart-grid">
+    <div>
+      {}
+    </div>
+    <div>
+      <table>
+        <tr><th>Miss Type</th><th>Count</th><th>Share</th></tr>
+        <tr><td>Escaped (r → ∞)</td><td>{}</td><td>{:.1}%</td></tr>
+        <tr><td>Captured (r → r<sub>h</sub>)</td><td>{}</td><td>{:.1}%</td></tr>
+        <tr><td>Aborted (numerical)</td><td>{}</td><td>{:.1}%</td></tr>
+      </table>
+      <p class="section-desc" style="margin-top:16px">
+        <strong>Escaped:</strong> Ray reaches r &gt; 1000M (escapes to infinity)<br>
+        <strong>Captured:</strong> Ray falls into event horizon (r &lt; r<sub>h</sub> + 0.01M)<br>
+        <strong>Aborted:</strong> Integration stopped due to numerical issues or step limit
+      </p>
+    </div>
+  </div>
+</div>
+
+<h2>🖼️ Order Mask Thumbnails (NEW)</h2>
+<div class="card">
+  <p class="section-desc">Visual spatial distribution of geodesic orders. White pixels indicate hits at that order.</p>
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top:16px">
+    <div style="text-align:center">
+      {}
+      <p class="section-desc" style="margin-top:8px">Primary disc image</p>
+    </div>
+    <div style="text-align:center">
+      {}
+      <p class="section-desc" style="margin-top:8px">Photon ring</p>
+    </div>
+    <div style="text-align:center">
+      {}
+      <p class="section-desc" style="margin-top:8px">Higher-order subrings</p>
+    </div>
+  </div>
+</div>
+
+<h2>🔍 Outlier Spotlight (NEW)</h2>
+<div class="card">
+  <p class="section-desc">Top 10 rays with highest null invariant errors for quality inspection. These outliers warrant review but may still be within acceptable tolerances for complex geodesics.</p>
+  <table>
+    <tr><th>Rank</th><th>Pixel (x, y)</th><th>Order</th><th>NI Error</th><th>Attention Level</th></tr>
+    {}
+  </table>
+  <p class="section-desc" style="margin-top:12px">
+    <strong>Low:</strong> NI &lt; 1e-12 | <strong>Medium:</strong> 1e-12 ≤ NI &lt; 1e-9 | <strong>High Attention:</strong> NI ≥ 1e-9
+  </p>
+</div>
+
+<h2>🔬 Carter Constant Validation (NEW)</h2>
+<div class="card">
+  <p class="section-desc">The Carter constant K = Q + (L<sub>z</sub> - aE)² must be ≥ 0 for physical geodesics. Violations indicate integration errors.</p>
+  <div style="text-align:center; margin-top:16px">
+    {}
+  </div>
+</div>
+
+<h2>📊 Transfer Functions (NEW)</h2>
+<div class="card">
+  <p class="section-desc">2D histograms showing how image position maps to disc emission radius for each geodesic order.</p>
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; margin-top:16px">
+    <div style="text-align:center">
+      {}
+      <p class="section-desc" style="margin-top:8px">Order 0 (Primary)</p>
+    </div>
+    <div style="text-align:center">
+      {}
+      <p class="section-desc" style="margin-top:8px">Order 1 (Photon Ring)</p>
+    </div>
+    <div style="text-align:center">
+      {}
+      <p class="section-desc" style="margin-top:8px">Order 2+ (Subrings)</p>
+    </div>
+  </div>
+</div>
+
+<h2>⏱️ Relative Light Travel Times (NEW)</h2>
+<div class="card">
+  <p class="section-desc">Heatmap showing arrival time delays across the image via affine parameter λ. Warm colors indicate longer light paths.</p>
+  <div style="text-align:center; margin-top:16px">
+    {}
+  </div>
+</div>
+
 <h2>🔬 Numerical Quality</h2>
 <div class="card">
   <p class="section-desc">Null invariant (NI) measures how well geodesics maintain the constraint g<sub>μν</sub> k<sup>μ</sup> k<sup>ν</sup> = 0.</p>
@@ -209,7 +458,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
       <div class="label-val"><span>NI &lt; 1e-15</span><span>{:.1}%</span></div>
       <div class="label-val"><span>NI &lt; 1e-12</span><span>{:.1}%</span></div>
       <div class="label-val"><span>NI &lt; 1e-9</span><span class="{}">{:.1}%</span></div>
-      <p style="margin-top:16px" class="{}">✓ All geodesics maintain null constraint!</p>
+      <p style="margin-top:16px" class="{}">{}</p>
     </div>
   </div>
   
@@ -256,7 +505,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
     <div>
       <div class="label-val"><span>Boosted (g&gt;1)</span><span>{} hits ({:.1}%)</span></div>
       <div class="label-val"><span>Dimmed (g&lt;1)</span><span>{} hits ({:.1}%)</span></div>
-      <p style="margin-top:16px" class="ok">✓ Clear Doppler asymmetry from frame dragging</p>
+      <p style="margin-top:16px" class="{}">{}</p>
     </div>
   </div>
   
@@ -274,7 +523,41 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
     <tr><td>1 (Ring)</td><td colspan="2">{:.2} wraps (avg)</td></tr>
     <tr><td>2+ (Subrings)</td><td colspan="2">{:.2} wraps (avg)</td></tr>
   </table>
-  <p style="margin-top:12px"><strong>Max wraps:</strong> {:.2} (deep lensing near photon sphere!)</p>
+  <p style="margin-top:12px"><strong>Max wraps:</strong> {:.2} ({})</p>
+</div>
+
+<h2>🔬 Advanced Geodesic Diagnostics (Tier 3)</h2>
+
+<div class="card" style="margin-bottom:20px">
+  <h3>Critical Curve & Shadow Fitting</h3>
+  <p class="section-desc">Extracted {} boundary pixels between captured and escaped rays.</p>
+  {}
+</div>
+
+<div class="card" style="margin-bottom:20px">
+  <h3>Turning Points Distribution</h3>
+  <p class="section-desc">Histogram of radial (r) and polar (θ) turning points. High counts indicate complex, chaotic geodesics near the photon sphere.</p>
+  <div class="chart-grid">
+    <div>{}</div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:20px">
+  <h3>Wrap-Angle vs Impact Parameter</h3>
+  <p class="section-desc">Relationship between impact parameter b = L<sub>z</sub>/E and azimuthal wraps. The vertical red line marks the photon sphere radius where rays orbit multiple times before hitting the disc.</p>
+  <div class="chart-grid">
+    <div>{}</div>
+  </div>
+  <details style="margin-top:12px">
+    <summary style="cursor:pointer; color:#6b7280; font-size:13px">📖 How to Read This Chart</summary>
+    <div style="margin-top:8px; font-size:13px; color:#374151">
+      <p><strong>X-axis (Impact Parameter b):</strong> Angular momentum per unit energy (L<sub>z</sub>/E). Negative values mean counter-rotation relative to black hole spin.</p>
+      <p style="margin-top:8px"><strong>Y-axis (φ-wraps):</strong> Number of times the light ray winds around the black hole before hitting the disc.</p>
+      <p style="margin-top:8px"><strong>Colors:</strong> Green = Order 0 (primary), Blue = Order 1 (photon ring), Purple = Order 2+ (higher subrings)</p>
+      <p style="margin-top:8px"><strong>Photon Sphere (red line):</strong> Critical impact parameter (~3.79M for a=0.9) where photons can orbit the black hole. Rays near this value show the highest wraps.</p>
+      <p style="margin-top:8px"><strong>Expected Pattern:</strong> A peak in wraps near b<sub>photon</sub>, with Order 1 and 2+ rays concentrated in this region due to multiple orbits before disc intersection.</p>
+    </div>
+  </details>
 </div>
 
 <details>
@@ -288,9 +571,9 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
   <p style="margin-top:12px">The null invariant (NI) measures numerical accuracy. Values &lt;1e-9 indicate excellent geodesic integration.</p>
 </details>
 
-<footer style="margin-top:48px; padding-top:24px; border-top:1px solid #e5e7eb; color:#6b7280; font-size:13px">
-  <p>Generated by Kerr Black Hole High-Precision Analyzer</p>
-  <p>Preset: {} | {}×{} | {} orders | {:.1}° inclination</p>
+<footer style="margin-top:48px; padding-top:24px; border-top:1px solid #e5e7eb; color:#6b7280; font-size:12px">
+  <p style="margin-bottom:4px">Generated by Kerr Black Hole High-Precision Analyzer</p>
+  <p>Preset: {} | {}×{} | {} orders | {:.1}° inclination{}</p>
 </footer>
 
 </body>
@@ -306,13 +589,28 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
         stats.orders_0_and_1, o01_pct, o01_pct,
         stats.orders_2_plus, o2p_pct, o2p_pct,
         stats.miss_pixels, miss_pct, miss_pct,
+        // NEW: Tier 1.1 - Miss taxonomy
+        miss_taxonomy_pie_svg,
+        stats.miss_escaped, (stats.miss_escaped as f64 / stats.miss_pixels.max(1) as f64 * 100.0),
+        stats.miss_captured, (stats.miss_captured as f64 / stats.miss_pixels.max(1) as f64 * 100.0),
+        stats.miss_aborted, (stats.miss_aborted as f64 / stats.miss_pixels.max(1) as f64 * 100.0),
+        // NEW: Tier 1.2 - Order thumbnails
+        order_0_thumb, order_1_thumb, order_2plus_thumb,
+        // NEW: Tier 1.3 - Outlier spotlight
+        outlier_rows,
+        // NEW: Tier 2.1 - K validation heatmap
+        stats.k_heatmap_svg,
+        // NEW: Tier 2.2 - Transfer functions
+        stats.transfer_o0_svg, stats.transfer_o1_svg, stats.transfer_o2_svg,
+        // NEW: Tier 2.4 - Time delay map
+        stats.time_delay_svg,
         stats.ni_min, stats.ni_median, stats.ni_mean, stats.ni_p95,
         ni_p99_class, stats.ni_p99,
         stats.ni_max,
         (stats.ni_under_1e15 as f64 / stats.total_hits as f64 * 100.0).min(100.0),
         (stats.ni_under_1e12 as f64 / stats.total_hits as f64 * 100.0).min(100.0),
         ni_gate_class, ni_under_1e9_pct,
-        ni_gate_class,
+        ni_message_class, ni_message,
         ni_histogram_svg,
         radial_histogram_svg,
         radial_profile_svg,
@@ -323,12 +621,20 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest) -> String {
         stats.g_min, stats.g_max, stats.g_mean, g_asymmetry,
         stats.g_boosted_count, (stats.g_boosted_count as f64 / stats.total_hits as f64 * 100.0),
         stats.g_dimmed_count, (stats.g_dimmed_count as f64 / stats.total_hits as f64 * 100.0),
+        doppler_message_class, doppler_message,
         angular_distribution_svg,
         stats.phi_wraps_min, stats.phi_wraps_max, stats.phi_wraps_mean_o0,
         stats.phi_wraps_mean_o1,
         stats.phi_wraps_mean_o2,
-        stats.phi_wraps_max,
-        manifest.preset, manifest.width, manifest.height, manifest.orders, manifest.inclination
+        stats.phi_wraps_max, wraps_interpretation,
+        // NEW: Tier 3 - Publication quality
+        stats.critical_curve_points,
+        ellipse_block,
+        stats.turning_histogram_svg,
+        stats.wraps_scatter_svg,
+        manifest.preset, manifest.width, manifest.height, manifest.orders, manifest.inclination,
+        // NEW: Tier 1.4 - Provenance (inline)
+        provenance_text
     )
 }
 
