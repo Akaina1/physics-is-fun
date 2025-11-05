@@ -324,8 +324,14 @@ pub fn integrate_geodesic_multi_order(
     let r_horizon = black_hole.horizon_radius();
     
     let mut state = IntegrationState::new(&photon, initial_sign_theta);
-    let mut results = vec![GeodesicResult::Escaped; max_orders as usize];
+    let mut results = vec![GeodesicResult::Escaped { turns_r: 0, turns_theta: 0 }; max_orders as usize];
     let mut disc_crossings = 0u8;
+    
+    // Track turning points throughout entire geodesic
+    let mut turns_r = 0u8;
+    let mut turns_theta = 0u8;
+    let mut prev_sign_r = state.sign_r;
+    let mut prev_sign_theta = state.sign_theta;
 
     let tolerance = 1e-10;
     let safety_factor = 0.9;
@@ -376,13 +382,32 @@ pub fn integrate_geodesic_multi_order(
             if th_pot_before * th_pot_after < 0.0 {
                 state.sign_theta = -state.sign_theta;
             }
+            
+            // Track turning points (sign flips with saturation)
+            if state.sign_r != prev_sign_r {
+                turns_r = turns_r.saturating_add(1);
+                prev_sign_r = state.sign_r;
+            }
+            if state.sign_theta != prev_sign_theta {
+                turns_theta = turns_theta.saturating_add(1);
+                prev_sign_theta = state.sign_theta;
+            }
 
-            // Stopping conditions
+            // Stopping conditions with miss classification
             if state.r < r_horizon * 1.01 {
-                for i in disc_crossings..max_orders { results[i as usize] = GeodesicResult::Captured; }
+                // Captured by horizon
+                for i in disc_crossings..max_orders { 
+                    results[i as usize] = GeodesicResult::Captured { turns_r, turns_theta }; 
+                }
                 return results;
             }
-            if state.r > 1000.0 { return results; }
+            if state.r > 1000.0 { 
+                // Escaped to infinity
+                for i in disc_crossings..max_orders {
+                    results[i as usize] = GeodesicResult::Escaped { turns_r, turns_theta };
+                }
+                return results; 
+            }
 
             // Disc crossing detection with bisection refinement
             let equator = PI / 2.0;
@@ -411,6 +436,8 @@ pub fn integrate_geodesic_multi_order(
                             phi_wraps,
                             order: disc_crossings,
                             null_invariant_error: null_error,
+                            turns_r,
+                            turns_theta,
                         };
                     }
                     disc_crossings += 1;
@@ -427,6 +454,33 @@ pub fn integrate_geodesic_multi_order(
             _steps_rejected += 1;
             h = compute_next_step_size(h, error, tolerance, safety_factor);
             h = h.max(h_min).min(h_max);
+        }
+    }
+
+    // If we reached max steps without hitting all orders or stopping conditions
+    // Classify based on final state (position + velocity) rather than blindly aborting
+    if disc_crossings < max_orders {
+        // Determine likely fate from final position and radial velocity
+        let likely_fate = if state.r < 10.0 {
+            // Close to horizon (r < 10M), likely being captured
+            GeodesicResult::Captured { turns_r, turns_theta }
+        } else if state.r > 100.0 {
+            // Far from BH (r > 100M), likely escaping (just needs more time)
+            GeodesicResult::Escaped { turns_r, turns_theta }
+        } else {
+            // Intermediate region (10M < r < 100M): check radial velocity
+            if state.sign_r < 0.0 {
+                // Moving inward → will eventually be captured
+                GeodesicResult::Captured { turns_r, turns_theta }
+            } else {
+                // Moving outward → will eventually escape
+                GeodesicResult::Escaped { turns_r, turns_theta }
+            }
+        };
+        
+        // Apply classification to all remaining orders
+        for i in disc_crossings..max_orders {
+            results[i as usize] = likely_fate.clone();
         }
     }
 
