@@ -4,14 +4,16 @@
 
 mod charts;
 mod generate_summary;
+mod mahalanobis;
 mod stats;
 
 use generate_summary::{Stats, Manifest, generate_html_report};
 
 use clap::Parser;
 use indicatif::{ProgressBar, ProgressStyle};
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::fs;
+use std::io::Write;
 use std::path::PathBuf;
 
 /// CLI arguments for the analyzer
@@ -25,22 +27,22 @@ struct Args {
 }
 
 /// High-precision record (matches PositionData from transfer_maps.rs)
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 struct HpRecord {
     pixel_x: u32,
     pixel_y: u32,
     #[serde(default)]
     r: f64,
     #[serde(default)]
-    _theta: f64,
+    theta: f64,  // Renamed from _theta for outlier detection
     #[serde(default)]
     phi: f64,  // Used for angular distribution
     #[serde(default, rename = "energy")]
-    _energy: f64,
+    energy: f64,  // Renamed from _energy for outlier detection
     #[serde(default, rename = "angular_momentum")]
-    _angular_momentum: f64,
+    angular_momentum: f64,  // Renamed from _angular_momentum for outlier detection
     #[serde(default, rename = "carter_q")]
-    _carter_q: f64,
+    carter_q: f64,  // Renamed from _carter_q for outlier detection
     #[serde(default, rename = "impact_parameter")]
     _impact_parameter: f64,
     #[serde(default)]
@@ -56,7 +58,7 @@ struct HpRecord {
     null_invariant_error: f64,
     // NEW: Miss classification
     #[serde(default)]
-    escaped: bool,
+    _escaped: bool,  // Stored but not currently used in outlier detection
     #[serde(default)]
     captured: bool,
     #[serde(default)]
@@ -84,6 +86,17 @@ impl stats::CriticalCurveRecord for HpRecord {
     fn pixel_x(&self) -> u32 { self.pixel_x }
     fn pixel_y(&self) -> u32 { self.pixel_y }
     fn is_captured(&self) -> bool { self.captured }
+}
+
+// Implement OutlierDetectionRecord trait for stats module
+impl stats::OutlierDetectionRecord for HpRecord {
+    fn pixel_x(&self) -> u32 { self.pixel_x }
+    fn pixel_y(&self) -> u32 { self.pixel_y }
+    fn r(&self) -> f64 { self.r }
+    fn theta(&self) -> f64 { self.theta }
+    fn energy(&self) -> f64 { self.energy }
+    fn angular_momentum(&self) -> f64 { self.angular_momentum }
+    fn carter_q(&self) -> f64 { self.carter_q }
 }
 
 /// Wrapper for HP JSON structure
@@ -141,6 +154,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (stats, pixel_orders) = compute_statistics(&hp_data, &manifest);
     pb.inc(1);
     
+    // TEMPORARY: Export outliers by severity for detailed analysis
+    pb.set_message("Exporting outlier data...");
+    export_outliers_by_severity(&stats.outliers, &args.input)?;
+    
     pb.set_message("Generating HTML report...");
     let html = generate_html_report(&stats, &manifest, &pixel_orders);
     pb.inc(1);
@@ -165,6 +182,86 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+// ============================================================================
+// TEMPORARY: Export outliers by severity for detailed analysis
+// ============================================================================
+
+#[derive(Serialize)]
+struct OutlierExport {
+    pixel_x: u32,
+    pixel_y: u32,
+    order: u8,
+    category: String,
+    value: f64,
+    details: String,
+}
+
+fn export_outliers_by_severity(
+    outliers: &[stats::Outlier],
+    input_path: &PathBuf,
+) -> std::io::Result<()> {
+    use std::collections::HashMap;
+    
+    // Get base directory from input path
+    let base_dir = input_path.parent().unwrap_or_else(|| std::path::Path::new("."));
+    
+    // Group outliers by (severity, category)
+    let mut groups: HashMap<(String, String), Vec<OutlierExport>> = HashMap::new();
+    
+    for outlier in outliers {
+        let export = OutlierExport {
+            pixel_x: outlier.pixel_x,
+            pixel_y: outlier.pixel_y,
+            order: outlier.order,
+            category: outlier.category.label().to_string(),
+            value: outlier.value,
+            details: outlier.details.clone(),
+        };
+        
+        let severity_str = match outlier.severity {
+            stats::OutlierSeverity::Critical => "critical",
+            stats::OutlierSeverity::High => "high",
+            stats::OutlierSeverity::Medium => "medium",
+            stats::OutlierSeverity::Info => continue, // Skip Info
+        };
+        
+        // Convert category label to snake_case filename
+        let category_filename = outlier.category.label()
+            .to_lowercase()
+            .replace(" ", "_")
+            .replace("(", "")
+            .replace(")", "")
+            .replace("/", "_")
+            .replace("φ", "phi")
+            .replace("θ", "theta")
+            .replace("∞", "inf");
+        
+        let key = (severity_str.to_string(), category_filename);
+        groups.entry(key).or_insert_with(Vec::new).push(export);
+    }
+    
+    // Write each group to its own file
+    let mut total_files = 0;
+    for ((severity, category), exports) in groups {
+        if !exports.is_empty() {
+            let filename = format!("outliers_{}_{}.json", severity, category);
+            let path = base_dir.join(&filename);
+            let json = serde_json::to_string_pretty(&exports)?;
+            let mut file = fs::File::create(&path)?;
+            file.write_all(json.as_bytes())?;
+            println!("✓ Exported {} {} outliers to: {}", 
+                exports.len(), severity.to_uppercase(), filename);
+            total_files += 1;
+        }
+    }
+    
+    if total_files > 0 {
+        println!("✓ Created {} outlier JSON files", total_files);
+    }
+    
+    Ok(())
+}
+
 fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> (Stats, Vec<Option<u8>>) {
     let total_pixels = (manifest.width * manifest.height) as usize;
     
@@ -172,8 +269,6 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> (Stats, Vec<Opti
     let width = manifest.width;
     let height = manifest.height;
     let spin = manifest.spin;
-    let r_in = manifest.r_in;
-    let r_out = manifest.r_out;
     
     // Initialize per-pixel aggregation
     let mut pixel_agg = vec![PixelAgg::default(); total_pixels];
@@ -336,9 +431,9 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> (Stats, Vec<Opti
         _hit: r.hit,
         null_invariant_error: r.null_invariant_error,
         // NEW: Tier 2 - Additional fields for K validation
-        energy: r._energy,
-        angular_momentum: r._angular_momentum,
-        carter_q: r._carter_q,
+        energy: r.energy,
+        angular_momentum: r.angular_momentum,
+        carter_q: r.carter_q,
         impact_parameter: r._impact_parameter,
         // NEW: Tier 3 - Turning points
         turns_r: r.turns_r,
@@ -428,6 +523,39 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> (Stats, Vec<Opti
     // NEW: Tier 3.3 - Wrap-angle vs impact parameter scatter
     let wraps_scatter_svg = charts::generate_wraps_vs_impact_scatter_svg(&chart_hit_refs, spin);
     
+    // NEW: Tier 4 - Enhanced outlier detection
+    // Compute per-order statistics for robust detection
+    let hit_refs: Vec<&HpRecord> = hits.iter().map(|r| *r).collect();
+    let order_stats = stats::compute_all_order_stats(&hit_refs);
+    
+    // CRITICAL: Create hit-only slice for outlier detection (misses have garbage/default values)
+    let hit_records: Vec<&HpRecord> = hp_data.positions.iter()
+        .filter(|r| r.hit)
+        .collect();
+    
+    // Build spatial index for neighbor lookups (hits only)
+    let mut index_grid = stats::IndexGrid::new(width as usize, height as usize);
+    for (idx, rec) in hit_records.iter().enumerate() {
+        index_grid.set(rec.pixel_x, rec.pixel_y, idx);
+    }
+    
+    // Run 2-pass outlier detection pipeline (HITS ONLY - misses have uninitialized data)
+    let hit_records_owned: Vec<HpRecord> = hit_records.iter().map(|r| (*r).clone()).collect();
+    let outliers = stats::detect_outliers(
+        &hit_records_owned,
+        spin,
+        &order_stats,
+        &index_grid,
+    );
+    
+    // Generate spatial overlay visualization
+    let outlier_overlay_svg = charts::generate_outlier_overlay_svg(
+        &outliers,
+        width,
+        height,
+        8  // Downsample factor (8×8 pixels per cell)
+    );
+    
     // NEW: Tier 1.2 - Build order map for thumbnails
     // Store the order_mask bitmask for each pixel (not just lowest order)
     // This allows thumbnails to show ALL pixels where each order hits
@@ -486,6 +614,8 @@ fn compute_statistics(hp_data: &HpData, manifest: &Manifest) -> (Stats, Vec<Opti
         ellipse_params,
         turning_histogram_svg,
         wraps_scatter_svg,
+        outliers,
+        outlier_overlay_svg,
     };
     
     (stats, pixel_orders)
