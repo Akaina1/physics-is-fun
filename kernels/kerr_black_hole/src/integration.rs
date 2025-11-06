@@ -333,7 +333,7 @@ pub fn integrate_geodesic_multi_order(
     let mut prev_sign_r = state.sign_r;
     let mut prev_sign_theta = state.sign_theta;
 
-    let tolerance = 1e-10;
+    let tolerance = 1e-12;  // Tightened from 1e-10 for better NI accuracy
     let safety_factor = 0.9;
     let mut h: f64 = 0.05;
     let h_min: f64 = 1e-8;
