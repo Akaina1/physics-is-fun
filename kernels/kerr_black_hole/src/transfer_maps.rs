@@ -572,7 +572,7 @@ impl TransferMaps {
                 };
                 
                 if let GeodesicResult::DiscHit { 
-                    r, phi, energy, angular_momentum, order: ord, turns_r, turns_theta, .. 
+                    r, phi, energy, angular_momentum, order: ord, turns_r: _, turns_theta: _, .. 
                 } = result {
                     // Position texture: (r, sin(φ), cos(φ), weight)
                     *pos_ptr.add(tex_idx) = *r as f32;
