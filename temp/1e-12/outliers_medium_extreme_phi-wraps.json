@@ -1,0 +1,3186 @@
+[
+  {
+    "pixel_x": 213,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958020232711041,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 215,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960333592553234,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 216,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.962100019217428,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 216,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960864840910805,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 218,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.965333386236702,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 219,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.962044352992036,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 220,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969073467488095,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 221,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.971408235697192,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 221,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.965648655814955,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 223,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.956321305384304,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 223,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.975757801077313,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 224,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.95775396723118,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 224,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.967816028681483,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 224,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966860250902247,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960971400112259,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.956772384792552,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969688226728939,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 226,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.964079289504816,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 226,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.962527845245456,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 226,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.961097909004598,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 226,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.957148274487114,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 227,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.955220525952119,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 228,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969434225758076,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 228,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969200431532891,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 228,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.977456163643907,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 228,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.955590142587423,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.971931371462986,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985257944128314,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.964802866066167,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963954084925295,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.968004902657569,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.971721622943782,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.970463192371162,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969028912239489,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.967422676075661,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.955698915233082,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.970077581074832,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958095297434978,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974385501714322,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 232,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.980362723139885,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 232,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.978386301933159,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 232,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.977260315754169,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 233,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.98123981715778,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 233,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.980090729153245,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 233,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.975497773434573,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 233,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985829674978375,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 233,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966876362375334,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 233,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.961592911131166,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 233,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958730203164941,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985882654691762,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 183,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985521875136172,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.984135623706393,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.981588217917668,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.978264128563033,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976323108199042,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985596988002137,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958049090188869,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.987597140146193,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.987073298681238,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.986498094752125,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983691398433264,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.982865657064431,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.978022186842744,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966520872352557,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963528553297859,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.992465205460147,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.990590529225125,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.987391327879064,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983913136638557,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969027875024476,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.962761583986806,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976628950304594,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.957698195020163,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 237,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.009438589704772,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 237,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.990357326488792,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 237,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.9847176617163,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 237,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974537451812765,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.997217442293231,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.99336705956427,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.992534821565956,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.980048023684511,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.975670674797043,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960449033502593,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963745327931184,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.989342626264191,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.986861095577838,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.973446625503797,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966441310348563,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.964602490952205,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.999522862711057,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.992271583113388,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985552858390222,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993964973468923,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974977772087943,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.967356632349076,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 242,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.004951423012596,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 242,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.00070956594799,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 242,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.998253812372365,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 242,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.977497906288376,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 243,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.003826144029227,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 243,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.990836291872576,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 243,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.972063538184856,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 243,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969982301946004,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 244,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.004406594377321,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 244,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976541836242687,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 244,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.961223645181141,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 244,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.971393628970215,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.998269978710278,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985211417512088,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958603715196225,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963533558663481,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.004608582093875,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.997094140735122,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983628225909814,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974782787899223,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.977096309901076,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.955697889246062,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 247,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.990532366618527,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 247,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.972400040985037,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 247,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976409523687819,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.986481000967724,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.981843656200596,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.967192617643058,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 249,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.000222028652043,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 249,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976902203638693,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 249,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.977255220266601,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 250,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993956251868877,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 250,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.955196814019386,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 251,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.959744208922485,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 251,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966915776465745,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.999256098547382,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.975583113571931,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 253,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.006940979556289,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 253,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974864021018166,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 254,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.004645009638571,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 254,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.96216747468159,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 255,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.987785243701538,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 255,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.981928360892325,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 255,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963895335806437,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 256,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.956230754021566,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 257,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.010052040926276,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 257,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983070074788645,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 257,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.964137121730701,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.994572338956316,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.98511555631597,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.959241237263113,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.000023701901598,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.977323289132438,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.970702809033876,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.964052998359557,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 181,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.982814021629608,
+    "details": "φ-wraps=0.98 > p99=0.97"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 193,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.972901053115946,
+    "details": "φ-wraps=0.97 > p99=0.97"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.982501578015412,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.97575792458718,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.962180306372901,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958777511802437,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 261,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963618401113779,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 261,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960147105646049,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 262,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.996731699911274,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 181,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.996160053075501,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.002376104726687,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.991678939467572,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.988087609209419,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.977269050464082,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966422810558309,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.975166532119834,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.956743299922378,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 265,
+    "pixel_y": 182,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 1.005234285106714,
+    "details": "φ-wraps=1.01 > p99=0.97"
+  },
+  {
+    "pixel_x": 265,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.957856817719187,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 266,
+    "pixel_y": 188,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 1.006163049966469,
+    "details": "φ-wraps=1.01 > p99=0.97"
+  },
+  {
+    "pixel_x": 266,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.970417060508504,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 193,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 1.003875005608669,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.995282532931792,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 268,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.005072194818426,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 269,
+    "pixel_y": 207,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.975124840577794,
+    "details": "φ-wraps=0.98 > p99=0.97"
+  },
+  {
+    "pixel_x": 269,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974091651284628,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 269,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966397862625475,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 203,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.992382640433108,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.00883905666191,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.000402329512474,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983582731720556,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 271,
+    "pixel_y": 202,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.999810370007472,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 272,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.003639365844367,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 272,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.964486545203573,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 273,
+    "pixel_y": 208,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.986217753817614,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 274,
+    "pixel_y": 209,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985773206331935,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 274,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.992914081407682,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.012892808510115,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.003440874643678,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.998744304221506,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.978575371724529,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966543804640092,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 276,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.004736766065793,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 277,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.001062302970364,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 278,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.007134845570813,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 278,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.992190600345203,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 278,
+    "pixel_y": 232,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.975140116003607,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 279,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.9683281979319,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 280,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993670311264283,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 280,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.980455759957481,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 281,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.968739617473815,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.995232107823077,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.98982893376533,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 234,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963669780649154,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.001432831704292,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.990168482135479,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.979165124557717,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 287,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.995848966164607,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 287,
+    "pixel_y": 235,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.957884791298513,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.001672030040377,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.989807674157973,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.978267426314978,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 235,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.957046608413543,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 290,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.994992987565941,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 291,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.013516226931984,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 291,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.994422485624113,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 291,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.988733239005641,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 292,
+    "pixel_y": 217,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.987513148622801,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 292,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.006521181693417,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 293,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974115444464476,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 294,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.011725133262393,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.99072919154455,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 232,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.965247925444861,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 296,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976284911753167,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 296,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969785797107563,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 296,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.957496887362523,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 297,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974384028401875,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 298,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.013975271887483,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 299,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983748280826488,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 301,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.965616975325002,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 303,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.003047323832737,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 303,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.980770372689059,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 305,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.981754502146498,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 307,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960144499593371,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 311,
+    "pixel_y": 212,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 1.018699979193153,
+    "details": "φ-wraps=1.02 > p99=0.97"
+  },
+  {
+    "pixel_x": 311,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.987776754224118,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 311,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.95709489803493,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 315,
+    "pixel_y": 209,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 1.035779847452171,
+    "details": "φ-wraps=1.04 > p99=0.97"
+  },
+  {
+    "pixel_x": 315,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.981098149746691,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 315,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.965095484672146,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 316,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.000056160825713,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 318,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.002558835928834,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 318,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976374480127321,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.968522193698002,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.012479442184596,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.003003653261709,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993876710497696,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.985075167054473,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976577863411911,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.968365639598168,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960421091234169,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 206,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 1.021057452031895,
+    "details": "φ-wraps=1.02 > p99=0.97"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 207,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 1.006501056877833,
+    "details": "φ-wraps=1.01 > p99=0.97"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 210,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.9668086616367,
+    "details": "φ-wraps=0.97 > p99=0.97"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.011745279419696,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.002289972627763,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993181173392911,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.984395734162861,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.975912751300317,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.967713284302579,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.95978011761235,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 207,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.994194607834989,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 208,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.980834315867747,
+    "details": "φ-wraps=0.98 > p99=0.97"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.991821668568567,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983097252287752,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974669239052726,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.96651942522575,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958631226124097,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.017486421519824,
+    "details": "φ-wraps=1.02 > p99=0.95"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.00789841205895,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.998656958176475,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.989739740977225,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.981126483956767,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.972798716243026,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.964739568550345,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.956933596655037,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 205,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.994331160275043,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.014008639702095,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.995614984070369,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.986882059340798,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.97843453345907,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.970256268916064,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.96233238158201,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 205,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.979616395401785,
+    "details": "φ-wraps=0.98 > p99=0.97"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.00949511680586,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.00044707296179,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.991688126766476,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983203561393743,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974979514222658,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.967002952165513,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.959261637476064,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.003909417908916,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.995251393959843,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.986841684150889,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.978670827049459,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.970729424512394,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963008251122651,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.955498329143317,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.005634012464584,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.997239877927859,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.989048884201348,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.981058572243718,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.973265389999431,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.965665006822323,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958252554958472,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.021465868596154,
+    "details": "φ-wraps=1.02 > p99=0.95"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.005235443276747,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.997301459234142,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.98950360631988,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.981849091775112,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.974342553911239,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966986609838961,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.959782294120879,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.002354178734254,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.995098260464257,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.987890101024854,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.980748489514346,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.973688122220871,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966720329672053,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.959853684274057,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.020763276994731,
+    "details": "φ-wraps=1.02 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.009119146049807,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.002986888096204,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.996718581663282,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.990357480840573,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.983940010633848,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.977496616751573,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.971052568460627,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.964628692761226,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.958242030627873,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.013508952623965,
+    "details": "φ-wraps=1.01 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 1.00259351258959,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.998099821436994,
+    "details": "φ-wraps=1.00 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993287841972067,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.988214792155847,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.982931804247543,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.97748402142719,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.971910896864479,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.966246614199064,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960520569500725,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993961975569776,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993144727221481,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.991703787295315,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.989687380314109,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.987148271471272,
+    "details": "φ-wraps=0.99 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.984141292156447,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.980721289499742,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.976941536174396,
+    "details": "φ-wraps=0.98 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.972852582521754,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.968501499750055,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.963931447167277,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.959181493286986,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 178,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.955399615842435,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 179,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.959248987028925,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.962620852130838,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.965472295662397,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.967769648725852,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 183,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969489938496959,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.970621626123386,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.971164597381939,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.971129466053915,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.970536325247233,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.969413125271137,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.967793866123597,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.965716774108093,
+    "details": "φ-wraps=0.97 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.9632225957118,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.960353098489201,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Extreme φ-Wraps",
+    "value": 0.957149826964872,
+    "details": "φ-wraps=0.96 > p99=0.95"
+  },
+  {
+    "pixel_x": 335,
+    "pixel_y": 112,
+    "order": 2,
+    "category": "Extreme φ-Wraps",
+    "value": 1.003647226587598,
+    "details": "φ-wraps=1.00 > p99=1.00"
+  },
+  {
+    "pixel_x": 378,
+    "pixel_y": 108,
+    "order": 2,
+    "category": "Extreme φ-Wraps",
+    "value": 1.009266150224716,
+    "details": "φ-wraps=1.01 > p99=1.00"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 113,
+    "order": 2,
+    "category": "Extreme φ-Wraps",
+    "value": 1.004674367534591,
+    "details": "φ-wraps=1.00 > p99=1.00"
+  },
+  {
+    "pixel_x": 404,
+    "pixel_y": 113,
+    "order": 2,
+    "category": "Extreme φ-Wraps",
+    "value": 1.005141418101218,
+    "details": "φ-wraps=1.01 > p99=1.00"
+  },
+  {
+    "pixel_x": 413,
+    "pixel_y": 118,
+    "order": 2,
+    "category": "Extreme φ-Wraps",
+    "value": 1.00176261038317,
+    "details": "φ-wraps=1.00 > p99=1.00"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 115,
+    "order": 2,
+    "category": "Extreme φ-Wraps",
+    "value": 1.004955361499586,
+    "details": "φ-wraps=1.00 > p99=1.00"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 119,
+    "order": 2,
+    "category": "Extreme φ-Wraps",
+    "value": 1.002727317443321,
+    "details": "φ-wraps=1.00 > p99=1.00"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 137,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.995844936781096,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 134,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.997086215452908,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 145,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.994349782407016,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 128,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.999118076728991,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 165,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.99196054458474,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 130,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.998485485872196,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 165,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.99231621267282,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 142,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.995506278565719,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 155,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993435345548585,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 159,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993063006054072,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 116,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 1.002764203683587,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 151,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.994022316944779,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 162,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.992988241138938,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 177,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993397560439318,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 129,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.998579449249078,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 162,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993353863241514,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 139,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.996222522560286,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 140,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.996028974053001,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 164,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993412920246727,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 127,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.998828892387193,
+    "details": "φ-wraps=1.00 > p99=0.97"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 159,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993773812555047,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 174,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993734446279022,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  },
+  {
+    "pixel_x": 469,
+    "pixel_y": 171,
+    "order": 1,
+    "category": "Extreme φ-Wraps",
+    "value": 0.993595256687564,
+    "details": "φ-wraps=0.99 > p99=0.97"
+  }
+]

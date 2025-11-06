@@ -1,0 +1,42 @@
+[
+  {
+    "pixel_x": 182,
+    "pixel_y": 231,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 6.112975e-9,
+    "details": "NI=6.113e-9, log z-score=7.0, top 0.1%"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 307,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 9.24739e-10,
+    "details": "NI=9.247e-10, log z-score=5.7, top 0.1%"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 307,
+    "order": 2,
+    "category": "Extreme NI (Statistical)",
+    "value": 9.24739e-10,
+    "details": "NI=9.247e-10, log z-score=6.3, top 0.1%"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 148,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 4.51736e-10,
+    "details": "NI=4.517e-10, log z-score=5.2, top 0.1%"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 252,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 5.80458e-10,
+    "details": "NI=5.805e-10, log z-score=5.4, top 0.1%"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "pixel_x": 182,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 6.112975e-9,
+    "details": "NI=6.113e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 182,
+    "pixel_y": 231,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 6.112975e-9,
+    "details": "NI=6.113e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 210,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.179238e-9,
+    "details": "NI=1.179e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 306,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.039384e-9,
+    "details": "NI=1.039e-9 (integration accuracy issue)"
+  }
+]

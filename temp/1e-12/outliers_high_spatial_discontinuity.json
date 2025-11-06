@@ -1,0 +1,4706 @@
+[
+  {
+    "pixel_x": 177,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 52.6936218560478,
+    "details": "NI differs from neighbors (local MAD z=52.7)"
+  },
+  {
+    "pixel_x": 182,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.688276724385124,
+    "details": "NI differs from neighbors (local MAD z=12.7)"
+  },
+  {
+    "pixel_x": 184,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.9302925576439,
+    "details": "NI differs from neighbors (local MAD z=13.9)"
+  },
+  {
+    "pixel_x": 185,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.971481158849222,
+    "details": "NI differs from neighbors (local MAD z=20.0)"
+  },
+  {
+    "pixel_x": 185,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.68658986606141,
+    "details": "NI differs from neighbors (local MAD z=14.7)"
+  },
+  {
+    "pixel_x": 187,
+    "pixel_y": 168,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.178232824449093,
+    "details": "λ differs from neighbors (local MAD z=21.2)"
+  },
+  {
+    "pixel_x": 188,
+    "pixel_y": 134,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.129528320908479,
+    "details": "NI differs from neighbors (local MAD z=9.1)"
+  },
+  {
+    "pixel_x": 189,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.252114853737483,
+    "details": "NI differs from neighbors (local MAD z=14.3)"
+  },
+  {
+    "pixel_x": 190,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 84.38402685772512,
+    "details": "λ differs from neighbors (local MAD z=84.4)"
+  },
+  {
+    "pixel_x": 196,
+    "pixel_y": 158,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.903501233559258,
+    "details": "λ differs from neighbors (local MAD z=8.9)"
+  },
+  {
+    "pixel_x": 196,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 32.29003696478564,
+    "details": "g differs from neighbors (local MAD z=32.3)"
+  },
+  {
+    "pixel_x": 197,
+    "pixel_y": 158,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 31.96948407514571,
+    "details": "g differs from neighbors (local MAD z=32.0)"
+  },
+  {
+    "pixel_x": 197,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 39.92844001279507,
+    "details": "NI differs from neighbors (local MAD z=39.9)"
+  },
+  {
+    "pixel_x": 199,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.96467111605486,
+    "details": "NI differs from neighbors (local MAD z=11.0)"
+  },
+  {
+    "pixel_x": 200,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.329561359396595,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 205,
+    "pixel_y": 268,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.331643082496685,
+    "details": "NI differs from neighbors (local MAD z=12.3)"
+  },
+  {
+    "pixel_x": 212,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 136.30874331223865,
+    "details": "NI differs from neighbors (local MAD z=136.3)"
+  },
+  {
+    "pixel_x": 213,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.709393755116984,
+    "details": "NI differs from neighbors (local MAD z=21.7)"
+  },
+  {
+    "pixel_x": 216,
+    "pixel_y": 161,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.190883608007239,
+    "details": "λ differs from neighbors (local MAD z=9.2)"
+  },
+  {
+    "pixel_x": 217,
+    "pixel_y": 160,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 23.476903813161467,
+    "details": "NI differs from neighbors (local MAD z=23.5)"
+  },
+  {
+    "pixel_x": 217,
+    "pixel_y": 162,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.6157861482163876,
+    "details": "NI differs from neighbors (local MAD z=7.6)"
+  },
+  {
+    "pixel_x": 218,
+    "pixel_y": 161,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.182386968494788,
+    "details": "λ differs from neighbors (local MAD z=9.2)"
+  },
+  {
+    "pixel_x": 219,
+    "pixel_y": 130,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.597253137393412,
+    "details": "λ differs from neighbors (local MAD z=21.6)"
+  },
+  {
+    "pixel_x": 219,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.185259602463634,
+    "details": "g differs from neighbors (local MAD z=7.2)"
+  },
+  {
+    "pixel_x": 224,
+    "pixel_y": 149,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.366808708086255,
+    "details": "g differs from neighbors (local MAD z=10.4)"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 107,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 20.18610754240087,
+    "details": "g differs from neighbors (local MAD z=20.2)"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 151,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.81044267973094,
+    "details": "g differs from neighbors (local MAD z=8.8)"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 152,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 30.425051377401225,
+    "details": "λ differs from neighbors (local MAD z=30.4)"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.84761546519959,
+    "details": "λ differs from neighbors (local MAD z=12.8)"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.109797757691782,
+    "details": "g differs from neighbors (local MAD z=12.1)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 151,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.458467311662172,
+    "details": "λ differs from neighbors (local MAD z=8.5)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 178,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.081033108531845,
+    "details": "λ differs from neighbors (local MAD z=19.1)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.055796689784033,
+    "details": "λ differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 23.19071543796899,
+    "details": "g differs from neighbors (local MAD z=23.2)"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 53.17118581363941,
+    "details": "NI differs from neighbors (local MAD z=53.2)"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.85431109895028,
+    "details": "g differs from neighbors (local MAD z=9.9)"
+  },
+  {
+    "pixel_x": 232,
+    "pixel_y": 153,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 60.79091639569534,
+    "details": "λ differs from neighbors (local MAD z=60.8)"
+  },
+  {
+    "pixel_x": 232,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.168473467789013,
+    "details": "g differs from neighbors (local MAD z=13.2)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.250144083636226,
+    "details": "λ differs from neighbors (local MAD z=9.3)"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.443206555440123,
+    "details": "NI differs from neighbors (local MAD z=7.4)"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 99.60418658600614,
+    "details": "g differs from neighbors (local MAD z=99.6)"
+  },
+  {
+    "pixel_x": 237,
+    "pixel_y": 303,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 22.33925521897905,
+    "details": "NI differs from neighbors (local MAD z=22.3)"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 109,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.214843078267564,
+    "details": "g differs from neighbors (local MAD z=6.2)"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 251,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.341776089506242,
+    "details": "g differs from neighbors (local MAD z=8.3)"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 251,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 25.50677765426827,
+    "details": "λ differs from neighbors (local MAD z=25.5)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.215768833694158,
+    "details": "g differs from neighbors (local MAD z=14.2)"
+  },
+  {
+    "pixel_x": 242,
+    "pixel_y": 240,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.463131949925682,
+    "details": "λ differs from neighbors (local MAD z=19.5)"
+  },
+  {
+    "pixel_x": 244,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 23.219012381198,
+    "details": "λ differs from neighbors (local MAD z=23.2)"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.62222352496723,
+    "details": "NI differs from neighbors (local MAD z=8.6)"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 142,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.312297328352399,
+    "details": "NI differs from neighbors (local MAD z=15.3)"
+  },
+  {
+    "pixel_x": 247,
+    "pixel_y": 142,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.308348410650278,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 101,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 47.8880157773192,
+    "details": "g differs from neighbors (local MAD z=47.9)"
+  },
+  {
+    "pixel_x": 250,
+    "pixel_y": 129,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 270.44545536248603,
+    "details": "g differs from neighbors (local MAD z=270.4)"
+  },
+  {
+    "pixel_x": 251,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.30908719777477,
+    "details": "λ differs from neighbors (local MAD z=13.3)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 100,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 43.38770122013492,
+    "details": "NI differs from neighbors (local MAD z=43.4)"
+  },
+  {
+    "pixel_x": 255,
+    "pixel_y": 98,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 654.4538714978745,
+    "details": "g differs from neighbors (local MAD z=654.5)"
+  },
+  {
+    "pixel_x": 257,
+    "pixel_y": 97,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.269805184485696,
+    "details": "g differs from neighbors (local MAD z=8.3)"
+  },
+  {
+    "pixel_x": 257,
+    "pixel_y": 98,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.725874135545099,
+    "details": "g differs from neighbors (local MAD z=6.7)"
+  },
+  {
+    "pixel_x": 257,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.155151849647855,
+    "details": "NI differs from neighbors (local MAD z=7.2)"
+  },
+  {
+    "pixel_x": 257,
+    "pixel_y": 252,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 35.01598603346387,
+    "details": "NI differs from neighbors (local MAD z=35.0)"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 284,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 22.90843321619384,
+    "details": "g differs from neighbors (local MAD z=22.9)"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.38259876508742,
+    "details": "λ differs from neighbors (local MAD z=6.4)"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 283,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.9995429715368,
+    "details": "g differs from neighbors (local MAD z=19.0)"
+  },
+  {
+    "pixel_x": 260,
+    "pixel_y": 284,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 52.178569567407294,
+    "details": "g differs from neighbors (local MAD z=52.2)"
+  },
+  {
+    "pixel_x": 261,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.462265493279075,
+    "details": "g differs from neighbors (local MAD z=15.5)"
+  },
+  {
+    "pixel_x": 261,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 27.75316477551694,
+    "details": "NI differs from neighbors (local MAD z=27.8)"
+  },
+  {
+    "pixel_x": 262,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 16.018816589862105,
+    "details": "g differs from neighbors (local MAD z=16.0)"
+  },
+  {
+    "pixel_x": 262,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.170296021296735,
+    "details": "g differs from neighbors (local MAD z=19.2)"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.896789152070422,
+    "details": "λ differs from neighbors (local MAD z=7.9)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.296021858029601,
+    "details": "NI differs from neighbors (local MAD z=7.3)"
+  },
+  {
+    "pixel_x": 265,
+    "pixel_y": 172,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 43.148736462073614,
+    "details": "λ differs from neighbors (local MAD z=43.1)"
+  },
+  {
+    "pixel_x": 265,
+    "pixel_y": 260,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 16.37893539860105,
+    "details": "g differs from neighbors (local MAD z=16.4)"
+  },
+  {
+    "pixel_x": 266,
+    "pixel_y": 129,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.673525607367306,
+    "details": "NI differs from neighbors (local MAD z=18.7)"
+  },
+  {
+    "pixel_x": 266,
+    "pixel_y": 238,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.503045887727003,
+    "details": "λ differs from neighbors (local MAD z=6.5)"
+  },
+  {
+    "pixel_x": 266,
+    "pixel_y": 239,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.611832480274336,
+    "details": "NI differs from neighbors (local MAD z=8.6)"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 132,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.792609155803092,
+    "details": "g differs from neighbors (local MAD z=14.8)"
+  },
+  {
+    "pixel_x": 269,
+    "pixel_y": 135,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.080831937180525,
+    "details": "g differs from neighbors (local MAD z=11.1)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 343.57544584485515,
+    "details": "NI differs from neighbors (local MAD z=343.6)"
+  },
+  {
+    "pixel_x": 271,
+    "pixel_y": 104,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.088545048697527,
+    "details": "NI differs from neighbors (local MAD z=7.1)"
+  },
+  {
+    "pixel_x": 272,
+    "pixel_y": 104,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 32.93440904895126,
+    "details": "NI differs from neighbors (local MAD z=32.9)"
+  },
+  {
+    "pixel_x": 272,
+    "pixel_y": 292,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 39.52139230534148,
+    "details": "g differs from neighbors (local MAD z=39.5)"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 308,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 33.84550715524254,
+    "details": "NI differs from neighbors (local MAD z=33.8)"
+  },
+  {
+    "pixel_x": 276,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 16.478903992701213,
+    "details": "g differs from neighbors (local MAD z=16.5)"
+  },
+  {
+    "pixel_x": 276,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.436156382181258,
+    "details": "g differs from neighbors (local MAD z=9.4)"
+  },
+  {
+    "pixel_x": 276,
+    "pixel_y": 238,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.242722991841363,
+    "details": "NI differs from neighbors (local MAD z=10.2)"
+  },
+  {
+    "pixel_x": 277,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.065116108421494,
+    "details": "g differs from neighbors (local MAD z=9.1)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.121010266136713,
+    "details": "NI differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 286,
+    "pixel_y": 90,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.583437831126291,
+    "details": "g differs from neighbors (local MAD z=14.6)"
+  },
+  {
+    "pixel_x": 287,
+    "pixel_y": 293,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.681910581916048,
+    "details": "NI differs from neighbors (local MAD z=12.7)"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 65,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 149.98744732697952,
+    "details": "g differs from neighbors (local MAD z=150.0)"
+  },
+  {
+    "pixel_x": 289,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.4536883242464445,
+    "details": "λ differs from neighbors (local MAD z=6.5)"
+  },
+  {
+    "pixel_x": 292,
+    "pixel_y": 249,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.075135595345284,
+    "details": "NI differs from neighbors (local MAD z=8.1)"
+  },
+  {
+    "pixel_x": 293,
+    "pixel_y": 256,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.204401871630814,
+    "details": "NI differs from neighbors (local MAD z=6.2)"
+  },
+  {
+    "pixel_x": 296,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.306747784484998,
+    "details": "NI differs from neighbors (local MAD z=7.3)"
+  },
+  {
+    "pixel_x": 296,
+    "pixel_y": 283,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 33.88873972257172,
+    "details": "g differs from neighbors (local MAD z=33.9)"
+  },
+  {
+    "pixel_x": 298,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.571901483346338,
+    "details": "g differs from neighbors (local MAD z=13.6)"
+  },
+  {
+    "pixel_x": 304,
+    "pixel_y": 66,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 1075.6848817226485,
+    "details": "NI differs from neighbors (local MAD z=1075.7)"
+  },
+  {
+    "pixel_x": 304,
+    "pixel_y": 271,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.034041224057367,
+    "details": "g differs from neighbors (local MAD z=14.0)"
+  },
+  {
+    "pixel_x": 305,
+    "pixel_y": 271,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.7103407599609,
+    "details": "NI differs from neighbors (local MAD z=18.7)"
+  },
+  {
+    "pixel_x": 306,
+    "pixel_y": 258,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.77873286025592,
+    "details": "NI differs from neighbors (local MAD z=14.8)"
+  },
+  {
+    "pixel_x": 306,
+    "pixel_y": 269,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 53.223773925231114,
+    "details": "g differs from neighbors (local MAD z=53.2)"
+  },
+  {
+    "pixel_x": 307,
+    "pixel_y": 255,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.285102094236237,
+    "details": "g differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 307,
+    "pixel_y": 256,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.837731292483813,
+    "details": "NI differs from neighbors (local MAD z=11.8)"
+  },
+  {
+    "pixel_x": 307,
+    "pixel_y": 269,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 290.4442598157709,
+    "details": "g differs from neighbors (local MAD z=290.4)"
+  },
+  {
+    "pixel_x": 310,
+    "pixel_y": 309,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 20.750152228495836,
+    "details": "NI differs from neighbors (local MAD z=20.8)"
+  },
+  {
+    "pixel_x": 312,
+    "pixel_y": 113,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.574518021728299,
+    "details": "g differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 315,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.409387792119103,
+    "details": "g differs from neighbors (local MAD z=9.4)"
+  },
+  {
+    "pixel_x": 316,
+    "pixel_y": 50,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.198741651451314,
+    "details": "g differs from neighbors (local MAD z=17.2)"
+  },
+  {
+    "pixel_x": 317,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.65437925805179,
+    "details": "NI differs from neighbors (local MAD z=7.7)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 38,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.95205445536829,
+    "details": "λ differs from neighbors (local MAD z=12.0)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 51,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.508662110388507,
+    "details": "NI differs from neighbors (local MAD z=18.5)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.141782478523872,
+    "details": "λ differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.027082066258771,
+    "details": "λ differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 34.490766028196795,
+    "details": "λ differs from neighbors (local MAD z=34.5)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.155020142938499,
+    "details": "λ differs from neighbors (local MAD z=12.2)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 237,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.639493670745677,
+    "details": "λ differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 280,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 761.0804234756738,
+    "details": "g differs from neighbors (local MAD z=761.1)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 317,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.547271699023124,
+    "details": "NI differs from neighbors (local MAD z=11.5)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 47,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.072493711157756,
+    "details": "g differs from neighbors (local MAD z=11.1)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 75,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.020864719357213,
+    "details": "NI differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 77,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 89.83243672399553,
+    "details": "g differs from neighbors (local MAD z=89.8)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 78,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 44.549008288737085,
+    "details": "g differs from neighbors (local MAD z=44.5)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 79,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 67.40135689557694,
+    "details": "g differs from neighbors (local MAD z=67.4)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 154,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.81348555285709,
+    "details": "λ differs from neighbors (local MAD z=6.8)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.909026483162807,
+    "details": "g differs from neighbors (local MAD z=11.9)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.738488701761101,
+    "details": "g differs from neighbors (local MAD z=10.7)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 102.95721112503146,
+    "details": "g differs from neighbors (local MAD z=103.0)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 69.95280481532275,
+    "details": "λ differs from neighbors (local MAD z=70.0)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.05491783636208,
+    "details": "λ differs from neighbors (local MAD z=19.1)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.69526740010486,
+    "details": "λ differs from neighbors (local MAD z=14.7)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 24.39137184894436,
+    "details": "λ differs from neighbors (local MAD z=24.4)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 20.746782855824343,
+    "details": "λ differs from neighbors (local MAD z=20.7)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.110139412595284,
+    "details": "λ differs from neighbors (local MAD z=18.1)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.878150787559128,
+    "details": "λ differs from neighbors (local MAD z=7.9)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.544535503716316,
+    "details": "λ differs from neighbors (local MAD z=14.5)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.619862070468397,
+    "details": "λ differs from neighbors (local MAD z=10.6)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.041106883357213,
+    "details": "NI differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 295,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.952578259481079,
+    "details": "g differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 296,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.329426573704459,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 300,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.696528929928369,
+    "details": "g differs from neighbors (local MAD z=6.7)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 302,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.49845519563066,
+    "details": "g differs from neighbors (local MAD z=8.5)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 306,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.92732987298188,
+    "details": "g differs from neighbors (local MAD z=18.9)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 316,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.763501675005665,
+    "details": "g differs from neighbors (local MAD z=9.8)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 322,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.875682409557871,
+    "details": "g differs from neighbors (local MAD z=10.9)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 325,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.11372435339544,
+    "details": "g differs from neighbors (local MAD z=10.1)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 33,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.361722008321433,
+    "details": "g differs from neighbors (local MAD z=19.4)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 44,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.678788495911425,
+    "details": "NI differs from neighbors (local MAD z=7.7)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 47,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.929539577541192,
+    "details": "g differs from neighbors (local MAD z=10.9)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 65,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.965654747466948,
+    "details": "NI differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 78,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.513983027097874,
+    "details": "g differs from neighbors (local MAD z=14.5)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 79,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 27.468350548184375,
+    "details": "g differs from neighbors (local MAD z=27.5)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.384227858791425,
+    "details": "λ differs from neighbors (local MAD z=11.4)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 206,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 12.71788315200465,
+    "details": "g differs from neighbors (local MAD z=12.7)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.060658950123614,
+    "details": "λ differs from neighbors (local MAD z=15.1)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.992213072325605,
+    "details": "λ differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 208,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 97.4186502318788,
+    "details": "λ differs from neighbors (local MAD z=97.4)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.956943561606353,
+    "details": "λ differs from neighbors (local MAD z=10.0)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.851648026987977,
+    "details": "λ differs from neighbors (local MAD z=17.9)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 230,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.5116267820347895,
+    "details": "NI differs from neighbors (local MAD z=6.5)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.553969863065065,
+    "details": "λ differs from neighbors (local MAD z=8.6)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 234,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.032673673833017,
+    "details": "λ differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 299,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.294337721621945,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 310,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 16.45872562255263,
+    "details": "g differs from neighbors (local MAD z=16.5)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 312,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.428851045885006,
+    "details": "g differs from neighbors (local MAD z=12.4)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 313,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.630770831024209,
+    "details": "g differs from neighbors (local MAD z=7.6)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 314,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.581626050848532,
+    "details": "g differs from neighbors (local MAD z=11.6)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 316,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.661657977482635,
+    "details": "g differs from neighbors (local MAD z=14.7)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 319,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.877887884936376,
+    "details": "g differs from neighbors (local MAD z=14.9)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 321,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 75.19836621634542,
+    "details": "g differs from neighbors (local MAD z=75.2)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 33,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 29.59457231165405,
+    "details": "g differs from neighbors (local MAD z=29.6)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 51,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.307544620371569,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.147265845852694,
+    "details": "λ differs from neighbors (local MAD z=18.1)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 126.38943536288163,
+    "details": "g differs from neighbors (local MAD z=126.4)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.870617147681504,
+    "details": "λ differs from neighbors (local MAD z=9.9)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 206,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 42.680773895667386,
+    "details": "g differs from neighbors (local MAD z=42.7)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.40182238682096,
+    "details": "λ differs from neighbors (local MAD z=12.4)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.296555340051304,
+    "details": "λ differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 208,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 10.424938972891113,
+    "details": "g differs from neighbors (local MAD z=10.4)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.395077048455364,
+    "details": "λ differs from neighbors (local MAD z=7.4)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 302,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.94206336429844,
+    "details": "g differs from neighbors (local MAD z=7.9)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 305,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.9520834838179395,
+    "details": "g differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 318,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.890591980333957,
+    "details": "g differs from neighbors (local MAD z=12.9)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 323,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.315969616327624,
+    "details": "g differs from neighbors (local MAD z=15.3)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 33,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.032711576856927,
+    "details": "NI differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 48,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.233347453092284,
+    "details": "NI differs from neighbors (local MAD z=8.2)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 55,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.933502629330762,
+    "details": "NI differs from neighbors (local MAD z=8.9)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 156,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.845788936518787,
+    "details": "λ differs from neighbors (local MAD z=21.8)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 300,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.618918723796015,
+    "details": "g differs from neighbors (local MAD z=7.6)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.245396349185132,
+    "details": "NI differs from neighbors (local MAD z=8.2)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 323,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.600305134224127,
+    "details": "g differs from neighbors (local MAD z=7.6)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 40,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.1767436855991,
+    "details": "NI differs from neighbors (local MAD z=12.2)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 157,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.08702719613458,
+    "details": "λ differs from neighbors (local MAD z=7.1)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 283,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.812214946888375,
+    "details": "NI differs from neighbors (local MAD z=6.8)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 308,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.790963332636727,
+    "details": "g differs from neighbors (local MAD z=8.8)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 309,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.543289626713094,
+    "details": "g differs from neighbors (local MAD z=9.5)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 319,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.002731189363255,
+    "details": "g differs from neighbors (local MAD z=14.0)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 321,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.94516175639891,
+    "details": "g differs from neighbors (local MAD z=18.9)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 323,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.143350474233486,
+    "details": "g differs from neighbors (local MAD z=11.1)"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 24.29050428350263,
+    "details": "g differs from neighbors (local MAD z=24.3)"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 304,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.964013250938512,
+    "details": "g differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.205421362589962,
+    "details": "NI differs from neighbors (local MAD z=6.2)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 49,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.184919791390083,
+    "details": "NI differs from neighbors (local MAD z=17.2)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 56,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 23.29233913676797,
+    "details": "NI differs from neighbors (local MAD z=23.3)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 65,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.45125671252656,
+    "details": "NI differs from neighbors (local MAD z=8.5)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.65502100873776,
+    "details": "NI differs from neighbors (local MAD z=17.7)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 315,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.095477132366353,
+    "details": "g differs from neighbors (local MAD z=8.1)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 316,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.498884637729809,
+    "details": "g differs from neighbors (local MAD z=8.5)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 319,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.168470218048277,
+    "details": "g differs from neighbors (local MAD z=13.2)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 324,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.488343653731368,
+    "details": "NI differs from neighbors (local MAD z=11.5)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 296,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.578139227934561,
+    "details": "NI differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 310,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.913086910436572,
+    "details": "NI differs from neighbors (local MAD z=8.9)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 312,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.75202848130506,
+    "details": "g differs from neighbors (local MAD z=7.8)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 313,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.56816572525048,
+    "details": "g differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 317,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.059797547179768,
+    "details": "g differs from neighbors (local MAD z=8.1)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 49,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 8.182191385799365,
+    "details": "NI differs from neighbors (local MAD z=8.2)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.606564241064977,
+    "details": "λ differs from neighbors (local MAD z=9.6)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 291,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.676554207232012,
+    "details": "NI differs from neighbors (local MAD z=6.7)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 304,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.329854104527814,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 319,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.145857781639075,
+    "details": "g differs from neighbors (local MAD z=7.1)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 35,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.595809505462594,
+    "details": "NI differs from neighbors (local MAD z=15.6)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 43,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.054305754607432,
+    "details": "NI differs from neighbors (local MAD z=8.1)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 45,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.54877665331678,
+    "details": "g differs from neighbors (local MAD z=11.5)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.059269755823275,
+    "details": "λ differs from neighbors (local MAD z=12.1)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 292,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.462438345265157,
+    "details": "NI differs from neighbors (local MAD z=6.5)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 315,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.296233645009855,
+    "details": "g differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 318,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.732769957165532,
+    "details": "NI differs from neighbors (local MAD z=8.7)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 325,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.39890649047101,
+    "details": "NI differs from neighbors (local MAD z=17.4)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 42,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.02933333547439,
+    "details": "g differs from neighbors (local MAD z=9.0)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.541424758308615,
+    "details": "λ differs from neighbors (local MAD z=18.5)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 16.67689025907953,
+    "details": "λ differs from neighbors (local MAD z=16.7)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 293,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.153149798038505,
+    "details": "NI differs from neighbors (local MAD z=8.2)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 312,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.928563716627946,
+    "details": "NI differs from neighbors (local MAD z=7.9)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 322,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.797125034902852,
+    "details": "g differs from neighbors (local MAD z=10.8)"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 40.42284659538512,
+    "details": "λ differs from neighbors (local MAD z=40.4)"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 309,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.249097687565789,
+    "details": "NI differs from neighbors (local MAD z=7.2)"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 325,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.409193471851284,
+    "details": "NI differs from neighbors (local MAD z=9.4)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 40,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.532913983985246,
+    "details": "NI differs from neighbors (local MAD z=8.5)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 97,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 9.538269196576183,
+    "details": "λ differs from neighbors (local MAD z=9.5)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.089623363659545,
+    "details": "g differs from neighbors (local MAD z=8.1)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 74.97933272717042,
+    "details": "λ differs from neighbors (local MAD z=75.0)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 134.83512854227712,
+    "details": "λ differs from neighbors (local MAD z=134.8)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 300,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.325532971351784,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.338294379677379,
+    "details": "NI differs from neighbors (local MAD z=7.3)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 311,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.856699933778822,
+    "details": "NI differs from neighbors (local MAD z=9.9)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 314,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.468867893213161,
+    "details": "NI differs from neighbors (local MAD z=6.5)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 322,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.26128419320317,
+    "details": "NI differs from neighbors (local MAD z=8.3)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 46,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.397366082438201,
+    "details": "NI differs from neighbors (local MAD z=6.4)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 50,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.193531303320563,
+    "details": "NI differs from neighbors (local MAD z=12.2)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 135,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.23593194295172,
+    "details": "λ differs from neighbors (local MAD z=7.2)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 172,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 38.14125478606274,
+    "details": "g differs from neighbors (local MAD z=38.1)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.011221630644066,
+    "details": "g differs from neighbors (local MAD z=18.0)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.501626276765322,
+    "details": "g differs from neighbors (local MAD z=7.5)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.95698743654553,
+    "details": "λ differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.37739772321571,
+    "details": "λ differs from neighbors (local MAD z=8.4)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 183,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.486716680124927,
+    "details": "λ differs from neighbors (local MAD z=10.5)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.876815781600186,
+    "details": "λ differs from neighbors (local MAD z=13.9)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.603639413263743,
+    "details": "λ differs from neighbors (local MAD z=8.6)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 298,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.53366358669009,
+    "details": "NI differs from neighbors (local MAD z=18.5)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 299,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.6946095205819365,
+    "details": "g differs from neighbors (local MAD z=6.7)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 302,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.750943292850348,
+    "details": "NI differs from neighbors (local MAD z=9.8)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 303,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.753722782343736,
+    "details": "NI differs from neighbors (local MAD z=19.8)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 324,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.026510015551936,
+    "details": "g differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 38,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.28910928426243,
+    "details": "NI differs from neighbors (local MAD z=17.3)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 42,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.354179075453077,
+    "details": "NI differs from neighbors (local MAD z=11.4)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.140014114727894,
+    "details": "λ differs from neighbors (local MAD z=14.1)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.277394157085045,
+    "details": "NI differs from neighbors (local MAD z=7.3)"
+  },
+  {
+    "pixel_x": 335,
+    "pixel_y": 132,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.012381222663861,
+    "details": "λ differs from neighbors (local MAD z=6.0)"
+  },
+  {
+    "pixel_x": 335,
+    "pixel_y": 135,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.138607668172408,
+    "details": "λ differs from neighbors (local MAD z=8.1)"
+  },
+  {
+    "pixel_x": 335,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.383375694381268,
+    "details": "λ differs from neighbors (local MAD z=11.4)"
+  },
+  {
+    "pixel_x": 335,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 74.52743813141346,
+    "details": "λ differs from neighbors (local MAD z=74.5)"
+  },
+  {
+    "pixel_x": 335,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.469225522702673,
+    "details": "λ differs from neighbors (local MAD z=7.5)"
+  },
+  {
+    "pixel_x": 336,
+    "pixel_y": 53,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.291053300802986,
+    "details": "NI differs from neighbors (local MAD z=7.3)"
+  },
+  {
+    "pixel_x": 336,
+    "pixel_y": 132,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.294930167015924,
+    "details": "λ differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 336,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.986423174294964,
+    "details": "λ differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 336,
+    "pixel_y": 305,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.5795567937867245,
+    "details": "NI differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 336,
+    "pixel_y": 308,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.895549537938601,
+    "details": "NI differs from neighbors (local MAD z=10.9)"
+  },
+  {
+    "pixel_x": 336,
+    "pixel_y": 319,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.043810311871469,
+    "details": "NI differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 50,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.11256530228794,
+    "details": "NI differs from neighbors (local MAD z=9.1)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.771766777376564,
+    "details": "λ differs from neighbors (local MAD z=11.8)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 74.83120220258266,
+    "details": "λ differs from neighbors (local MAD z=74.8)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 304,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.2159323867982454,
+    "details": "NI differs from neighbors (local MAD z=6.2)"
+  },
+  {
+    "pixel_x": 338,
+    "pixel_y": 36,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.123870778024202,
+    "details": "NI differs from neighbors (local MAD z=11.1)"
+  },
+  {
+    "pixel_x": 338,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 75.83580167477538,
+    "details": "λ differs from neighbors (local MAD z=75.8)"
+  },
+  {
+    "pixel_x": 338,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.774911340046119,
+    "details": "λ differs from neighbors (local MAD z=11.8)"
+  },
+  {
+    "pixel_x": 338,
+    "pixel_y": 286,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.216833590895817,
+    "details": "g differs from neighbors (local MAD z=19.2)"
+  },
+  {
+    "pixel_x": 338,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.737450869688537,
+    "details": "g differs from neighbors (local MAD z=11.7)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.802438863855153,
+    "details": "λ differs from neighbors (local MAD z=11.8)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 284,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 7.221974108284074,
+    "details": "λ differs from neighbors (local MAD z=7.2)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 285,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 8.217328868745636,
+    "details": "λ differs from neighbors (local MAD z=8.2)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 288,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.667569591280063,
+    "details": "λ differs from neighbors (local MAD z=6.7)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 311,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.396587237578192,
+    "details": "NI differs from neighbors (local MAD z=7.4)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.56466736430915,
+    "details": "λ differs from neighbors (local MAD z=19.6)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 284,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 9.64989512246317,
+    "details": "g differs from neighbors (local MAD z=9.6)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.044268773731978,
+    "details": "g differs from neighbors (local MAD z=6.0)"
+  },
+  {
+    "pixel_x": 341,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.692149570171154,
+    "details": "λ differs from neighbors (local MAD z=17.7)"
+  },
+  {
+    "pixel_x": 341,
+    "pixel_y": 321,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 545.7086457528703,
+    "details": "g differs from neighbors (local MAD z=545.7)"
+  },
+  {
+    "pixel_x": 342,
+    "pixel_y": 44,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.673183922562739,
+    "details": "NI differs from neighbors (local MAD z=11.7)"
+  },
+  {
+    "pixel_x": 342,
+    "pixel_y": 323,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.970955681889175,
+    "details": "NI differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 40,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.232233398899392,
+    "details": "NI differs from neighbors (local MAD z=6.2)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 321,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 49.616081814101605,
+    "details": "NI differs from neighbors (local MAD z=49.6)"
+  },
+  {
+    "pixel_x": 344,
+    "pixel_y": 39,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.083623256459223,
+    "details": "NI differs from neighbors (local MAD z=8.1)"
+  },
+  {
+    "pixel_x": 344,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.303223834591709,
+    "details": "λ differs from neighbors (local MAD z=9.3)"
+  },
+  {
+    "pixel_x": 345,
+    "pixel_y": 41,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.389401119348541,
+    "details": "NI differs from neighbors (local MAD z=6.4)"
+  },
+  {
+    "pixel_x": 345,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 53.07397000505483,
+    "details": "λ differs from neighbors (local MAD z=53.1)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 36,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.373857358747645,
+    "details": "NI differs from neighbors (local MAD z=6.4)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.515381337650766,
+    "details": "λ differs from neighbors (local MAD z=9.5)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 48.61865416098248,
+    "details": "λ differs from neighbors (local MAD z=48.6)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 137,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 29.495735666742213,
+    "details": "g differs from neighbors (local MAD z=29.5)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 139,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.014915047650241,
+    "details": "λ differs from neighbors (local MAD z=10.0)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 37.6568612364668,
+    "details": "λ differs from neighbors (local MAD z=37.7)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 303,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.312199582509187,
+    "details": "g differs from neighbors (local MAD z=11.3)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 304,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.54324419030763,
+    "details": "g differs from neighbors (local MAD z=6.5)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 320,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.111433544138051,
+    "details": "NI differs from neighbors (local MAD z=7.1)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 136,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.028627726335,
+    "details": "λ differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 137,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.523970069659027,
+    "details": "λ differs from neighbors (local MAD z=7.5)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 16.517511649679225,
+    "details": "λ differs from neighbors (local MAD z=16.5)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.587146096940437,
+    "details": "λ differs from neighbors (local MAD z=11.6)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 24.44431972336396,
+    "details": "λ differs from neighbors (local MAD z=24.4)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 304,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.60861501259567,
+    "details": "g differs from neighbors (local MAD z=7.6)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 305,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.404197746665139,
+    "details": "g differs from neighbors (local MAD z=13.4)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 318,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.298652208988358,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 320,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.029280811211244,
+    "details": "NI differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.015406308564279,
+    "details": "λ differs from neighbors (local MAD z=9.0)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.778173758751706,
+    "details": "λ differs from neighbors (local MAD z=12.8)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 322,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.750296122334458,
+    "details": "NI differs from neighbors (local MAD z=9.8)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.164550913255063,
+    "details": "λ differs from neighbors (local MAD z=21.2)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.23793464579199,
+    "details": "λ differs from neighbors (local MAD z=19.2)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.647753122471786,
+    "details": "λ differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.993165438581103,
+    "details": "λ differs from neighbors (local MAD z=13.0)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 222,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 10.42628508600942,
+    "details": "NI differs from neighbors (local MAD z=10.4)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.340847660784087,
+    "details": "λ differs from neighbors (local MAD z=12.3)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 22.00298070179081,
+    "details": "λ differs from neighbors (local MAD z=22.0)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 222,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.839170612236927,
+    "details": "λ differs from neighbors (local MAD z=11.8)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.364520193513979,
+    "details": "λ differs from neighbors (local MAD z=11.4)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 322,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.042845057762233,
+    "details": "NI differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 352,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.488248770679194,
+    "details": "λ differs from neighbors (local MAD z=14.5)"
+  },
+  {
+    "pixel_x": 352,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.18824790004079,
+    "details": "λ differs from neighbors (local MAD z=15.2)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.850260835590529,
+    "details": "λ differs from neighbors (local MAD z=8.9)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 143,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.308182809944018,
+    "details": "λ differs from neighbors (local MAD z=10.3)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.76892141639356,
+    "details": "λ differs from neighbors (local MAD z=7.8)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 143,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.819163694311865,
+    "details": "g differs from neighbors (local MAD z=9.8)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 25.6812771370654,
+    "details": "λ differs from neighbors (local MAD z=25.7)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.884191486184674,
+    "details": "λ differs from neighbors (local MAD z=7.9)"
+  },
+  {
+    "pixel_x": 355,
+    "pixel_y": 152,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.033264325420674,
+    "details": "λ differs from neighbors (local MAD z=17.0)"
+  },
+  {
+    "pixel_x": 355,
+    "pixel_y": 153,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.864294291604324,
+    "details": "λ differs from neighbors (local MAD z=18.9)"
+  },
+  {
+    "pixel_x": 355,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.342397580617972,
+    "details": "λ differs from neighbors (local MAD z=7.3)"
+  },
+  {
+    "pixel_x": 356,
+    "pixel_y": 37,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.24415161795272,
+    "details": "g differs from neighbors (local MAD z=15.2)"
+  },
+  {
+    "pixel_x": 357,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 301.76248975548253,
+    "details": "λ differs from neighbors (local MAD z=301.8)"
+  },
+  {
+    "pixel_x": 357,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 156.6804521730007,
+    "details": "λ differs from neighbors (local MAD z=156.7)"
+  },
+  {
+    "pixel_x": 357,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 28.55774653218021,
+    "details": "λ differs from neighbors (local MAD z=28.6)"
+  },
+  {
+    "pixel_x": 357,
+    "pixel_y": 297,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 10.935123066121726,
+    "details": "λ differs from neighbors (local MAD z=10.9)"
+  },
+  {
+    "pixel_x": 357,
+    "pixel_y": 300,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 38.84335851146147,
+    "details": "λ differs from neighbors (local MAD z=38.8)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 144,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.888679688406807,
+    "details": "g differs from neighbors (local MAD z=21.9)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.448546754903319,
+    "details": "g differs from neighbors (local MAD z=11.4)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 145,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 15.793893296913344,
+    "details": "λ differs from neighbors (local MAD z=15.8)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 177,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 36.19570737029315,
+    "details": "λ differs from neighbors (local MAD z=36.2)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 179,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 31.540551977784627,
+    "details": "λ differs from neighbors (local MAD z=31.5)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 179,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 7.531035492467325,
+    "details": "g differs from neighbors (local MAD z=7.5)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.207027000804244,
+    "details": "λ differs from neighbors (local MAD z=12.2)"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 108.45217757121269,
+    "details": "λ differs from neighbors (local MAD z=108.5)"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 177,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 45.644921075033054,
+    "details": "λ differs from neighbors (local MAD z=45.6)"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 179,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 73.42254641546323,
+    "details": "λ differs from neighbors (local MAD z=73.4)"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.689308161253114,
+    "details": "λ differs from neighbors (local MAD z=13.7)"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 22.255606538949433,
+    "details": "λ differs from neighbors (local MAD z=22.3)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 144,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.3367771755192175,
+    "details": "λ differs from neighbors (local MAD z=7.3)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.73844622435786,
+    "details": "λ differs from neighbors (local MAD z=7.7)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 307,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 15.923103432897284,
+    "details": "λ differs from neighbors (local MAD z=15.9)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 320,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.035571986422841,
+    "details": "g differs from neighbors (local MAD z=10.0)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 169.6793345149136,
+    "details": "g differs from neighbors (local MAD z=169.7)"
+  },
+  {
+    "pixel_x": 363,
+    "pixel_y": 134,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.772915879329735,
+    "details": "g differs from neighbors (local MAD z=14.8)"
+  },
+  {
+    "pixel_x": 364,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.412595404625623,
+    "details": "λ differs from neighbors (local MAD z=10.4)"
+  },
+  {
+    "pixel_x": 366,
+    "pixel_y": 134,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.607149102040507,
+    "details": "g differs from neighbors (local MAD z=12.6)"
+  },
+  {
+    "pixel_x": 366,
+    "pixel_y": 148,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.849006680821534,
+    "details": "λ differs from neighbors (local MAD z=7.8)"
+  },
+  {
+    "pixel_x": 366,
+    "pixel_y": 150,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.74047888831091,
+    "details": "λ differs from neighbors (local MAD z=8.7)"
+  },
+  {
+    "pixel_x": 366,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.987522217175773,
+    "details": "λ differs from neighbors (local MAD z=16.0)"
+  },
+  {
+    "pixel_x": 366,
+    "pixel_y": 281,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 13.724707317155147,
+    "details": "NI differs from neighbors (local MAD z=13.7)"
+  },
+  {
+    "pixel_x": 367,
+    "pixel_y": 150,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.927287539659015,
+    "details": "λ differs from neighbors (local MAD z=7.9)"
+  },
+  {
+    "pixel_x": 367,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.13442847825668,
+    "details": "λ differs from neighbors (local MAD z=10.1)"
+  },
+  {
+    "pixel_x": 367,
+    "pixel_y": 280,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 15.674446820953387,
+    "details": "NI differs from neighbors (local MAD z=15.7)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 107,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 17.038487607252055,
+    "details": "NI differs from neighbors (local MAD z=17.0)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 148,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.977704857350607,
+    "details": "λ differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.34230899955833,
+    "details": "λ differs from neighbors (local MAD z=17.3)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 56.99114780161536,
+    "details": "g differs from neighbors (local MAD z=57.0)"
+  },
+  {
+    "pixel_x": 369,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.410032871387454,
+    "details": "λ differs from neighbors (local MAD z=9.4)"
+  },
+  {
+    "pixel_x": 370,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 26.628087080185924,
+    "details": "λ differs from neighbors (local MAD z=26.6)"
+  },
+  {
+    "pixel_x": 370,
+    "pixel_y": 161,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.352483065585528,
+    "details": "λ differs from neighbors (local MAD z=15.4)"
+  },
+  {
+    "pixel_x": 370,
+    "pixel_y": 178,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 68.08226769722458,
+    "details": "λ differs from neighbors (local MAD z=68.1)"
+  },
+  {
+    "pixel_x": 370,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 46.95139310359846,
+    "details": "g differs from neighbors (local MAD z=47.0)"
+  },
+  {
+    "pixel_x": 371,
+    "pixel_y": 161,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.656548372116323,
+    "details": "λ differs from neighbors (local MAD z=13.7)"
+  },
+  {
+    "pixel_x": 371,
+    "pixel_y": 178,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 81.66410053657181,
+    "details": "λ differs from neighbors (local MAD z=81.7)"
+  },
+  {
+    "pixel_x": 371,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.9791609705313,
+    "details": "λ differs from neighbors (local MAD z=10.0)"
+  },
+  {
+    "pixel_x": 372,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 23.22133225502646,
+    "details": "λ differs from neighbors (local MAD z=23.2)"
+  },
+  {
+    "pixel_x": 372,
+    "pixel_y": 168,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 29.35468912676345,
+    "details": "λ differs from neighbors (local MAD z=29.4)"
+  },
+  {
+    "pixel_x": 372,
+    "pixel_y": 215,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.262385063383595,
+    "details": "NI differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 372,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.002087765490717,
+    "details": "g differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 372,
+    "pixel_y": 216,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 7.225997032649934,
+    "details": "λ differs from neighbors (local MAD z=7.2)"
+  },
+  {
+    "pixel_x": 373,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.509644696268252,
+    "details": "λ differs from neighbors (local MAD z=9.5)"
+  },
+  {
+    "pixel_x": 373,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.831280353165885,
+    "details": "g differs from neighbors (local MAD z=11.8)"
+  },
+  {
+    "pixel_x": 373,
+    "pixel_y": 316,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 586.2084249875801,
+    "details": "λ differs from neighbors (local MAD z=586.2)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 156,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.97919483623144,
+    "details": "λ differs from neighbors (local MAD z=9.0)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 168,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 24.19275071866579,
+    "details": "λ differs from neighbors (local MAD z=24.2)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 32.62824287080284,
+    "details": "λ differs from neighbors (local MAD z=32.6)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 176,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 456.97295680149443,
+    "details": "λ differs from neighbors (local MAD z=457.0)"
+  },
+  {
+    "pixel_x": 375,
+    "pixel_y": 70,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 29.487270121534156,
+    "details": "g differs from neighbors (local MAD z=29.5)"
+  },
+  {
+    "pixel_x": 375,
+    "pixel_y": 176,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 622.5366398178829,
+    "details": "λ differs from neighbors (local MAD z=622.5)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 44,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 598.3566685593487,
+    "details": "λ differs from neighbors (local MAD z=598.4)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 79,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.701041091176325,
+    "details": "NI differs from neighbors (local MAD z=6.7)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 123.22618668823849,
+    "details": "λ differs from neighbors (local MAD z=123.2)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 90.72314370933194,
+    "details": "λ differs from neighbors (local MAD z=90.7)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 171.82874736055456,
+    "details": "λ differs from neighbors (local MAD z=171.8)"
+  },
+  {
+    "pixel_x": 378,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 71.87393200150967,
+    "details": "λ differs from neighbors (local MAD z=71.9)"
+  },
+  {
+    "pixel_x": 379,
+    "pixel_y": 107,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.29261481081879,
+    "details": "g differs from neighbors (local MAD z=10.3)"
+  },
+  {
+    "pixel_x": 379,
+    "pixel_y": 139,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.471095163524958,
+    "details": "g differs from neighbors (local MAD z=6.5)"
+  },
+  {
+    "pixel_x": 380,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.557715099580747,
+    "details": "λ differs from neighbors (local MAD z=18.6)"
+  },
+  {
+    "pixel_x": 381,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.515315665607124,
+    "details": "λ differs from neighbors (local MAD z=15.5)"
+  },
+  {
+    "pixel_x": 381,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.237798607900597,
+    "details": "λ differs from neighbors (local MAD z=17.2)"
+  },
+  {
+    "pixel_x": 381,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.378435349953692,
+    "details": "λ differs from neighbors (local MAD z=14.4)"
+  },
+  {
+    "pixel_x": 382,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 99.3074719857994,
+    "details": "λ differs from neighbors (local MAD z=99.3)"
+  },
+  {
+    "pixel_x": 382,
+    "pixel_y": 311,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 611.0534994316159,
+    "details": "λ differs from neighbors (local MAD z=611.1)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.987212881769576,
+    "details": "λ differs from neighbors (local MAD z=14.0)"
+  },
+  {
+    "pixel_x": 384,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 39.89034339914493,
+    "details": "λ differs from neighbors (local MAD z=39.9)"
+  },
+  {
+    "pixel_x": 384,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 77.3665957321509,
+    "details": "λ differs from neighbors (local MAD z=77.4)"
+  },
+  {
+    "pixel_x": 385,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.53853883691537,
+    "details": "λ differs from neighbors (local MAD z=9.5)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 105,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 26.193218303252067,
+    "details": "g differs from neighbors (local MAD z=26.2)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 163,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.23381251734373,
+    "details": "λ differs from neighbors (local MAD z=11.2)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 164,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.137866548181346,
+    "details": "λ differs from neighbors (local MAD z=12.1)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.189702836210367,
+    "details": "λ differs from neighbors (local MAD z=13.2)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.618111080773045,
+    "details": "λ differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 387,
+    "pixel_y": 163,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.683081891228978,
+    "details": "λ differs from neighbors (local MAD z=10.7)"
+  },
+  {
+    "pixel_x": 387,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.505013654893348,
+    "details": "λ differs from neighbors (local MAD z=12.5)"
+  },
+  {
+    "pixel_x": 387,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.654721142863348,
+    "details": "λ differs from neighbors (local MAD z=13.7)"
+  },
+  {
+    "pixel_x": 387,
+    "pixel_y": 177,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 446.78993290515797,
+    "details": "λ differs from neighbors (local MAD z=446.8)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 96,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.825477755687332,
+    "details": "g differs from neighbors (local MAD z=7.8)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 98,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.680961432513715,
+    "details": "g differs from neighbors (local MAD z=13.7)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.74629543438278,
+    "details": "λ differs from neighbors (local MAD z=21.7)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 176,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 23.01946725581016,
+    "details": "λ differs from neighbors (local MAD z=23.0)"
+  },
+  {
+    "pixel_x": 389,
+    "pixel_y": 96,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 128.20409984937166,
+    "details": "g differs from neighbors (local MAD z=128.2)"
+  },
+  {
+    "pixel_x": 389,
+    "pixel_y": 98,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 29.28272931695865,
+    "details": "g differs from neighbors (local MAD z=29.3)"
+  },
+  {
+    "pixel_x": 389,
+    "pixel_y": 177,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 305.31328089786433,
+    "details": "λ differs from neighbors (local MAD z=305.3)"
+  },
+  {
+    "pixel_x": 390,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 20.0641866960666,
+    "details": "λ differs from neighbors (local MAD z=20.1)"
+  },
+  {
+    "pixel_x": 390,
+    "pixel_y": 258,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 27.500123559657084,
+    "details": "NI differs from neighbors (local MAD z=27.5)"
+  },
+  {
+    "pixel_x": 391,
+    "pixel_y": 92,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.251470061876763,
+    "details": "g differs from neighbors (local MAD z=8.3)"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 92,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 80.40221144817149,
+    "details": "g differs from neighbors (local MAD z=80.4)"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 141,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 13.160556457307528,
+    "details": "NI differs from neighbors (local MAD z=13.2)"
+  },
+  {
+    "pixel_x": 394,
+    "pixel_y": 55,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 649.1620448933655,
+    "details": "λ differs from neighbors (local MAD z=649.2)"
+  },
+  {
+    "pixel_x": 394,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.4444711892280155,
+    "details": "λ differs from neighbors (local MAD z=7.4)"
+  },
+  {
+    "pixel_x": 394,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.180404340644845,
+    "details": "λ differs from neighbors (local MAD z=11.2)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 85,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.913851558443081,
+    "details": "g differs from neighbors (local MAD z=12.9)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 87,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.470088294467056,
+    "details": "g differs from neighbors (local MAD z=9.5)"
+  },
+  {
+    "pixel_x": 396,
+    "pixel_y": 85,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 40.19841747590455,
+    "details": "g differs from neighbors (local MAD z=40.2)"
+  },
+  {
+    "pixel_x": 396,
+    "pixel_y": 87,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 146.7810788785269,
+    "details": "g differs from neighbors (local MAD z=146.8)"
+  },
+  {
+    "pixel_x": 397,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 53.972473942383914,
+    "details": "g differs from neighbors (local MAD z=54.0)"
+  },
+  {
+    "pixel_x": 398,
+    "pixel_y": 169,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.919541824770727,
+    "details": "λ differs from neighbors (local MAD z=15.9)"
+  },
+  {
+    "pixel_x": 399,
+    "pixel_y": 169,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.314575065380252,
+    "details": "λ differs from neighbors (local MAD z=15.3)"
+  },
+  {
+    "pixel_x": 399,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.452711499902335,
+    "details": "λ differs from neighbors (local MAD z=6.5)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 86,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 25.323371896566602,
+    "details": "g differs from neighbors (local MAD z=25.3)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 113,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 117.8312175688039,
+    "details": "NI differs from neighbors (local MAD z=117.8)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 158,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.5620704443316855,
+    "details": "λ differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.0385151291687755,
+    "details": "λ differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 78,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.788864691120843,
+    "details": "g differs from neighbors (local MAD z=17.8)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 79,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 31.09332666716496,
+    "details": "g differs from neighbors (local MAD z=31.1)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 113,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 49.559815541130774,
+    "details": "NI differs from neighbors (local MAD z=49.6)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 114,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 30.538868866577385,
+    "details": "λ differs from neighbors (local MAD z=30.5)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 178,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 560.5001938965244,
+    "details": "λ differs from neighbors (local MAD z=560.5)"
+  },
+  {
+    "pixel_x": 402,
+    "pixel_y": 178,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 455.7807000059598,
+    "details": "λ differs from neighbors (local MAD z=455.8)"
+  },
+  {
+    "pixel_x": 404,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 16.522062026396032,
+    "details": "λ differs from neighbors (local MAD z=16.5)"
+  },
+  {
+    "pixel_x": 404,
+    "pixel_y": 171,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 18.905804824237975,
+    "details": "λ differs from neighbors (local MAD z=18.9)"
+  },
+  {
+    "pixel_x": 404,
+    "pixel_y": 171,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 8.04040967972542,
+    "details": "λ differs from neighbors (local MAD z=8.0)"
+  },
+  {
+    "pixel_x": 404,
+    "pixel_y": 172,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 22.069806589667326,
+    "details": "λ differs from neighbors (local MAD z=22.1)"
+  },
+  {
+    "pixel_x": 404,
+    "pixel_y": 287,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 12.108779661404277,
+    "details": "NI differs from neighbors (local MAD z=12.1)"
+  },
+  {
+    "pixel_x": 405,
+    "pixel_y": 172,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 8.969942449081792,
+    "details": "λ differs from neighbors (local MAD z=9.0)"
+  },
+  {
+    "pixel_x": 405,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 26.072684161437483,
+    "details": "λ differs from neighbors (local MAD z=26.1)"
+  },
+  {
+    "pixel_x": 405,
+    "pixel_y": 293,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 687.8816028161588,
+    "details": "λ differs from neighbors (local MAD z=687.9)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 68,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 1428.4566492546846,
+    "details": "λ differs from neighbors (local MAD z=1428.5)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 80,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.32892131456639,
+    "details": "g differs from neighbors (local MAD z=11.3)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 90,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 31.568304949203284,
+    "details": "NI differs from neighbors (local MAD z=31.6)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 172,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 20.719158108986722,
+    "details": "λ differs from neighbors (local MAD z=20.7)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 172,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 560.5472175569677,
+    "details": "g differs from neighbors (local MAD z=560.5)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 49.843380469339984,
+    "details": "λ differs from neighbors (local MAD z=49.8)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 70,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.988742022278903,
+    "details": "g differs from neighbors (local MAD z=11.0)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 93,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.120101140119967,
+    "details": "NI differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.497140727451365,
+    "details": "λ differs from neighbors (local MAD z=9.5)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.851841069893347,
+    "details": "λ differs from neighbors (local MAD z=10.9)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.3040444748859,
+    "details": "λ differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 204,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.824746416142886,
+    "details": "NI differs from neighbors (local MAD z=6.8)"
+  },
+  {
+    "pixel_x": 410,
+    "pixel_y": 72,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 51.41466505218717,
+    "details": "g differs from neighbors (local MAD z=51.4)"
+  },
+  {
+    "pixel_x": 410,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.786916471324677,
+    "details": "λ differs from neighbors (local MAD z=10.8)"
+  },
+  {
+    "pixel_x": 410,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.40841849723554,
+    "details": "g differs from neighbors (local MAD z=17.4)"
+  },
+  {
+    "pixel_x": 410,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.403213224758924,
+    "details": "g differs from neighbors (local MAD z=11.4)"
+  },
+  {
+    "pixel_x": 411,
+    "pixel_y": 73,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 27.42610340959987,
+    "details": "g differs from neighbors (local MAD z=27.4)"
+  },
+  {
+    "pixel_x": 411,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 22.97271649111226,
+    "details": "λ differs from neighbors (local MAD z=23.0)"
+  },
+  {
+    "pixel_x": 411,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 84.31224544996356,
+    "details": "g differs from neighbors (local MAD z=84.3)"
+  },
+  {
+    "pixel_x": 411,
+    "pixel_y": 225,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 7.1354520546146105,
+    "details": "g differs from neighbors (local MAD z=7.1)"
+  },
+  {
+    "pixel_x": 412,
+    "pixel_y": 75,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13.26391563611068,
+    "details": "g differs from neighbors (local MAD z=13.3)"
+  },
+  {
+    "pixel_x": 414,
+    "pixel_y": 77,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.6728849848063065,
+    "details": "g differs from neighbors (local MAD z=7.7)"
+  },
+  {
+    "pixel_x": 414,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.730869414146849,
+    "details": "λ differs from neighbors (local MAD z=10.7)"
+  },
+  {
+    "pixel_x": 414,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.145860530424168,
+    "details": "g differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 415,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.37659663329275,
+    "details": "g differs from neighbors (local MAD z=19.4)"
+  },
+  {
+    "pixel_x": 416,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.90116310318165,
+    "details": "λ differs from neighbors (local MAD z=8.9)"
+  },
+  {
+    "pixel_x": 416,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.124343994230054,
+    "details": "g differs from neighbors (local MAD z=10.1)"
+  },
+  {
+    "pixel_x": 417,
+    "pixel_y": 81,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 1627.2829736794329,
+    "details": "λ differs from neighbors (local MAD z=1627.3)"
+  },
+  {
+    "pixel_x": 418,
+    "pixel_y": 152,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.664473811830215,
+    "details": "λ differs from neighbors (local MAD z=8.7)"
+  },
+  {
+    "pixel_x": 418,
+    "pixel_y": 177,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 83.67161947958573,
+    "details": "λ differs from neighbors (local MAD z=83.7)"
+  },
+  {
+    "pixel_x": 419,
+    "pixel_y": 152,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.673492457335136,
+    "details": "λ differs from neighbors (local MAD z=8.7)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 85,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 1723.9954746422397,
+    "details": "λ differs from neighbors (local MAD z=1724.0)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 178,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 224.26237479194685,
+    "details": "λ differs from neighbors (local MAD z=224.3)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.1935268596589435,
+    "details": "λ differs from neighbors (local MAD z=6.2)"
+  },
+  {
+    "pixel_x": 421,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.065733331771067,
+    "details": "λ differs from neighbors (local MAD z=10.1)"
+  },
+  {
+    "pixel_x": 422,
+    "pixel_y": 164,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.74433290697728,
+    "details": "λ differs from neighbors (local MAD z=7.7)"
+  },
+  {
+    "pixel_x": 422,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.343169384989638,
+    "details": "λ differs from neighbors (local MAD z=8.3)"
+  },
+  {
+    "pixel_x": 422,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.065020404398243,
+    "details": "λ differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 423,
+    "pixel_y": 100,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 9.295099798499889,
+    "details": "g differs from neighbors (local MAD z=9.3)"
+  },
+  {
+    "pixel_x": 423,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.11235755050813,
+    "details": "λ differs from neighbors (local MAD z=9.1)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 94,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 1896.504893543624,
+    "details": "λ differs from neighbors (local MAD z=1896.5)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 264,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 1913.3301178339987,
+    "details": "λ differs from neighbors (local MAD z=1913.3)"
+  },
+  {
+    "pixel_x": 427,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.873552356108787,
+    "details": "λ differs from neighbors (local MAD z=12.9)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.141645775193826,
+    "details": "λ differs from neighbors (local MAD z=15.1)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 119,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.126246527488682,
+    "details": "NI differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.212107672457021,
+    "details": "λ differs from neighbors (local MAD z=6.2)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.49310238099284,
+    "details": "λ differs from neighbors (local MAD z=19.5)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.571826273648887,
+    "details": "λ differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.058654628845383,
+    "details": "λ differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 433,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.418255583347543,
+    "details": "λ differs from neighbors (local MAD z=9.4)"
+  },
+  {
+    "pixel_x": 433,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 8.623420830923738,
+    "details": "λ differs from neighbors (local MAD z=8.6)"
+  },
+  {
+    "pixel_x": 434,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 2521.1523793686138,
+    "details": "λ differs from neighbors (local MAD z=2521.2)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 164,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.973012242147205,
+    "details": "λ differs from neighbors (local MAD z=7.0)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 22.62939397194415,
+    "details": "g differs from neighbors (local MAD z=22.6)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 36.255110925877425,
+    "details": "g differs from neighbors (local MAD z=36.3)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 124,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 2964.880598991006,
+    "details": "λ differs from neighbors (local MAD z=2964.9)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 2983.842905979872,
+    "details": "λ differs from neighbors (local MAD z=2983.8)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.801670148898479,
+    "details": "g differs from neighbors (local MAD z=10.8)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 224,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 72.76080229846926,
+    "details": "g differs from neighbors (local MAD z=72.8)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 225,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 6.880059084866157,
+    "details": "λ differs from neighbors (local MAD z=6.9)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.991239590545591,
+    "details": "g differs from neighbors (local MAD z=16.0)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 235,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 2913.3022353467213,
+    "details": "λ differs from neighbors (local MAD z=2913.3)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.487549151833015,
+    "details": "g differs from neighbors (local MAD z=10.5)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.55817650593077,
+    "details": "g differs from neighbors (local MAD z=21.6)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 3102.445418863281,
+    "details": "λ differs from neighbors (local MAD z=3102.4)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 142,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 238.4124198868507,
+    "details": "NI differs from neighbors (local MAD z=238.4)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.107933210134436,
+    "details": "g differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 59.31544655226041,
+    "details": "g differs from neighbors (local MAD z=59.3)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 3393.8610767578953,
+    "details": "λ differs from neighbors (local MAD z=3393.9)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15.881388542791958,
+    "details": "λ differs from neighbors (local MAD z=15.9)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 136,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 3756.0192902584326,
+    "details": "λ differs from neighbors (local MAD z=3756.0)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 137,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 405.9927938518958,
+    "details": "λ differs from neighbors (local MAD z=406.0)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 144,
+    "order": 1,
+    "category": "Spatial Discontinuity",
+    "value": 122.26643471010597,
+    "details": "NI differs from neighbors (local MAD z=122.3)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 4009.491047076479,
+    "details": "λ differs from neighbors (local MAD z=4009.5)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 4148.386731860152,
+    "details": "λ differs from neighbors (local MAD z=4148.4)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 146,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.297686563461582,
+    "details": "λ differs from neighbors (local MAD z=6.3)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.663772809526133,
+    "details": "λ differs from neighbors (local MAD z=7.7)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.003619851686719,
+    "details": "λ differs from neighbors (local MAD z=6.0)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 149,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.125550664689288,
+    "details": "λ differs from neighbors (local MAD z=7.1)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 151,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7.379478873933293,
+    "details": "λ differs from neighbors (local MAD z=7.4)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.60013560906213,
+    "details": "λ differs from neighbors (local MAD z=6.6)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 5159.233954933911,
+    "details": "λ differs from neighbors (local MAD z=5159.2)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 154,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6608.271681115494,
+    "details": "λ differs from neighbors (local MAD z=6608.3)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 156,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7027.2228959334825,
+    "details": "λ differs from neighbors (local MAD z=7027.2)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 157,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.325061476277567,
+    "details": "λ differs from neighbors (local MAD z=9.3)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 160,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.742928757776983,
+    "details": "λ differs from neighbors (local MAD z=10.7)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 162,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.035228958916207,
+    "details": "λ differs from neighbors (local MAD z=12.0)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.840540126106603,
+    "details": "λ differs from neighbors (local MAD z=17.8)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 17.167180993816412,
+    "details": "λ differs from neighbors (local MAD z=17.2)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.113593235977595,
+    "details": "λ differs from neighbors (local MAD z=6.1)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 116,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 106.64946694678058,
+    "details": "NI differs from neighbors (local MAD z=106.6)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 9.506023497242298,
+    "details": "NI differs from neighbors (local MAD z=9.5)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14179.08691017454,
+    "details": "λ differs from neighbors (local MAD z=14179.1)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 169,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 15537.888089457563,
+    "details": "λ differs from neighbors (local MAD z=15537.9)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 35.39485091029545,
+    "details": "λ differs from neighbors (local MAD z=35.4)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 21.26362742779148,
+    "details": "λ differs from neighbors (local MAD z=21.3)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 26.93696813711869,
+    "details": "λ differs from neighbors (local MAD z=26.9)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 176,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 36.6489870083436,
+    "details": "λ differs from neighbors (local MAD z=36.6)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 86.94627749854152,
+    "details": "λ differs from neighbors (local MAD z=86.9)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 47.10625848799099,
+    "details": "λ differs from neighbors (local MAD z=47.1)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 32.23822136347294,
+    "details": "λ differs from neighbors (local MAD z=32.2)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 183,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 24.465614618559037,
+    "details": "λ differs from neighbors (local MAD z=24.5)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19.687616596483373,
+    "details": "λ differs from neighbors (local MAD z=19.7)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 16.453054758176194,
+    "details": "λ differs from neighbors (local MAD z=16.5)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 14.118002556993861,
+    "details": "λ differs from neighbors (local MAD z=14.1)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 12.352999027192032,
+    "details": "λ differs from neighbors (local MAD z=12.4)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7871.301578183004,
+    "details": "λ differs from neighbors (local MAD z=7871.3)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 13739.221666386156,
+    "details": "λ differs from neighbors (local MAD z=13739.2)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 7822.208512282069,
+    "details": "λ differs from neighbors (local MAD z=7822.2)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 171,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 19420.100574054974,
+    "details": "λ differs from neighbors (local MAD z=19420.1)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.136527320345966,
+    "details": "NI differs from neighbors (local MAD z=10.1)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.218828854278424,
+    "details": "g differs from neighbors (local MAD z=11.2)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 6.172437866017802,
+    "details": "NI differs from neighbors (local MAD z=6.2)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 11.870187335458086,
+    "details": "λ differs from neighbors (local MAD z=11.9)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Spatial Discontinuity",
+    "value": 10.739263702264118,
+    "details": "λ differs from neighbors (local MAD z=10.7)"
+  }
+]

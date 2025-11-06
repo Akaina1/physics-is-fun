@@ -1,0 +1,6490 @@
+[
+  {
+    "pixel_x": 173,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.859702e-9,
+    "details": "NI=4.860e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 173,
+    "pixel_y": 210,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.859702e-9,
+    "details": "NI=4.860e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 176,
+    "pixel_y": 172,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.1537737e-8,
+    "details": "NI=2.154e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 182,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0638093e-8,
+    "details": "NI=1.064e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 183,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.697636e-9,
+    "details": "NI=1.698e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 184,
+    "pixel_y": 131,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0545639e-8,
+    "details": "NI=1.055e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 185,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.177566e-9,
+    "details": "NI=2.178e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 185,
+    "pixel_y": 207,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.177566e-9,
+    "details": "NI=2.178e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 186,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1797374e-8,
+    "details": "NI=1.180e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 186,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.4574227e-8,
+    "details": "NI=2.457e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 187,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.117764e-9,
+    "details": "NI=1.118e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 187,
+    "pixel_y": 242,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0716877e-8,
+    "details": "NI=1.072e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 188,
+    "pixel_y": 161,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2389461e-8,
+    "details": "NI=1.239e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 188,
+    "pixel_y": 161,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.2389461e-8,
+    "details": "NI=1.239e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 188,
+    "pixel_y": 161,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.2389461e-8,
+    "details": "NI=1.239e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 193,
+    "pixel_y": 169,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.3490316e-8,
+    "details": "NI=1.349e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 193,
+    "pixel_y": 169,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.3490316e-8,
+    "details": "NI=1.349e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 196,
+    "pixel_y": 144,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.7801e-9,
+    "details": "NI=1.780e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 196,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.24462939e-7,
+    "details": "NI=1.245e-7 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 198,
+    "pixel_y": 104,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.588009e-9,
+    "details": "NI=1.588e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 198,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.4691509e-8,
+    "details": "NI=1.469e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 199,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.3486455e-8,
+    "details": "NI=1.349e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 199,
+    "pixel_y": 219,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.3486455e-8,
+    "details": "NI=1.349e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 199,
+    "pixel_y": 219,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.3486455e-8,
+    "details": "NI=1.349e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 202,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.282764e-9,
+    "details": "NI=1.283e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 204,
+    "pixel_y": 89,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.284955e-9,
+    "details": "NI=2.285e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 204,
+    "pixel_y": 89,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.284955e-9,
+    "details": "NI=2.285e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 204,
+    "pixel_y": 89,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.284955e-9,
+    "details": "NI=2.285e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 204,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.811914e-9,
+    "details": "NI=1.812e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 206,
+    "pixel_y": 255,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.4138181e-8,
+    "details": "NI=2.414e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 206,
+    "pixel_y": 255,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.4138181e-8,
+    "details": "NI=2.414e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 206,
+    "pixel_y": 255,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.4138181e-8,
+    "details": "NI=2.414e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 208,
+    "pixel_y": 80,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.344163e-9,
+    "details": "NI=2.344e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 208,
+    "pixel_y": 80,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.344163e-9,
+    "details": "NI=2.344e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 208,
+    "pixel_y": 172,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.383513e-8,
+    "details": "NI=1.384e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 210,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0068e-9,
+    "details": "NI=1.007e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 210,
+    "pixel_y": 193,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.0068e-9,
+    "details": "NI=1.007e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 210,
+    "pixel_y": 254,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.573316e-9,
+    "details": "NI=1.573e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 211,
+    "pixel_y": 136,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.749933e-9,
+    "details": "NI=2.750e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 211,
+    "pixel_y": 136,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.749933e-9,
+    "details": "NI=2.750e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 212,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.004226e-9,
+    "details": "NI=1.004e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 213,
+    "pixel_y": 104,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.557195e-9,
+    "details": "NI=2.557e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 213,
+    "pixel_y": 146,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.5121038e-8,
+    "details": "NI=3.512e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 213,
+    "pixel_y": 146,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.5121038e-8,
+    "details": "NI=3.512e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 213,
+    "pixel_y": 146,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.5121038e-8,
+    "details": "NI=3.512e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 214,
+    "pixel_y": 76,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.562164e-9,
+    "details": "NI=1.562e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 215,
+    "pixel_y": 277,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.3035379e-8,
+    "details": "NI=4.304e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 215,
+    "pixel_y": 277,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.3035379e-8,
+    "details": "NI=4.304e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 215,
+    "pixel_y": 277,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 4.3035379e-8,
+    "details": "NI=4.304e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 217,
+    "pixel_y": 90,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.690215e-9,
+    "details": "NI=1.690e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 217,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.94717e-9,
+    "details": "NI=1.947e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 217,
+    "pixel_y": 209,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.94717e-9,
+    "details": "NI=1.947e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 218,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.136853e-9,
+    "details": "NI=1.137e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 219,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.5659368e-8,
+    "details": "NI=1.566e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 220,
+    "pixel_y": 146,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.017659e-9,
+    "details": "NI=1.018e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 220,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.039718e-9,
+    "details": "NI=1.040e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 220,
+    "pixel_y": 214,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.039718e-9,
+    "details": "NI=1.040e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 221,
+    "pixel_y": 104,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2497578e-8,
+    "details": "NI=1.250e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 221,
+    "pixel_y": 104,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.2497578e-8,
+    "details": "NI=1.250e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 221,
+    "pixel_y": 104,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.2497578e-8,
+    "details": "NI=1.250e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 221,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.075407e-9,
+    "details": "NI=1.075e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 221,
+    "pixel_y": 212,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.075407e-9,
+    "details": "NI=1.075e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 223,
+    "pixel_y": 133,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.115613e-9,
+    "details": "NI=3.116e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 223,
+    "pixel_y": 133,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.115613e-9,
+    "details": "NI=3.116e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 223,
+    "pixel_y": 133,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.115613e-9,
+    "details": "NI=3.116e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 223,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.816272e-9,
+    "details": "NI=4.816e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 223,
+    "pixel_y": 285,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.454572e-9,
+    "details": "NI=1.455e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 224,
+    "pixel_y": 76,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.903642e-9,
+    "details": "NI=1.904e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 224,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.129331e-9,
+    "details": "NI=1.129e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 224,
+    "pixel_y": 284,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.008283e-9,
+    "details": "NI=1.008e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 66,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1924124e-8,
+    "details": "NI=1.192e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.207484e-9,
+    "details": "NI=1.207e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.151786e-9,
+    "details": "NI=1.152e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 195,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.151786e-9,
+    "details": "NI=1.152e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 195,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.151786e-9,
+    "details": "NI=1.152e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 225,
+    "pixel_y": 278,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.9042005e-8,
+    "details": "NI=4.904e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 228,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.121183e-9,
+    "details": "NI=1.121e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 228,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.236719e-9,
+    "details": "NI=1.237e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 229,
+    "pixel_y": 65,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.019968e-9,
+    "details": "NI=1.020e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.5502494e-8,
+    "details": "NI=1.550e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 128,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.5502494e-8,
+    "details": "NI=1.550e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 128,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.5502494e-8,
+    "details": "NI=1.550e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.245181e-9,
+    "details": "NI=1.245e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 195,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.245181e-9,
+    "details": "NI=1.245e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 258,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.3185188e-8,
+    "details": "NI=1.319e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 123,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.0141217e-8,
+    "details": "NI=3.014e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.167983e-9,
+    "details": "NI=1.168e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.227929e-9,
+    "details": "NI=2.228e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.072006e-9,
+    "details": "NI=1.072e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 231,
+    "pixel_y": 200,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.072006e-9,
+    "details": "NI=1.072e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 139,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.146721e-9,
+    "details": "NI=1.147e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 139,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.146721e-9,
+    "details": "NI=1.147e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.315782e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 193,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.315782e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 193,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.315782e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.142951e-9,
+    "details": "NI=1.143e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 213,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.142951e-9,
+    "details": "NI=1.143e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 234,
+    "pixel_y": 254,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.851883e-9,
+    "details": "NI=4.852e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 86,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.048363e-9,
+    "details": "NI=1.048e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 142,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.239954e-9,
+    "details": "NI=1.240e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.9870074e-8,
+    "details": "NI=1.987e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 235,
+    "pixel_y": 254,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.930829e-9,
+    "details": "NI=4.931e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 236,
+    "pixel_y": 278,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2617767e-8,
+    "details": "NI=1.262e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 241,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.213908e-9,
+    "details": "NI=1.214e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 86,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2714653e-8,
+    "details": "NI=1.271e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 146,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.037105e-9,
+    "details": "NI=1.037e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.254702e-9,
+    "details": "NI=1.255e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 239,
+    "pixel_y": 219,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.254702e-9,
+    "details": "NI=1.255e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 57,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.301866e-9,
+    "details": "NI=1.302e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 57,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.301866e-9,
+    "details": "NI=1.302e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 57,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.301866e-9,
+    "details": "NI=1.302e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.274239e-9,
+    "details": "NI=1.274e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 240,
+    "pixel_y": 244,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.000538e-9,
+    "details": "NI=1.001e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 70,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1258941e-8,
+    "details": "NI=1.126e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.351266e-9,
+    "details": "NI=1.351e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 137,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.563388e-9,
+    "details": "NI=1.563e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.433349e-9,
+    "details": "NI=1.433e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.762451e-9,
+    "details": "NI=1.762e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.328995e-9,
+    "details": "NI=1.329e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.576355e-9,
+    "details": "NI=1.576e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 218,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.576355e-9,
+    "details": "NI=1.576e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 241,
+    "pixel_y": 218,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.576355e-9,
+    "details": "NI=1.576e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 242,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.014447e-9,
+    "details": "NI=1.014e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 242,
+    "pixel_y": 296,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.371404e-9,
+    "details": "NI=1.371e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 243,
+    "pixel_y": 84,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.3236114e-8,
+    "details": "NI=1.324e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 244,
+    "pixel_y": 235,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.9370495e-8,
+    "details": "NI=1.937e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 244,
+    "pixel_y": 235,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.9370495e-8,
+    "details": "NI=1.937e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 244,
+    "pixel_y": 235,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.9370495e-8,
+    "details": "NI=1.937e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 120,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.113307e-9,
+    "details": "NI=1.113e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.222012e-9,
+    "details": "NI=1.222e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 166,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.222012e-9,
+    "details": "NI=1.222e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 245,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.881346e-9,
+    "details": "NI=2.881e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.211245e-9,
+    "details": "NI=1.211e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 233,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.211245e-9,
+    "details": "NI=1.211e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 246,
+    "pixel_y": 233,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.211245e-9,
+    "details": "NI=1.211e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 247,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.005351e-9,
+    "details": "NI=2.005e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 108,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 7.051914e-8,
+    "details": "NI=7.052e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 108,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 7.051914e-8,
+    "details": "NI=7.052e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.3812721e-8,
+    "details": "NI=2.381e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.315777e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 220,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.315777e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 248,
+    "pixel_y": 289,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2380236e-8,
+    "details": "NI=1.238e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 249,
+    "pixel_y": 64,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.486089e-9,
+    "details": "NI=1.486e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 249,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.236647e-9,
+    "details": "NI=3.237e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 249,
+    "pixel_y": 208,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.236647e-9,
+    "details": "NI=3.237e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 249,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.517459e-9,
+    "details": "NI=1.517e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 250,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.301908e-9,
+    "details": "NI=1.302e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 250,
+    "pixel_y": 309,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.23244e-9,
+    "details": "NI=2.232e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 250,
+    "pixel_y": 309,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.23244e-9,
+    "details": "NI=2.232e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 250,
+    "pixel_y": 309,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.23244e-9,
+    "details": "NI=2.232e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 251,
+    "pixel_y": 113,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.193037e-9,
+    "details": "NI=1.193e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 251,
+    "pixel_y": 113,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.193037e-9,
+    "details": "NI=1.193e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 251,
+    "pixel_y": 113,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.193037e-9,
+    "details": "NI=1.193e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 251,
+    "pixel_y": 132,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.345656e-9,
+    "details": "NI=1.346e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 251,
+    "pixel_y": 132,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.345656e-9,
+    "details": "NI=1.346e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 130,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.316477e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 130,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.316477e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 130,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.316477e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.134466e-9,
+    "details": "NI=2.134e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 201,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.134466e-9,
+    "details": "NI=2.134e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 253,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.4043193e-8,
+    "details": "NI=2.404e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 254,
+    "pixel_y": 169,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.892901e-9,
+    "details": "NI=1.893e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 254,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.46128e-9,
+    "details": "NI=1.461e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 255,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.124084e-9,
+    "details": "NI=1.124e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 156,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.795291e-9,
+    "details": "NI=1.795e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.6924886e-8,
+    "details": "NI=2.692e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.761155e-9,
+    "details": "NI=1.761e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.737771e-9,
+    "details": "NI=1.738e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 263,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.086627e-9,
+    "details": "NI=1.087e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 258,
+    "pixel_y": 263,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.086627e-9,
+    "details": "NI=1.087e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 127,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.288855e-8,
+    "details": "NI=2.289e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.767098e-9,
+    "details": "NI=1.767e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.809071e-9,
+    "details": "NI=1.809e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 259,
+    "pixel_y": 184,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.809071e-9,
+    "details": "NI=1.809e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 261,
+    "pixel_y": 251,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.017983e-9,
+    "details": "NI=1.018e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 262,
+    "pixel_y": 68,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.4033186e-8,
+    "details": "NI=1.403e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 262,
+    "pixel_y": 160,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.129887e-9,
+    "details": "NI=1.130e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.070034e-9,
+    "details": "NI=4.070e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 263,
+    "pixel_y": 267,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.005002e-9,
+    "details": "NI=1.005e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 89,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.063925e-9,
+    "details": "NI=1.064e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 89,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.063925e-9,
+    "details": "NI=1.064e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 94,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.086337e-9,
+    "details": "NI=1.086e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 94,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.086337e-9,
+    "details": "NI=1.086e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 94,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.086337e-9,
+    "details": "NI=1.086e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 130,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.33082e-9,
+    "details": "NI=1.331e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 274,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.818175e-9,
+    "details": "NI=1.818e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 274,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.818175e-9,
+    "details": "NI=1.818e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 295,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.555871e-9,
+    "details": "NI=1.556e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 295,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.555871e-9,
+    "details": "NI=1.556e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 264,
+    "pixel_y": 295,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.555871e-9,
+    "details": "NI=1.556e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 265,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.745046e-9,
+    "details": "NI=1.745e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 265,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.573322e-9,
+    "details": "NI=1.573e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 265,
+    "pixel_y": 220,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.573322e-9,
+    "details": "NI=1.573e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 265,
+    "pixel_y": 289,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.076039e-9,
+    "details": "NI=1.076e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 266,
+    "pixel_y": 235,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.436101e-9,
+    "details": "NI=1.436e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 88,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.028121e-9,
+    "details": "NI=1.028e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 97,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.145701e-9,
+    "details": "NI=1.146e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.37355e-9,
+    "details": "NI=2.374e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 305,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1698837e-8,
+    "details": "NI=1.170e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 305,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.1698837e-8,
+    "details": "NI=1.170e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 267,
+    "pixel_y": 305,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.1698837e-8,
+    "details": "NI=1.170e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 268,
+    "pixel_y": 94,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.7905199e-8,
+    "details": "NI=1.791e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 268,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.551223e-9,
+    "details": "NI=1.551e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 268,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.428598e-9,
+    "details": "NI=1.429e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 268,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.5047063e-8,
+    "details": "NI=1.505e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 268,
+    "pixel_y": 288,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.5047063e-8,
+    "details": "NI=1.505e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 269,
+    "pixel_y": 54,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.17211e-9,
+    "details": "NI=1.172e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 269,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.531523e-9,
+    "details": "NI=1.532e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 269,
+    "pixel_y": 216,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.531523e-9,
+    "details": "NI=1.532e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 269,
+    "pixel_y": 266,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.162212e-8,
+    "details": "NI=3.162e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 147,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.106081e-9,
+    "details": "NI=2.106e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 147,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.106081e-9,
+    "details": "NI=2.106e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 147,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.106081e-9,
+    "details": "NI=2.106e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.55538725e-7,
+    "details": "NI=1.555e-7 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 252,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.331548e-9,
+    "details": "NI=1.332e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 252,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.331548e-9,
+    "details": "NI=1.332e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 252,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.331548e-9,
+    "details": "NI=1.332e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 287,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.113429e-9,
+    "details": "NI=1.113e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 270,
+    "pixel_y": 287,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.113429e-9,
+    "details": "NI=1.113e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 271,
+    "pixel_y": 103,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.089377e-9,
+    "details": "NI=1.089e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 271,
+    "pixel_y": 177,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.512247e-9,
+    "details": "NI=3.512e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 271,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.667752e-9,
+    "details": "NI=1.668e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 271,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.78482e-9,
+    "details": "NI=1.785e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 271,
+    "pixel_y": 237,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.50165e-9,
+    "details": "NI=1.502e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 272,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.082853e-9,
+    "details": "NI=1.083e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 272,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.653565e-9,
+    "details": "NI=1.654e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 272,
+    "pixel_y": 128,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.653565e-9,
+    "details": "NI=1.654e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 272,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.5646084e-8,
+    "details": "NI=4.565e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 273,
+    "pixel_y": 150,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.915276e-9,
+    "details": "NI=1.915e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 273,
+    "pixel_y": 177,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.185814e-9,
+    "details": "NI=2.186e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 274,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.335345e-9,
+    "details": "NI=1.335e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 274,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.4998908e-8,
+    "details": "NI=2.500e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 274,
+    "pixel_y": 230,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.4998908e-8,
+    "details": "NI=2.500e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 274,
+    "pixel_y": 243,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.054358e-9,
+    "details": "NI=1.054e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 70,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.556023e-9,
+    "details": "NI=2.556e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 131,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.8994483e-8,
+    "details": "NI=2.899e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 147,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.972702e-9,
+    "details": "NI=1.973e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 275,
+    "pixel_y": 244,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.490618e-9,
+    "details": "NI=1.491e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 276,
+    "pixel_y": 250,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.2854073e-8,
+    "details": "NI=2.285e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 276,
+    "pixel_y": 258,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.183385e-9,
+    "details": "NI=1.183e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 276,
+    "pixel_y": 258,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.183385e-9,
+    "details": "NI=1.183e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 277,
+    "pixel_y": 63,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.666066e-9,
+    "details": "NI=2.666e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 277,
+    "pixel_y": 76,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.5429377e-8,
+    "details": "NI=1.543e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 277,
+    "pixel_y": 76,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.5429377e-8,
+    "details": "NI=1.543e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 277,
+    "pixel_y": 136,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.534141e-9,
+    "details": "NI=2.534e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 277,
+    "pixel_y": 160,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.23846e-9,
+    "details": "NI=1.238e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 277,
+    "pixel_y": 172,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.286627e-9,
+    "details": "NI=2.287e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 278,
+    "pixel_y": 102,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.283163e-9,
+    "details": "NI=1.283e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 278,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.901605e-9,
+    "details": "NI=2.902e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 278,
+    "pixel_y": 176,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.208507e-9,
+    "details": "NI=3.209e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 278,
+    "pixel_y": 176,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.208507e-9,
+    "details": "NI=3.209e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 279,
+    "pixel_y": 110,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.413502e-9,
+    "details": "NI=1.414e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 279,
+    "pixel_y": 110,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.413502e-9,
+    "details": "NI=1.414e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 279,
+    "pixel_y": 110,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.413502e-9,
+    "details": "NI=1.414e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 279,
+    "pixel_y": 156,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.811046e-9,
+    "details": "NI=2.811e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 279,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.321158e-9,
+    "details": "NI=1.321e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 279,
+    "pixel_y": 286,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.5402897e-8,
+    "details": "NI=1.540e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 279,
+    "pixel_y": 286,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.5402897e-8,
+    "details": "NI=1.540e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 280,
+    "pixel_y": 92,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.206251e-9,
+    "details": "NI=1.206e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 280,
+    "pixel_y": 92,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.206251e-9,
+    "details": "NI=1.206e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 280,
+    "pixel_y": 92,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.206251e-9,
+    "details": "NI=1.206e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 280,
+    "pixel_y": 122,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.7211474e-8,
+    "details": "NI=2.721e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 280,
+    "pixel_y": 134,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.99678e-9,
+    "details": "NI=1.997e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 280,
+    "pixel_y": 170,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.804604e-9,
+    "details": "NI=1.805e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 281,
+    "pixel_y": 150,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.067842e-9,
+    "details": "NI=2.068e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 282,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.400828e-9,
+    "details": "NI=1.401e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 282,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.185736e-9,
+    "details": "NI=1.186e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 282,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.197705e-9,
+    "details": "NI=1.198e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 282,
+    "pixel_y": 206,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.161782e-9,
+    "details": "NI=1.162e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 282,
+    "pixel_y": 206,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.161782e-9,
+    "details": "NI=1.162e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 282,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.194595e-9,
+    "details": "NI=1.195e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 282,
+    "pixel_y": 246,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.105588e-9,
+    "details": "NI=1.106e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 88,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.432478e-9,
+    "details": "NI=1.432e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.952865e-9,
+    "details": "NI=3.953e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 190,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.952865e-9,
+    "details": "NI=3.953e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 190,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.952865e-9,
+    "details": "NI=3.953e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.264082e-9,
+    "details": "NI=3.264e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.179145e-9,
+    "details": "NI=1.179e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 207,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.179145e-9,
+    "details": "NI=1.179e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 283,
+    "pixel_y": 249,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.415727e-9,
+    "details": "NI=4.416e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 284,
+    "pixel_y": 95,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.148888e-9,
+    "details": "NI=1.149e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 284,
+    "pixel_y": 116,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.602055e-9,
+    "details": "NI=1.602e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 284,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.369381e-9,
+    "details": "NI=1.369e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 284,
+    "pixel_y": 244,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.500409e-9,
+    "details": "NI=1.500e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 284,
+    "pixel_y": 253,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.47592e-9,
+    "details": "NI=1.476e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.123403e-9,
+    "details": "NI=2.123e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 189,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.063809e-9,
+    "details": "NI=1.064e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 189,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.063809e-9,
+    "details": "NI=1.064e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 247,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.514278e-9,
+    "details": "NI=1.514e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 252,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.372477e-9,
+    "details": "NI=1.372e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 286,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.017685e-9,
+    "details": "NI=1.018e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 286,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.017685e-9,
+    "details": "NI=1.018e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 286,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 5.055656e-9,
+    "details": "NI=5.056e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 287,
+    "pixel_y": 38,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0734961e-8,
+    "details": "NI=1.073e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 287,
+    "pixel_y": 38,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.0734961e-8,
+    "details": "NI=1.073e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 287,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.294418e-9,
+    "details": "NI=3.294e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 287,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.450466e-9,
+    "details": "NI=1.450e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.8543733e-8,
+    "details": "NI=2.854e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.157432e-9,
+    "details": "NI=1.157e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 205,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.157432e-9,
+    "details": "NI=1.157e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.118755e-9,
+    "details": "NI=2.119e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 226,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.118755e-9,
+    "details": "NI=2.119e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 299,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.3978556e-8,
+    "details": "NI=1.398e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 288,
+    "pixel_y": 299,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.3978556e-8,
+    "details": "NI=1.398e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 289,
+    "pixel_y": 96,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.290152e-9,
+    "details": "NI=1.290e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 289,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.358664e-9,
+    "details": "NI=3.359e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 289,
+    "pixel_y": 118,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.358664e-9,
+    "details": "NI=3.359e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 289,
+    "pixel_y": 118,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.358664e-9,
+    "details": "NI=3.359e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 289,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.084708e-9,
+    "details": "NI=3.085e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 289,
+    "pixel_y": 271,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.632745e-8,
+    "details": "NI=1.633e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 290,
+    "pixel_y": 54,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2219994e-8,
+    "details": "NI=1.222e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 290,
+    "pixel_y": 197,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.48018e-9,
+    "details": "NI=3.480e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 291,
+    "pixel_y": 105,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.306905e-8,
+    "details": "NI=2.307e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 291,
+    "pixel_y": 133,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.126261e-9,
+    "details": "NI=1.126e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 291,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.699282e-9,
+    "details": "NI=1.699e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 291,
+    "pixel_y": 204,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.699282e-9,
+    "details": "NI=1.699e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 292,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.029914e-9,
+    "details": "NI=1.030e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 293,
+    "pixel_y": 140,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.657767e-9,
+    "details": "NI=1.658e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 293,
+    "pixel_y": 201,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.196181e-9,
+    "details": "NI=1.196e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 293,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.983972e-9,
+    "details": "NI=3.984e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 293,
+    "pixel_y": 205,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.983972e-9,
+    "details": "NI=3.984e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 293,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.114052e-9,
+    "details": "NI=1.114e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 293,
+    "pixel_y": 211,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.114052e-9,
+    "details": "NI=1.114e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 294,
+    "pixel_y": 90,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.064942e-9,
+    "details": "NI=1.065e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 294,
+    "pixel_y": 90,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.064942e-9,
+    "details": "NI=1.065e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 47,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.668194e-9,
+    "details": "NI=1.668e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 133,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.463576e-9,
+    "details": "NI=1.464e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 3.673253e-9,
+    "details": "NI=3.673e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 209,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.673253e-9,
+    "details": "NI=3.673e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 209,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.673253e-9,
+    "details": "NI=3.673e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 228,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.00921e-9,
+    "details": "NI=2.009e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 267,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.220782e-9,
+    "details": "NI=1.221e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 295,
+    "pixel_y": 267,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.220782e-9,
+    "details": "NI=1.221e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 297,
+    "pixel_y": 113,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.414767e-9,
+    "details": "NI=1.415e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 297,
+    "pixel_y": 205,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.763481e-9,
+    "details": "NI=1.763e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 297,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.153595e-9,
+    "details": "NI=1.154e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 297,
+    "pixel_y": 220,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.153595e-9,
+    "details": "NI=1.154e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 297,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.07909e-9,
+    "details": "NI=2.079e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 298,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.526259e-9,
+    "details": "NI=2.526e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 298,
+    "pixel_y": 249,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.088116e-9,
+    "details": "NI=1.088e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 298,
+    "pixel_y": 258,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.9846958e-8,
+    "details": "NI=1.985e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 298,
+    "pixel_y": 322,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0333122e-8,
+    "details": "NI=1.033e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 300,
+    "pixel_y": 61,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.3365388e-8,
+    "details": "NI=1.337e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 300,
+    "pixel_y": 61,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.3365388e-8,
+    "details": "NI=1.337e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 300,
+    "pixel_y": 61,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.3365388e-8,
+    "details": "NI=1.337e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 300,
+    "pixel_y": 130,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.313894e-9,
+    "details": "NI=1.314e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 300,
+    "pixel_y": 130,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.313894e-9,
+    "details": "NI=1.314e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 301,
+    "pixel_y": 100,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.378512e-9,
+    "details": "NI=1.379e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 301,
+    "pixel_y": 123,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.933223e-9,
+    "details": "NI=1.933e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 301,
+    "pixel_y": 209,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.255977e-9,
+    "details": "NI=1.256e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 301,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.79263e-9,
+    "details": "NI=2.793e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 301,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.733813e-9,
+    "details": "NI=4.734e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 301,
+    "pixel_y": 226,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.733813e-9,
+    "details": "NI=4.734e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 301,
+    "pixel_y": 226,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 4.733813e-9,
+    "details": "NI=4.734e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 302,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.114503e-9,
+    "details": "NI=1.115e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 302,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.596754e-9,
+    "details": "NI=1.597e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 303,
+    "pixel_y": 201,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.403199e-9,
+    "details": "NI=2.403e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 303,
+    "pixel_y": 201,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.403199e-9,
+    "details": "NI=2.403e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 304,
+    "pixel_y": 85,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.052115e-9,
+    "details": "NI=1.052e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 304,
+    "pixel_y": 87,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.105374e-9,
+    "details": "NI=1.105e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 304,
+    "pixel_y": 87,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.105374e-9,
+    "details": "NI=1.105e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 304,
+    "pixel_y": 87,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.105374e-9,
+    "details": "NI=1.105e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 306,
+    "pixel_y": 267,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.12449e-9,
+    "details": "NI=1.124e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 309,
+    "pixel_y": 256,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.910785e-9,
+    "details": "NI=1.911e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 310,
+    "pixel_y": 274,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.7047206e-8,
+    "details": "NI=1.705e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 312,
+    "pixel_y": 130,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.0389076e-8,
+    "details": "NI=1.039e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 312,
+    "pixel_y": 250,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.3682527e-8,
+    "details": "NI=2.368e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 312,
+    "pixel_y": 255,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.181446e-9,
+    "details": "NI=1.181e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 313,
+    "pixel_y": 52,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2418514e-8,
+    "details": "NI=1.242e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 313,
+    "pixel_y": 74,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.009025e-9,
+    "details": "NI=1.009e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 315,
+    "pixel_y": 69,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.3746887e-8,
+    "details": "NI=1.375e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 316,
+    "pixel_y": 80,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.100508e-9,
+    "details": "NI=1.101e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 317,
+    "pixel_y": 99,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.395442e-9,
+    "details": "NI=1.395e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 317,
+    "pixel_y": 99,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.395442e-9,
+    "details": "NI=1.395e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 317,
+    "pixel_y": 259,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.47069e-9,
+    "details": "NI=1.471e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 318,
+    "pixel_y": 286,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.58696213e-7,
+    "details": "NI=1.587e-7 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 318,
+    "pixel_y": 286,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.58696213e-7,
+    "details": "NI=1.587e-7 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 318,
+    "pixel_y": 286,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.58696213e-7,
+    "details": "NI=1.587e-7 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 319,
+    "pixel_y": 268,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.0493925e-8,
+    "details": "NI=2.049e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 54,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.3107814e-8,
+    "details": "NI=1.311e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 209,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.229612e-9,
+    "details": "NI=1.230e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 217,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.053715e-9,
+    "details": "NI=3.054e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 217,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.053715e-9,
+    "details": "NI=3.054e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 219,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.663491e-9,
+    "details": "NI=3.663e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 219,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.663491e-9,
+    "details": "NI=3.663e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 276,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.130596e-9,
+    "details": "NI=1.131e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 276,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.130596e-9,
+    "details": "NI=1.131e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 276,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.130596e-9,
+    "details": "NI=1.131e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 76,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.016298e-9,
+    "details": "NI=1.016e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 98,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.045562e-9,
+    "details": "NI=1.046e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 99,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.0254204e-8,
+    "details": "NI=2.025e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 251,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.386282e-9,
+    "details": "NI=1.386e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 251,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.386282e-9,
+    "details": "NI=1.386e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 279,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.025097e-9,
+    "details": "NI=1.025e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 279,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.025097e-9,
+    "details": "NI=1.025e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 322,
+    "pixel_y": 279,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.025097e-9,
+    "details": "NI=1.025e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 41,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.3322054e-8,
+    "details": "NI=4.332e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 41,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.3322054e-8,
+    "details": "NI=4.332e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 90,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.385791e-9,
+    "details": "NI=2.386e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 90,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.385791e-9,
+    "details": "NI=2.386e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 223,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 5.1977592e-8,
+    "details": "NI=5.198e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 223,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 5.1977592e-8,
+    "details": "NI=5.198e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 242,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.248861e-9,
+    "details": "NI=1.249e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 242,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.248861e-9,
+    "details": "NI=1.249e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 79,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.401208e-9,
+    "details": "NI=1.401e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 79,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.401208e-9,
+    "details": "NI=1.401e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 132,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.279753e-9,
+    "details": "NI=1.280e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 235,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.245041e-9,
+    "details": "NI=2.245e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 235,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.245041e-9,
+    "details": "NI=2.245e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 281,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.011607e-9,
+    "details": "NI=1.012e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 281,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.011607e-9,
+    "details": "NI=1.012e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 281,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.011607e-9,
+    "details": "NI=1.012e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 292,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.024228e-9,
+    "details": "NI=2.024e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 324,
+    "pixel_y": 309,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2494127e-8,
+    "details": "NI=1.249e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 213,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.71161e-9,
+    "details": "NI=1.712e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 258,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.088809e-9,
+    "details": "NI=1.089e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 325,
+    "pixel_y": 263,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.317821e-9,
+    "details": "NI=1.318e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 50,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2257726e-8,
+    "details": "NI=1.226e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 51,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.526735e-9,
+    "details": "NI=2.527e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 132,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 7.37753e-9,
+    "details": "NI=7.378e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 132,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 7.37753e-9,
+    "details": "NI=7.378e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 205,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.72634e-9,
+    "details": "NI=2.726e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 126,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.6400459e-8,
+    "details": "NI=3.640e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 213,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.4743491e-8,
+    "details": "NI=1.474e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 214,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.663564e-9,
+    "details": "NI=2.664e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 214,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.663564e-9,
+    "details": "NI=2.664e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 223,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.5495162e-8,
+    "details": "NI=4.550e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 251,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.6407398e-8,
+    "details": "NI=2.641e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 289,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.023706e-9,
+    "details": "NI=1.024e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 50,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 4.270846e-9,
+    "details": "NI=4.271e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 69,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.038145e-9,
+    "details": "NI=1.038e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 69,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.038145e-9,
+    "details": "NI=1.038e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 92,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.088884e-9,
+    "details": "NI=1.089e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 107,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.478156e-9,
+    "details": "NI=1.478e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 107,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.478156e-9,
+    "details": "NI=1.478e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 210,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 5.355195e-9,
+    "details": "NI=5.355e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 210,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 5.355195e-9,
+    "details": "NI=5.355e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 241,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.735036e-9,
+    "details": "NI=1.735e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 328,
+    "pixel_y": 292,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.5828399e-8,
+    "details": "NI=1.583e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 287,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.5879173e-8,
+    "details": "NI=1.588e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 287,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.5879173e-8,
+    "details": "NI=1.588e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 329,
+    "pixel_y": 316,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1004829e-8,
+    "details": "NI=1.100e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 128,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.087015e-9,
+    "details": "NI=1.087e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 134,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.213308e-9,
+    "details": "NI=2.213e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 218,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.821003e-9,
+    "details": "NI=1.821e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 218,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.821003e-9,
+    "details": "NI=1.821e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 226,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.17091e-9,
+    "details": "NI=2.171e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 277,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.594759e-9,
+    "details": "NI=3.595e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 277,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.594759e-9,
+    "details": "NI=3.595e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 208,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.308448e-9,
+    "details": "NI=1.308e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 309,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2103927e-8,
+    "details": "NI=1.210e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 331,
+    "pixel_y": 309,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.2103927e-8,
+    "details": "NI=1.210e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 80,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.108217e-9,
+    "details": "NI=1.108e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 80,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.108217e-9,
+    "details": "NI=1.108e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 218,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.208795e-9,
+    "details": "NI=4.209e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 218,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 4.208795e-9,
+    "details": "NI=4.209e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 224,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.550955e-9,
+    "details": "NI=3.551e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 332,
+    "pixel_y": 275,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.095783e-9,
+    "details": "NI=1.096e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 70,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.3886092e-8,
+    "details": "NI=1.389e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 83,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.8518331e-8,
+    "details": "NI=1.852e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 83,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.8518331e-8,
+    "details": "NI=1.852e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 282,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.186113e-9,
+    "details": "NI=1.186e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 51,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1732208e-8,
+    "details": "NI=1.173e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 51,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.1732208e-8,
+    "details": "NI=1.173e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 204,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.45154e-9,
+    "details": "NI=1.452e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 204,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.45154e-9,
+    "details": "NI=1.452e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 214,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.588567e-9,
+    "details": "NI=1.589e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 214,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.588567e-9,
+    "details": "NI=1.589e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 313,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.2579517e-8,
+    "details": "NI=1.258e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 334,
+    "pixel_y": 315,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1192638e-8,
+    "details": "NI=1.119e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 335,
+    "pixel_y": 41,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1703798e-8,
+    "details": "NI=1.170e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 335,
+    "pixel_y": 41,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.1703798e-8,
+    "details": "NI=1.170e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 336,
+    "pixel_y": 95,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.6638117e-8,
+    "details": "NI=1.664e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 336,
+    "pixel_y": 105,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.639936e-9,
+    "details": "NI=1.640e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 100,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.2719726e-8,
+    "details": "NI=2.272e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 100,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.2719726e-8,
+    "details": "NI=2.272e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 215,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.69792e-9,
+    "details": "NI=1.698e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 228,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.186841e-9,
+    "details": "NI=2.187e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 279,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 9.94779e-9,
+    "details": "NI=9.948e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 279,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 9.94779e-9,
+    "details": "NI=9.948e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 299,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1856024e-8,
+    "details": "NI=1.186e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 299,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.2960822e-8,
+    "details": "NI=1.296e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 304,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.774535e-9,
+    "details": "NI=1.775e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 337,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.367815e-8,
+    "details": "NI=1.368e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 96,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.198144e-9,
+    "details": "NI=1.198e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 123,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.75973e-9,
+    "details": "NI=1.760e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 123,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.75973e-9,
+    "details": "NI=1.760e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 211,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.596716e-9,
+    "details": "NI=1.597e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 219,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 5.148591e-8,
+    "details": "NI=5.149e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 37,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.318195e-9,
+    "details": "NI=1.318e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 104,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.074075e-9,
+    "details": "NI=1.074e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 200,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.568907e-9,
+    "details": "NI=2.569e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 200,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.568907e-9,
+    "details": "NI=2.569e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 207,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.042342e-9,
+    "details": "NI=1.042e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 340,
+    "pixel_y": 232,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.895664e-9,
+    "details": "NI=1.896e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 341,
+    "pixel_y": 111,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.838002e-9,
+    "details": "NI=1.838e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 341,
+    "pixel_y": 215,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.39367e-9,
+    "details": "NI=1.394e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 341,
+    "pixel_y": 311,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.147588e-9,
+    "details": "NI=1.148e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 342,
+    "pixel_y": 136,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.507675e-9,
+    "details": "NI=2.508e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 342,
+    "pixel_y": 205,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.646606e-9,
+    "details": "NI=3.647e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 342,
+    "pixel_y": 230,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.31625e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 342,
+    "pixel_y": 230,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.31625e-9,
+    "details": "NI=1.316e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 112,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 5.0928706e-8,
+    "details": "NI=5.093e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 210,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.245143e-9,
+    "details": "NI=3.245e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 210,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.245143e-9,
+    "details": "NI=3.245e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 223,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.614128e-9,
+    "details": "NI=2.614e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 223,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.614128e-9,
+    "details": "NI=2.614e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 231,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.201819e-9,
+    "details": "NI=2.202e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 257,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.232643e-9,
+    "details": "NI=1.233e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 264,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.457756e-9,
+    "details": "NI=1.458e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 264,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.457756e-9,
+    "details": "NI=1.458e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 275,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.7969949e-8,
+    "details": "NI=1.797e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 344,
+    "pixel_y": 273,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.150317e-9,
+    "details": "NI=1.150e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 344,
+    "pixel_y": 273,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.150317e-9,
+    "details": "NI=1.150e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 344,
+    "pixel_y": 321,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0433713e-8,
+    "details": "NI=1.043e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 344,
+    "pixel_y": 321,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.0433713e-8,
+    "details": "NI=1.043e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 344,
+    "pixel_y": 321,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.0433713e-8,
+    "details": "NI=1.043e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 345,
+    "pixel_y": 41,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.339418e-9,
+    "details": "NI=1.339e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 345,
+    "pixel_y": 242,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.005499e-9,
+    "details": "NI=1.005e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 119,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.009421e-9,
+    "details": "NI=1.009e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 203,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.210609e-9,
+    "details": "NI=1.211e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 203,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.210609e-9,
+    "details": "NI=1.211e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 226,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.437811e-9,
+    "details": "NI=1.438e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 226,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.437811e-9,
+    "details": "NI=1.438e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 286,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.4279442e-8,
+    "details": "NI=1.428e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 346,
+    "pixel_y": 286,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.4279442e-8,
+    "details": "NI=1.428e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 36,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.529882e-9,
+    "details": "NI=1.530e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 111,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.432734e-9,
+    "details": "NI=1.433e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 118,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.347778e-9,
+    "details": "NI=1.348e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 118,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.347778e-9,
+    "details": "NI=1.348e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 209,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.82175e-9,
+    "details": "NI=1.822e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 209,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.82175e-9,
+    "details": "NI=1.822e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 217,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.841997e-9,
+    "details": "NI=2.842e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 217,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.841997e-9,
+    "details": "NI=2.842e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 347,
+    "pixel_y": 242,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.047292e-9,
+    "details": "NI=1.047e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 105,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.143658e-9,
+    "details": "NI=1.144e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 105,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.143658e-9,
+    "details": "NI=1.144e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 348,
+    "pixel_y": 244,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.639728e-9,
+    "details": "NI=1.640e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 60,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.3521618e-8,
+    "details": "NI=1.352e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 89,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.219919e-9,
+    "details": "NI=1.220e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 89,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.219919e-9,
+    "details": "NI=1.220e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 126,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.135858e-9,
+    "details": "NI=1.136e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 126,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.135858e-9,
+    "details": "NI=1.136e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 219,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.026482e-9,
+    "details": "NI=1.026e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 219,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.026482e-9,
+    "details": "NI=1.026e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 227,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.433482e-9,
+    "details": "NI=1.433e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 227,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.433482e-9,
+    "details": "NI=1.433e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 242,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 9.9087594e-8,
+    "details": "NI=9.909e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 245,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.610369e-9,
+    "details": "NI=4.610e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 245,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 4.610369e-9,
+    "details": "NI=4.610e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 145,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.056156e-9,
+    "details": "NI=1.056e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 145,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.056156e-9,
+    "details": "NI=1.056e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 350,
+    "pixel_y": 153,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 5.222979e-9,
+    "details": "NI=5.223e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 66,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.2995108e-8,
+    "details": "NI=1.300e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 143,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.628389e-9,
+    "details": "NI=2.628e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 152,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.187739e-9,
+    "details": "NI=1.188e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 205,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.510854e-9,
+    "details": "NI=1.511e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 232,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.118855e-9,
+    "details": "NI=1.119e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 309,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.711737e-9,
+    "details": "NI=1.712e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 351,
+    "pixel_y": 309,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.711737e-9,
+    "details": "NI=1.712e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 352,
+    "pixel_y": 253,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.336693e-9,
+    "details": "NI=1.337e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 148,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.386555e-9,
+    "details": "NI=2.387e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 185,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.580941e-9,
+    "details": "NI=1.581e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 212,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.112696e-9,
+    "details": "NI=1.113e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 212,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.112696e-9,
+    "details": "NI=1.113e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 215,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.4445836e-8,
+    "details": "NI=4.445e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 237,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.706589e-9,
+    "details": "NI=1.707e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 274,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.025508e-9,
+    "details": "NI=2.026e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 353,
+    "pixel_y": 274,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.025508e-9,
+    "details": "NI=2.026e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 120,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.319458e-9,
+    "details": "NI=1.319e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 125,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.514187e-9,
+    "details": "NI=1.514e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 125,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.514187e-9,
+    "details": "NI=1.514e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 184,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.062866e-9,
+    "details": "NI=4.063e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 184,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 4.062866e-9,
+    "details": "NI=4.063e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 354,
+    "pixel_y": 196,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.369714e-9,
+    "details": "NI=2.370e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 355,
+    "pixel_y": 139,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.214865e-9,
+    "details": "NI=2.215e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 355,
+    "pixel_y": 144,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.48343e-9,
+    "details": "NI=2.483e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 355,
+    "pixel_y": 144,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.48343e-9,
+    "details": "NI=2.483e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 355,
+    "pixel_y": 179,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 5.242924e-9,
+    "details": "NI=5.243e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 355,
+    "pixel_y": 185,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.23941e-9,
+    "details": "NI=1.239e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 356,
+    "pixel_y": 124,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.207452e-9,
+    "details": "NI=1.207e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 357,
+    "pixel_y": 185,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.388554e-9,
+    "details": "NI=1.389e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 357,
+    "pixel_y": 234,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.843904e-9,
+    "details": "NI=1.844e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 43,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.475515e-9,
+    "details": "NI=2.476e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 143,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.360066e-9,
+    "details": "NI=1.360e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 143,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.360066e-9,
+    "details": "NI=1.360e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 164,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.721053e-9,
+    "details": "NI=1.721e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 164,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.721053e-9,
+    "details": "NI=1.721e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 219,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.445115e-9,
+    "details": "NI=1.445e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 358,
+    "pixel_y": 219,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.445115e-9,
+    "details": "NI=1.445e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 86,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 6.6139616e-8,
+    "details": "NI=6.614e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 86,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 6.6139616e-8,
+    "details": "NI=6.614e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 222,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.828957e-9,
+    "details": "NI=3.829e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 96,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.9800953e-8,
+    "details": "NI=1.980e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 96,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.9800953e-8,
+    "details": "NI=1.980e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 152,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.690964e-9,
+    "details": "NI=1.691e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 152,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.690964e-9,
+    "details": "NI=1.691e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 157,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.848324e-9,
+    "details": "NI=2.848e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 172,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.791499e-9,
+    "details": "NI=1.791e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 179,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.233048e-9,
+    "details": "NI=1.233e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 360,
+    "pixel_y": 179,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.233048e-9,
+    "details": "NI=1.233e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 168,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.032081e-9,
+    "details": "NI=1.032e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 168,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.032081e-9,
+    "details": "NI=1.032e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 173,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.259254e-9,
+    "details": "NI=1.259e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 176,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.107155e-9,
+    "details": "NI=1.107e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 176,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.107155e-9,
+    "details": "NI=1.107e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 195,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.795691e-9,
+    "details": "NI=2.796e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 203,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.382653e-9,
+    "details": "NI=1.383e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 203,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.382653e-9,
+    "details": "NI=1.383e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 208,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.06271e-9,
+    "details": "NI=1.063e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 237,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.531735e-9,
+    "details": "NI=1.532e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 361,
+    "pixel_y": 237,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.531735e-9,
+    "details": "NI=1.532e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 103,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.156993e-9,
+    "details": "NI=1.157e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 103,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.156993e-9,
+    "details": "NI=1.157e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 188,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 5.336421e-9,
+    "details": "NI=5.336e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 253,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.202092e-9,
+    "details": "NI=1.202e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 266,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.077055e-9,
+    "details": "NI=1.077e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 279,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.6158322e-8,
+    "details": "NI=1.616e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 306,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.417333e-9,
+    "details": "NI=2.417e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 362,
+    "pixel_y": 306,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.417333e-9,
+    "details": "NI=2.417e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 363,
+    "pixel_y": 161,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.161686e-9,
+    "details": "NI=1.162e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 363,
+    "pixel_y": 179,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.11792e-9,
+    "details": "NI=3.118e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 363,
+    "pixel_y": 182,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.188035e-9,
+    "details": "NI=1.188e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 363,
+    "pixel_y": 199,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.253226e-9,
+    "details": "NI=1.253e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 364,
+    "pixel_y": 210,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.022279e-9,
+    "details": "NI=1.022e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 364,
+    "pixel_y": 243,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.38809e-9,
+    "details": "NI=1.388e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 364,
+    "pixel_y": 244,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.479853e-9,
+    "details": "NI=1.480e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 364,
+    "pixel_y": 265,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.101025e-9,
+    "details": "NI=1.101e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 364,
+    "pixel_y": 265,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.101025e-9,
+    "details": "NI=1.101e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 365,
+    "pixel_y": 92,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.133236e-9,
+    "details": "NI=1.133e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 365,
+    "pixel_y": 92,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.133236e-9,
+    "details": "NI=1.133e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 365,
+    "pixel_y": 109,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.049088e-9,
+    "details": "NI=4.049e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 365,
+    "pixel_y": 140,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.803618e-9,
+    "details": "NI=1.804e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 365,
+    "pixel_y": 253,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.47397e-9,
+    "details": "NI=2.474e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 367,
+    "pixel_y": 48,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.308368e-9,
+    "details": "NI=2.308e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 367,
+    "pixel_y": 236,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.56831e-9,
+    "details": "NI=1.568e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 367,
+    "pixel_y": 236,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.56831e-9,
+    "details": "NI=1.568e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 189,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.406462e-9,
+    "details": "NI=1.406e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 189,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.406462e-9,
+    "details": "NI=1.406e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 192,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.033212e-9,
+    "details": "NI=1.033e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 210,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.686815e-9,
+    "details": "NI=1.687e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 258,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.200129e-9,
+    "details": "NI=1.200e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 258,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.200129e-9,
+    "details": "NI=1.200e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 260,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.016058e-9,
+    "details": "NI=1.016e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 368,
+    "pixel_y": 270,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.014817e-9,
+    "details": "NI=1.015e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 369,
+    "pixel_y": 93,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.5851046e-8,
+    "details": "NI=1.585e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 369,
+    "pixel_y": 290,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.4371242e-8,
+    "details": "NI=1.437e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 369,
+    "pixel_y": 318,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.883722e-9,
+    "details": "NI=2.884e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 369,
+    "pixel_y": 318,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.883722e-9,
+    "details": "NI=2.884e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 370,
+    "pixel_y": 139,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 8.221762e-9,
+    "details": "NI=8.222e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 370,
+    "pixel_y": 139,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 8.221762e-9,
+    "details": "NI=8.222e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 370,
+    "pixel_y": 168,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.996177e-9,
+    "details": "NI=1.996e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 371,
+    "pixel_y": 209,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.572101e-9,
+    "details": "NI=1.572e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 372,
+    "pixel_y": 183,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.146685e-9,
+    "details": "NI=1.147e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 373,
+    "pixel_y": 183,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.4023771e-8,
+    "details": "NI=3.402e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 172,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.692595e-9,
+    "details": "NI=2.693e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 224,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.399746e-9,
+    "details": "NI=1.400e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 231,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.542482e-9,
+    "details": "NI=1.542e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 231,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.542482e-9,
+    "details": "NI=1.542e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 374,
+    "pixel_y": 260,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.10548e-9,
+    "details": "NI=1.105e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 375,
+    "pixel_y": 106,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.259747e-9,
+    "details": "NI=1.260e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 375,
+    "pixel_y": 106,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.259747e-9,
+    "details": "NI=1.260e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 375,
+    "pixel_y": 119,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.135675e-9,
+    "details": "NI=1.136e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 376,
+    "pixel_y": 125,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.37613e-9,
+    "details": "NI=1.376e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 376,
+    "pixel_y": 216,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.804408e-9,
+    "details": "NI=1.804e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 376,
+    "pixel_y": 221,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.7933328e-8,
+    "details": "NI=2.793e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 376,
+    "pixel_y": 222,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.716832e-9,
+    "details": "NI=1.717e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 376,
+    "pixel_y": 222,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.716832e-9,
+    "details": "NI=1.717e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 376,
+    "pixel_y": 233,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.371612e-9,
+    "details": "NI=1.372e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 99,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.057914e-9,
+    "details": "NI=1.058e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 99,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.057914e-9,
+    "details": "NI=1.058e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 164,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.9334311e-8,
+    "details": "NI=2.933e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 227,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.534955e-9,
+    "details": "NI=1.535e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 227,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.534955e-9,
+    "details": "NI=1.535e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 303,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.1006298e-8,
+    "details": "NI=1.101e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 303,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.1006298e-8,
+    "details": "NI=1.101e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 378,
+    "pixel_y": 89,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.237417e-9,
+    "details": "NI=1.237e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 378,
+    "pixel_y": 145,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.420564e-9,
+    "details": "NI=3.421e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 378,
+    "pixel_y": 190,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.121538e-9,
+    "details": "NI=2.122e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 378,
+    "pixel_y": 190,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.121538e-9,
+    "details": "NI=2.122e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 379,
+    "pixel_y": 87,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.4038984e-8,
+    "details": "NI=1.404e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 379,
+    "pixel_y": 132,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.438854e-9,
+    "details": "NI=1.439e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 379,
+    "pixel_y": 192,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.795895e-9,
+    "details": "NI=1.796e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 380,
+    "pixel_y": 90,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.010997e-9,
+    "details": "NI=1.011e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 380,
+    "pixel_y": 144,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.043574e-9,
+    "details": "NI=3.044e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 381,
+    "pixel_y": 306,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.2456614e-8,
+    "details": "NI=1.246e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 381,
+    "pixel_y": 308,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.373396e-9,
+    "details": "NI=1.373e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 382,
+    "pixel_y": 110,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.141995e-9,
+    "details": "NI=1.142e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 382,
+    "pixel_y": 110,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.141995e-9,
+    "details": "NI=1.142e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 382,
+    "pixel_y": 248,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.07146e-9,
+    "details": "NI=1.071e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 137,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.532463e-9,
+    "details": "NI=1.532e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 137,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.532463e-9,
+    "details": "NI=1.532e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 141,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.517127e-9,
+    "details": "NI=1.517e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 141,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.517127e-9,
+    "details": "NI=1.517e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 211,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.663558e-9,
+    "details": "NI=1.664e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 229,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.230598e-9,
+    "details": "NI=1.231e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 229,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.230598e-9,
+    "details": "NI=1.231e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 258,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.6129877e-8,
+    "details": "NI=1.613e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 383,
+    "pixel_y": 258,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.6129877e-8,
+    "details": "NI=1.613e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 384,
+    "pixel_y": 222,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.180088e-9,
+    "details": "NI=1.180e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 384,
+    "pixel_y": 222,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.180088e-9,
+    "details": "NI=1.180e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 384,
+    "pixel_y": 255,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.181355e-9,
+    "details": "NI=1.181e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 385,
+    "pixel_y": 137,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.481869e-9,
+    "details": "NI=1.482e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 385,
+    "pixel_y": 137,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.481869e-9,
+    "details": "NI=1.482e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 200,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.177542e-9,
+    "details": "NI=1.178e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 200,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.177542e-9,
+    "details": "NI=1.178e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 201,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.39157e-9,
+    "details": "NI=1.392e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 246,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.6986458e-8,
+    "details": "NI=1.699e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 246,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.6986458e-8,
+    "details": "NI=1.699e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 387,
+    "pixel_y": 60,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.0963602e-8,
+    "details": "NI=1.096e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 387,
+    "pixel_y": 110,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.12109e-9,
+    "details": "NI=1.121e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 127,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.205097e-9,
+    "details": "NI=1.205e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 127,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.205097e-9,
+    "details": "NI=1.205e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 168,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.836357e-9,
+    "details": "NI=1.836e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 172,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.754994e-9,
+    "details": "NI=1.755e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 180,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.690352e-9,
+    "details": "NI=3.690e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 180,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 3.690352e-9,
+    "details": "NI=3.690e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 196,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.093915e-9,
+    "details": "NI=1.094e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 389,
+    "pixel_y": 122,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.17827e-9,
+    "details": "NI=1.178e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 389,
+    "pixel_y": 161,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.693816e-9,
+    "details": "NI=1.694e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 389,
+    "pixel_y": 178,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.644329e-9,
+    "details": "NI=1.644e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 390,
+    "pixel_y": 107,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.123308e-9,
+    "details": "NI=2.123e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 390,
+    "pixel_y": 217,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.08841e-9,
+    "details": "NI=3.088e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 391,
+    "pixel_y": 61,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.041412e-9,
+    "details": "NI=1.041e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 391,
+    "pixel_y": 255,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.243801e-9,
+    "details": "NI=2.244e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 391,
+    "pixel_y": 255,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.243801e-9,
+    "details": "NI=2.244e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 101,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 5.9507974e-8,
+    "details": "NI=5.951e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 268,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.3476017e-8,
+    "details": "NI=1.348e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 268,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.3476017e-8,
+    "details": "NI=1.348e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 394,
+    "pixel_y": 225,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.263566e-9,
+    "details": "NI=1.264e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 394,
+    "pixel_y": 242,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.178797e-9,
+    "details": "NI=1.179e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 86,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.4813255e-8,
+    "details": "NI=1.481e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 90,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.5459085e-8,
+    "details": "NI=1.546e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 90,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.5459085e-8,
+    "details": "NI=1.546e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 196,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.442372e-9,
+    "details": "NI=4.442e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 196,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 4.442372e-9,
+    "details": "NI=4.442e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 197,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.172278e-9,
+    "details": "NI=3.172e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 225,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 7.139508e-9,
+    "details": "NI=7.140e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 396,
+    "pixel_y": 164,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.244278e-9,
+    "details": "NI=1.244e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 396,
+    "pixel_y": 164,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.244278e-9,
+    "details": "NI=1.244e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 398,
+    "pixel_y": 197,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.0898671e-8,
+    "details": "NI=2.090e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 398,
+    "pixel_y": 197,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.0898671e-8,
+    "details": "NI=2.090e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 399,
+    "pixel_y": 184,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.393265e-8,
+    "details": "NI=2.393e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 399,
+    "pixel_y": 198,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.068434e-9,
+    "details": "NI=1.068e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 161,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.203122e-9,
+    "details": "NI=1.203e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 161,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.203122e-9,
+    "details": "NI=1.203e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 166,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.419938e-9,
+    "details": "NI=1.420e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 95,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.3774444e-8,
+    "details": "NI=1.377e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 139,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.108795e-9,
+    "details": "NI=1.109e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 402,
+    "pixel_y": 156,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.351428e-9,
+    "details": "NI=1.351e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 402,
+    "pixel_y": 156,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.351428e-9,
+    "details": "NI=1.351e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 403,
+    "pixel_y": 74,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 4.588092e-9,
+    "details": "NI=4.588e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 403,
+    "pixel_y": 74,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 4.588092e-9,
+    "details": "NI=4.588e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 403,
+    "pixel_y": 168,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.36569e-9,
+    "details": "NI=1.366e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 404,
+    "pixel_y": 186,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.364777e-9,
+    "details": "NI=1.365e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 230,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.6992828e-8,
+    "details": "NI=1.699e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 168,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.05757e-9,
+    "details": "NI=1.058e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 168,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.05757e-9,
+    "details": "NI=1.058e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 208,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.148238e-9,
+    "details": "NI=1.148e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 236,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.040637e-9,
+    "details": "NI=1.041e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 282,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 3.289577e-9,
+    "details": "NI=3.290e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 176,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.72161e-9,
+    "details": "NI=2.722e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 188,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.619686e-9,
+    "details": "NI=1.620e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 411,
+    "pixel_y": 165,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.209527e-9,
+    "details": "NI=1.210e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 412,
+    "pixel_y": 159,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.093856e-9,
+    "details": "NI=1.094e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 414,
+    "pixel_y": 189,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.208379e-9,
+    "details": "NI=1.208e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 414,
+    "pixel_y": 189,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.208379e-9,
+    "details": "NI=1.208e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 414,
+    "pixel_y": 218,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.288706e-9,
+    "details": "NI=2.289e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 414,
+    "pixel_y": 218,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.288706e-9,
+    "details": "NI=2.289e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 415,
+    "pixel_y": 80,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.0999945e-8,
+    "details": "NI=1.100e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 415,
+    "pixel_y": 181,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.156738e-9,
+    "details": "NI=1.157e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 416,
+    "pixel_y": 68,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1912734e-8,
+    "details": "NI=1.191e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 416,
+    "pixel_y": 117,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.191433e-9,
+    "details": "NI=1.191e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 418,
+    "pixel_y": 228,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.6483267e-8,
+    "details": "NI=1.648e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 418,
+    "pixel_y": 228,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.6483267e-8,
+    "details": "NI=1.648e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 419,
+    "pixel_y": 173,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.895851e-9,
+    "details": "NI=2.896e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 419,
+    "pixel_y": 210,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.7218512e-8,
+    "details": "NI=1.722e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 419,
+    "pixel_y": 285,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1950356e-8,
+    "details": "NI=1.195e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 419,
+    "pixel_y": 285,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.1950356e-8,
+    "details": "NI=1.195e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 422,
+    "pixel_y": 163,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.17506e-9,
+    "details": "NI=1.175e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 426,
+    "pixel_y": 191,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.5056427e-8,
+    "details": "NI=1.506e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 426,
+    "pixel_y": 191,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.5056427e-8,
+    "details": "NI=1.506e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 428,
+    "pixel_y": 169,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.006475e-9,
+    "details": "NI=1.006e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 428,
+    "pixel_y": 169,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.006475e-9,
+    "details": "NI=1.006e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 157,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.022663e-9,
+    "details": "NI=1.023e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 434,
+    "pixel_y": 241,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.2133682e-8,
+    "details": "NI=1.213e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 174,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.4238082e-8,
+    "details": "NI=1.424e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 174,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.4238082e-8,
+    "details": "NI=1.424e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 215,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.4050466e-8,
+    "details": "NI=1.405e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 215,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.4050466e-8,
+    "details": "NI=1.405e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 188,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.694571e-9,
+    "details": "NI=1.695e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 188,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.694571e-9,
+    "details": "NI=1.695e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 2.382993e-9,
+    "details": "NI=2.383e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 202,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 2.382993e-9,
+    "details": "NI=2.383e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 202,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 2.382993e-9,
+    "details": "NI=2.383e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 235,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1616058e-8,
+    "details": "NI=1.162e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 235,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.1616058e-8,
+    "details": "NI=1.162e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 235,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.1616058e-8,
+    "details": "NI=1.162e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 116,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0201495e-8,
+    "details": "NI=1.020e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.157426e-8,
+    "details": "NI=1.157e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 198,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.157426e-8,
+    "details": "NI=1.157e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1357221e-8,
+    "details": "NI=1.136e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 217,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.1357221e-8,
+    "details": "NI=1.136e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 217,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.1357221e-8,
+    "details": "NI=1.136e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 127,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.395691e-9,
+    "details": "NI=1.396e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.424468e-9,
+    "details": "NI=1.424e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.1030853e-8,
+    "details": "NI=1.103e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.382114e-9,
+    "details": "NI=1.382e-9 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 175,
+    "order": 0,
+    "category": "Large Null Invariant Error",
+    "value": 1.0667262e-8,
+    "details": "NI=1.067e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 175,
+    "order": 1,
+    "category": "Large Null Invariant Error",
+    "value": 1.0667262e-8,
+    "details": "NI=1.067e-8 (integration accuracy issue)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 175,
+    "order": 2,
+    "category": "Large Null Invariant Error",
+    "value": 1.0667262e-8,
+    "details": "NI=1.067e-8 (integration accuracy issue)"
+  }
+]

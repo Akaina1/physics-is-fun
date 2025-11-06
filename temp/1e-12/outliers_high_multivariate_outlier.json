@@ -1,0 +1,5274 @@
+[
+  {
+    "pixel_x": 182,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.273006429700396,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 182,
+    "pixel_y": 231,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 6.184805495941052,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 210,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.530213714187889,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 219,
+    "pixel_y": 129,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.191168823985028,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 230,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.451633366399608,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 238,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.364052804211196,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 247,
+    "pixel_y": 162,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.384058521573791,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.737090676602959,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 307,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.104677316905804,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 252,
+    "pixel_y": 307,
+    "order": 2,
+    "category": "Multivariate Outlier",
+    "value": 5.45336362511821,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 254,
+    "pixel_y": 58,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.240087130335318,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 271,
+    "pixel_y": 161,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.008402402212069,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 285,
+    "pixel_y": 124,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.090501077545183,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 289,
+    "pixel_y": 321,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.336427710977619,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 300,
+    "pixel_y": 314,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.842266497239745,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 306,
+    "pixel_y": 301,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.076372488456909,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 320,
+    "pixel_y": 82,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.023375261673263,
+    "details": "Mahalanobis distance=5.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 321,
+    "pixel_y": 75,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.001543337029397,
+    "details": "Mahalanobis distance=5.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 49,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.255484895162448,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 326,
+    "pixel_y": 306,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.4801707403531665,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 330,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.447100819304661,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 333,
+    "pixel_y": 58,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.042072813221883,
+    "details": "Mahalanobis distance=5.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 341,
+    "pixel_y": 41,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.051406528185587,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 369,
+    "pixel_y": 40,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.544454990065287,
+    "details": "Mahalanobis distance=7.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 369,
+    "pixel_y": 318,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.609563226487037,
+    "details": "Mahalanobis distance=7.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 372,
+    "pixel_y": 41,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.977543286630178,
+    "details": "Mahalanobis distance=8.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 373,
+    "pixel_y": 316,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 8.032342497601103,
+    "details": "Mahalanobis distance=8.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 44,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.2984556327906,
+    "details": "Mahalanobis distance=7.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 377,
+    "pixel_y": 44,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 6.480399764103533,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 382,
+    "pixel_y": 311,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.400221558638238,
+    "details": "Mahalanobis distance=7.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 384,
+    "pixel_y": 47,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.842144030693677,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 385,
+    "pixel_y": 311,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.623692680706497,
+    "details": "Mahalanobis distance=7.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 385,
+    "pixel_y": 312,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.866698519312742,
+    "details": "Mahalanobis distance=7.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 386,
+    "pixel_y": 310,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.387573258565215,
+    "details": "Mahalanobis distance=7.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 388,
+    "pixel_y": 310,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.691084698058209,
+    "details": "Mahalanobis distance=7.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 389,
+    "pixel_y": 309,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.410032460557056,
+    "details": "Mahalanobis distance=7.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 390,
+    "pixel_y": 49,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.578703958510152,
+    "details": "Mahalanobis distance=7.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 390,
+    "pixel_y": 49,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 6.192287881695334,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 51,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.713974474781848,
+    "details": "Mahalanobis distance=7.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 306,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.423495528540622,
+    "details": "Mahalanobis distance=7.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 308,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.319830456290269,
+    "details": "Mahalanobis distance=7.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 393,
+    "pixel_y": 53,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.569492628348746,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 393,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.1842083451642065,
+    "details": "Mahalanobis distance=7.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 394,
+    "pixel_y": 55,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.798513695832095,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 56,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.690882575731362,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 305,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.408341524385807,
+    "details": "Mahalanobis distance=7.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 395,
+    "pixel_y": 307,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.035090750401585,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 396,
+    "pixel_y": 56,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.101433126224314,
+    "details": "Mahalanobis distance=7.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 397,
+    "pixel_y": 301,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.491120165832765,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 398,
+    "pixel_y": 305,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.11083087273391,
+    "details": "Mahalanobis distance=7.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 399,
+    "pixel_y": 58,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.983417224643777,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 58,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.943833663946547,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 60,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.666883419509858,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 60,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.6342878982209035,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 400,
+    "pixel_y": 301,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.545462671147536,
+    "details": "Mahalanobis distance=7.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 56,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.51426628720849,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 401,
+    "pixel_y": 61,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.733403355164554,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 403,
+    "pixel_y": 57,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.601632349949479,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 403,
+    "pixel_y": 58,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.849680199046805,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 403,
+    "pixel_y": 62,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.700539414416836,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 403,
+    "pixel_y": 298,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.741227051032227,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 403,
+    "pixel_y": 301,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.225193537964561,
+    "details": "Mahalanobis distance=7.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 405,
+    "pixel_y": 293,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.715457728262753,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 406,
+    "pixel_y": 58,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.543659214965919,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 406,
+    "pixel_y": 294,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.816868885875712,
+    "details": "Mahalanobis distance=7.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 60,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.023963814502661,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 60,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.605667894959873,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 62,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.377971520637642,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 62,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.853616391029078,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 66,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.569225611476436,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 68,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.537772091634061,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 293,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.930351328853179,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 407,
+    "pixel_y": 293,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.412148785895096,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 61,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.472960400001805,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 63,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.724827866450869,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 65,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.53486401070001,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 67,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.546452905602226,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 408,
+    "pixel_y": 292,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.612132245804322,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 64,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.415823365983963,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 64,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.607732376461202,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 290,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.646374585806931,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 409,
+    "pixel_y": 298,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.664719251418203,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 411,
+    "pixel_y": 287,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.012508895479502,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 411,
+    "pixel_y": 290,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.282243627602273,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 411,
+    "pixel_y": 296,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.552720764747665,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 412,
+    "pixel_y": 63,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.219111165392845,
+    "details": "Mahalanobis distance=7.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 412,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.072753627993084,
+    "details": "Mahalanobis distance=7.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 412,
+    "pixel_y": 288,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.317471002564018,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 413,
+    "pixel_y": 291,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.371101759627421,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 414,
+    "pixel_y": 286,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.582641428905126,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 415,
+    "pixel_y": 68,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.686818857104389,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 415,
+    "pixel_y": 285,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.662907420058161,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 415,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.6485672761412,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 415,
+    "pixel_y": 288,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.202651956852205,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 415,
+    "pixel_y": 291,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.794814467263833,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 416,
+    "pixel_y": 71,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.548270153888651,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 416,
+    "pixel_y": 71,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.171201285951263,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 416,
+    "pixel_y": 281,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.953144563335492,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 416,
+    "pixel_y": 286,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.950544919484673,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 417,
+    "pixel_y": 81,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.298909968865294,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 417,
+    "pixel_y": 282,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.57164270712527,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 417,
+    "pixel_y": 284,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.8483902188995645,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 418,
+    "pixel_y": 67,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.181502335315736,
+    "details": "Mahalanobis distance=7.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 418,
+    "pixel_y": 80,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.60627729322948,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 419,
+    "pixel_y": 71,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.9877302979206455,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 419,
+    "pixel_y": 72,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.739605875829406,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 419,
+    "pixel_y": 286,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.787563681448686,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 70,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.375959084191616,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 74,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.707152893396143,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 74,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.0607384630096375,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 78,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.452235043286125,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 80,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.487940649061832,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 85,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.309954689645605,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 279,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.876218713034151,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 420,
+    "pixel_y": 290,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.563504875994965,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 421,
+    "pixel_y": 79,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.437380071809362,
+    "details": "Mahalanobis distance=7.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 421,
+    "pixel_y": 275,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.093871393432127,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 421,
+    "pixel_y": 281,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.122730758172498,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 422,
+    "pixel_y": 280,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.1733864741542,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 422,
+    "pixel_y": 288,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.021528783414078,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 423,
+    "pixel_y": 72,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.919252820280129,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 423,
+    "pixel_y": 78,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.113539330520567,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 423,
+    "pixel_y": 86,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.59881471059977,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 423,
+    "pixel_y": 282,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.651304674150264,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 424,
+    "pixel_y": 80,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.881799136541106,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 424,
+    "pixel_y": 83,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.456118090222439,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 76,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.685454857979539,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 83,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.348144333046725,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 94,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.997743892152297,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 264,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.87900070800581,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 268,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.092617265015207,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 273,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.3082808749429296,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 425,
+    "pixel_y": 279,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.5702629172408855,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 426,
+    "pixel_y": 279,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.56663437484041,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 426,
+    "pixel_y": 283,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.774263453037121,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 427,
+    "pixel_y": 86,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.904908467597085,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 427,
+    "pixel_y": 93,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.957666712921677,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 427,
+    "pixel_y": 264,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.613806174934225,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 427,
+    "pixel_y": 265,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.865096689645479,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 427,
+    "pixel_y": 269,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.8649844468373,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 428,
+    "pixel_y": 81,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.69999285105898,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 428,
+    "pixel_y": 83,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.100744032434374,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 428,
+    "pixel_y": 92,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.320964360992441,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 428,
+    "pixel_y": 264,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.557223499346787,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 428,
+    "pixel_y": 280,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.9135682689805975,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 79,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.7586642423558105,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 80,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.933475077966204,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 86,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.251634321488481,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.028377901339078,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 94,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.080545706649901,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 258,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.062033050630317,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 262,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.823218125408887,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 429,
+    "pixel_y": 269,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.366948596094363,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 84,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.573495268618077,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 96,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.91982936964249,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 97,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.799883473284865,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 101,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.21827037148881,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 257,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.145786356225255,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 259,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.946050461417031,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 260,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.971465651650748,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 261,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.631119686666152,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 264,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.715908132946851,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 267,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.881089974178896,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 430,
+    "pixel_y": 276,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.729360111908416,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 80,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.304331483289582,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 88,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.308174900665565,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 90,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.430435188588667,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 95,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.165661523251675,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 102,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.225730549196478,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 106,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.630637475246389,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 269,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.006724359368769,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 270,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.011628554546199,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 431,
+    "pixel_y": 271,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.9401899095637,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 432,
+    "pixel_y": 82,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.32492362740993,
+    "details": "Mahalanobis distance=7.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 432,
+    "pixel_y": 83,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.190119261435899,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 432,
+    "pixel_y": 88,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.110437328251803,
+    "details": "Mahalanobis distance=7.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 432,
+    "pixel_y": 106,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.703607790335881,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 432,
+    "pixel_y": 254,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.86536889577974,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 433,
+    "pixel_y": 96,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.220734677030001,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 433,
+    "pixel_y": 249,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.8716804370911015,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 433,
+    "pixel_y": 253,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.4634272895278055,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 433,
+    "pixel_y": 257,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.077204805103859,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 433,
+    "pixel_y": 267,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.264797110002718,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 433,
+    "pixel_y": 269,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.610574274019954,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 434,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.040876971001247,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 434,
+    "pixel_y": 97,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.121239008144656,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 434,
+    "pixel_y": 101,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.811935911168997,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 434,
+    "pixel_y": 102,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.060422235363799,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 434,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.998414474519143,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 434,
+    "pixel_y": 260,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.33304542969888,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 435,
+    "pixel_y": 97,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.501770362342319,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 435,
+    "pixel_y": 243,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.572075262414342,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 435,
+    "pixel_y": 257,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.107375342707305,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 435,
+    "pixel_y": 258,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.684852232405516,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 435,
+    "pixel_y": 269,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.420275782032352,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 89,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.53498652352941,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 92,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.619634725378319,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 100,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.379064342685583,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 107,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.533338581503088,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 243,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.943029387335283,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 261,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.137193236606809,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 436,
+    "pixel_y": 268,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.8307536749119295,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 87,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.210751265142568,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 87,
+    "order": 1,
+    "category": "Multivariate Outlier",
+    "value": 5.19059763381815,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 92,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.49130770120532,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 112,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.596982454078626,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 113,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.496116109335985,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 121,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.663093749620787,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 124,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.497461070872894,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.57263832669206,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 235,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.515965389353928,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 240,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.337204714542445,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 243,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.612108542348671,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 263,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.357323349900542,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 266,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.528424392157407,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 268,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.613001664676609,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 437,
+    "pixel_y": 270,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.902868924705833,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 87,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.033738519980233,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 94,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.351956181052964,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 98,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.894990544409824,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 108,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.763739075981543,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 113,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.43555184222881,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 127,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.425633954849294,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.409363400214833,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 241,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.86652835941002,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 242,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.914568250547599,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 257,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.339248515152519,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 438,
+    "pixel_y": 259,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.421535990380962,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.871196275421635,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 100,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.581134355275934,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 119,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.475527112021037,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 122,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.519829308268122,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.277707095098497,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.257482993774538,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 249,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.65195377200724,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 439,
+    "pixel_y": 269,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.709411553077181,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2174147370906585,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 92,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.7099503271005645,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 95,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.39262660732854,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 97,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.064694929118908,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 104,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.114752916961362,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 110,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.353124874145927,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 131,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.409864882698009,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 134,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.586664005614079,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 136,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.303117855182945,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 137,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.175351776390195,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.2077900334808565,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 241,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.460632799854915,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 245,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.868659842510381,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 440,
+    "pixel_y": 257,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.847085034833551,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 91,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.694632157083446,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 97,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.574093007419156,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 98,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.308293228576116,
+    "details": "Mahalanobis distance=7.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 110,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.657068300412041,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 114,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2914240359729225,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 131,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.671687483035566,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 137,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.316322675307117,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.286533416938264,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.322357156758367,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 238,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.76227236755811,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 247,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.6738479078965725,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 262,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.5126752632890135,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 441,
+    "pixel_y": 264,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.440814018903931,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 110,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.683475301471129,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.888300023946621,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.539012932615669,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.276305195970373,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.088573175702225,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.032794875806589,
+    "details": "Mahalanobis distance=5.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.072131972358745,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.346392573038867,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.621135720897435,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.223661350555591,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 243,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.842264556313782,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 251,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.759786557187779,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 254,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2513597580252345,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 442,
+    "pixel_y": 260,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.426936628259466,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 101,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.335705269445808,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 108,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.221168184329563,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 112,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.738390393144149,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 114,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.980953628311833,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.96970853450075,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 132,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.579654320757233,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 134,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.789798057927488,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 135,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.143977472756071,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.6230388655881285,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.6818856631268435,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.2933354978298714,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 154,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.042897747652201,
+    "details": "Mahalanobis distance=5.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.995237885061056,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.825299533758758,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.67200006963514,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 234,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.417073837363673,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 237,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.836399281872855,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 244,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.613191641196656,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 255,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.939667884357692,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 443,
+    "pixel_y": 259,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.317929040495357,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 108,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.156719158853419,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.977491421810227,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 116,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.6078389780655105,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 117,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.921901853200247,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 122,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.160652218446758,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.105093061140205,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 148,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.284942110869636,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.355669810706828,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.316206670081281,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 246,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.0135650675134364,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 249,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.239574223133458,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 444,
+    "pixel_y": 258,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.565967604568203,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 98,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 8.380981650234649,
+    "details": "Mahalanobis distance=8.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 103,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.429417612774644,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 106,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.622156769407961,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.992325026511772,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.834167934885349,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 124,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.857497573307065,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.157999060906007,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 142,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.438547778104602,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.625014805643555,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 154,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.126860471568182,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.179821755987993,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.263275891181346,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.094271934693406,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.717629233728721,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.472370699025363,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.68974598722483,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.730908218676659,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.4133925609022056,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.926386224287591,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 238,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.602766843690051,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 445,
+    "pixel_y": 262,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.814272910789957,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 101,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.770673749518195,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 108,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.983257589647338,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 117,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.133783919175864,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.507556449355505,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.07363871467712,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 144,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.5108950844444085,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 152,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.149964693766582,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 156,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.377557605477519,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 162,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.116019495940557,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.195042703418694,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 179,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.6721077853933,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.447637172232218,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 220,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.533066692657402,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.61564491966601,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 245,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.834992643804817,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 446,
+    "pixel_y": 259,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.079677130619511,
+    "details": "Mahalanobis distance=7.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 112,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.579658549845219,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.193565703734616,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.731102229602338,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 119,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.177355869126725,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 148,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.253862458586345,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.171385732576935,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 176,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.339278173323989,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.430171431466373,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.391314729171589,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 218,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.280380294093578,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.075516577324591,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 237,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.674366447918138,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 250,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.348374826807851,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 254,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.133959072646661,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 447,
+    "pixel_y": 259,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.301684242489344,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 103,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.589624818869881,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 105,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.660133871248785,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 108,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.478154172188995,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 110,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2818070418053455,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 111,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.918671600687619,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 119,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.374907633823363,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 121,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.913028997984908,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 122,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.727880866612491,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 130,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.920850819978204,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.600171204976101,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 148,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.655705601375374,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 152,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.055345587527519,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.197999597798945,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.3151621825932125,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 183,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.883968009018513,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.733296139258357,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.559487608426651,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2098484049746245,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 232,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.139575097320857,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 238,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.256806299319448,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 245,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.313858720838387,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 248,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.456331290508059,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 448,
+    "pixel_y": 251,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.420792573050021,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 114,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.301838691380437,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.176603263840997,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.775700599317023,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 131,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.222905103061713,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.459761982841453,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 139,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.363713767709677,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 142,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.693332582057224,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 154,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.386458854389912,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.148862588083624,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.073962973669199,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.48915819034626,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.477418286057621,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.46194272909814,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.473582592474656,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.527783247531776,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.887201956066895,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.646158528270294,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.856602294764492,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.97267916523004,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 237,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.169955916814442,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 245,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.576765971686007,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 449,
+    "pixel_y": 253,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.163044422737856,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 105,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.061950947420138,
+    "details": "Mahalanobis distance=7.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 111,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.0762944291953485,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 112,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.281306275670576,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 114,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.5704195350243335,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 122,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.287760213671767,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 129,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.637539690114103,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 132,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.188173636325754,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 135,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.271203759088867,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.983009483228625,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 162,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.379793316959621,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 169,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.753717528984758,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.115143793806635,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.364690480373958,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.343110302179163,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.442565886095241,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.142467376099492,
+    "details": "Mahalanobis distance=5.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.1501786407829035,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.367404911314667,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.665189215748915,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 213,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.984059963298361,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.838609196788136,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.096736924857024,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 450,
+    "pixel_y": 248,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.073816245192349,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 111,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.816065511825548,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 133,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.965540230858441,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 139,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.8332990793428365,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.537606726367643,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 141,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.075974046581998,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 142,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.179157718999094,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 151,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.981047297715185,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.756911965456493,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 158,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.01395077469798,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.411137203790294,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 168,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.579147834750706,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 172,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.320711344524643,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.6430467414505285,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.977286505851234,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 226,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.038078794396745,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.14572091762106,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 236,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.842989467836041,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 240,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.542551754328535,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 451,
+    "pixel_y": 245,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.376180818020038,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 114,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.812342703047897,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 116,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.475935066663482,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 118,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.523385649650377,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 143,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.848111276248516,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.970686732423188,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 149,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.842279994730665,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 151,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.396262115153439,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 158,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.4614907264872254,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 162,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.554672635429294,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 164,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.911169647454778,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 171,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.544850996746677,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 178,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.216067755834203,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.55830261169007,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.219641705186287,
+    "details": "Mahalanobis distance=5.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.750619313399245,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.529778533244989,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.698360508392572,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.355227972878421,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 216,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.169846220192151,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.93279133806862,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 236,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.883567319728147,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 452,
+    "pixel_y": 241,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.010642989601686,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 113,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.6455585776245085,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.594105168540897,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 139,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.842254135424758,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 146,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.513841900298284,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 168,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.907335599755298,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 176,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.412453785587895,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.494330402039284,
+    "details": "Mahalanobis distance=5.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.327397370929466,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.726803430441179,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.844332910699925,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 219,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.464407438744601,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 232,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.171638073434871,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 236,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.956739709460168,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 453,
+    "pixel_y": 243,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.176179399758754,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 136,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.711759729926418,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.725055422766808,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 147,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.815481299754168,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.710238151457713,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 177,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.405888521245197,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.322077316956454,
+    "details": "Mahalanobis distance=5.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.772723474272552,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.910115948542884,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.813894096214472,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.400313829559333,
+    "details": "Mahalanobis distance=5.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.973608187117835,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.743627369053779,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.555664005051688,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 212,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.7026919096369095,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.965860164865648,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.304217912857205,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 225,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.177160795300374,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 454,
+    "pixel_y": 234,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.64578696468393,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 114,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.474809581996845,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 115,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.887084156435878,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 117,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.545263815065794,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 120,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.703753819979797,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 127,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.345907327426527,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.274071599353788,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 129,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.632903680649398,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 135,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.203916343361756,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 142,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.212491687979819,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 147,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.889367916967949,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 149,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.8808129107750675,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.075050907264634,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 167,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.735334833006448,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.006204450711049,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.993166258535536,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.770872748341406,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.882736998988093,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.000592952019206,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.875374625676102,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.858880198040048,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 455,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2648741803381425,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 121,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.136921208660013,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 130,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.399770419952482,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 135,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.608186432922145,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 152,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.798206545311937,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 162,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.870048035512011,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.8569823175886135,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.240578367360078,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 198,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.9641306407858075,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 200,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.024157402280031,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.843395833629938,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 234,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.256222002220705,
+    "details": "Mahalanobis distance=7.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 456,
+    "pixel_y": 239,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.593514614263162,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 120,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.584175887752236,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 131,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.613604342191924,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 139,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.189801513899852,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 140,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.348422618209252,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.125358240963102,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.630904219064132,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.299408117010489,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 168,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.805910702766542,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.865402424906588,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 179,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.045368939390188,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.907431887046584,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 233,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.081711439573015,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 457,
+    "pixel_y": 238,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.033043809837285,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 125,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.279101835588903,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.164099779452983,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 164,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.247698394981687,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 176,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.1438899231945525,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 180,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.55850834479192,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 182,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.877404648867518,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.132471426134865,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.584645915005699,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.0727055409098085,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.624482575909707,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.680723103548436,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 211,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.739652418718472,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 223,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.973532598307976,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.760419934788319,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 458,
+    "pixel_y": 232,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.269453946466578,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 127,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.534427526438445,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 133,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.649901057550869,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 138,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.412147779826353,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.9994382515571445,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 160,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.63826674095461,
+    "details": "Mahalanobis distance=5.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.924156155876652,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.074878903996895,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.663651177745347,
+    "details": "Mahalanobis distance=5.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.403871559866936,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.537474854131666,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2415706616771365,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.784066711388883,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 459,
+    "pixel_y": 230,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.169185457805332,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 126,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.781111482914094,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 128,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.349734591737292,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 133,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.292545783936338,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 150,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.896910162587628,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 153,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.989275256752471,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 154,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.819014002771208,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 183,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.509285292710517,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.268742871931644,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.142889721176328,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.3092629358591426,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 229,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.1504169800761375,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 460,
+    "pixel_y": 231,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.8335413602454755,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 461,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.218311124717798,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 461,
+    "pixel_y": 173,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.001432395430101,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 461,
+    "pixel_y": 185,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.9973655340333725,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 461,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.080854531331757,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 461,
+    "pixel_y": 187,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.613176326011179,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 461,
+    "pixel_y": 209,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.415559148226304,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 461,
+    "pixel_y": 227,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.8020266340979285,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 462,
+    "pixel_y": 143,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.482510799423727,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 462,
+    "pixel_y": 164,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.3927253461867135,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 462,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.807281105942933,
+    "details": "Mahalanobis distance=5.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 462,
+    "pixel_y": 179,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.238174139756352,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 462,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.410146248570575,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 462,
+    "pixel_y": 194,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.426403114749943,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 462,
+    "pixel_y": 224,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.914049802395622,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 144,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.821495889248676,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 149,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2806140816740905,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.4266199785597085,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.890381880897545,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.600222678994086,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 181,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.274298179534189,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 184,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.207847773121522,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.794685659240623,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.420429173661231,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 197,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.251302554010615,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.6016511362539285,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.194937933614812,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.445608680795367,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 215,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.824514644816566,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 217,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.867226502904454,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 463,
+    "pixel_y": 221,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.26605943207716,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 153,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.342462198011581,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.995476125528828,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 165,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.267253447273095,
+    "details": "Mahalanobis distance=6.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 5.925363709599002,
+    "details": "Mahalanobis distance=5.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 171,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.373431763918601,
+    "details": "Mahalanobis distance=7.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.636850004642849,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 203,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.41654896796,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.005674909615974,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 210,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.440594269744394,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 464,
+    "pixel_y": 214,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.999753572578552,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 142,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.200926636729287,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 145,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.62286277597947,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 156,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.724648089115393,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 159,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.025666733914252,
+    "details": "Mahalanobis distance=6.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 168,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.358307618462418,
+    "details": "Mahalanobis distance=6.4 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 170,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.220570118959021,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 174,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.969430414639506,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 189,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.491527655240041,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 193,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.529680610738719,
+    "details": "Mahalanobis distance=6.5 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 205,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.836848407912139,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 465,
+    "pixel_y": 208,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.933406014393233,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 466,
+    "pixel_y": 150,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.742656976941924,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 466,
+    "pixel_y": 171,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.556631031374518,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 466,
+    "pixel_y": 191,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.948661417181762,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 466,
+    "pixel_y": 192,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.079450203618739,
+    "details": "Mahalanobis distance=6.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 466,
+    "pixel_y": 202,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.563833237797332,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 466,
+    "pixel_y": 207,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.201313378344247,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 467,
+    "pixel_y": 154,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.565126916478379,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 467,
+    "pixel_y": 155,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.63611743113753,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 467,
+    "pixel_y": 166,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.580358753188638,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 467,
+    "pixel_y": 176,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.983849838819287,
+    "details": "Mahalanobis distance=7.0 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 467,
+    "pixel_y": 196,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.895614718151013,
+    "details": "Mahalanobis distance=6.9 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 467,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.2030368321511125,
+    "details": "Mahalanobis distance=6.2 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 467,
+    "pixel_y": 204,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.67839334369059,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 468,
+    "pixel_y": 186,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.563382333757817,
+    "details": "Mahalanobis distance=6.6 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 468,
+    "pixel_y": 188,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.714192996182924,
+    "details": "Mahalanobis distance=6.7 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 468,
+    "pixel_y": 190,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.105912201668507,
+    "details": "Mahalanobis distance=7.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 468,
+    "pixel_y": 195,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.278030249698194,
+    "details": "Mahalanobis distance=7.3 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 468,
+    "pixel_y": 199,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 7.144768820809089,
+    "details": "Mahalanobis distance=7.1 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 468,
+    "pixel_y": 201,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.8396622832360485,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  },
+  {
+    "pixel_x": 469,
+    "pixel_y": 171,
+    "order": 0,
+    "category": "Multivariate Outlier",
+    "value": 6.829379201255832,
+    "details": "Mahalanobis distance=6.8 in 5D phase space (E,Lz,Q,λ,logNI)"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "pixel_x": 248,
+    "pixel_y": 108,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 7.051914e-8,
+    "details": "NI=7.052e-8, log z-score=4.5, top 0.1%"
+  },
+  {
+    "pixel_x": 318,
+    "pixel_y": 286,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 1.58696213e-7,
+    "details": "NI=1.587e-7, log z-score=4.9, top 0.1%"
+  },
+  {
+    "pixel_x": 318,
+    "pixel_y": 286,
+    "order": 2,
+    "category": "Extreme NI (Statistical)",
+    "value": 1.58696213e-7,
+    "details": "NI=1.587e-7, log z-score=4.8, top 0.1%"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 223,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 5.1977592e-8,
+    "details": "NI=5.198e-8, log z-score=4.3, top 0.1%"
+  },
+  {
+    "pixel_x": 323,
+    "pixel_y": 223,
+    "order": 2,
+    "category": "Extreme NI (Statistical)",
+    "value": 5.1977592e-8,
+    "details": "NI=5.198e-8, log z-score=4.3, top 0.1%"
+  },
+  {
+    "pixel_x": 327,
+    "pixel_y": 223,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 4.5495162e-8,
+    "details": "NI=4.550e-8, log z-score=4.2, top 0.1%"
+  },
+  {
+    "pixel_x": 339,
+    "pixel_y": 219,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 5.148591e-8,
+    "details": "NI=5.149e-8, log z-score=4.3, top 0.1%"
+  },
+  {
+    "pixel_x": 343,
+    "pixel_y": 112,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 5.0928706e-8,
+    "details": "NI=5.093e-8, log z-score=4.3, top 0.1%"
+  },
+  {
+    "pixel_x": 349,
+    "pixel_y": 242,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 9.9087594e-8,
+    "details": "NI=9.909e-8, log z-score=4.7, top 0.1%"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 86,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 6.6139616e-8,
+    "details": "NI=6.614e-8, log z-score=4.4, top 0.1%"
+  },
+  {
+    "pixel_x": 359,
+    "pixel_y": 86,
+    "order": 2,
+    "category": "Extreme NI (Statistical)",
+    "value": 6.6139616e-8,
+    "details": "NI=6.614e-8, log z-score=4.4, top 0.1%"
+  },
+  {
+    "pixel_x": 392,
+    "pixel_y": 101,
+    "order": 1,
+    "category": "Extreme NI (Statistical)",
+    "value": 5.9507974e-8,
+    "details": "NI=5.951e-8, log z-score=4.4, top 0.1%"
+  }
+]
