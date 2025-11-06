@@ -79,6 +79,10 @@ pub struct Stats {
     pub ellipse_params: Option<super::stats::EllipseParams>,
     pub turning_histogram_svg: String,
     pub wraps_scatter_svg: String,
+    
+    // NEW: Tier 4 - Enhanced outlier detection
+    pub outliers: Vec<super::stats::Outlier>,
+    pub outlier_overlay_svg: String,
 }
 
 /// Manifest metadata
@@ -276,6 +280,109 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
     } else {
         r#"<p class="section-desc" style="margin-top:12px">No ellipse fit available (insufficient boundary points).</p>"#.to_string()
     };
+    
+    // NEW: Tier 4 - Outlier detection HTML
+    use super::stats::OutlierSeverity;
+    
+    // Count outliers by severity
+    let critical_count = stats.outliers.iter().filter(|o| o.severity == OutlierSeverity::Critical).count();
+    let high_count = stats.outliers.iter().filter(|o| o.severity == OutlierSeverity::High).count();
+    let medium_count = stats.outliers.iter().filter(|o| o.severity == OutlierSeverity::Medium).count();
+    let info_count = stats.outliers.iter().filter(|o| o.severity == OutlierSeverity::Info).count();
+    
+    // Generate severity badges
+    let severity_badges = format!(r#"
+    <div style="padding:16px; background:#f9fafb; border-radius:8px; border:1px solid #e5e7eb">
+      <div style="font-weight:600; color:#1f2937; font-size:15px">Critical</div>
+      <div style="font-size:28px; font-weight:700; color:{}">{}</div>
+      <div style="font-size:12px; color:#6b7280">Physics violations</div>
+    </div>
+    <div style="padding:16px; background:#f9fafb; border-radius:8px; border:1px solid #e5e7eb">
+      <div style="font-weight:600; color:#1f2937; font-size:15px">High</div>
+      <div style="font-size:28px; font-weight:700; color:{}">{}</div>
+      <div style="font-size:12px; color:#6b7280">Statistical anomalies</div>
+    </div>
+    <div style="padding:16px; background:#f9fafb; border-radius:8px; border:1px solid #e5e7eb">
+      <div style="font-weight:600; color:#1f2937; font-size:15px">Medium</div>
+      <div style="font-size:28px; font-weight:700; color:{}">{}</div>
+      <div style="font-size:12px; color:#6b7280">Edge cases</div>
+    </div>
+    <div style="padding:16px; background:#f9fafb; border-radius:8px; border:1px solid #e5e7eb">
+      <div style="font-weight:600; color:#1f2937; font-size:15px">Info</div>
+      <div style="font-size:28px; font-weight:700; color:{}">{}</div>
+      <div style="font-size:12px; color:#6b7280">Roundoff</div>
+    </div>
+    "#,
+        OutlierSeverity::Critical.color(), critical_count,
+        OutlierSeverity::High.color(), high_count,
+        OutlierSeverity::Medium.color(), medium_count,
+        OutlierSeverity::Info.color(), info_count
+    );
+    
+    // Generate collapsible outlier tables by severity
+    let mut outlier_tables = String::new();
+    
+    for severity in &[OutlierSeverity::Critical, OutlierSeverity::High, OutlierSeverity::Medium, OutlierSeverity::Info] {
+        let severity_outliers: Vec<_> = stats.outliers.iter().filter(|o| o.severity == *severity).collect();
+        
+        if severity_outliers.is_empty() {
+            continue;
+        }
+        
+        // Limit display to first 20 per severity
+        let more_text = if severity_outliers.len() > 20 {
+            format!(" (showing first 20 of {})", severity_outliers.len())
+        } else {
+            String::new()
+        };
+        
+        let mut rows = String::new();
+        for outlier in severity_outliers.iter().take(20) {
+            rows.push_str(&format!(
+                r#"    <tr>
+      <td>({}, {})</td>
+      <td style="text-align:center">{}</td>
+      <td>{}</td>
+      <td style="font-family:monospace; font-size:11px">{:.3e}</td>
+      <td style="font-size:12px; color:#6b7280">{}</td>
+    </tr>
+"#,
+                outlier.pixel_x, outlier.pixel_y,
+                outlier.order,
+                outlier.category.label(),
+                outlier.value,
+                outlier.details
+            ));
+        }
+        
+        outlier_tables.push_str(&format!(r#"
+  <details style="margin-top:16px">
+    <summary style="cursor:pointer; color:{}; font-weight:600; font-size:14px">
+      {} — {} outliers{}
+    </summary>
+    <table style="margin-top:12px; width:100%">
+      <thead>
+        <tr style="background:#f9fafb">
+          <th>Pixel</th>
+          <th>Order</th>
+          <th>Category</th>
+          <th>Value</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+{}
+      </tbody>
+    </table>
+  </details>
+"#,
+            severity.color(),
+            severity.label(),
+            severity_outliers.len(),
+            more_text,
+            rows
+        ));
+    }
     
     format!(r#"<!doctype html>
 <html lang="en">
@@ -560,6 +667,27 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </details>
 </div>
 
+<h2>🚨 Enhanced Outlier Detection (Tier 4)</h2>
+
+<div class="card" style="margin-bottom:20px">
+  <h3>Outlier Summary</h3>
+  <p class="section-desc">Comprehensive 2-pass outlier detection using robust statistical methods (MAD-based z-scores, Mahalanobis distance, spatial discontinuity analysis).</p>
+  
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-top:16px">
+    {}
+  </div>
+  
+  {}
+</div>
+
+<div class="card" style="margin-bottom:20px">
+  <h3>Spatial Outlier Distribution</h3>
+  <p class="section-desc">Downsampled heatmap showing where outliers are concentrated. Darker = more outliers in region, color = highest severity level.</p>
+  <div class="chart-grid">
+    <div>{}</div>
+  </div>
+</div>
+
 <details>
   <summary>ℹ️ About This Analysis</summary>
   <p style="margin-top:12px">This report analyzes high-precision f64 geodesic data from Kerr spacetime ray tracing. Each pixel traces a null geodesic (light path) backward from the camera through curved spacetime, potentially crossing the accretion disc multiple times due to extreme gravitational lensing.</p>
@@ -632,6 +760,10 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
         ellipse_block,
         stats.turning_histogram_svg,
         stats.wraps_scatter_svg,
+        // NEW: Tier 4 - Enhanced outlier detection
+        severity_badges,
+        outlier_tables,
+        stats.outlier_overlay_svg,
         manifest.preset, manifest.width, manifest.height, manifest.orders, manifest.inclination,
         // NEW: Tier 1.4 - Provenance (inline)
         provenance_text
