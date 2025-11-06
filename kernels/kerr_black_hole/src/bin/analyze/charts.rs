@@ -455,7 +455,7 @@ pub fn generate_angular_distribution_svg(distribution: &[(f64, usize)]) -> Strin
     );
     
     format!(r##"<svg width="{}" height="{}" style="background:white; border-radius:8px">
-  <text x="{}" y="20" text-anchor="middle" font-size="14" font-weight="600" fill="#374151">Angular Distribution (φ)</text>
+  <text x="{}" y="10" text-anchor="middle" font-size="14" font-weight="600" fill="#374151">Angular Distribution (φ)</text>
   <text x="{}" y="{}" text-anchor="middle" font-size="11" fill="#6b7280">Frame-dragging asymmetry</text>
   {}
   {}
@@ -1067,6 +1067,7 @@ pub fn generate_turning_points_histogram_svg(
     
     // Generate bars for turns_r
     let bar_w = chart_w as f64 / 11.0;
+    let bar_width_ratio = 0.65; // Reduced from 0.85 to add more spacing (35% gap instead of 15%)
     let mut r_bars = String::new();
     for (i, &count) in r_bins.iter().enumerate() {
         if count > 0 {
@@ -1075,11 +1076,11 @@ pub fn generate_turning_points_histogram_svg(
             let y = chart_h as f64 - bar_h;
             r_bars.push_str(&format!(
                 "    <rect x=\"{:.1}\" y=\"{:.1}\" width=\"{:.1}\" height=\"{:.1}\" fill=\"#3B82F6\" opacity=\"0.8\" rx=\"2\"/>\n",
-                x, y, bar_w * 0.85, bar_h
+                x, y, bar_w * bar_width_ratio, bar_h
             ));
             r_bars.push_str(&format!(
                 "    <text x=\"{:.1}\" y=\"{:.1}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#374151\">{}</text>\n",
-                x + bar_w * 0.425, y - 5.0, count
+                x + bar_w * bar_width_ratio * 0.5, y - 5.0, count
             ));
         }
     }
@@ -1093,11 +1094,11 @@ pub fn generate_turning_points_histogram_svg(
             let y = chart_h as f64 - bar_h;
             theta_bars.push_str(&format!(
                 "    <rect x=\"{:.1}\" y=\"{:.1}\" width=\"{:.1}\" height=\"{:.1}\" fill=\"#8B5CF6\" opacity=\"0.8\" rx=\"2\"/>\n",
-                x, y, bar_w * 0.85, bar_h
+                x, y, bar_w * bar_width_ratio, bar_h
             ));
             theta_bars.push_str(&format!(
                 "    <text x=\"{:.1}\" y=\"{:.1}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#374151\">{}</text>\n",
-                x + bar_w * 0.425, y - 5.0, count
+                x + bar_w * bar_width_ratio * 0.5, y - 5.0, count
             ));
         }
     }
@@ -1106,7 +1107,7 @@ pub fn generate_turning_points_histogram_svg(
     let mut r_labels = String::new();
     let mut theta_labels = String::new();
     for i in 0..=10 {
-        let x = i as f64 * bar_w + bar_w * 0.425;
+        let x = i as f64 * bar_w + bar_w * bar_width_ratio * 0.5;
         let label = if i == 10 { "10+".to_string() } else { i.to_string() };
         r_labels.push_str(&format!(
             "    <text x=\"{:.1}\" y=\"{}\" text-anchor=\"middle\" font-size=\"10\" fill=\"#6b7280\">{}</text>\n",
@@ -1207,7 +1208,7 @@ pub fn generate_wraps_vs_impact_scatter_svg(
     let mut circles = String::new();
     for (b, wraps, order) in &points {
         let x = ((b - b_min_plot) / (b_max_plot - b_min_plot)) * chart_w as f64;
-        let y = chart_h as f64 - (wraps / wraps_range) * chart_h as f64;
+        let y_raw = chart_h as f64 - (wraps / wraps_range) * chart_h as f64;
         
         let (color, radius) = match order {
             0 => ("#22C55E", 2.5),
@@ -1215,8 +1216,11 @@ pub fn generate_wraps_vs_impact_scatter_svg(
             _ => ("#8B5CF6", 3.5),
         };
         
+        // Clamp y to keep circles within chart bounds (account for radius)
+        let y = y_raw.min(chart_h as f64 - radius).max(radius);
+        
         circles.push_str(&format!(
-            "    <circle cx=\"{:.1}\" cy=\"{:.1}\" r=\"{:.1}\" fill=\"{}\" opacity=\"0.6\"/>\n",
+            "    <circle cx=\"{:.1}\" cy=\"{:.1}\" r=\"{:.1}\" fill=\"{}\" opacity=\"0.4\"/>\n",
             x, y, radius, color
         ));
     }
@@ -1303,4 +1307,129 @@ pub fn generate_wraps_vs_impact_scatter_svg(
         chart_h / 2, chart_h / 2,
         height - 25
     )
+}
+
+// ============================================================================
+// TIER 4: OUTLIER SPATIAL OVERLAY
+// ============================================================================
+
+/// Generate spatial heatmap overlay showing outlier locations colored by severity
+///
+/// This downsamples the full-resolution outlier data into a manageable grid
+/// and colors cells by the highest severity outlier found in that region.
+pub fn generate_outlier_overlay_svg(
+    outliers: &[crate::stats::Outlier],
+    image_width: u32,
+    image_height: u32,
+    downsample_factor: u32,  // e.g., 4 = each cell is 4×4 pixels
+) -> String {
+    use crate::stats::OutlierSeverity;
+    
+    // Compute downsampled grid dimensions
+    let grid_w = (image_width + downsample_factor - 1) / downsample_factor;
+    let grid_h = (image_height + downsample_factor - 1) / downsample_factor;
+    
+    // Build grid: cell (gx, gy) → (count, max_severity)
+    use std::collections::HashMap;
+    let mut grid: HashMap<(u32, u32), (usize, OutlierSeverity)> = HashMap::new();
+    
+    for outlier in outliers {
+        let gx = outlier.pixel_x / downsample_factor;
+        let gy = outlier.pixel_y / downsample_factor;
+        
+        if gx < grid_w && gy < grid_h {
+            let entry = grid.entry((gx, gy)).or_insert((0, OutlierSeverity::Info));
+            entry.0 += 1; // Increment count
+            
+            // Update to highest severity
+            if outlier.severity > entry.1 {
+                entry.1 = outlier.severity;
+            }
+        }
+    }
+    
+    // SVG dimensions (each grid cell = 2px for visibility)
+    let cell_size = 2;
+    let svg_w = grid_w * cell_size;
+    let svg_h = grid_h * cell_size;
+    let width = svg_w + 100; // Extra space for legend
+    let height = svg_h + 60;
+    
+    let mut svg = format!(
+        r##"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {} {}" width="{}" height="{}">
+<style>
+  .outlier-title {{ font: bold 14px sans-serif; fill: #1f2937; }}
+  .outlier-label {{ font: 11px sans-serif; fill: #6b7280; }}
+  .outlier-legend {{ font: 10px sans-serif; fill: #374151; }}
+</style>
+<rect width="100%" height="100%" fill="#f9fafb" />
+"##,
+        width, height, width, height
+    );
+    
+    // Title
+    svg.push_str(&format!(
+        r#"<text x="{}" y="20" text-anchor="middle" class="outlier-title">Outlier Spatial Distribution</text>"#,
+        width / 2
+    ));
+    svg.push_str(&format!(
+        r#"<text x="{}" y="38" text-anchor="middle" class="outlier-label">{} outliers detected across {} regions</text>"#,
+        width / 2, outliers.len(), grid.len()
+    ));
+    
+    // Draw grid cells
+    for ((gx, gy), (count, severity)) in &grid {
+        let x = gx * cell_size;
+        let y = 50 + gy * cell_size;
+        
+        // Opacity scales with count (more outliers = more opaque)
+        let opacity = ((*count).min(10) as f64 / 10.0).max(0.3).min(1.0);
+        
+        svg.push_str(&format!(
+            r#"<rect x="{}" y="{}" width="{}" height="{}" fill="{}" opacity="{:.2}"/>"#,
+            x, y, cell_size, cell_size, severity.color(), opacity
+        ));
+    }
+    
+    // Legend
+    let legend_x = svg_w + 10;
+    let legend_y = 60;
+    
+    svg.push_str(&format!(
+        r#"<text x="{}" y="{}" class="outlier-legend" font-weight="bold">Severity:</text>"#,
+        legend_x, legend_y
+    ));
+    
+    let severities = [
+        (OutlierSeverity::Critical, "Critical"),
+        (OutlierSeverity::High, "High"),
+        (OutlierSeverity::Medium, "Medium"),
+        (OutlierSeverity::Info, "Info"),
+    ];
+    
+    for (i, (severity, label)) in severities.iter().enumerate() {
+        let y = legend_y + 20 + i as u32 * 20;
+        
+        svg.push_str(&format!(
+            r#"<rect x="{}" y="{}" width="12" height="12" fill="{}"/>"#,
+            legend_x, y - 10, severity.color()
+        ));
+        svg.push_str(&format!(
+            r#"<text x="{}" y="{}" class="outlier-legend">{}</text>"#,
+            legend_x + 16, y, label
+        ));
+    }
+    
+    // Opacity legend
+    svg.push_str(&format!(
+        r#"<text x="{}" y="{}" class="outlier-legend" font-weight="bold">Density:</text>"#,
+        legend_x, legend_y + 120
+    ));
+    svg.push_str(&format!(
+        r#"<text x="{}" y="{}" class="outlier-legend">darker = more outliers</text>"#,
+        legend_x, legend_y + 135
+    ));
+    
+    svg.push_str("</svg>");
+    svg
 }
