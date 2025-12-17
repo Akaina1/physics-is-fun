@@ -128,13 +128,13 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
     // 1. Null Invariant Quality Message
     let ni_under_1e12_pct = stats.ni_under_1e12 as f64 / stats.total_hits as f64 * 100.0;
     let (ni_message, ni_message_class) = if ni_under_1e12_pct >= 95.0 {
-        ("✓ Excellent: 95%+ rays meet publication standard (NI < 1e-12)", "ok")
+        ("Excellent: 95%+ rays meet publication standard (NI < 1e-12)", "ok")
     } else if ni_under_1e12_pct >= 80.0 {
-        ("⚠ Good: Most rays are publishable quality, some numerical drift", "warn")
+        ("Good: Most rays are publishable quality, some numerical drift", "warn")
     } else if ni_under_1e9_pct >= 95.0 {
-        ("⚠ Acceptable for visualization, consider tightening tolerances for publication", "warn")
+        ("Acceptable for visualization, consider tightening tolerances for publication", "warn")
     } else {
-        ("❌ Poor numerical quality - increase integration accuracy", "bad")
+        ("Poor numerical quality - increase integration accuracy", "bad")
     };
     
     // 2. Doppler Asymmetry Message
@@ -142,18 +142,18 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
     let (doppler_message, doppler_message_class) = if spin_param < 0.05 {
         // Near-Schwarzschild: expect symmetry
         if (g_asymmetry - 1.0).abs() < 0.2 {
-            ("✓ Symmetric redshift distribution (as expected for low spin)", "ok")
+            ("Symmetric redshift distribution (as expected for low spin)", "ok")
         } else {
-            ("⚠ Unexpected asymmetry for near-Schwarzschild metric", "warn")
+            ("Unexpected asymmetry for near-Schwarzschild metric", "warn")
         }
     } else {
         // Kerr: expect strong asymmetry from frame-dragging
         if g_asymmetry > 2.0 {
-            ("✓ Clear Doppler asymmetry from frame-dragging", "ok")
+            ("Clear Doppler asymmetry from frame-dragging", "ok")
         } else if g_asymmetry > 1.3 {
-            ("⚠ Weak asymmetry - check spin parameter or disc geometry", "warn")
+            ("Weak asymmetry - check spin parameter or disc geometry", "warn")
         } else {
-            ("❌ No asymmetry detected - frame-dragging signature missing", "bad")
+            ("No asymmetry detected - frame-dragging signature missing", "bad")
         }
     };
     
@@ -419,7 +419,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
 </head>
 <body>
 
-<h1>🌌 Kerr High-Precision Analysis <span class="muted">({})</span></h1>
+<h1>Kerr High-Precision Analysis <span class="muted">({})</span></h1>
 <p class="muted">Resolution: {}×{} | Inclination: {:.1}° | Spin: {:.2} | Orders: {} | r ∈ [{:.1}, {:.1}]M</p>
 
 <section class="grid kpis">
@@ -445,7 +445,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </div>
 </section>
 
-<h2>📊 Hit / Miss & Orders</h2>
+<h2>Hit / Miss & Orders</h2>
 <div class="card">
   <p class="section-desc">Distribution of geodesic orders per pixel. Multiple orders indicate strong gravitational lensing.</p>
   <table>
@@ -457,7 +457,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </table>
 </div>
 
-<h2>🎯 Miss Taxonomy (NEW)</h2>
+<h2>Miss Taxonomy (NEW)</h2>
 <div class="card">
   <p class="section-desc">Classification of rays that don't hit the accretion disc.</p>
   <div class="chart-grid">
@@ -480,7 +480,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </div>
 </div>
 
-<h2>🖼️ Order Mask Thumbnails (NEW)</h2>
+<h2>Order Mask Thumbnails (NEW)</h2>
 <div class="card">
   <p class="section-desc">Visual spatial distribution of geodesic orders. White pixels indicate hits at that order.</p>
   <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top:16px">
@@ -499,7 +499,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </div>
 </div>
 
-<h2>🔍 Outlier Spotlight (NEW)</h2>
+<h2>Outlier Spotlight (NEW)</h2>
 <div class="card">
   <p class="section-desc">Top 10 rays with highest null invariant errors for quality inspection. These outliers warrant review but may still be within acceptable tolerances for complex geodesics.</p>
   <table>
@@ -511,7 +511,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </p>
 </div>
 
-<h2>🔬 Carter Constant Validation (NEW)</h2>
+<h2>Carter Constant Validation (NEW)</h2>
 <div class="card">
   <p class="section-desc">The Carter constant K = Q + (L<sub>z</sub> - aE)² must be ≥ 0 for physical geodesics. Violations indicate integration errors.</p>
   <div style="text-align:center; margin-top:16px">
@@ -519,7 +519,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </div>
 </div>
 
-<h2>📊 Transfer Functions (NEW)</h2>
+<h2>Transfer Functions (NEW)</h2>
 <div class="card">
   <p class="section-desc">2D histograms showing how image position maps to disc emission radius for each geodesic order.</p>
   <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; margin-top:16px">
@@ -538,7 +538,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </div>
 </div>
 
-<h2>⏱️ Relative Light Travel Times (NEW)</h2>
+<h2>Relative Light Travel Times (NEW)</h2>
 <div class="card">
   <p class="section-desc">Heatmap showing arrival time delays across the image via affine parameter λ. Warm colors indicate longer light paths.</p>
   <div style="text-align:center; margin-top:16px">
@@ -546,7 +546,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </div>
 </div>
 
-<h2>🔬 Numerical Quality</h2>
+<h2>Numerical Quality</h2>
 <div class="card">
   <p class="section-desc">Null invariant (NI) measures how well geodesics maintain the constraint g<sub>μν</sub> k<sup>μ</sup> k<sup>ν</sup> = 0.</p>
   <div class="grid" style="grid-template-columns: 1fr 1fr">
@@ -574,7 +574,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </div>
 </div>
 
-<h2>🌍 Disc Interaction & Radial Distribution</h2>
+<h2>Disc Interaction & Radial Distribution</h2>
 <div class="card">
   <p class="section-desc">Where disc hits occur. Peak near ISCO indicates brightest emission region.</p>
   
@@ -599,7 +599,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </table>
 </div>
 
-<h2>🎨 Redshift & Doppler Analysis</h2>
+<h2>Redshift & Doppler Analysis</h2>
 <div class="card">
   <p class="section-desc">Redshift factor g = ν<sub>obs</sub>/ν<sub>emit</sub> (unitless). Values &gt;1 indicate Doppler boosting (approaching), &lt;1 indicate dimming (receding).</p>
   <div class="grid" style="grid-template-columns: 1fr 1fr">
@@ -621,7 +621,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </div>
 </div>
 
-<h2>🌀 Light Bending & Lensing</h2>
+<h2>Light Bending & Lensing</h2>
 <div class="card">
   <p class="section-desc">φ-wraps measure how many times photons wind around the black hole before hitting the disc.</p>
   <table>
@@ -633,7 +633,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   <p style="margin-top:12px"><strong>Max wraps:</strong> {:.2} ({})</p>
 </div>
 
-<h2>🔬 Advanced Geodesic Diagnostics (Tier 3)</h2>
+<h2>Advanced Geodesic Diagnostics (Tier 3)</h2>
 
 <div class="card" style="margin-bottom:20px">
   <h3>Critical Curve & Shadow Fitting</h3>
@@ -656,7 +656,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
     <div>{}</div>
   </div>
   <details style="margin-top:12px">
-    <summary style="cursor:pointer; color:#6b7280; font-size:13px">📖 How to Read This Chart</summary>
+    <summary style="cursor:pointer; color:#6b7280; font-size:13px">How to Read This Chart</summary>
     <div style="margin-top:8px; font-size:13px; color:#374151">
       <p><strong>X-axis (Impact Parameter b):</strong> Angular momentum per unit energy (L<sub>z</sub>/E). Negative values mean counter-rotation relative to black hole spin.</p>
       <p style="margin-top:8px"><strong>Y-axis (φ-wraps):</strong> Number of times the light ray winds around the black hole before hitting the disc.</p>
@@ -667,7 +667,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
   </details>
 </div>
 
-<h2>🚨 Enhanced Outlier Detection (Tier 4)</h2>
+<h2>Enhanced Outlier Detection (Tier 4)</h2>
 
 <div class="card" style="margin-bottom:20px">
   <h3>Outlier Summary</h3>
@@ -689,7 +689,7 @@ pub fn generate_html_report(stats: &Stats, manifest: &Manifest, pixel_orders: &[
 </div>
 
 <details>
-  <summary>ℹ️ About This Analysis</summary>
+  <summary>About This Analysis</summary>
   <p style="margin-top:12px">This report analyzes high-precision f64 geodesic data from Kerr spacetime ray tracing. Each pixel traces a null geodesic (light path) backward from the camera through curved spacetime, potentially crossing the accretion disc multiple times due to extreme gravitational lensing.</p>
   <ul style="margin-top:8px; padding-left:20px">
     <li><strong>Order 0</strong>: Primary image (direct view of disc)</li>
